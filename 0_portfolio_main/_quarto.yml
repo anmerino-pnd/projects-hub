@@ -3,26 +3,19 @@ project:
   output-dir: ../docs
 
 website:
-  title: "Angel Merino | Data Portfolio"
+  title: "Angel Merino | Projects Portfolio"
   navbar:
     left:
       - href: index.qmd
         text: Inicio
       - href: about.qmd
         text: Sobre Mí
-    right:
-      - text: "Proyectos"
-        menu:
-          - text: "Help Desk CENACE"
-            href: 1_cenace_helpdesk/index.html
-          - text: "Recomendador CT"
-            href: 2_ct_chatbot/index.html
-          - text: "Chatbot Salsas Castillo"
-            href: 3_salsas_chatbot/index.html
+      - href: proyectos.qmd
+        text: Proyectos
 
 format:
   html:
-    theme: flatly # Un tema limpio y profesional para el portafolio principal
+    theme: flatly 
     css: styles.css
     toc: false
 

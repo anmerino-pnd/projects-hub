@@ -27,6 +27,10 @@ website:
         text: Despliegue
       - href: 5_documentacion.qmd
         text: Documentación
+    right:
+      - text: "Volver a Proyectos"
+        icon: box-arrow-left
+        href: ../proyectos.html
       
   back-to-top-navigation: true
       

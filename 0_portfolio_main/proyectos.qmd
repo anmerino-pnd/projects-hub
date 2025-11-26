@@ -1,0 +1,26 @@
+---
+title: "Proyectos Destacados"
+subtitle: "Una colección de mis implementaciones técnicas en Ciencia de Datos e IA."
+---
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+### Help Desk Inteligente (CENACE)
+Sistema RAG open-source para clasificación de incidentes.
+[**Ver Documentación**](0_cenace_helpdesk/index.html){.btn .btn-primary} 
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### Chatbot Financiero (Salsas Castillo)
+Asistente en Telegram con consultas SQL en tiempo real.
+[**Ver Documentación**](2_salsas_chatbot/index.html){.btn .btn-primary}
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### Recomendador CT (CT Internacional)
+Chatbot de ventas con manejo de "mixed content" y ETL complejo.
+[**Ver Documentación**](1_ct_chatbot/index.html){.btn .btn-primary}
+:::
+
+:::
