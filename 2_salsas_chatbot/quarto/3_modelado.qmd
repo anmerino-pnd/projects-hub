@@ -1,0 +1,139 @@
+---
+title: "Modelado y Evaluación"
+format: 
+  html:
+    page-layout: article
+toc-title: "Tabla de Contenidos"
+toc: true
+toc-depth: 5
+---
+
+::: {style="text-align: justify"}
+## 1. Modelado
+
+El objetivo de esta fase es desarrollar la arquitectura del sistema del chatbot, integrando modelos de lenguaje, herramientas de acceso a datos y mecanismos de interacción.
+
+### 1.1. Arquitectura del Sistema
+
+La implementación del sistema se basa en una **estructura modular orientada a clases**, facilitando el mantenimiento y la escalabilidad. La librería principal utilizada es **LangChain**, que permite orquestar la interacción entre el LLM y diversas herramientas.
+
+La arquitectura se centra en un **modelo agéntico** (`AgentMultiTools`) que actúa como el cerebro del chatbot.
+
+#### 1.1.1. Información Dinámica (Herramientas)
+
+El agente tiene acceso a un conjunto de herramientas dinámicas que le permiten consultar datos actualizados en tiempo real o realizar acciones específicas:
+
+* **Herramienta RAG**: `search_info_tool`: Realiza búsquedas semánticas en el vector store de documentos internos.
+
+```python
+@tool(description="Busca información de documentos, manuales, reglamentos, etc. Devuelve un resumen de la información relevante.")
+def search_information(query: str) -> str:
+    # ... lógica de búsqueda en vector store ...
+
+```
+
+* **Herramientas SQL**: Permiten al agente interactuar directamente con la base de datos PostgreSQL. Estas incluyen:
+
+* `sql_db_query`: Para ejecutar consultas SQL y obtener resultados.
+
+* `sql_db_schema`: Para obtener el esquema de las tablas y entender su estructura.
+
+* `sql_db_list_tables`: Para listar las tablas disponibles.
+
+```python
+@tool(description="Cuando te pidan generar un reporte financiero en PDF a partir de datos generados previamente.")
+def generate_financial_report_pdf(table_data: str, title: str, chat_id: int) -> dict:
+    # ... lógica de generación de PDF y envío a Telegram ...
+
+```
+
+**Herramientas de Generación*** 
+
+* `pdf_report_tool`: Genera reportes financieros en PDF a partir de datos tabulares y los envía al usuario.
+* `table_tool`: Cuando se trate simplemente de una visualización de datos, estos se presentan mediante una tabla convertida en imagen. Facilitando la comprensión y visualización de la información.
+
+Estas herramientas son invocadas automáticamente por el agente cuando el LLM determina que son necesarias para responder a la consulta del usuario.
+
+#### 1.1.2. Flujo de Datos para el Sistema RAG y Herramientas
+
+El sistema se alimenta de información de la siguiente manera:
+
+* **Consultas de Usuario**: La pregunta del usuario es el punto de entrada.
+
+* **Historial de Conversación**: El historial se gestiona en MongoDB (`sessions` collection) y se trunca para ajustarse a la ventana de contexto del LLM.
+
+* **LLM**: Interpreta la consulta y decide qué herramientas usar.
+
+* **Herramientas SQL**: Si la consulta requiere datos de la base de datos, el LLM genera una consulta SQL que se ejecuta en PostgreSQL. Los resultados se devuelven al LLM.
+
+* **Herramienta de Búsqueda de Información**: Si la consulta es sobre documentos internos, se busca en el vector store (FAISS) y la información relevante se devuelve al LLM para generar la respuesta.
+
+* **Herramienta de PDF**: Si se solicita un reporte, se genera el PDF con el análisis del LLM y se envía. Estos análisis pueden incluir gráficas o no.
+
+* **Generación de Respuesta**: El LLM sintetiza la información que devuelven las herramientas y genera la respuesta final al usuario.
+
+### 1.2. Atributos del Modelo y Contexto de Ejecución
+
+El LLM opera con los siguientes atributos y contexto:
+
+* `question`: La consulta directa del usuario.
+
+* `chat_id | session_id`: ID de Telegram del usuario, necesario para enviar mensajes y PDFs directamente a Telegram. También es el identificador único de la sesión del usuario, crucial para mantener el historial de conversación.
+
+* `name`: Nombre del usuario de Telegram, utilizado para personalizar la interacción.
+
+* `chat_history`: Historial de mensajes previos de la sesión, truncado para optimizar el contexto.
+
+### 1.3. Modelos LLM Utilizados
+
+El sistema de Salsas Castillo utiliza estratégicamente varios modelos de lenguaje:
+
+* **GPT (OpenAI)**:
+
+    * **Función principal**: Es el modelo central para el razonamiento del agente, la interpretación de consultas complejas y la generación de respuestas detalladas. Decide cuándo y cómo usar las herramientas SQL, de búsqueda de información y de PDF. También se utiliza para generar el análisis textual en los reportes PDF.
+
+    * **Ventaja**: Alta capacidad de comprensión, razonamiento y generación de texto coherente y preciso, fundamental para análisis financiero y de ventas. Actualmente usamos el modelo GPT-5 como modelo central pero también usamos el modelo GPT-4.1 en ciertas herramientas por su gran ventana de contexto que permite manejar mayor cantidad de información.
+
+* **Whisper-1 (OpenAI)**:
+
+    * **Función**: Utilizado para la transcripción de mensajes de voz de los usuarios de Telegram a texto.
+
+    * **Ventaja**: Excelente precisión en la conversión de audio a texto, lo que permite una interacción más flexible con el chatbot.
+:::
+
+::: {style="text-align: justify"}
+## 2. Evaluación
+
+La evaluación del chatbot de Salsas Castillo se centra en la calidad y precisión de sus respuestas, dada la naturaleza de las consultas financieras y de ventas.
+
+### 2.1. Criterios de Evaluación
+
+La evaluación se realiza mediante un análisis cualitativo, considerando los siguientes criterios:
+
+1. **Precisión de los Datos**: La información proporcionada (cifras de ventas, costos, nombres de productos) debe coincidir exactamente con los datos de las bases de datos SQL.
+
+2. **Coherencia y Relevancia**: Las respuestas deben ser lógicas, directas y pertinentes a la pregunta del usuario, evitando "alucinaciones" o información incorrecta.
+
+3. **Capacidad de Análisis**: Para consultas que requieren análisis (ej., tendencias de ventas, márgenes), la respuesta debe ser comprensible y destacar las conclusiones clave.
+
+4. **Generación de Reportes**: Los PDFs generados deben ser comprensibles, contener los datos solicitados y el análisis del LLM debe ser claro y profesional.
+
+5. **Manejo de Ambigüedad**: La capacidad del chatbot para pedir aclaraciones o proponer interpretaciones cuando la consulta no es clara. También debe ser capaz de generar respuestas generales aún cuando falte especificación de la información.
+
+### 2.2. Proceso de Evaluación (Simulación)
+Se simulan una serie de consultas típicas que un usuario de Salsas Castillo podría realizar, cubriendo distintos escenarios:
+
+1. Consultas de Ventas: "Muéstrame las ventas del producto 'AMOR 12 / 1000 ML' en el último mes."
+
+2. Consultas Financieras: "¿Cuál fue el margen de ganancia del segundo trimestre de 2025?"
+
+3. Generación de Reportes: "Genera un reporte de ventas por presentación para el mes de mayo."
+
+4. Búsqueda de Documentos: "Necesito el reglamento de uso de las bodegas." (Si aplica y se ha cargado un documento de ejemplo)
+
+5. Consultas Ambiguas: "Quiero saber sobre las salsas vendidas ayer" (El chatbot debería pedir más detalles o sugerir opciones o debería generar una respuestas general).
+
+Los resultados de estas simulaciones son revisados por expertos con conocimiento del negocio para validar la calidad de las respuestas y el comportamiento general del sistema.
+
+Los resultados obtenidos hasta ahora sugieren un desempeño prometedor del sistema, con respuestas coherentes y alineadas con las bases de datos. Esto valida la viabilidad de continuar con el despliegue y la iteración en un entorno de pruebas real.
+:::

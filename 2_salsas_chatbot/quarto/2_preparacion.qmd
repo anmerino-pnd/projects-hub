@@ -1,0 +1,50 @@
+---
+title: "Preparación, modelado y evaluación  de los datos"
+format: 
+    html:
+         page-layout: article
+toc-title: "Tabla de Contenidos"
+toc: true
+toc-depth: 5
+---
+
+::: {style="text-align: justify"}
+
+## 1. Preparación de los Datos
+A diferencia de un proceso ETL tradicional con extracción y transformación masiva de datos a un destino intermedio, el proyecto con Salsas Castillo se enfoca en la conexión de datos en tiempo real a través de herramientas SQL, y la preparación de un vector store para documentos internos.
+
+### 1.1. Fuentes de Datos
+Las fuentes de información principales para el chatbot son:
+
+1. **Base de Datos PostgreSQL**: Contiene la información transaccional de ventas, facturas, datos financieros consolidados, entra otras tablas. Estos datos se acceden directamente mediante consultas SQL generadas por el LLM.
+
+2. **Documentos Internos (Vector Store)**: Archivos como manuales, reglamentos o cualquier otra información textual estática que se haya procesado para búsquedas semánticas.
+
+### 1.2. Métodos de Preparación y Acceso
+
+#### 1.2.1. Acceso a Datos SQL (Dinámico)
+
+Los datos de ventas y finanzas se acceden directamente desde PostgreSQL en tiempo real. La preparación aquí, se centra en cómo el sistema interactúa con la base de datos:
+
+* **Conexión**: Se utiliza `psycopg2` para establecer la conexión con la base de datos empresarial. Las credenciales se gestionan de forma segura mediante variables de entorno.
+
+* **Generación de Consultas**: El LLM es capaz de generar consultas SQL dinámicamente, basándose en la pregunta del usuario y el esquema de la base de datos. Se han definido reglas específicas en el prompt del sistema (`settings/prompts.py`) para asegurar la sintaxis correcta.
+
+* **Manejo de Columnas**: El LLM está instruido para inferir el significado de las columnas y, si es necesario, consultar el esquema de la base de datos (`sql_db_schema tool`) antes de generar una consulta. Esto minimiza errores por nombres de columnas desconocidos.
+
+* **Mapeo de Productos**: Se incluye una lista de nombres de productos (`dicts.py`) para ayudar al LLM a hacer matches precisos con las presentaciones de productos en la base de datos, mejorando la relevancia de las respuestas.
+
+### 1.2.2. Construcción del Vector Store (Documentos Internos)
+
+Para la información estática contenida en documentos internos (que no están en las bases de datos SQL), se construye un vector store para permitir búsquedas semánticas:
+
+* **Documentos**: Los documentos textuales se cargan y se convierten en objetos `langchain.schema.Document`.
+
+* **Embeddings**: Se utilizan OpenAIEmbeddings para transformar el contenido textual de cada documento en representaciones vectoriales numéricas.
+
+* **Índice FAISS**: Se crea un índice FAISS (`LangchainVectorStore` en `langchain/vectorstore.py`) a partir de estos embeddings. Este índice se guarda localmente para su uso eficiente.
+
+* **Actualización**: Aunque no se describe un ETL formal, la actualización de este vector store implicaría volver a procesar los documentos modificados o nuevos para regenerar el índice.
+
+:::
+

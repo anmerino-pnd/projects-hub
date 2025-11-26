@@ -1,0 +1,43 @@
+project:
+  type: website
+  output-dir: ../docs
+  render: # Renderizar todos los archivos .qmd
+    - 0_home.qmd
+    - 1_comprension.qmd
+    - 2_preparacion.qmd
+    - 3_modelado.qmd
+    - 4_despliegue.qmd
+    - 5_documentacion.qmd
+
+
+website:
+  favicon: ./images/logo_salsas_castillo.png
+  navbar:
+    logo: ./images/logo_salsas_castillo.png
+    left:
+      - href: 0_home.qmd
+        text: Home
+      - href: 1_comprension.qmd
+        text: Comprensión del Negocio
+      - href: 2_preparacion.qmd
+        text: Preparación
+      - href: 3_modelado.qmd
+        text: Modelado y Evaluación
+      - href: 4_despliegue.qmd
+        text: Despliegue
+      - href: 5_documentacion.qmd
+        text: Documentación
+      
+  back-to-top-navigation: true
+      
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    execute:
+      echo: false
+
+lang: es

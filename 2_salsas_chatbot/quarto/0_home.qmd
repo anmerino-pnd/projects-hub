@@ -1,0 +1,35 @@
+---
+title: "GlorIA: Análisis empresarial desde un enfoque con IA"
+format: 
+    html:
+         page-layout: article
+toc: false
+author: 
+    - Daniel Rivera Güémez
+    - Guillermo Velazquez Coronado
+    - Angel Merino Cedeño
+    - Elaine Grenot Castellano
+date: last-modified
+date-format: long
+lang: es
+---
+
+::: {style="text-align: justify"}
+
+## Introducción
+Este proyecto se enfoca en el desarrollo de un **chatbot inteligente** para Salsas Castillo, diseñado para optimizar el acceso a información crítica de ventas, finanzas, facturas y más. A través de este asistente conversacional, se busca empoderar al personal de toma de decisiones, proporcionando respuestas rápidas y precisas a sus consultas, y facilitando la toma de decisiones basadas en datos actualizados que cambian en tiempo real.
+
+El chatbot se basa en un modelo agéntico MCP (Protocolo de Contexto del Modelo), que combina modelos de lenguaje avanzados con acceso directo a bases de datos relacionales (PostgreSQL) y vectoriales (FAISS). Además de la capacidad de generar reportes en PDF y generación de tablas para una visualización más amigable. La interacción principal se realiza a través de la plataforma de mensajería Telegram.
+
+El proyecto se divide en las siguientes fases clave:
+
+1. **Comprensión del Negocio**: Definición de los objetivos estratégicos y el contexto operativo de Salsas Castillo, enfocados en mejorar la eficiencia en el acceso a la información, el correcto manejo y manipulación de los datos para una generación eficiente de respuestas, y la comunicación interna.
+
+2. **Preparación**: Diseño e implementación de la arquitectura del chatbot, incluyendo la integración de bases de datos relacionales y vectoriales, el desarrollo de herramientas personalizadas, y su flujo de trabajo.
+
+3. **Modelado y Evaluación**: La configuración de modelos de lenguaje y la validación de su desempeño a través de consultas controladas.
+
+4. **Despliegue**: Integración del chatbot en el entorno de producción de Telegram y la infraestructura de Salsas Castillo, asegurando su operatividad y accesibilidad.
+
+A través de estas fases, buscamos proporcionar una solución innovadora que transforme la manera en que Salsas Castillo accede y utiliza su información de negocio, impulsando la eficiencia y la agilidad en sus operaciones diarias.
+:::

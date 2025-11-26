@@ -1,0 +1,37 @@
+---
+title: "Sobre Mí"
+about:
+  template: solana
+  image: profile.jpg
+---
+
+Soy un profesional apasionado por la intersección entre la ingeniería y la ciencia de datos. Actualmente curso la **Maestría en Ciencia de Datos** en la Universidad de Sonora, enfocándome en el Procesamiento de Lenguaje Natural (NLP) y el desarrollo de Modelos de Lenguaje Grande (LLMs).
+
+Mi experiencia combina la solidez analítica de la ingeniería química con las herramientas modernas de desarrollo de software y análisis de datos.
+
+## Educación
+
+**Maestría en Ciencia de Datos** | Universidad de Sonora  
+*Agosto 2023 - Presente* Enfoque en Python, SQL, bases de datos NoSQL, procesos ETL y análisis de series de tiempo.
+
+**Licenciatura en Ingeniería Química** | Universidad de Sonora  
+*Agosto 2018 - Junio 2023* Habilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS).
+
+## Experiencia Profesional
+
+**Científico de Datos** | Centro Nacional de Control de Energía (CENACE)  
+*Mayo 2024 - Presente* Desarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. Integración de sistemas de clasificación de tickets para mejorar la eficiencia de respuesta.
+
+**Laboratorio Químico** | Comisión Federal de Electricidad (CFE)  
+*Abril 2022 - Septiembre 2022* Detección de fallas y medición en equipos eléctricos primarios. Aplicación de normas ASTM.
+
+## Habilidades Técnicas
+
+* **Lenguajes:** Python (Avanzado), SQL, JavaScript (Básico).
+* **IA & Data Science:** LangChain, RAG, Ollama, Hugging Face, Pandas, Scikit-learn.
+* **Bases de Datos:** PostgreSQL, MySQL, MongoDB, Redis, FAISS (Vector Stores).
+* **Desarrollo & DevOps:** FastAPI, Docker/Podman, Git/GitHub.
+* **Idiomas:** Español (Nativo), Inglés (Fluido), Portugués (Fluido), Francés (Fluido).
+
+## Intereses
+Me apasiona el aprendizaje continuo de idiomas y culturas, así como la resolución de problemas basada en datos y la aplicación de tecnología en proyectos innovadores.

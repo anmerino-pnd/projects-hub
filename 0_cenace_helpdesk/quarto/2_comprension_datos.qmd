@@ -1,0 +1,131 @@
+---
+title: "Comprensión de los datos"
+format: 
+    html:
+         page-layout: article
+toc-title: "Tabla de Contenidos"
+toc: true
+toc-depth: 3
+---
+
+::: {style="text-align: justify"}
+## 0.1. Recolección de los datos
+
+### 0.1.1. Datos existentes
+La fuente principal de información son, los documentos de información (manuales, guías, contratos, etc.) y la base de datos que contiene todos los incidentes **resueltos** por parte de la gerencia **Noroeste** del CENACE. Además, se nos compartieron 4 archivos pdf para crear una base de datos vectorial con ellos. Los incidentes resueltos fueron extraídos de SQL y trabajados en formato csv.
+
+### 0.1.2. Datos iniciales
+Inicialmente, se realizó un Análisis Exploratorio de Datos (EDA) sobre un conjunto de 175 incidentes registrados entre enero de 2023 y mayo de 2024. Este conjunto incluía 14 variables, como el título, la descripción, la categoría y la solución, entre otras. El título y la descripción se utilizarán posteriormente para la clasificación de los incidentes.
+
+Aunque este EDA proporcionó hallazgos relevantes, también puso de manifiesto la necesidad de trabajar con un conjunto de datos más amplio y abordar las inconsistencias presentes en los registros.
+
+### 0.1.3. Datos adicionales
+Para incrementar el volumen de datos disponibles, fue necesario **realizar un proceso de codificación y anonimización** para **proteger información sensible** (nombres de personal, números telefónicos, correos electrónicos, normas, nombres de subestaciones, etc.).
+
+Utilizando herramientas como **expresiones regulares** y **SpaCy**, logramos recuperar un total de **2,817 registros**, lo que representa 15 veces más registros que los obtenidos inicialmente.
+:::
+
+::: {style="text-align: justify"}
+## 0.2. Descripción de los datos
+
+A partir de los datos extraídos, se obtuvo la siguiente información:
+
+```markdown
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 2817 entries, 0 to 2816
+Data columns (total 5 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   titulo       2817 non-null   object
+ 1   descripcion  2817 non-null   object
+ 2   solucion     1159 non-null   object
+ 3   categories   2817 non-null   object
+ 4   fecha        2817 non-null   object
+dtypes: object(5)
+memory usage: 110.2+ KB
+```
+
+Las variables se describen a continuación:
+
+| **Variable** | **Descripción**                                                   | **Tipo de dato** |
+|--------------|-------------------------------------------------------------------|------------------|
+| `titulo`     | Título del incidente en cuestión.                                 | Texto            |
+| `descripcion`| Desarrollo de la problemática y explicación del incidente.        | Texto            | 
+| `solucion`   | Explicación de cómo se llegó a la solución.                       | Texto            | 
+| `categories` | Categoría a la que pertenece la problemática.                     | Texto            | 
+| `fecha`      | Fecha.                                                            | Texto            | 
+
+:::
+
+::: {style="text-align: justify"}
+## 0.3 Exploración de los datos
+
+### 0.3.1 Variedad de categorías
+La exploración comenzó con el análisis del número de categorías únicas en los tickets. Esto es crucial, ya que parte del proyecto es desarrollar un modelo capaz de clasificar o asignar una categoría a nuevos tickets a partir de su contenido.
+
+```markdown
+categories
+ADTR SP7 > SCADA                                     1410
+INTRANET Y SOPORTE DE APLICACIONES                    379
+COMPUTO Y PERIFERICOS                                 257
+SEGURIDAD INFORMATICA                                 166
+CORREO ELECTRONICO                                     97
+ADTR SP7 > SIREL                                       89
+ADTR SP7                                               82
+TELEFONIA Y HERRAMIENTAS COLABORATIVAS                 55
+INFRAESTRUCTURA BASICA Y DE SERVICIOS PROPIOS          51
+ADTR > Consulta                                        38
+ADTR SP7 > Historico                                   37
+ADTR SP7 > SIGUARD                                     32
+INTERNET                                               32
+ADTR SP7 > Hospedaje                                   23
+ADOMEM                                                 16
+ADTR                                                   11
+DESARROLLO DE APLICACIONES                             10
+OPERACION DE RED DE DATOS                               9
+MESA DE SERVICIO                                        8
+BASE DE DATOS                                           7
+ADTR > Hospedaje de Aplicativos de Potencia (EMS)       6
+MONITOREO DE ACTIVOS DE TIC                             2
+Name: count, dtype: int64
+```
+
+Al observar la distribución, se decidió trabajar únicamente con categorías que tuvieran más de 20 incidentes, considerando la cantidad de datos necesaria para los procesos de entrenamiento, validación y prueba. Esta selección resultó en un total de 14 categorías.
+
+### 0.3.2. Distribución de las palabras
+En esta sección se analiza la cantidad de palabras utilizadas en los títulos, descripciones y soluciones. Esto nos permite entender la cantidad de información disponible que puede ser útil para resolver problemas recurrentes y para el desarrollo del modelo de clasificación.
+
+![Distribución de palabras en los títulos](./datos/titulo.png){width=100%}
+
+A partir de esta gráfica podemos notar que alrededor de 9 palabras promedio son las que se utilizan en los títulos; lo cual es normal dado que tendemos a englobar las problemáticas en pocas palabras. Sin embargo, vemos que hay problemáticas que pueden pasar el promedio, hasta llegar a las 30 palabras aproximadamente.
+
+![Distribución de palabras en las descripciones](./datos/descripcion.png){width=100%}
+
+Para las descripciones vemos que el promedio es mayor, aproximadamente hasta las 88 palabras, aunque en la mayoría de los casos son menos las que se utilizan. Esto también es normal ya que aquí es donde las personas desarrollan los detalles del incidente el cual están enfrentando. También vemos que hay incidentes que pueden tomar tantas palabras hasta llegar a las 400, 500, y hasta las 1000, aunque este último sea poco común.
+
+![Distribución de palabras en las soluciones](./datos/solucion.png){width=100%}
+
+En este caso, nosotros esperábamos que en esta sección hubiéramos encontrado una mayor cantidad de palabras, porque en este caso encontramos que en promedio se utilizan 23 palabras, donde frecuentemente son menos. También encontramos que no todos los incidentes contienen una descripción detallada de la solución o de los pasos que se siguieron para resolver la situación; vimos que solo el 41% de los incidentes contienen una explicación de la solución.
+
+### 0.3.3. Análisis de los bigramas más comunes
+Se realizó un análisis de los pares de palabras más frecuentes en los títulos y descripciones para identificar patrones en la forma en que se plantean las problemáticas.
+
+![Bigramas de los títulos](./datos/bigrama_tickets.png){width=100%}
+
+En los títulos lo primero que llama la atención es la codificación de ciertas palabras, ya que por detalles confidenciales, se codificaron nombres propios, sistemas, subestaciones, etc. Luego, podemos ver que se mencionan muchas veces los despliegues de distintos sistemas de software y actualizaciones.
+
+![Bigramas de las descripciones](./datos/bigrama_descripcion.png){width=100%}
+
+En las descripciones vemos que en la gran mayoría de los casos son saludos hacia la persona que se están dirigiendo. Dejando de lado estos saludos, vemos que se mencionan detalles muy técnicos y específicos que solo expertos en el tema podrán entender.
+
+:::
+
+::: {style="text-align: justify"}
+## 0.4 Verificación de la calidad de los datos
+
+### 0.4.1 Datos faltantes
+A partir de los resultados previos, se determinó que la columna con menos información es la de soluciones. Solo el 41% de los registros contienen una explicación, con un promedio de 23 palabras, aunque en muchos casos la cantidad es menor.
+
+Al discutir esta situación con los expertos, se descubrió que el desarrollo y la documentación de soluciones no es una práctica común en el departamento, lo que resulta en una pérdida de conocimiento. Esto motivó la búsqueda de una propuesta para mejorar la persistencia de las soluciones.
+
+:::

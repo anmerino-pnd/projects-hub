@@ -1,0 +1,122 @@
+---
+title: "Despliegue"
+format: 
+  html:
+    page-layout: article
+toc-title: "Tabla de Contenidos"
+toc: true
+toc-depth: 3
+---
+
+
+::: {style="text-align: justify"}
+
+## 1. Revisión del Proceso
+
+El desarrollo del chatbot para Salsas Castillo ha seguido un enfoque iterativo, centrado en la integración de modelos de lenguaje con las bases de datos existentes y la plataforma de Telegram. Los principales retos se concentraron en asegurar la **interacción fluida y precisa del LLM con las bases de datos SQL** para consultas dinámicas, así como la correcta **gestión del historial de conversación y la generación de reportes en PDF**.
+
+El objetivo principal de optimizar el acceso a la información de productos y finanzas se ha mantenido constante a lo largo del proyecto, adaptándose a las particularidades de Salsas Castillo.
+
+### 1.1. Determinación de Próximos Pasos
+Considerando los avances en el desarrollo y las pruebas internas, se ha decidido priorizar el despliegue en un entorno de pruebas real para validar el comportamiento del chatbot en condiciones operativas y recopilar feedback directo de los usuarios.
+
+### 1.2. Decisión
+
+La decisión es proceder con la implementación del chatbot en un entorno de pruebas de Telegram. Esto permitirá:
+
+* Validar la integración completa con la API de Telegram.
+
+* Probar la conectividad y el rendimiento con las bases de datos PostgreSQL y MongoDB en un entorno real.
+
+* Recopilar feedback de usuarios internos para identificar mejoras en la experiencia de usuario y la precisión de las respuestas.
+
+* Asegurar la robustez y estabilidad del sistema antes de una posible implementación a mayor escala.
+
+:::
+
+::: {style="text-align: justify"}
+
+## 2. Plan de Implementación
+
+La fase de implementación implica el despliegue del backend del chatbot y su integración con la plataforma de Telegram.
+
+### 2.1. Arquitectura de Despliegue y Conexión
+
+El chatbot de Salsas Castillo se despliega como un servicio de backend basado en **FastAPI**, que interactúa con la **API de Telegram** mediante **webhooks**. La persistencia de datos se maneja con **MongoDB** y las consultas a datos transaccionales se realizan en **PostgreSQL**.
+
+* **Backend del Chatbot (FastAPI)**: La aplicación principal se despliega en un servidor (o ambiente virtual Linux) utilizando Gunicorn para producción o **Uvicorn** para desarrollo.
+
+* **Conexión con Telegram**: La comunicación se establece a través de webhooks. Telegram envía las actualizaciones de mensajes al endpoint `/webhook` de la API de FastAPI. El chatbot, a su vez, utiliza la API de Telegram para enviar respuestas y documentos (PDFs).
+
+* **Bases de Datos**:
+
+  * **PostgreSQL**: Se establece una conexión directa desde el backend del chatbot para las consultas SQL.
+
+  * **MongoDB**: Se utiliza para almacenar el historial de sesiones (`sessions`) y un respaldo completo de mensajes (`message_backup`).
+
+### 2.2. Gestión de Persistencia de Datos con MongoDB
+
+La gestión del historial de conversaciones es crucial para un chatbot. En Salsas Castillo, se utiliza MongoDB con dos colecciones principales:
+
+* `sessions`: Almacena los últimos mensajes de cada sesión de usuario para mantener el contexto de la conversación. Se configura para mantener un tamaño fijo (ej., los últimos 24 mensajes) para optimizar el rendimiento.
+
+* `message_backup`: Actúa como un histórico completo de todas las interacciones (preguntas del usuario, respuestas del chatbot, metadatos). Es fundamental para el análisis de datos, auditorías y futuras mejoras del modelo.
+
+### 2.3. Plan de Monitoreo
+
+Durante la fase de pruebas, se implementará un plan de monitoreo para evaluar el rendimiento y comportamiento del sistema:
+
+* **Tiempo de Respuesta**: Latencia de las respuestas del chatbot, incluyendo el tiempo de ejecución de las consultas SQL y las llamadas a la API de OpenAI.
+
+* **Tasa de Éxito/Error**: Monitoreo de las peticiones a la API del chatbot y a las bases de datos.
+
+* **Calidad de las Respuestas**: Evaluación manual de la precisión, coherencia y relevancia de las respuestas, especialmente en escenarios complejos o con datos numéricos.
+
+* **Uso del Chatbot**: Frecuencia de interacciones por usuario, tipos de consultas más comunes.
+
+* **Errores en Logs**: Revisión de los logs del servidor para identificar excepciones o problemas en el backend.
+
+### 2.4. Plan de Mantenimiento
+
+Se establecerá un plan de mantenimiento periódico para asegurar la estabilidad y el buen funcionamiento del sistema:
+
+* **Actualización de Dependencias**: Revisión y actualización regular de las librerías de Python (FastAPI, LangChain, PyMongo, etc.).
+
+* **Revisión de Logs**: Monitoreo activo de los logs del servidor y de las bases de datos para identificar y solucionar problemas.
+
+* **Auditoría de Datos y Respuestas**: Evaluación periódica de la calidad de los datos en PostgreSQL y MongoDB, y verificación de la precisión de las respuestas del chatbot a lo largo del tiempo.
+
+* **Optimización de Consultas**: Refinamiento continuo de las consultas SQL generadas por el LLM para mejorar el rendimiento.
+
+* **Actualización del Vector Store**: Si se añaden nuevos documentos internos, se programará la actualización del vector store FAISS.
+
+### 2.5. Experiencia de Desarrollo
+
+El proyecto ha permitido consolidar la experiencia en el desarrollo de un chatbot completo, desde la integración con plataformas de mensajería (Telegram) hasta la orquestación de LLMs con bases de datos relacionales y vectoriales. Los aprendizajes clave incluyen:
+
+* Manejo de la interacción entre LLMs y bases de datos SQL para consultas dinámicas.
+
+* Implementación de la persistencia de sesiones y el historial de mensajes en MongoDB.
+
+* Desarrollo de herramientas personalizadas (ej., generación de PDFs) y su integración en el flujo del agente.
+
+* Gestión de la transcripción de audio para una experiencia de usuario más inclusiva.
+
+* Adherencia a buenas prácticas de desarrollo modular y escalable.
+
+### 2.6. Despliegue del Chatbot en el Sistema de Pruebas
+
+El chatbot será desplegado en un entorno de pruebas de Telegram, accesible para un grupo controlado de usuarios internos de Salsas Castillo. Este despliegue permitirá validar el sistema en condiciones casi reales.
+
+El proceso de despliegue consistirá en:
+
+* **Montaje del Entorno de la API**: Despliegue de la API de FastAPI en un servidor dedicado, asegurando la conectividad con PostgreSQL y MongoDB.
+
+* **Configuración del Webhook de Telegram**: Establecer el webhook para que Telegram envíe las actualizaciones de mensajes al endpoint de la API.
+
+* **Verificación Funcional**: Realizar pruebas exhaustivas para verificar el flujo de conversación, la precisión de las respuestas, la generación de PDFs y el manejo de la transcripción de audio.
+
+* **Consideraciones de Seguridad**: Asegurar la autenticación de usuarios (mediante whitelist de Telegram IDs), el manejo seguro de credenciales y la protección de datos.
+
+Este hito marca un avance significativo hacia la validación en entorno real del sistema conversacional, permitiendo recopilar feedback de usuarios internos antes de considerar un despliegue completo en producción.
+:::

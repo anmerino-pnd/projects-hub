@@ -1,0 +1,101 @@
+---
+title: "Despliegue"
+format: 
+  html:
+    page-layout: article
+toc-title: "Tabla de Contenidos"
+toc: true
+toc-depth: 3
+---
+
+::: {style="text-align: justify"}
+
+## 1. Revisión del proceso
+El desarrollo del proyecto de Chatbot siguió un enfoque iterativo, basado en los principios del ciclo CRISP-DM. Esta metodología estructurada permitió abordar las distintas fases del proyecto de manera organizada, con un énfasis continuo en la mejora del diseño, la calidad del código y, fundamentalmente, el rendimiento del sistema en sus componentes clave.
+
+Los principales retos se concentraron en la propuesta de una solución a la fuga de conocimientos que presentaba la empresa. Una alternativa que mitigara este problema y además, fuera punto de partida para futuras implementaciones, permitiendo la persistencia del conocimiento y el constante crecimiento de la base de conocimientos del chatbot.
+
+### 1.1. Determinar próximos pasos
+
+Considerando los avances y aprendizajes obtenidos, se evaluó la opción de **pasar a una fase de implementación en un entorno virtual** donde se puedan **hacer pruebas** y se garantice la escalabilidad. Esto permitirá validar el desempeño del sistema con un volumen de datos y usuarios más grande, preparando el terreno para un despliegue completo en producción de tipo piloto.
+
+:::
+
+::: {style="text-align: justify"}
+## 2. Plan de implementación
+
+El plan de despliegue se centra en migrar la arquitectura de desarrollo a un entorno de producción escalable de tipo piloto, manteniendo la modularidad del sistema y optimizando el rendimiento. 
+
+### 2.1. Arquitectura de despliegue y conexión
+
+La arquitectura final para el despliegue estará compuesta por los siguientes componentes clave, implementados en un entorno de producción como **Databricks**, **Azure** o una plataforma similar:
+
+* **Servidor de la API (backend):** Implementación de la API desarrollada en **FastAPI** (`main.py`, `chat.py`) en un servidor escalable. Este servidor manejará las peticiones de los usuarios, coordinará las operaciones del RAG y se comunicará con la base de datos y el LLM.
+* **Modelo de lenguaje (LLM):** El modelo de lenguaje `gemma3:4b` se desplegará en un servidor con **aceleración por GPU** para asegurar un rendimiento óptimo en la generación de respuestas.
+* **Base de datos vectorial:** La base de datos vectorial de FAISS, que almacena los embeddings de los documentos (`vectorstore.py`), se mantendrá, pero se integrará con un sistema de almacenamiento persistente y escalable en la nube para garantizar la disponibilidad y el rendimiento.
+* **Base de datos de historial y tickets (MongoDB):** La base de datos de MongoDB, utilizada para almacenar el historial de conversaciones y la gestión de tickets, se migrará a un servicio de bases de datos gestionado en la nube para asegurar la persistencia y la seguridad de los datos.
+* **Interfaz del usuario (frontend)**: La presentación del sistema se monta de la mano con FastAPI aprovechando su clase interna Jinja2Templates.
+
+### 2.2. Desarrollo del frontend
+
+La interfaz se desarrolló con ayuda de 3 tipos de archivos básicos para páginas web. Múltiples archivos de `JavaScript`, un archivo `HTML` y estilos modernos que mejoraran la experiencia del usuario gracias a un archivo `CSS`.
+
+#### 2.2.1. Interfaz del usuario final
+
+A continuación, se presentan capturas de pantalla de las principales secciones de la interfaz de usuario final desplegada, mostrando las funcionalidades clave del sistema:
+
+* **Inicio de sesión**: Sección inicial donde el usuario puede acceder a su sesión. Por delimitaciones del proyecto, una sesión más segura no fue implementada.
+  ![Inicio de sesión](./datos/sesion_inicio.png){width=100%}
+  
+
+* **Pestaña de Chat:** Interfaz principal de conversación donde el usuario interactúa con el LLM para resolver incidentes. Muestra el historial de mensajes y las referencias utilizadas por el modelo.
+  ![Interfaz de la pestaña de Chat](./datos/sesion_chat.png){width=100%}
+
+* **Pestaña de Documentos:** Permite a los usuarios cargar nuevos documentos PDF a la base de conocimientos y visualizar los documentos ya procesados.
+  ![Interfaz de la pestaña de Documentos](./datos/sesion_documentos.png){width=100%}
+
+* **Pestaña de Soluciones:** Muestra las soluciones que han sido marcadas como "útiles" por los usuarios (a través del botón "like"). Desde aquí se pueden procesar estas soluciones para re-indexarlas en la base vectorial.
+  ![Interfaz de la pestaña de Soluciones](./datos/sesion_soluciones.png){width=100%}
+
+* **Pestaña de Tickets:** Presenta la lista de tickets registrados, permitiendo visualizar su detalle (título, descripción y categoría) y llevar un ticket específico a una nueva conversación en el chat, iterando hasta llegar a la solución del ticket.
+  ![Interfaz de la pestaña de Tickets](./datos/sesion_tickets.png){width=100%}
+
+### 2.3. Plan de monitoreo
+
+Durante la fase de pruebas, se implementará un plan de monitoreo para evaluar el rendimiento y comportamiento del sistema. Las métricas clave a seguir incluirán:
+
+* **Tiempo de respuesta de la API:** Latencia entre el envío de una consulta y la recepción de la primera parte o la respuesta completa.
+* **Tasa de éxito/Error de las peticiones a la API:** Proporción de peticiones que resultan en códigos de estado.
+* **Calidad de las respuestas:** Evaluación manual o semi-automatizada de la coherencia, relevancia y precisión de las respuestas del chatbot, especialmente en casos donde no se encuentran recomendaciones.
+* **Errores en la consola del navegador:** Monitoreo de errores de JavaScript o CSS reportados por los usuarios durante el uso del widget.
+
+### 2.4. Plan de mantenimiento
+
+Se establecerá un plan de mantenimiento periódico para asegurar la estabilidad y el buen funcionamiento del sistema desplegado:
+
+* **Actualización de dependencias:** Programar revisiones y actualizaciones de las librerías y paquetes utilizados en la API (Python, Langchain, FastAPI, etc.) y potencialmente en el frontend si se usan librerías externas.
+* **Revisión de logs:** Monitorear activamente los logs del servidor donde corre la API y de los servicios web para identificar y solucionar errores.
+* **Auditoría de calidad de datos y respuestas:** Realizar evaluaciones regulares de la calidad de los datos de origen y verificar la calidad de las respuestas generadas por el modelo con el tiempo.
+* **Refactorización y optimización:** A medida que se identifiquen áreas de mejora o cambien los requisitos, planificar tareas de refactorización de código para mejorar la modularidad, el rendimiento o la mantenibilidad. 
+
+### 2.5. Flujo de despliegue en el ambiente virtual
+
+El despliegue del sistema en un ambiente virtual o de nube (como el entorno piloto propuesto) implica una transición desde la configuración de desarrollo local hacia una arquitectura gestionada, escalable y robusta. El flujo general se compone de las siguientes etapas conceptuales:
+
+1.  **Contenerización de la Aplicación:**
+    El primer paso consiste en empaquetar la aplicación *backend* de FastAPI, junto con todas sus dependencias Python, en una imagen de contenedor (utilizando Docker o Podman). Esto garantiza un entorno de ejecución consistente y aislado, independientemente de la infraestructura subyacente. Si se opta por auto-alojar el LLM con Ollama en producción, este también podría ser contenerizado. Los detalles técnicos para construir estas imágenes se basan en la configuración del entorno descrita en el manual de instalación.
+
+2.  **Configuración de Servicios Gestionados:**
+    A diferencia del entorno local, en un ambiente virtual o de nube se aprovecharán servicios gestionados para componentes clave. Esto incluye la configuración de una instancia de **MongoDB Atlas** (o similar) para la persistencia del historial y los tickets, y potencialmente un servicio de inferencia de modelos con **aceleración GPU** para hospedar `gemma3:4b`, asegurando rendimiento y escalabilidad. La conexión a estos servicios se configurará mediante variables de entorno, similar a lo descrito en el archivo `.env` del manual. La base vectorial de **FAISS** requerirá un sistema de almacenamiento persistente asociado al contenedor o servicio que la gestione.
+
+3.  **Orquestación de Contenedores:**
+    Para gestionar la aplicación contenerizada (y potencialmente el LLM), se utilizará una herramienta de orquestación (como Podman). La orquestación facilitará el despliegue de múltiples instancias de la API para **escalabilidad horizontal**, gestionará el **balanceo de carga** entre ellas y asegurará la **alta disponibilidad** mediante la recuperación automática en caso de fallos.
+
+4.  **Implementación de Monitoreo y Logging:**
+    Se configurarán herramientas de monitoreo específicas del entorno de nube para rastrear el rendimiento de la API, la latencia del LLM, el uso de recursos (CPU, GPU, memoria) y el estado de las bases de datos. Se establecerán sistemas de *logging* centralizados para capturar los registros de la aplicación (como los generados en `nohup.out` localmente) y facilitar la depuración y el análisis de errores en tiempo real, alineados con las métricas definidas en el plan de monitoreo.
+
+5.  **Integración y Pruebas Finales:**
+    Una vez desplegada y configurada la API en el nuevo entorno, el paso final es la integración con el sistema de Help Desk del CENACE (si aplica para la fase piloto). Se realizarán pruebas funcionales y de carga en este entorno para validar la correcta operación antes de ponerlo a disposición de los usuarios piloto.
+
+Para obtener las instrucciones técnicas detalladas, comandos específicos y configuraciones de ejemplo para cada una de estas etapas, consulte la sección **"Manual de instalación y despliegue"** en la **Documentación Técnica** (`6_documentacion.qmd`).
+:::

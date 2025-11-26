@@ -1,0 +1,302 @@
+---
+title: "Documentación"
+format: 
+  html:
+    page-layout: article
+toc-title: "Tabla de Contenidos"
+toc: true
+toc-depth: 3
+---
+
+::: {style="text-align: justify"}
+## 1. Introducción al proyecto
+
+Este proyecto se centra en el desarrollo de un chatbot inteligente para Salsas Castillo, diseñado para optimizar el acceso a información de ventas y finanzas, y mejorar la comunicación interna. El chatbot utiliza un sistema de recuperación aumentada con generación (RAG) y herramientas dinámicas para proporcionar respuestas precisas y relevantes, así como la capacidad de generar reportes financieros.
+
+### **Objetivos del proyecto**:
+
+* **Automatizar consultas**: Permitir a los usuarios (operativos y no operativos) obtener información sobre ventas, productos y finanzas de manera rápida y eficiente a través de una interfaz conversacional en Telegram.
+* **Mejorar la toma de decisiones**: Proporcionar análisis de datos financieros y de ventas en tiempo real, incluyendo la generación de reportes en PDF.
+* **Optimizar la gestión de información**: Centralizar el acceso a datos transaccionales y consolidados, reduciendo la dependencia de consultas manuales.
+* **Adaptación a nuevas tecnologías**: Implementar un sistema basado en LLMs y bases de datos vectoriales para un enfoque moderno y escalable.
+
+### **Impacto esperado**:
+
+* Incremento en la eficiencia operativa al reducir el tiempo dedicado a la búsqueda manual de información.
+* Mejora en la precisión de los datos y análisis disponibles para el personal.
+* Facilitación de la toma de decisiones estratégicas basadas en información actualizada.
+
+:::
+
+::: {style="text-align: justify"}
+## 2. Manual de instalación y despliegue
+
+Esta sección detalla los requisitos, dependencias y pasos para la instalación y despliegue del chatbot de Salsas Castillo.
+
+### 2.1. **Configuraciones importantes** 
+
+* El backend del chatbot está desarrollado con **FastAPI** y se espera que se ejecute en un entorno con **Python 3.12**.
+* Requiere conectividad a una instancia de **MongoDB** para la gestión de sesiones e historial, y a una base de datos **PostgreSQL** para datos financieros y de ventas.
+* Utiliza modelos de lenguaje de **OpenAI** (requiere `OPENAI_API_KEY`) y potencialmente modelos *open-source* como `gemma3:4b` a través de **Ollama** para la moderación.
+* Las credenciales sensibles se gestionan a través de un archivo `.env`.
+* La integración con Telegram se realiza mediante webhooks y el `telegram_token` correspondiente.
+
+### 2.2. **Requisitos del sistema**
+
+* **Python**: Versión 3.x (se recomienda la versión utilizada en el desarrollo, ej., 3.12.9).
+* **Pip/UV**: Última versión para la gestión de paquetes.
+* **Ollama**: Instalado y en ejecución si se utilizan modelos open-source para moderación.
+* **MongoDB**: Acceso remoto configurado para las colecciones de sesiones e historial de mensajes.
+* **PostgreSQL**: Acceso remoto configurado para las bases de datos historial_facturas y financieroii.
+* **Conexión a Internet**: Necesaria para interactuar con las APIs de OpenAI y Telegram.
+
+### 2.3. **Dependencias principales del sistema**
+
+* `fastapi`: Framework web para el backend.
+* `langchain`: Framework principal para la orquestación del LLM y las herramientas.
+* `openai`: Cliente Python para la API de OpenAI.
+* `pymongo`: Driver para la interacción con MongoDB.
+* `psycopg2-binary`: Adaptador PostgreSQL para Python.
+* `fpdf`: Para la generación de PDFs.
+* `requests`: Para realizar solicitudes HTTP (ej., a Telegram, OpenAI Whisper).
+* `uvicorn/gunicorn`: Servidor WSGI para despliegue.
+* `pydantic`: Para la validación de modelos de datos.
+* `faiss-cpu`: Para la base de datos vectorial (si aplica para documentos internos).
+
+### 2.4. **Instalación del Backend (API)**
+
+1. **Clonar el repositorio**:
+
+```bash
+gh repo fork Macrodata-Analitica/castilloChatbot
+cd castilloChatbot
+```
+
+2. **Crear entorno virtual e instalar dependencias**:
+
+```bash
+pip install uv # Si no está instalado
+uv venv
+source .venv/bin/activate # Linux/macOS
+# o `.venv\Scripts\activate` para Windows
+uv pip install -e .
+uv sync # Sincroniza los modulos de src/
+```
+
+3. **Configurar variables de entorno `(.env)`**: 
+
+Asegúrate de que el archivo `.env` en la raíz del proyecto contenga las siguientes variables con sus valores correctos:
+
+```bash
+OPENAI_API_KEY=""
+
+VERIFY_TOKEN=""
+TELEGRAM_BOT_TOKEN=""
+PHONE_NUMBER_ID=""
+
+HOST=""
+PORT=""
+USER=""
+PASS=""
+DBNAME=""
+SCHEMA=""
+```
+
+4. **Levantar el backend**:
+
+* **Desarrollo**:
+
+```bash
+uvicorn salsasllm.API.telegram_main:app --reload
+```
+
+* **Producción**:
+
+```bash
+nohup gunicorn salsasllm.API.telegram_main:app --workers 4 --bind 0.0.0.0:8000 -k uvicorn.workers.UvicornWorker --timeout 120 --access-logfile - --error-logfile - &
+```
+
+5. **Configurar Webhook de Telegram**:
+
+Asegúrate de que Telegram envíe los mensajes a tu endpoint `/webhook`. Esto se hace una vez a través de la API de Telegram:
+
+```bash
+curl -F "url=https://<TU_DOMINIO>/tgbot/webhook" https://api.telegram.org/bot<TU_TELEGRAM_TOKEN>/setWebhook
+```
+Reemplaza <TU_DOMINIO> y <TU_TELEGRAM_TOKEN>.
+:::
+
+::: {style="text-align: justify"}
+## 3. Documentación Técnica del Código
+Esta sección describe la estructura modular del proyecto y las funciones clave de sus componentes.
+
+### 3.1. Estructura de Carpetas y Módulos
+El proyecto sigue una estructura modular para organizar el código:
+
+* `salsasllm/API/telegram_main.py`: Archivo principal de la aplicación FastAPI. Configura la aplicación, CORS y registra los endpoints para el chat de Telegram y los logs.
+
+* `salsasllm/API/telegram_chat.py`: Contiene la lógica para manejar los webhooks de Telegram, transcribir audio (usando Whisper), enviar mensajes y coordinar con el agente principal.
+
+* `salsasllm/langchain/agent_multitool.py`: Implementa la lógica principal del agente conversacional (AgentMultiTools). Gestiona la interacción con herramientas externas (SQL, PDF, búsqueda de información), el historial de conversación en MongoDB y la conexión con el LLM.
+
+* `salsasllm/langchain/vectorstore.py`: Implementa la lógica para la creación, carga y consulta de la base de datos vectorial FAISS.
+
+* `salsasllm/tools/search_information.py`: Define la herramienta search_information para buscar información relevante en documentos internos (a través del vector store).
+
+* `salsasllm/tools/pdf_tool.py`: Define la herramienta generate_financial_report_pdf para crear reportes en PDF a partir de datos tabulares y enviarlos por Telegram.
+
+* `salsasllm/langchain/prompts.py`: Contiene las definiciones de los prompts del sistema (prompt_v1, prompt_v2) que guían el comportamiento del LLM.
+
+* `salsasllm/settings/clientes.py`: Archivo para la configuración de credenciales (API keys, datos de conexión a DBs, tokens).
+
+* `salsasllm/settings/config.py`: Archivo para configuraciones generales del proyecto (ej., rutas de índices FAISS, whitelist de Telegram).
+
+### 3.2. Modelos LLM Utilizados
+
+El sistema de Salsas Castillo utiliza una combinación de modelos de lenguaje para diferentes propósitos:
+
+* **Generación de Respuestas y Razonamiento (OpenAI - `gpt-5`)**:
+
+    * **Función**: Es el LLM principal utilizado por AgentMultiTools para interpretar las consultas del usuario, decidir qué herramientas invocar (SQL, búsqueda de información, PDF) y generar las respuestas detalladas.
+
+    * **Ventaja**: Ofrece alta capacidad de razonamiento y comprensión contextual para manejar consultas complejas sobre datos financieros y de ventas.
+
+* **Transcripción de Audio (OpenAI Whisper - `whisper-1`)**:
+
+    * **Función**: Utilizado en telegram_chat.py para transcribir mensajes de voz de los usuarios de Telegram a texto, permitiendo que el chatbot procese entradas de audio.
+
+    * **Ventaja**: Alta precisión en la transcripción de voz a texto.
+
+* **Generación de Análisis para PDF (OpenAI - `gpt-5`)**: `
+
+    * **Función**: En pdf_tool.py, este modelo se utiliza para generar un párrafo de análisis conciso a partir de los datos tabulares que se incluirán en el reporte PDF.
+
+    * **Ventaja**: Proporciona resúmenes inteligentes y profesionales de los datos.
+
+### 3.3. Puntos de entrada y funciones clave
+
+Estos son los principales puntos de inicio para interactuar con las funcionalidades del chatbot:
+
+* `telegram_main.py::telegram_webhook_handler`:
+
+```python
+@app.post("/webhook")
+async def telegram_webhook_handler(request: Request, background_tasks: BackgroundTasks):
+```
+
+   * **Propósito**: Es el *endpoint* de FastAPI que recibe todos los mensajes y actualizaciones de Telegram. Actúa como el punto de entrada principal para las interacciones del usuario.
+   * **Comportamiento**:  Recibe el `payload` de Telegram, extrae el `chat_id` y el mensaje (texto o voz), verifica si el usuario está en la whitelist y delega el procesamiento a `handle_message` en segundo plano.
+
+* `telegram_chat.py::handle_message`:
+
+```python
+def answer(self, question: str = None, session_id: str = None, name: str = None):
+```
+   * **Propósito**: Es la función central que orquesta la respuesta del chatbot. Recibe la pregunta del usuario, gestiona el historial de la sesión, invoca el `AgentExecutor` de LangChain y maneja la salida.
+   * **Comportamiento**:
+    1. Asegura la existencia de la sesión en MongoDB (`ensure_session`).
+
+    2. Recupera y trunca el historial de la sesión (`get_session_history`, `trim_history`).
+
+    3. Invoca al AgentExecutor con la pregunta y el historial, permitiendo que el LLM decida qué herramientas usar (SQL, `search_information`, `pdf_report_tool`).
+
+    4. Registra la interacción completa en MongoDB (`add_message`, `add_message_backup`).
+
+    5. Si la respuesta es un PDF, coordina su envío a Telegram.
+
+* `pdf_tool.py::generate_financial_report_pdf`:
+
+```python
+def generate_financial_report_pdf(table_data: str, title: str, chat_id: int) -> dict:
+```
+
+   * **Propósito**: Genera un reporte en formato PDF a partir de datos tabulares proporcionados y un análisis generado por un LLM, y lo envía al usuario de Telegram.
+
+   * **Comportamiento**: Utiliza fpdf para crear el PDF, get_llm_analysis para obtener un resumen del LLM y enviar_pdf_por_telegram para enviar el archivo.
+
+* `vectorstore.py::LangchainVectorStore.create_index`:
+
+```python
+def create_index(self, docs):
+```
+
+   * **Propósito**: Crea un nuevo índice FAISS a partir de una lista de documentos.
+
+   * **Comportamiento**: Utiliza FAISS.from_documents para generar el índice y lo guarda localmente.
+
+:::
+
+::: {style="text-align: justify"}
+
+## 4. Guía de Entrenamiento y Mejora
+Esta sección aborda cómo se mantiene y mejora la base de conocimientos del chatbot, así como recomendaciones para futuras optimizaciones.
+
+### 4.1. Generación y Actualización de la Base de Datos Vectorial
+La herramienta search_information se basa en un vector store FAISS. Este vector store almacena representaciones vectoriales de documentos internos (manuales, reglamentos, etc.) para permitir búsquedas semánticas.
+
+Proceso de Creación: Los documentos internos se convierten en objetos langchain.schema.Document, se generan embeddings utilizando OpenAIEmbeddings, y luego se construye un índice FAISS que se guarda localmente.
+
+Actualización: Para mantener la información actualizada, se debe ejecutar periódicamente el script que reconstruye o actualiza este vector store con cualquier nuevo documento o modificación.
+
+### 4.2. Recomendaciones para Futura Mejora
+
+1. **Monitoreo Avanzado**: Implementar un monitoreo más detallado de las interacciones del chatbot, incluyendo el rendimiento de las consultas SQL, el tiempo de respuesta de las herramientas y la calidad de las respuestas generadas por el LLM. Esto puede hacerse analizando los datos en la colección `message_backup` de MongoDB.
+
+2. **Optimización de Prompts**: Continuar iterando y refinando los *prompts* (`prompts.py`) para mejorar la precisión y coherencia de las respuestas, especialmente en casos complejos o ambiguos.
+
+3. **Manejo de Errores Robustos**: Mejorar el manejo de errores en las llamadas a APIs externas (OpenAI, Telegram) y a las bases de datos (PostgreSQL, MongoDB) para proporcionar mensajes más informativos al usuario y facilitar la depuración.
+
+4. **Expansión de Herramientas**: Considerar la adición de nuevas herramientas para el agente, como la capacidad de crear gráficos a partir de datos financieros, o interactuar con otros sistemas internos de Salsas Castillo.
+
+5. **Evaluación Cuantitativa**: Si es posible, definir métricas cuantitativas para evaluar la calidad de las respuestas del chatbot (ej., ROUGE, BLEU, o métricas basadas en la satisfacción del usuario) para complementar la evaluación cualitativa.
+
+6. **Embeddings Locales (Opcional)**: Investigar el uso de modelos de embeddings open-source (ej., a través de Ollama) para reducir la dependencia de OpenAI y potencialmente los costos, si la precisión es aceptable para los casos de uso de Salsas Castillo.
+
+:::
+
+::: {style="text-align: justify"}
+
+## 5. Arquitectura
+
+### 5.1. Componentes Clave:
+
+* **Usuario de Telegram**: El usuario final que interactúa con el chatbot a través de la aplicación de mensajería.
+* **Backend del Chatbot (FastAPI)**: El servicio principal que procesa las consultas de los usuarios.
+    * `telegram_main.py`: Punto de entrada de los webhooks de Telegram.
+    * `telegram_chat.py`: Maneja la lógica de Telegram (transcripción de voz, envío de mensajes) y coordina preguntas y respuestas con el agente.
+    * `agent_multitool.py`: Contiene el `AgentMultiTools` que orquesta el LLM y las herramientas.
+
+* **Modelo agéntico**: El cerebro principal que utiliza un LLM para generar respuestas, razonar y decidir el uso de herramientas.
+* **Base de Datos NoSQL (MongoDB)**: Almacena el historial de sesiones (`sessions`) y un respaldo completo de mensajes (`message_backup`) para análisis.
+* **Base de Datos Relacional (PostgreSQL)**: Contiene los datos transaccionales de ventas (`historial_facturas`) y datos financieros consolidados (`financieroii`).
+* **Base de Datos Vectorial (FAISS)**: Almacena los embeddings de documentos internos para búsquedas semánticas (utilizado por search_information).
+* **Herramientas**: Funciones específicas que el LLM puede invocar:
+    * `sql_db_query`, `sql_db_schema`, etc. (de `SQLDatabaseToolkit`): Para interactuar con PostgreSQL.
+    * `search_information`: Para buscar en el vector store de documentos internos.
+    * `pdf_report_tool`: Para generar y enviar reportes PDF.
+
+### 5.2. Flujo de Interacción Principal:
+
+1. El **Usuario de Telegram** envía un mensaje (texto o voz) al chatbot.
+2. El mensaje es recibido por la **API** y enviado al *endpoint* /webhook del **Backend del Chatbot**.
+3. `telegram_chat.py` procesa el mensaje. Si es voz, lo envía a **OpenAI Whisper API** para transcripción.
+4. El texto del mensaje se pasa a `AgentMultiTools` (`agent_multitool.py`).
+5. `AgentMultiTools` gestiona la **sesión en MongoDB** y consulta el historial.
+6. El **LLM**, guiado por los *prompts* (`prompts.py`), analiza la consulta y decide qué **Herramientas** utilizar:
+    
+    * Si necesita datos de ventas, finanzas, facturas, u otras tablas, invoca herramientas SQL para consultar la base de datos de PostgreSQL.
+    * Si necesita información de documentos internos, invoca search_information para buscar en la Base de Datos Vectorial (FAISS).
+    * Si se solicita un reporte, invoca pdf_report_tool, que a su vez puede usar el LLM para análisis y luego envía el PDF a Telegram.
+    * Si la consulta se trata sobre una visualización de datos, se invoca table_tool, toma los datos devueltos por la consulta SQL, los convierte a tabla, lo guarda temporalmente como imagen y lo envía al usuario.
+
+7. La información recuperada por las herramientas se contextualiza y se envía de nuevo al **LLM** para generar la **respuesta final al usuario**.
+8. La respuesta es enviada de vuelta al **Usuario de Telegram** a través de la **API**.
+9. Todas las interacciones (consultas y respuestas) se registran en las colecciones `sessions` y `message_backup` en **MongoDB** para análisis y auditoría.
+
+### 5.3. Diagrama de la Arquitectura
+
+El siguiente diagrama ilustra la arquitectura general del sistema del chatbot para Salsas Castillo, mostrando los componentes principales y el flujo de datos.
+
+![Arquitectura del sistema](./images/arquitectura.jpg){width=120%}
+
+:::

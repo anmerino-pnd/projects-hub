@@ -1,0 +1,59 @@
+---
+title: "Portafolio de Ciencia de Datos e IA"
+subtitle: "Ingeniería de Software, LLMs y Sistemas Agénticos, MCPs y RAG"
+about:
+  template: jolla
+  image: profile.jpg # Asegúrate de poner una foto tuya llamada profile.jpg en la raíz
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/anmerino-pnd
+    - icon: github
+      text: GitHub
+      href: https://github.com/anmerino-pnd
+    - icon: envelope
+      text: Email
+      href: mailto:acedeno00@gmail.com
+---
+
+Bienvenido a mi portafolio profesional. Soy **Angel Alberto Merino Cedeño**, estudiante de Maestría en Ciencia de Datos e Ingeniero Químico con una fuerte especialización en el desarrollo de **Sistemas de Inteligencia Artificial Generativa**, **Chatbots RAG** y **Arquitecturas de Datos**.
+
+Aquí encontrarás documentación técnica detallada sobre mis implementaciones más recientes en entornos empresariales reales.
+
+---
+
+## Proyectos Destacados
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+### Help Desk Inteligente (CENACE)
+Sistema de soporte técnico basado en **RAG** y **Modelos de Lenguaje (LLMs)** para el Centro Nacional de Control de Energía. 
+Este proyecto utiliza modelos open-source (Gemma/Ollama) para clasificar incidentes y sugerir soluciones a partir de documentación técnica interna, garantizando la privacidad de datos sensibles.
+
+**Tecnologías:** Python, LangChain, Ollama, MongoDB, FastAPI.
+
+[**Ver Documentación Completa**](./0_cenace_helpdesk/docs/index.html){.btn .btn-primary}
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### Chatbot Financiero (Salsas Castillo)
+Asistente conversacional desplegado en **Telegram** para optimizar el acceso a información de ventas y finanzas.
+Integra bases de datos **SQL** (PostgreSQL) para consultas transaccionales en tiempo real y **Vector Stores** para consultas sobre normativas internas, incluyendo generación automática de reportes PDF.
+
+**Tecnologías:** OpenAI (GPT-4), PostgreSQL, FAISS, Telegram API.
+
+[**Ver Documentación Completa**](./1_ct_chatbot/docs/index.html){.btn .btn-primary}
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### Recomendador de Productos (CT Internacional)
+Chatbot avanzado para la recomendación de productos de hardware.
+Implementa un ciclo **ETL** complejo para sincronizar bases de datos **MySQL** con un índice vectorial. Incluye un sistema de moderación de usuarios, manejo de "mixed content" mediante proxy PHP y despliegue web mediante Widget personalizado.
+
+**Tecnologías:** MySQL, Redis, Docker/Podman, JavaScript Widget, RAG.
+
+[**Ver Documentación Completa**](./2_salsas_chatbot/docs/index.html){.btn .btn-primary}
+:::
+
+:::

@@ -1,0 +1,38 @@
+/* Este archivo CSS ha sido actualizado para utilizar la paleta de colores de Salsas Castillo.
+   Los colores principales identificados son un rojo menos intenso, amarillo y blanco.
+*/
+
+.navbar-brand img {
+    max-height: none !important; /* Elimina cualquier restricción de altura */
+    height: 60px !important;  /* Ajusta la altura según lo necesites */
+    width: auto !important;    /* Mantiene la proporción */
+}
+
+/* Se definen las variables de color de Salsas Castillo para su uso consistente. */
+:root {
+  --castillo-red: #ffeccf; /* Un rojo más oscuro y menos vibrante */
+  --castillo-yellow: #d6162f;
+  --castillo-white: #000000;
+}
+
+/* Se establece el color de fondo de la barra de navegación a un rojo menos intenso.
+   Se utiliza la variable --castillo-red.
+*/
+.navbar {
+    background-color: var(--castillo-red) !important;
+    border-bottom: 3px solid var(--castillo-yellow); /* Añade un borde amarillo para un toque extra */
+}
+
+/* Se ajustan los colores de los enlaces, texto y el botón de alternancia a blanco.
+   Esto asegura una excelente legibilidad sobre el fondo rojo.
+*/
+.navbar a, .navbar-brand, .navbar-toggler {
+    color: var(--castillo-white) !important;
+}
+
+/* Se cambia el color al pasar el cursor sobre los enlaces a un amarillo brillante.
+   Esto crea un efecto visual llamativo y acorde a la marca.
+*/
+.navbar a:hover {
+    color: var(--castillo-yellow) !important;
+}

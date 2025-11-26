@@ -1,0 +1,40 @@
+---
+title: "Desarrollo de un help desk basado en un modelo de lenguaje grande"
+format: 
+    html:
+         page-layout: article
+toc: false
+author: 
+  - name: "Angel Merino Cedeño"
+    email: "acedeno00@gmail.com"     
+    url: "https://www.linkedin.com/in/anmerino-pnd"          
+    affiliations:
+        - name : "[📄 CV](https://unisonmx-my.sharepoint.com/:w:/g/personal/a218204710_unison_mx/EYLVn5p-js9Hh7hr8HmUKOgBZq5L1wHwtZzyjEZG_SeUGA?e=Q7U9pP)"
+  - name: "Eduardo Yeomans Acuña"
+  - name: "Hector Alberto Gutierrez Ibarra"
+date: last-modified
+date-format: long
+lang: es
+---
+
+::: {style="text-align: justify"}
+
+## Introducción
+Este proyecto se centra en la elaboración de un sistema inteligente incorporado al sistema de seguimiento de incidentes de la mesa de ayuda (**Help Desk**) del Centro Nacional de Control de Energía (**CENACE**). Utilizando manuales, guías de procedimientos y la base de conocimientos de la organización, el sistema incorpora **modelos grandes de lenguaje (LLMs)** y técnicas de procesamiento de lenguaje natural (**PLN**) para la **clasificación de incidentes, recuperación de información relevante y generación de soluciones sugeridas**. Este sistema no solo proveerá apoyo inmediato a los ingenieros del CENACE, sino que también nutrirá la base de conocimientos implementada con las soluciones generadas.
+
+El proyecto está estructurado en las siguientes fases, siguiendo el ciclo CRISP-DM:
+
+1. **Comprensión del Negocio**: Definición del problema, el contexto de la mesa de ayuda del CENACE, y los objetivos específicos del proyecto.
+
+2. **Comprensión de los Datos**: Recolección y análisis preliminar de la documentación técnica disponible y de los tickets de incidentes históricos.
+
+3. **Preparación de los Datos**: Limpieza, transformación y estructuración de los documentos técnicos y datos de tickets para su posterior uso en el sistema RAG y la base de datos vectorial.
+
+4. **Desarrollo del Sistema de Help Desk**: Implementación del chatbot y la arquitectura de RAG que utilizará el LLM para interpretar las consultas y generar respuestas basadas en la base de conocimientos.
+
+5. **Evaluación**: Validación de la precisión y relevancia de las respuestas generadas por el sistema, asegurando su utilidad para los ingenieros en su trabajo diario.
+
+6. **Implementación**: Despliegue del sistema de Help Desk en un entorno de pruebas del CENACE y posterior integración en el flujo de trabajo de los ingenieros.
+
+A través de estas fases, se busca proporcionar una solución innovadora que mejore la interacción con la información técnica del CENACE, optimizando el flujo de trabajo de los ingenieros y facilitando una toma de decisiones más rápida y precisa, particularmente en la zona noroeste del país (Sonora y Sinaloa), donde el proyecto se ha enfocado inicialmente.
+:::
