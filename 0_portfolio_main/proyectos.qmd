@@ -17,6 +17,7 @@ A continuación presento una selección de proyectos desarrollados bajo metodolo
 Sistema diseñado para el Centro Nacional de Control de Energía. Resuelve la necesidad de automatizar la clasificación de incidentes y sugerir soluciones técnicas sin exponer datos sensibles a la nube pública.
 
 **Puntos Clave:**
+
 * Implementación de modelos **Open-Source (Gemma/Ollama)** para privacidad total de datos.
 * Arquitectura **RAG** para consulta de manuales técnicos internos.
 * Persistencia de historial y sesiones en **MongoDB**.
@@ -42,6 +43,7 @@ Sistema diseñado para el Centro Nacional de Control de Energía. Resuelve la ne
 Chatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un catálogo masivo en MySQL con un motor de búsqueda semántica, gestionando precios y existencias dinámicas.
 
 **Puntos Clave:**
+
 * Pipeline **ETL complejo** para sincronizar MySQL con Vector Stores (FAISS).
 * Solución de arquitectura "Mixed Content" mediante **Proxy PHP**.
 * Sistema de moderación de usuarios y widget personalizado en JS.
@@ -67,6 +69,7 @@ Chatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un
 Solución conversacional desplegada en Telegram para directivos y fuerza de ventas. Permite consultas en lenguaje natural sobre bases de datos transaccionales y normativas internas.
 
 **Puntos Clave:**
+
 * Orquestación de **Herramientas SQL** para consultas de ventas en tiempo real.
 * Generación automática de **Reportes PDF** con análisis de IA.
 * Integración nativa con **Telegram API** y transcripción de audio (Whisper).
