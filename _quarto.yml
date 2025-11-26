@@ -10,15 +10,6 @@ website:
         text: Inicio
       - href: about.qmd
         text: Sobre Mí
-    right:
-      - text: "Proyectos"
-        menu:
-          - text: "Help Desk CENACE"
-            href: 0_cenace_helpdesk/docs/index.html
-          - text: "Recomendador CT"
-            href: 1_ct_chatbot/docs/index.html
-          - text: "Chatbot Salsas Castillo"
-            href: 2_salsas_chatbot/docs/index.html
 
 format:
   html:

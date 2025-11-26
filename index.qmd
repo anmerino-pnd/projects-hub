@@ -33,7 +33,7 @@ Este proyecto utiliza modelos open-source (Gemma/Ollama) para clasificar inciden
 
 **Tecnologías:** Python, LangChain, Ollama, MongoDB, FastAPI.
 
-[**Ver Documentación Completa**](./0_cenace_helpdesk/docs/index.html){.btn .btn-primary}
+[**Ver Documentación Completa**](./0_cenace_helpdesk/index.html){.btn .btn-primary}
 :::
 
 ::: {.g-col-12 .g-col-md-4}
@@ -43,7 +43,7 @@ Integra bases de datos **SQL** (PostgreSQL) para consultas transaccionales en ti
 
 **Tecnologías:** OpenAI (GPT-4), PostgreSQL, FAISS, Telegram API.
 
-[**Ver Documentación Completa**](./1_ct_chatbot/docs/index.html){.btn .btn-primary}
+[**Ver Documentación Completa**](./1_ct_chatbot/index.html){.btn .btn-primary}
 :::
 
 ::: {.g-col-12 .g-col-md-4}
@@ -53,7 +53,7 @@ Implementa un ciclo **ETL** complejo para sincronizar bases de datos **MySQL** c
 
 **Tecnologías:** MySQL, Redis, Docker/Podman, JavaScript Widget, RAG.
 
-[**Ver Documentación Completa**](./2_salsas_chatbot/docs/index.html){.btn .btn-primary}
+[**Ver Documentación Completa**](./2_salsas_chatbot/index.html){.btn .btn-primary}
 :::
 
 :::

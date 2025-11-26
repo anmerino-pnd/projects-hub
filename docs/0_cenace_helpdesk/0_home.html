@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Angel Merino Cedeño">
+<meta name="author" content="Eduardo Yeomans Acuña">
+<meta name="author" content="Hector Alberto Gutierrez Ibarra">
 
-<title>Preparación de los datos – Angel Merino | Data Portfolio</title>
+<title>Desarrollo de un help desk basado en un modelo de lenguaje grande – Angel Merino | Data Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f3c2ea88cadbcfb37ba28ffa2c97cfc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f3c2ea88cadbcfb37ba28ffa2c97cfc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,14 +74,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Angel Merino | Data Portfolio</span>
     </a>
   </div>
@@ -89,11 +92,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">Sobre Mí</span></a>
   </li>  
 </ul>
@@ -104,15 +107,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-proyectos">    
         <li>
-    <a class="dropdown-item" href="../../0_cenace_helpdesk/docs/index.html">
+    <a class="dropdown-item" href="../0_cenace_helpdesk/index.html">
  <span class="dropdown-text">Help Desk CENACE</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../1_ct_chatbot/docs/index.html">
+    <a class="dropdown-item" href="../1_ct_chatbot/index.html">
  <span class="dropdown-text">Recomendador CT</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../2_salsas_chatbot/docs/index.html">
+    <a class="dropdown-item" href="../2_salsas_chatbot/index.html">
  <span class="dropdown-text">Chatbot Salsas Castillo</span></a>
   </li>  
     </ul>
@@ -128,31 +131,49 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de Contenidos</h2>
-   
-  <ul>
-  <li><a href="#extracción-de-los-datos" id="toc-extracción-de-los-datos" class="nav-link active" data-scroll-target="#extracción-de-los-datos">1. Extracción de los datos</a></li>
-  <li><a href="#transformación-de-los-datos" id="toc-transformación-de-los-datos" class="nav-link" data-scroll-target="#transformación-de-los-datos">2. Transformación de los datos</a></li>
-  <li><a href="#carga-de-los-datos" id="toc-carga-de-los-datos" class="nav-link" data-scroll-target="#carga-de-los-datos">3. Carga de los datos</a></li>
-  <li><a href="#flujo-de-preparación" id="toc-flujo-de-preparación" class="nav-link" data-scroll-target="#flujo-de-preparación">4. Flujo de preparación</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Preparación de los datos</h1>
+<h1 class="title">Desarrollo de un help desk basado en un modelo de lenguaje grande</h1>
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Autores/as</div>
+  <div class="quarto-title-meta-heading">Afiliación</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://www.linkedin.com/in/anmerino-pnd">Angel Merino Cedeño</a> <a href="mailto:acedeno00@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://unisonmx-my.sharepoint.com/:w:/g/personal/a218204710_unison_mx/EYLVn5p-js9Hh7hr8HmUKOgBZq5L1wHwtZzyjEZG_SeUGA?e=Q7U9pP">📄 CV</a>
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Eduardo Yeomans Acuña </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Hector Alberto Gutierrez Ibarra </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    
+      
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">24 de octubre de 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -162,48 +183,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div style="text-align: justify">
-<p>La fase de preparación de datos es crucial para el funcionamiento del sistema RAG. Su objetivo es convertir la información no estructurada, proveniente de los documentos técnicos del CENACE, en un formato que permita una búsqueda eficiente y una recuperación semántica de alta calidad. Este proceso se divide en tres etapas principales: extracción, transformación y carga de los datos.</p>
-</div>
-<section id="extracción-de-los-datos" class="level2" style="text-align: justify">
-<h2 class="anchored" data-anchor-id="extracción-de-los-datos">1. Extracción de los datos</h2>
-<p>La principal fuente de información son los documentos técnicos en formato PDF, así como la base de datos de incidentes resueltos. Para la ingesta de documentos, el sistema utiliza el módulo <code>doccollection.py</code>, específicamente la clase <code>DisjointCollection</code>.</p>
+<section id="introducción" class="level2" style="text-align: justify">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>Este proyecto se centra en la elaboración de un sistema inteligente incorporado al sistema de seguimiento de incidentes de la mesa de ayuda (<strong>Help Desk</strong>) del Centro Nacional de Control de Energía (<strong>CENACE</strong>). Utilizando manuales, guías de procedimientos y la base de conocimientos de la organización, el sistema incorpora <strong>modelos grandes de lenguaje (LLMs)</strong> y técnicas de procesamiento de lenguaje natural (<strong>PLN</strong>) para la <strong>clasificación de incidentes, recuperación de información relevante y generación de soluciones sugeridas</strong>. Este sistema no solo proveerá apoyo inmediato a los ingenieros del CENACE, sino que también nutrirá la base de conocimientos implementada con las soluciones generadas.</p>
+<p>El proyecto está estructurado en las siguientes fases, siguiendo el ciclo CRISP-DM:</p>
 <ol type="1">
-<li><strong>Ingesta de archivos:</strong> Los documentos PDF se cargan y procesan de forma individual utilizando la librería <code>PyPDF2</code>. Se extrae el texto de cada página, junto con sus metadatos inherentes (título, autor, etc.).</li>
-<li><strong>Fragmentación de texto (chunking):</strong> El texto extraído se divide en fragmentos lógicos o “chunks” para preservar el contexto de la información. El <code>TextSplitter</code> del módulo <code>doccollection</code> está configurado con los siguientes parámetros para optimizar la cohesión del texto:
-<ul>
-<li><strong>Tamaño del <code>chunk</code>:</strong> <code>1500</code> caracteres.</li>
-<li><strong>Solapamiento (overlap):</strong> <code>200</code> caracteres. Este solapamiento asegura que la información contextual clave no se pierda en los límites de cada fragmento.</li>
-</ul></li>
-<li><strong>Asignación de metadatos:</strong> A cada <code>chunk</code> se ke asignan metadatos esenciales, como el nombre del archivo de origen (<code>filename</code>), el número de página (<code>page_number</code>), y un identificador único de referencia (<code>reference</code>). Estos metadatos son vitales para referenciar las fuentes en las respuestas del LLM, evitando alucinaciones y permitiendo al usuario validar la información.</li>
+<li><p><strong>Comprensión del Negocio</strong>: Definición del problema, el contexto de la mesa de ayuda del CENACE, y los objetivos específicos del proyecto.</p></li>
+<li><p><strong>Comprensión de los Datos</strong>: Recolección y análisis preliminar de la documentación técnica disponible y de los tickets de incidentes históricos.</p></li>
+<li><p><strong>Preparación de los Datos</strong>: Limpieza, transformación y estructuración de los documentos técnicos y datos de tickets para su posterior uso en el sistema RAG y la base de datos vectorial.</p></li>
+<li><p><strong>Desarrollo del Sistema de Help Desk</strong>: Implementación del chatbot y la arquitectura de RAG que utilizará el LLM para interpretar las consultas y generar respuestas basadas en la base de conocimientos.</p></li>
+<li><p><strong>Evaluación</strong>: Validación de la precisión y relevancia de las respuestas generadas por el sistema, asegurando su utilidad para los ingenieros en su trabajo diario.</p></li>
+<li><p><strong>Implementación</strong>: Despliegue del sistema de Help Desk en un entorno de pruebas del CENACE y posterior integración en el flujo de trabajo de los ingenieros.</p></li>
 </ol>
-</section>
-<section id="transformación-de-los-datos" class="level2" style="text-align: justify">
-<h2 class="anchored" data-anchor-id="transformación-de-los-datos">2. Transformación de los datos</h2>
-<p>Una vez que los documentos se han dividido en <code>chunks</code>, se transforman en una representación numérica que la computadora puede entender y procesar eficientemente.</p>
-<ol type="1">
-<li><strong>Vectorización:</strong> Cada <code>chunk</code> de texto es procesado por el modelo de embeddings <code>bge-m3:latest</code>, implementado en la clase <code>OllamaEmbedder</code>.</li>
-<li><strong>Representación vectorial:</strong> El modelo convierte el texto en un vector numérico de alta dimensión. Estos vectores capturan el significado semántico del texto; los <code>chunks</code> con un significado similar se agrupan en un espacio vectorial. Este enfoque va más allá de la simple búsqueda por palabres clave, ya que permite al sistema encontrar información relevante incluso si la consulta utiliza un vocabulario o una sintaxis diferente.</li>
-</ol>
-</section>
-<section id="carga-de-los-datos" class="level2" style="text-align: justify">
-<h2 class="anchored" data-anchor-id="carga-de-los-datos">3. Carga de los datos</h2>
-<p>Los vectores generados se almacenan en una base de datos vectorial optimizada para la búsqueda de similitud.</p>
-<ol type="1">
-<li><strong>Base de datos vectorial:</strong> Se utiliza <strong>FAISS</strong> (<strong>Facebook AI Similarity Search</strong>), una librería de código abierto para la búsqueda eficiente en grandes conjuntos de vectores. FAISS indexa los vectores de manera que las consultas de similitud se puedan ejecutar en milisegundos.</li>
-<li><strong>Persistencia:</strong> La clase <code>FAISSVectorStore</code> es responsable de la carga y el almacenamiento de los vectores. El índice de FAISS se guarda en un archivo local (<code>index.faiss</code>), mientras que los metadatos de los <code>chunks</code> se almacenan en un diccionario (<code>index.pkl</code>).</li>
-<li><strong>Búsqueda semántica:</strong> Una vez cargados los datos, la base de datos vectorial está lista para recibir consultas. Cuando un usuario envía una pregunta, esta se convierte en un vector, que luego se utiliza para encontrar los vectores más cercanos (los <code>chunks</code> más relevantes) en el índice de FAISS.</li>
-</ol>
-</section>
-<section id="flujo-de-preparación" class="level2" style="text-align: justify">
-<h2 class="anchored" data-anchor-id="flujo-de-preparación">4. Flujo de preparación</h2>
-<p>El proceso completo es orquestado por la clase <code>RAG</code> y es ejecutado como un flujo de trabajo de indexación:</p>
-<ol type="1">
-<li><strong>Solicitud de carga:</strong> El usuario sube un documento PDF a través del endpoint <code>/documents</code>.</li>
-<li><strong>Manejo de la ingesta:</strong> El <code>rag.py</code> recibe el archivo y delega su procesamiento al <code>doccollection</code>.</li>
-<li><strong>Generación de chunks y metadatos:</strong> <code>doccollection</code> lee el PDF, extrae el texto y lo divide en <code>chunks</code>. Asigna metadatos como el ID del documento, el nombre del archivo y el número de página a cada uno de ellos.</li>
-<li><strong>Vectorización y almacenamiento:</strong> Cada <code>chunk</code> y sus metadatos asociados se envían al <code>vectorstore</code>, que a su vez utiliza el <code>embedder</code> para obtener su representación vectorial. Finalmente, los vectores se agregan al índice de FAISS, asegurando que el conocimiento esté disponible para futuras consultas.</li>
-</ol>
+<p>A través de estas fases, se busca proporcionar una solución innovadora que mejore la interacción con la información técnica del CENACE, optimizando el flujo de trabajo de los ingenieros y facilitando una toma de decisiones más rápida y precisa, particularmente en la zona noroeste del país (Sonora y Sinaloa), donde el proyecto se ha enfocado inicialmente.</p>
 </section>
 
 
