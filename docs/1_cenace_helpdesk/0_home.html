@@ -6,12 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Daniel Rivera Güémez">
-<meta name="author" content="Guillermo Velazquez Coronado">
 <meta name="author" content="Angel Merino Cedeño">
-<meta name="author" content="Elaine Grenot Castellano">
+<meta name="author" content="Eduardo Yeomans Acuña">
+<meta name="author" content="Hector Alberto Gutierrez Ibarra">
 
-<title>GlorIA: Análisis empresarial desde un enfoque con IA – Angel Merino | Data Portfolio</title>
+<title>Desarrollo de un help desk basado en un modelo de lenguaje grande</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -27,22 +26,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f3c2ea88cadbcfb37ba28ffa2c97cfc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ae2d0dcda2edce4ab590422bb373b64f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,8 +84,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Angel Merino | Data Portfolio</span>
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./cenace.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Buscar"></div>
@@ -93,37 +95,37 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Inicio</span></a>
+    <a class="nav-link active" href="./0_home.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
-<span class="menu-text">Sobre Mí</span></a>
+    <a class="nav-link" href="./1_comprension.html"> 
+<span class="menu-text">Comprensión del negocio</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-proyectos" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Proyectos</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-proyectos">    
-        <li>
-    <a class="dropdown-item" href="../0_cenace_helpdesk/index.html">
- <span class="dropdown-text">Help Desk CENACE</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./2_comprension_datos.html"> 
+<span class="menu-text">Comprensión de los datos</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../1_ct_chatbot/index.html">
- <span class="dropdown-text">Recomendador CT</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./3_preparacion.html"> 
+<span class="menu-text">Preparación</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../2_salsas_chatbot/index.html">
- <span class="dropdown-text">Chatbot Salsas Castillo</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./4_modelado.html"> 
+<span class="menu-text">Modelado y Evaluación</span></a>
   </li>  
-    </ul>
-  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./5_despliegue.html"> 
+<span class="menu-text">Despliegue</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./6_documentacion.html"> 
+<span class="menu-text">Documentación</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -138,27 +140,41 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">GlorIA: Análisis empresarial desde un enfoque con IA</h1>
+<h1 class="title">Desarrollo de un help desk basado en un modelo de lenguaje grande</h1>
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Autores/as</div>
+  <div class="quarto-title-meta-heading">Afiliación</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://www.linkedin.com/in/anmerino-pnd">Angel Merino Cedeño</a> <a href="mailto:acedeno00@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://unisonmx-my.sharepoint.com/:w:/g/personal/a218204710_unison_mx/EYLVn5p-js9Hh7hr8HmUKOgBZq5L1wHwtZzyjEZG_SeUGA?e=Q7U9pP">📄 CV</a>
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Eduardo Yeomans Acuña </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Hector Alberto Gutierrez Ibarra </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autores/as</div>
-    <div class="quarto-title-meta-contents">
-             <p>Daniel Rivera Güémez </p>
-             <p>Guillermo Velazquez Coronado </p>
-             <p>Angel Merino Cedeño </p>
-             <p>Elaine Grenot Castellano </p>
-          </div>
-  </div>
-    
+      
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">21 de noviembre de 2025</p>
+      <p class="date">24 de octubre de 2025</p>
     </div>
   </div>
   
@@ -172,21 +188,22 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introducción" class="level2" style="text-align: justify">
 <h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
-<p>Este proyecto se enfoca en el desarrollo de un <strong>chatbot inteligente</strong> para Salsas Castillo, diseñado para optimizar el acceso a información crítica de ventas, finanzas, facturas y más. A través de este asistente conversacional, se busca empoderar al personal de toma de decisiones, proporcionando respuestas rápidas y precisas a sus consultas, y facilitando la toma de decisiones basadas en datos actualizados que cambian en tiempo real.</p>
-<p>El chatbot se basa en un modelo agéntico MCP (Protocolo de Contexto del Modelo), que combina modelos de lenguaje avanzados con acceso directo a bases de datos relacionales (PostgreSQL) y vectoriales (FAISS). Además de la capacidad de generar reportes en PDF y generación de tablas para una visualización más amigable. La interacción principal se realiza a través de la plataforma de mensajería Telegram.</p>
-<p>El proyecto se divide en las siguientes fases clave:</p>
+<p>Este proyecto se centra en la elaboración de un sistema inteligente incorporado al sistema de seguimiento de incidentes de la mesa de ayuda (<strong>Help Desk</strong>) del Centro Nacional de Control de Energía (<strong>CENACE</strong>). Utilizando manuales, guías de procedimientos y la base de conocimientos de la organización, el sistema incorpora <strong>modelos grandes de lenguaje (LLMs)</strong> y técnicas de procesamiento de lenguaje natural (<strong>PLN</strong>) para la <strong>clasificación de incidentes, recuperación de información relevante y generación de soluciones sugeridas</strong>. Este sistema no solo proveerá apoyo inmediato a los ingenieros del CENACE, sino que también nutrirá la base de conocimientos implementada con las soluciones generadas.</p>
+<p>El proyecto está estructurado en las siguientes fases, siguiendo el ciclo CRISP-DM:</p>
 <ol type="1">
-<li><p><strong>Comprensión del Negocio</strong>: Definición de los objetivos estratégicos y el contexto operativo de Salsas Castillo, enfocados en mejorar la eficiencia en el acceso a la información, el correcto manejo y manipulación de los datos para una generación eficiente de respuestas, y la comunicación interna.</p></li>
-<li><p><strong>Preparación</strong>: Diseño e implementación de la arquitectura del chatbot, incluyendo la integración de bases de datos relacionales y vectoriales, el desarrollo de herramientas personalizadas, y su flujo de trabajo.</p></li>
-<li><p><strong>Modelado y Evaluación</strong>: La configuración de modelos de lenguaje y la validación de su desempeño a través de consultas controladas.</p></li>
-<li><p><strong>Despliegue</strong>: Integración del chatbot en el entorno de producción de Telegram y la infraestructura de Salsas Castillo, asegurando su operatividad y accesibilidad.</p></li>
+<li><p><strong>Comprensión del Negocio</strong>: Definición del problema, el contexto de la mesa de ayuda del CENACE, y los objetivos específicos del proyecto.</p></li>
+<li><p><strong>Comprensión de los Datos</strong>: Recolección y análisis preliminar de la documentación técnica disponible y de los tickets de incidentes históricos.</p></li>
+<li><p><strong>Preparación de los Datos</strong>: Limpieza, transformación y estructuración de los documentos técnicos y datos de tickets para su posterior uso en el sistema RAG y la base de datos vectorial.</p></li>
+<li><p><strong>Desarrollo del Sistema de Help Desk</strong>: Implementación del chatbot y la arquitectura de RAG que utilizará el LLM para interpretar las consultas y generar respuestas basadas en la base de conocimientos.</p></li>
+<li><p><strong>Evaluación</strong>: Validación de la precisión y relevancia de las respuestas generadas por el sistema, asegurando su utilidad para los ingenieros en su trabajo diario.</p></li>
+<li><p><strong>Implementación</strong>: Despliegue del sistema de Help Desk en un entorno de pruebas del CENACE y posterior integración en el flujo de trabajo de los ingenieros.</p></li>
 </ol>
-<p>A través de estas fases, buscamos proporcionar una solución innovadora que transforme la manera en que Salsas Castillo accede y utiliza su información de negocio, impulsando la eficiencia y la agilidad en sus operaciones diarias.</p>
+<p>A través de estas fases, se busca proporcionar una solución innovadora que mejore la interacción con la información técnica del CENACE, optimizando el flujo de trabajo de los ingenieros y facilitando una toma de decisiones más rápida y precisa, particularmente en la zona noroeste del país (Sonora y Sinaloa), donde el proyecto se ha enfocado inicialmente.</p>
 </section>
 
 
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -207,6 +224,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
