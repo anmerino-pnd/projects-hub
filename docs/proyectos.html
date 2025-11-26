@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Proyectos Destacados – Angel Merino | Projects Portfolio</title>
+<title>Proyectos e Implementaciones – Angel Merino | Projects Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -108,46 +108,75 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Proyectos e Implementaciones</h1>
+            <p class="subtitle lead">Documentación técnica de soluciones empresariales basadas en IA y Datos.</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Proyectos Destacados</h1>
-<p class="subtitle lead">Una colección de mis implementaciones técnicas en Ciencia de Datos e IA.</p>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
+<p>A continuación presento una selección de proyectos desarrollados bajo metodologías ágiles, enfocados en resolver problemas de negocio mediante IA Generativa y análisis de datos.</p>
 <div class="grid">
-<section id="help-desk-inteligente-cenace" class="level3 g-col-12 g-col-md-4">
+<div class="g-col-12 g-col-md-6">
+<div class="card h-100">
+<section id="help-desk-inteligente-cenace" class="level3 card-body">
 <h3 class="anchored" data-anchor-id="help-desk-inteligente-cenace">Help Desk Inteligente (CENACE)</h3>
-<p>Sistema RAG open-source para clasificación de incidentes. <a href="0_cenace_helpdesk/index.html" class="btn btn-primary"><strong>Ver Documentación</strong></a></p>
+<p><strong>Optimización de Soporte Técnico con IA Privada</strong></p>
+<p>Sistema diseñado para el Centro Nacional de Control de Energía. Resuelve la necesidad de automatizar la clasificación de incidentes y sugerir soluciones técnicas sin exponer datos sensibles a la nube pública.</p>
+<p><strong>Puntos Clave:</strong> * Implementación de modelos <strong>Open-Source (Gemma/Ollama)</strong> para privacidad total de datos. * Arquitectura <strong>RAG</strong> para consulta de manuales técnicos internos. * Persistencia de historial y sesiones en <strong>MongoDB</strong>.</p>
+<div class="card-footer bg-transparent border-0">
+<p><span class="badge bg-primary">Python</span> <span class="badge bg-success">LangChain</span> <span class="badge bg-warning text-dark">Ollama</span> <span class="badge bg-info text-dark">FastAPI</span> <br><br> <a href="0_cenace_helpdesk/index.html" class="btn btn-outline-primary btn-sm stretched-link">Leer Documentación →</a></p>
+</div>
 </section>
-<section id="chatbot-financiero-salsas-castillo" class="level3 g-col-12 g-col-md-4">
+</div>
+</div>
+<div class="g-col-12 g-col-md-6">
+<div class="card h-100">
+<section id="recomendador-de-productos-ct" class="level3 card-body">
+<h3 class="anchored" data-anchor-id="recomendador-de-productos-ct">Recomendador de Productos (CT)</h3>
+<p><strong>Sistema de Ventas y Recomendación en Tiempo Real</strong></p>
+<p>Chatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un catálogo masivo en MySQL con un motor de búsqueda semántica, gestionando precios y existencias dinámicas.</p>
+<p><strong>Puntos Clave:</strong> * Pipeline <strong>ETL complejo</strong> para sincronizar MySQL con Vector Stores (FAISS). * Solución de arquitectura “Mixed Content” mediante <strong>Proxy PHP</strong>. * Sistema de moderación de usuarios y widget personalizado en JS.</p>
+<div class="card-footer bg-transparent border-0">
+<p><span class="badge bg-primary">Python</span> <span class="badge bg-danger">MySQL</span> <span class="badge bg-secondary">Docker/Podman</span> <span class="badge bg-dark">JavaScript</span> <br><br> <a href="1_ct_chatbot/index.html" class="btn btn-outline-primary btn-sm stretched-link">Leer Documentación →</a></p>
+</div>
+</section>
+</div>
+</div>
+<div class="g-col-12 g-col-md-6">
+<div class="card h-100">
+<section id="chatbot-financiero-salsas-castillo" class="level3 card-body">
 <h3 class="anchored" data-anchor-id="chatbot-financiero-salsas-castillo">Chatbot Financiero (Salsas Castillo)</h3>
-<p>Asistente en Telegram con consultas SQL en tiempo real. <a href="2_salsas_chatbot/index.html" class="btn btn-primary"><strong>Ver Documentación</strong></a></p>
+<p><strong>Asistente de Ventas y Reportes Financieros</strong></p>
+<p>Solución conversacional desplegada en Telegram para directivos y fuerza de ventas. Permite consultas en lenguaje natural sobre bases de datos transaccionales y normativas internas.</p>
+<p><strong>Puntos Clave:</strong> * Orquestación de <strong>Herramientas SQL</strong> para consultas de ventas en tiempo real. * Generación automática de <strong>Reportes PDF</strong> con análisis de IA. * Integración nativa con <strong>Telegram API</strong> y transcripción de audio (Whisper).</p>
+<div class="card-footer bg-transparent border-0">
+<p><span class="badge bg-primary">Python</span> <span class="badge bg-info text-dark">PostgreSQL</span> <span class="badge bg-success">OpenAI API</span> <span class="badge bg-primary">Telegram</span> <br><br> <a href="2_salsas_chatbot/index.html" class="btn btn-outline-primary btn-sm stretched-link">Leer Documentación →</a></p>
+</div>
 </section>
-<section id="recomendador-ct-ct-internacional" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="recomendador-ct-ct-internacional">Recomendador CT (CT Internacional)</h3>
-<p>Chatbot de ventas con manejo de “mixed content” y ETL complejo. <a href="1_ct_chatbot/index.html" class="btn btn-primary"><strong>Ver Documentación</strong></a></p>
-</section>
+</div>
+</div>
 </div>
 
 

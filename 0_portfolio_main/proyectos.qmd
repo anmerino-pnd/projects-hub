@@ -1,26 +1,86 @@
 ---
-title: "Proyectos Destacados"
-subtitle: "Una colección de mis implementaciones técnicas en Ciencia de Datos e IA."
+title: "Proyectos e Implementaciones"
+subtitle: "Documentación técnica de soluciones empresariales basadas en IA y Datos."
+title-block-banner: true
 ---
+
+A continuación presento una selección de proyectos desarrollados bajo metodologías ágiles, enfocados en resolver problemas de negocio mediante IA Generativa y análisis de datos.
 
 ::: {.grid}
 
-::: {.g-col-12 .g-col-md-4}
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
 ### Help Desk Inteligente (CENACE)
-Sistema RAG open-source para clasificación de incidentes.
-[**Ver Documentación**](0_cenace_helpdesk/index.html){.btn .btn-primary} 
+**Optimización de Soporte Técnico con IA Privada**
+
+Sistema diseñado para el Centro Nacional de Control de Energía. Resuelve la necesidad de automatizar la clasificación de incidentes y sugerir soluciones técnicas sin exponer datos sensibles a la nube pública.
+
+**Puntos Clave:**
+* Implementación de modelos **Open-Source (Gemma/Ollama)** para privacidad total de datos.
+* Arquitectura **RAG** para consulta de manuales técnicos internos.
+* Persistencia de historial y sesiones en **MongoDB**.
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-primary">Python</span>
+<span class="badge bg-success">LangChain</span>
+<span class="badge bg-warning text-dark">Ollama</span>
+<span class="badge bg-info text-dark">FastAPI</span>
+<br><br>
+[Leer Documentación &rarr;](0_cenace_helpdesk/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
 :::
 
-::: {.g-col-12 .g-col-md-4}
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### Recomendador de Productos (CT)
+**Sistema de Ventas y Recomendación en Tiempo Real**
+
+Chatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un catálogo masivo en MySQL con un motor de búsqueda semántica, gestionando precios y existencias dinámicas.
+
+**Puntos Clave:**
+* Pipeline **ETL complejo** para sincronizar MySQL con Vector Stores (FAISS).
+* Solución de arquitectura "Mixed Content" mediante **Proxy PHP**.
+* Sistema de moderación de usuarios y widget personalizado en JS.
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-primary">Python</span>
+<span class="badge bg-danger">MySQL</span>
+<span class="badge bg-secondary">Docker/Podman</span>
+<span class="badge bg-dark">JavaScript</span>
+<br><br>
+[Leer Documentación &rarr;](1_ct_chatbot/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
 ### Chatbot Financiero (Salsas Castillo)
-Asistente en Telegram con consultas SQL en tiempo real.
-[**Ver Documentación**](2_salsas_chatbot/index.html){.btn .btn-primary}
-:::
+**Asistente de Ventas y Reportes Financieros**
 
-::: {.g-col-12 .g-col-md-4}
-### Recomendador CT (CT Internacional)
-Chatbot de ventas con manejo de "mixed content" y ETL complejo.
-[**Ver Documentación**](1_ct_chatbot/index.html){.btn .btn-primary}
+Solución conversacional desplegada en Telegram para directivos y fuerza de ventas. Permite consultas en lenguaje natural sobre bases de datos transaccionales y normativas internas.
+
+**Puntos Clave:**
+* Orquestación de **Herramientas SQL** para consultas de ventas en tiempo real.
+* Generación automática de **Reportes PDF** con análisis de IA.
+* Integración nativa con **Telegram API** y transcripción de audio (Whisper).
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-primary">Python</span>
+<span class="badge bg-info text-dark">PostgreSQL</span>
+<span class="badge bg-success">OpenAI API</span>
+<span class="badge bg-primary">Telegram</span>
+<br><br>
+[Leer Documentación &rarr;](2_salsas_chatbot/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
 :::
 
 :::

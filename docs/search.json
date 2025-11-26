@@ -2,9 +2,9 @@
   {
     "objectID": "proyectos.html",
     "href": "proyectos.html",
-    "title": "Proyectos Destacados",
+    "title": "Proyectos e Implementaciones",
     "section": "",
-    "text": "Help Desk Inteligente (CENACE)\nSistema RAG open-source para clasificación de incidentes. Ver Documentación\n\n\nChatbot Financiero (Salsas Castillo)\nAsistente en Telegram con consultas SQL en tiempo real. Ver Documentación\n\n\nRecomendador CT (CT Internacional)\nChatbot de ventas con manejo de “mixed content” y ETL complejo. Ver Documentación"
+    "text": "A continuación presento una selección de proyectos desarrollados bajo metodologías ágiles, enfocados en resolver problemas de negocio mediante IA Generativa y análisis de datos.\n\n\n\n\nHelp Desk Inteligente (CENACE)\nOptimización de Soporte Técnico con IA Privada\nSistema diseñado para el Centro Nacional de Control de Energía. Resuelve la necesidad de automatizar la clasificación de incidentes y sugerir soluciones técnicas sin exponer datos sensibles a la nube pública.\nPuntos Clave: * Implementación de modelos Open-Source (Gemma/Ollama) para privacidad total de datos. * Arquitectura RAG para consulta de manuales técnicos internos. * Persistencia de historial y sesiones en MongoDB.\n\nPython LangChain Ollama FastAPI  Leer Documentación →\n\n\n\n\n\n\n\nRecomendador de Productos (CT)\nSistema de Ventas y Recomendación en Tiempo Real\nChatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un catálogo masivo en MySQL con un motor de búsqueda semántica, gestionando precios y existencias dinámicas.\nPuntos Clave: * Pipeline ETL complejo para sincronizar MySQL con Vector Stores (FAISS). * Solución de arquitectura “Mixed Content” mediante Proxy PHP. * Sistema de moderación de usuarios y widget personalizado en JS.\n\nPython MySQL Docker/Podman JavaScript  Leer Documentación →\n\n\n\n\n\n\n\nChatbot Financiero (Salsas Castillo)\nAsistente de Ventas y Reportes Financieros\nSolución conversacional desplegada en Telegram para directivos y fuerza de ventas. Permite consultas en lenguaje natural sobre bases de datos transaccionales y normativas internas.\nPuntos Clave: * Orquestación de Herramientas SQL para consultas de ventas en tiempo real. * Generación automática de Reportes PDF con análisis de IA. * Integración nativa con Telegram API y transcripción de audio (Whisper).\n\nPython PostgreSQL OpenAI API Telegram  Leer Documentación →"
   },
   {
     "objectID": "about.html",
@@ -47,12 +47,5 @@
     "title": "Portafolio de Ciencia de Datos e IA",
     "section": "",
     "text": "Bienvenido a mi portafolio profesional. Soy Angel Alberto Merino Cedeño, estudiante de Maestría en Ciencia de Datos e Ingeniero Químico con una fuerte especialización en el desarrollo de Sistemas de Inteligencia Artificial Generativa, Chatbots RAG y Arquitecturas de Datos.\nAquí encontrarás documentación técnica detallada sobre mis implementaciones más recientes en entornos empresariales reales."
-  },
-  {
-    "objectID": "index.html#proyectos-destacados",
-    "href": "index.html#proyectos-destacados",
-    "title": "Portafolio de Ciencia de Datos e IA",
-    "section": "Proyectos Destacados",
-    "text": "Proyectos Destacados\n\n\nHelp Desk Inteligente (CENACE)\nSistema de soporte técnico basado en RAG y Modelos de Lenguaje (LLMs) para el Centro Nacional de Control de Energía. Este proyecto utiliza modelos open-source (Gemma/Ollama) para clasificar incidentes y sugerir soluciones a partir de documentación técnica interna, garantizando la privacidad de datos sensibles.\nTecnologías: Python, LangChain, Ollama, MongoDB, FastAPI.\nVer Documentación Completa\n\n\nChatbot Financiero (Salsas Castillo)\nAsistente conversacional desplegado en Telegram para optimizar el acceso a información de ventas y finanzas. Integra bases de datos SQL (PostgreSQL) para consultas transaccionales en tiempo real y Vector Stores para consultas sobre normativas internas, incluyendo generación automática de reportes PDF.\nTecnologías: OpenAI (GPT-4), PostgreSQL, FAISS, Telegram API.\nVer Documentación Completa\n\n\nRecomendador de Productos (CT Internacional)\nChatbot avanzado para la recomendación de productos de hardware. Implementa un ciclo ETL complejo para sincronizar bases de datos MySQL con un índice vectorial. Incluye un sistema de moderación de usuarios, manejo de “mixed content” mediante proxy PHP y despliegue web mediante Widget personalizado.\nTecnologías: MySQL, Redis, Docker/Podman, JavaScript Widget, RAG.\nVer Documentación Completa"
   }
 ]
