@@ -27,7 +27,7 @@ Sistema diseñado para el Centro Nacional de Control de Energía. Resuelve la ne
 <span class="badge bg-warning text-dark">Ollama</span>
 <span class="badge bg-info text-dark">FastAPI</span>
 <br><br>
-[Leer Documentación &rarr;](0_cenace_helpdesk/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Leer Documentación &rarr;](./1_cenace_helpdesk/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::
@@ -52,7 +52,7 @@ Chatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un
 <span class="badge bg-secondary">Docker/Podman</span>
 <span class="badge bg-dark">JavaScript</span>
 <br><br>
-[Leer Documentación &rarr;](1_ct_chatbot/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Leer Documentación &rarr;](./2_ct_chatbot/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::
@@ -77,7 +77,7 @@ Solución conversacional desplegada en Telegram para directivos y fuerza de vent
 <span class="badge bg-success">OpenAI API</span>
 <span class="badge bg-primary">Telegram</span>
 <br><br>
-[Leer Documentación &rarr;](2_salsas_chatbot/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Leer Documentación &rarr;](./3_salsas_chatbot/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::
