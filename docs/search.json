@@ -1,17 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Portafolio de Ciencia de Datos e IA",
+    "objectID": "proyectos.html",
+    "href": "proyectos.html",
+    "title": "Proyectos Destacados",
     "section": "",
-    "text": "Bienvenido a mi portafolio profesional. Soy Angel Alberto Merino Cedeño, estudiante de Maestría en Ciencia de Datos e Ingeniero Químico con una fuerte especialización en el desarrollo de Sistemas de Inteligencia Artificial Generativa, Chatbots RAG y Arquitecturas de Datos.\nAquí encontrarás documentación técnica detallada sobre mis implementaciones más recientes en entornos empresariales reales."
-  },
-  {
-    "objectID": "index.html#proyectos-destacados",
-    "href": "index.html#proyectos-destacados",
-    "title": "Portafolio de Ciencia de Datos e IA",
-    "section": "Proyectos Destacados",
-    "text": "Proyectos Destacados\n\n\nHelp Desk Inteligente (CENACE)\nSistema de soporte técnico basado en RAG y Modelos de Lenguaje (LLMs) para el Centro Nacional de Control de Energía. Este proyecto utiliza modelos open-source (Gemma/Ollama) para clasificar incidentes y sugerir soluciones a partir de documentación técnica interna, garantizando la privacidad de datos sensibles.\nTecnologías: Python, LangChain, Ollama, MongoDB, FastAPI.\nVer Documentación Completa\n\n\nChatbot Financiero (Salsas Castillo)\nAsistente conversacional desplegado en Telegram para optimizar el acceso a información de ventas y finanzas. Integra bases de datos SQL (PostgreSQL) para consultas transaccionales en tiempo real y Vector Stores para consultas sobre normativas internas, incluyendo generación automática de reportes PDF.\nTecnologías: OpenAI (GPT-4), PostgreSQL, FAISS, Telegram API.\nVer Documentación Completa\n\n\nRecomendador de Productos (CT Internacional)\nChatbot avanzado para la recomendación de productos de hardware. Implementa un ciclo ETL complejo para sincronizar bases de datos MySQL con un índice vectorial. Incluye un sistema de moderación de usuarios, manejo de “mixed content” mediante proxy PHP y despliegue web mediante Widget personalizado.\nTecnologías: MySQL, Redis, Docker/Podman, JavaScript Widget, RAG.\nVer Documentación Completa"
+    "text": "Help Desk Inteligente (CENACE)\nSistema RAG open-source para clasificación de incidentes. Ver Documentación\n\n\nChatbot Financiero (Salsas Castillo)\nAsistente en Telegram con consultas SQL en tiempo real. Ver Documentación\n\n\nRecomendador CT (CT Internacional)\nChatbot de ventas con manejo de “mixed content” y ETL complejo. Ver Documentación"
   },
   {
     "objectID": "about.html",
@@ -47,5 +40,19 @@
     "title": "Sobre Mí",
     "section": "Intereses",
     "text": "Intereses\nMe apasiona el aprendizaje continuo de idiomas y culturas, así como la resolución de problemas basada en datos y la aplicación de tecnología en proyectos innovadores."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Portafolio de Ciencia de Datos e IA",
+    "section": "",
+    "text": "Bienvenido a mi portafolio profesional. Soy Angel Alberto Merino Cedeño, estudiante de Maestría en Ciencia de Datos e Ingeniero Químico con una fuerte especialización en el desarrollo de Sistemas de Inteligencia Artificial Generativa, Chatbots RAG y Arquitecturas de Datos.\nAquí encontrarás documentación técnica detallada sobre mis implementaciones más recientes en entornos empresariales reales."
+  },
+  {
+    "objectID": "index.html#proyectos-destacados",
+    "href": "index.html#proyectos-destacados",
+    "title": "Portafolio de Ciencia de Datos e IA",
+    "section": "Proyectos Destacados",
+    "text": "Proyectos Destacados\n\n\nHelp Desk Inteligente (CENACE)\nSistema de soporte técnico basado en RAG y Modelos de Lenguaje (LLMs) para el Centro Nacional de Control de Energía. Este proyecto utiliza modelos open-source (Gemma/Ollama) para clasificar incidentes y sugerir soluciones a partir de documentación técnica interna, garantizando la privacidad de datos sensibles.\nTecnologías: Python, LangChain, Ollama, MongoDB, FastAPI.\nVer Documentación Completa\n\n\nChatbot Financiero (Salsas Castillo)\nAsistente conversacional desplegado en Telegram para optimizar el acceso a información de ventas y finanzas. Integra bases de datos SQL (PostgreSQL) para consultas transaccionales en tiempo real y Vector Stores para consultas sobre normativas internas, incluyendo generación automática de reportes PDF.\nTecnologías: OpenAI (GPT-4), PostgreSQL, FAISS, Telegram API.\nVer Documentación Completa\n\n\nRecomendador de Productos (CT Internacional)\nChatbot avanzado para la recomendación de productos de hardware. Implementa un ciclo ETL complejo para sincronizar bases de datos MySQL con un índice vectorial. Incluye un sistema de moderación de usuarios, manejo de “mixed content” mediante proxy PHP y despliegue web mediante Widget personalizado.\nTecnologías: MySQL, Redis, Docker/Podman, JavaScript Widget, RAG.\nVer Documentación Completa"
   }
 ]
