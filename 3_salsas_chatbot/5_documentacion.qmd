@@ -177,51 +177,54 @@ El sistema de Salsas Castillo utiliza una combinación de modelos de lenguaje pa
 
 Estos son los principales puntos de inicio para interactuar con las funcionalidades del chatbot:
 
-* `telegram_main.py::telegram_webhook_handler`:
+`API/telegram_main.py::telegram_webhook_handler`:
 
 ```python
 @app.post("/webhook")
-async def telegram_webhook_handler(request: Request, background_tasks: BackgroundTasks):
+async def telegram_webhook_handler(
+    request: Request, 
+    background_tasks: BackgroundTasks):
 ```
 
    * **Propósito**: Es el *endpoint* de FastAPI que recibe todos los mensajes y actualizaciones de Telegram. Actúa como el punto de entrada principal para las interacciones del usuario.
    * **Comportamiento**:  Recibe el `payload` de Telegram, extrae el `chat_id` y el mensaje (texto o voz), verifica si el usuario está en la whitelist y delega el procesamiento a `handle_message` en segundo plano.
 
-* `telegram_chat.py::handle_message`:
+`API/telegram_chat.py::handle_message`:
 
 ```python
-def answer(self, question: str = None, session_id: str = None, name: str = None):
+def answer(self, 
+    question: str = None, 
+    session_id: str = None, 
+    name: str = None) -> str:
 ```
+
    * **Propósito**: Es la función central que orquesta la respuesta del chatbot. Recibe la pregunta del usuario, gestiona el historial de la sesión, invoca el `AgentExecutor` de LangChain y maneja la salida.
    * **Comportamiento**:
-    1. Asegura la existencia de la sesión en MongoDB (`ensure_session`).
+     * Asegura la existencia de la sesión en MongoDB (`ensure_session`).
+     * Recupera y trunca el historial de la sesión (`get_session_history`, `trim_history`).
+     * Invoca al AgentExecutor con la pregunta y el historial, permitiendo que el LLM decida qué herramientas usar (SQL, `search_information`, `pdf_report_tool`).
+     * Registra la interacción completa en MongoDB (`add_message`, `add_message_backup`).
+     * Si la respuesta es un PDF, coordina su envío a Telegram.
 
-    2. Recupera y trunca el historial de la sesión (`get_session_history`, `trim_history`).
-
-    3. Invoca al AgentExecutor con la pregunta y el historial, permitiendo que el LLM decida qué herramientas usar (SQL, `search_information`, `pdf_report_tool`).
-
-    4. Registra la interacción completa en MongoDB (`add_message`, `add_message_backup`).
-
-    5. Si la respuesta es un PDF, coordina su envío a Telegram.
-
-* `pdf_tool.py::generate_financial_report_pdf`:
+`tools/pdf_tool.py::generate_financial_report_pdf`:
 
 ```python
-def generate_financial_report_pdf(table_data: str, title: str, chat_id: int) -> dict:
+def generate_financial_report_pdf(
+    table_data: str, 
+    title: str, 
+    chat_id: int) -> dict:
 ```
 
    * **Propósito**: Genera un reporte en formato PDF a partir de datos tabulares proporcionados y un análisis generado por un LLM, y lo envía al usuario de Telegram.
-
    * **Comportamiento**: Utiliza fpdf para crear el PDF, get_llm_analysis para obtener un resumen del LLM y enviar_pdf_por_telegram para enviar el archivo.
 
-* `vectorstore.py::LangchainVectorStore.create_index`:
+`langchain/vectorstore.py::LangchainVectorStore.create_index`:
 
 ```python
 def create_index(self, docs):
 ```
 
    * **Propósito**: Crea un nuevo índice FAISS a partir de una lista de documentos.
-
    * **Comportamiento**: Utiliza FAISS.from_documents para generar el índice y lo guarda localmente.
 
 :::

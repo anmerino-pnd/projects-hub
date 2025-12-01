@@ -380,41 +380,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="puntos-de-entrada-y-funciones-clave" class="level3">
 <h3 class="anchored" data-anchor-id="puntos-de-entrada-y-funciones-clave">3.3. Puntos de entrada y funciones clave</h3>
 <p>Estos son los principales puntos de inicio para interactuar con las funcionalidades del chatbot:</p>
-<ul>
-<li><code>telegram_main.py::telegram_webhook_handler</code>:</li>
-</ul>
+<p><code>API/telegram_main.py::telegram_webhook_handler</code>:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">@app.post</span>(<span class="st">"/webhook"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> telegram_webhook_handler(request: Request, background_tasks: BackgroundTasks):</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> telegram_webhook_handler(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    request: Request, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    background_tasks: BackgroundTasks):</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><p><strong>Propósito</strong>: Es el <em>endpoint</em> de FastAPI que recibe todos los mensajes y actualizaciones de Telegram. Actúa como el punto de entrada principal para las interacciones del usuario.</p></li>
-<li><p><strong>Comportamiento</strong>: Recibe el <code>payload</code> de Telegram, extrae el <code>chat_id</code> y el mensaje (texto o voz), verifica si el usuario está en la whitelist y delega el procesamiento a <code>handle_message</code> en segundo plano.</p></li>
-<li><p><code>telegram_chat.py::handle_message</code>:</p></li>
+<li><strong>Propósito</strong>: Es el <em>endpoint</em> de FastAPI que recibe todos los mensajes y actualizaciones de Telegram. Actúa como el punto de entrada principal para las interacciones del usuario.</li>
+<li><strong>Comportamiento</strong>: Recibe el <code>payload</code> de Telegram, extrae el <code>chat_id</code> y el mensaje (texto o voz), verifica si el usuario está en la whitelist y delega el procesamiento a <code>handle_message</code> en segundo plano.</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> answer(<span class="va">self</span>, question: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>, session_id: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>, name: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>):</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>API/telegram_chat.py::handle_message</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> answer(<span class="va">self</span>, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    question: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    session_id: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    name: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>Propósito</strong>: Es la función central que orquesta la respuesta del chatbot. Recibe la pregunta del usuario, gestiona el historial de la sesión, invoca el <code>AgentExecutor</code> de LangChain y maneja la salida.</li>
-<li><strong>Comportamiento</strong>: 1. Asegura la existencia de la sesión en MongoDB (<code>ensure_session</code>).</li>
-</ul>
-<pre><code>2. Recupera y trunca el historial de la sesión (`get_session_history`, `trim_history`).
-
-3. Invoca al AgentExecutor con la pregunta y el historial, permitiendo que el LLM decida qué herramientas usar (SQL, `search_information`, `pdf_report_tool`).
-
-4. Registra la interacción completa en MongoDB (`add_message`, `add_message_backup`).
-
-5. Si la respuesta es un PDF, coordina su envío a Telegram.</code></pre>
+<li><strong>Comportamiento</strong>:
 <ul>
-<li><code>pdf_tool.py::generate_financial_report_pdf</code>:</li>
+<li>Asegura la existencia de la sesión en MongoDB (<code>ensure_session</code>).</li>
+<li>Recupera y trunca el historial de la sesión (<code>get_session_history</code>, <code>trim_history</code>).</li>
+<li>Invoca al AgentExecutor con la pregunta y el historial, permitiendo que el LLM decida qué herramientas usar (SQL, <code>search_information</code>, <code>pdf_report_tool</code>).</li>
+<li>Registra la interacción completa en MongoDB (<code>add_message</code>, <code>add_message_backup</code>).</li>
+<li>Si la respuesta es un PDF, coordina su envío a Telegram.</li>
+</ul></li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_financial_report_pdf(table_data: <span class="bu">str</span>, title: <span class="bu">str</span>, chat_id: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>tools/pdf_tool.py::generate_financial_report_pdf</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_financial_report_pdf(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    table_data: <span class="bu">str</span>, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    title: <span class="bu">str</span>, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    chat_id: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><p><strong>Propósito</strong>: Genera un reporte en formato PDF a partir de datos tabulares proporcionados y un análisis generado por un LLM, y lo envía al usuario de Telegram.</p></li>
-<li><p><strong>Comportamiento</strong>: Utiliza fpdf para crear el PDF, get_llm_analysis para obtener un resumen del LLM y enviar_pdf_por_telegram para enviar el archivo.</p></li>
-<li><p><code>vectorstore.py::LangchainVectorStore.create_index</code>:</p></li>
+<li><strong>Propósito</strong>: Genera un reporte en formato PDF a partir de datos tabulares proporcionados y un análisis generado por un LLM, y lo envía al usuario de Telegram.</li>
+<li><strong>Comportamiento</strong>: Utiliza fpdf para crear el PDF, get_llm_analysis para obtener un resumen del LLM y enviar_pdf_por_telegram para enviar el archivo.</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_index(<span class="va">self</span>, docs):</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>langchain/vectorstore.py::LangchainVectorStore.create_index</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_index(<span class="va">self</span>, docs):</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><p><strong>Propósito</strong>: Crea un nuevo índice FAISS a partir de una lista de documentos.</p></li>
-<li><p><strong>Comportamiento</strong>: Utiliza FAISS.from_documents para generar el índice y lo guarda localmente.</p></li>
+<li><strong>Propósito</strong>: Crea un nuevo índice FAISS a partir de una lista de documentos.</li>
+<li><strong>Comportamiento</strong>: Utiliza FAISS.from_documents para generar el índice y lo guarda localmente.</li>
 </ul>
 </section>
 </section>
