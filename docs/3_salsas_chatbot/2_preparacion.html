@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Preparación, modelado y evaluación de los datos</title>
+<title>Preparación</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -145,8 +145,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#métodos-de-preparación-y-acceso" id="toc-métodos-de-preparación-y-acceso" class="nav-link" data-scroll-target="#métodos-de-preparación-y-acceso">1.2. Métodos de Preparación y Acceso</a>
   <ul>
   <li><a href="#acceso-a-datos-sql-dinámico" id="toc-acceso-a-datos-sql-dinámico" class="nav-link" data-scroll-target="#acceso-a-datos-sql-dinámico">1.2.1. Acceso a Datos SQL (Dinámico)</a></li>
-  </ul></li>
   <li><a href="#construcción-del-vector-store-documentos-internos" id="toc-construcción-del-vector-store-documentos-internos" class="nav-link" data-scroll-target="#construcción-del-vector-store-documentos-internos">1.2.2. Construcción del Vector Store (Documentos Internos)</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -156,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Preparación, modelado y evaluación de los datos</h1>
+<h1 class="title">Preparación</h1>
 </div>
 
 
@@ -196,9 +196,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Mapeo de Productos</strong>: Se incluye una lista de nombres de productos (<code>dicts.py</code>) para ayudar al LLM a hacer matches precisos con las presentaciones de productos en la base de datos, mejorando la relevancia de las respuestas.</p></li>
 </ul>
 </section>
-</section>
-<section id="construcción-del-vector-store-documentos-internos" class="level3">
-<h3 class="anchored" data-anchor-id="construcción-del-vector-store-documentos-internos">1.2.2. Construcción del Vector Store (Documentos Internos)</h3>
+<section id="construcción-del-vector-store-documentos-internos" class="level4">
+<h4 class="anchored" data-anchor-id="construcción-del-vector-store-documentos-internos">1.2.2. Construcción del Vector Store (Documentos Internos)</h4>
 <p>Para la información estática contenida en documentos internos (que no están en las bases de datos SQL), se construye un vector store para permitir búsquedas semánticas:</p>
 <ul>
 <li><p><strong>Documentos</strong>: Los documentos textuales se cargan y se convierten en objetos <code>langchain.schema.Document</code>.</p></li>
@@ -206,6 +205,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Índice FAISS</strong>: Se crea un índice FAISS (<code>LangchainVectorStore</code> en <code>langchain/vectorstore.py</code>) a partir de estos embeddings. Este índice se guarda localmente para su uso eficiente.</p></li>
 <li><p><strong>Actualización</strong>: Aunque no se describe un ETL formal, la actualización de este vector store implicaría volver a procesar los documentos modificados o nuevos para regenerar el índice.</p></li>
 </ul>
+</section>
 </section>
 </section>
 

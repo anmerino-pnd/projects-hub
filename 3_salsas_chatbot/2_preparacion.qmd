@@ -1,5 +1,5 @@
 ---
-title: "Preparación, modelado y evaluación  de los datos"
+title: "Preparación"
 format: 
     html:
          page-layout: article
@@ -34,7 +34,7 @@ Los datos de ventas y finanzas se acceden directamente desde PostgreSQL en tiemp
 
 * **Mapeo de Productos**: Se incluye una lista de nombres de productos (`dicts.py`) para ayudar al LLM a hacer matches precisos con las presentaciones de productos en la base de datos, mejorando la relevancia de las respuestas.
 
-### 1.2.2. Construcción del Vector Store (Documentos Internos)
+#### 1.2.2. Construcción del Vector Store (Documentos Internos)
 
 Para la información estática contenida en documentos internos (que no están en las bases de datos SQL), se construye un vector store para permitir búsquedas semánticas:
 

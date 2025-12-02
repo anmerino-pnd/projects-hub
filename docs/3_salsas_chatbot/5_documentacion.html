@@ -174,31 +174,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introducción-al-proyecto" id="toc-introducción-al-proyecto" class="nav-link active" data-scroll-target="#introducción-al-proyecto">1. Introducción al proyecto</a>
-  <ul class="collapse">
-  <li><a href="#objetivos-del-proyecto" id="toc-objetivos-del-proyecto" class="nav-link" data-scroll-target="#objetivos-del-proyecto"><strong>Objetivos del proyecto</strong>:</a></li>
-  <li><a href="#impacto-esperado" id="toc-impacto-esperado" class="nav-link" data-scroll-target="#impacto-esperado"><strong>Impacto esperado</strong>:</a></li>
+  <ul>
+  <li><a href="#objetivos-del-proyecto" id="toc-objetivos-del-proyecto" class="nav-link" data-scroll-target="#objetivos-del-proyecto">Objetivos del proyecto</a></li>
+  <li><a href="#impacto-esperado" id="toc-impacto-esperado" class="nav-link" data-scroll-target="#impacto-esperado">Impacto esperado</a></li>
   </ul></li>
   <li><a href="#manual-de-instalación-y-despliegue" id="toc-manual-de-instalación-y-despliegue" class="nav-link" data-scroll-target="#manual-de-instalación-y-despliegue">2. Manual de instalación y despliegue</a>
-  <ul class="collapse">
-  <li><a href="#configuraciones-importantes" id="toc-configuraciones-importantes" class="nav-link" data-scroll-target="#configuraciones-importantes">2.1. <strong>Configuraciones importantes</strong></a></li>
-  <li><a href="#requisitos-del-sistema" id="toc-requisitos-del-sistema" class="nav-link" data-scroll-target="#requisitos-del-sistema">2.2. <strong>Requisitos del sistema</strong></a></li>
-  <li><a href="#dependencias-principales-del-sistema" id="toc-dependencias-principales-del-sistema" class="nav-link" data-scroll-target="#dependencias-principales-del-sistema">2.3. <strong>Dependencias principales del sistema</strong></a></li>
-  <li><a href="#instalación-del-backend-api" id="toc-instalación-del-backend-api" class="nav-link" data-scroll-target="#instalación-del-backend-api">2.4. <strong>Instalación del Backend (API)</strong></a></li>
+  <ul>
+  <li><a href="#configuraciones-importantes" id="toc-configuraciones-importantes" class="nav-link" data-scroll-target="#configuraciones-importantes">2.1. Configuraciones importantes</a></li>
+  <li><a href="#requisitos-del-sistema" id="toc-requisitos-del-sistema" class="nav-link" data-scroll-target="#requisitos-del-sistema">2.2. Requisitos del sistema</a></li>
+  <li><a href="#dependencias-principales-del-sistema" id="toc-dependencias-principales-del-sistema" class="nav-link" data-scroll-target="#dependencias-principales-del-sistema">2.3. Dependencias principales del sistema</a></li>
+  <li><a href="#requisitos-de-configuración-del-backend" id="toc-requisitos-de-configuración-del-backend" class="nav-link" data-scroll-target="#requisitos-de-configuración-del-backend">2.4. Requisitos de configuración del backend</a>
+  <ul>
+  <li><a href="#clonar-el-repositorio" id="toc-clonar-el-repositorio" class="nav-link" data-scroll-target="#clonar-el-repositorio">2.4.1. Clonar el repositorio</a></li>
+  <li><a href="#crear-entorno-virtual-e-instalar-dependencias" id="toc-crear-entorno-virtual-e-instalar-dependencias" class="nav-link" data-scroll-target="#crear-entorno-virtual-e-instalar-dependencias">2.4.2. Crear entorno virtual e instalar dependencias</a></li>
+  <li><a href="#configurar-variables-de-entorno-.env" id="toc-configurar-variables-de-entorno-.env" class="nav-link" data-scroll-target="#configurar-variables-de-entorno-.env">2.4.3. Configurar variables de entorno <code>(.env)</code></a></li>
+  <li><a href="#configurar-webhook-de-telegram" id="toc-configurar-webhook-de-telegram" class="nav-link" data-scroll-target="#configurar-webhook-de-telegram">2.4.4. Configurar Webhook de Telegram</a></li>
   </ul></li>
-  <li><a href="#documentación-técnica-del-código" id="toc-documentación-técnica-del-código" class="nav-link" data-scroll-target="#documentación-técnica-del-código">3. Documentación Técnica del Código</a>
-  <ul class="collapse">
-  <li><a href="#estructura-de-carpetas-y-módulos" id="toc-estructura-de-carpetas-y-módulos" class="nav-link" data-scroll-target="#estructura-de-carpetas-y-módulos">3.1. Estructura de Carpetas y Módulos</a></li>
-  <li><a href="#modelos-llm-utilizados" id="toc-modelos-llm-utilizados" class="nav-link" data-scroll-target="#modelos-llm-utilizados">3.2. Modelos LLM Utilizados</a></li>
+  <li><a href="#arquitectura-de-despliegue-continuo-y-sincronización" id="toc-arquitectura-de-despliegue-continuo-y-sincronización" class="nav-link" data-scroll-target="#arquitectura-de-despliegue-continuo-y-sincronización">2.5 Arquitectura de despliegue continuo y sincronización</a>
+  <ul>
+  <li><a href="#definición-del-servicio-backend-rag.service" id="toc-definición-del-servicio-backend-rag.service" class="nav-link" data-scroll-target="#definición-del-servicio-backend-rag.service">2.5.1 Definición del servicio backend <code>rag.service</code></a></li>
+  <li><a href="#especificaciones-operativas" id="toc-especificaciones-operativas" class="nav-link" data-scroll-target="#especificaciones-operativas">2.5.2 Especificaciones operativas</a></li>
+  <li><a href="#servicio-de-actualización-rag-deploy.service" id="toc-servicio-de-actualización-rag-deploy.service" class="nav-link" data-scroll-target="#servicio-de-actualización-rag-deploy.service">2.5.3 Servicio de actualización <code>rag-deploy.service</code></a></li>
+  <li><a href="#lógica-de-ejecución-del-script" id="toc-lógica-de-ejecución-del-script" class="nav-link" data-scroll-target="#lógica-de-ejecución-del-script">2.5.4. Lógica de ejecución del script</a></li>
+  <li><a href="#programación-del-timer-de-sistema-rag-deploy.timer" id="toc-programación-del-timer-de-sistema-rag-deploy.timer" class="nav-link" data-scroll-target="#programación-del-timer-de-sistema-rag-deploy.timer">2.5.5 Programación del timer de sistema <code>rag-deploy.timer</code></a></li>
+  </ul></li>
+  <li><a href="#infraestructura-de-red-reverse-proxy-con-apache" id="toc-infraestructura-de-red-reverse-proxy-con-apache" class="nav-link" data-scroll-target="#infraestructura-de-red-reverse-proxy-con-apache">2.6 Infraestructura de red: Reverse proxy con Apache</a></li>
+  </ul></li>
+  <li><a href="#documentación-técnica-del-código" id="toc-documentación-técnica-del-código" class="nav-link" data-scroll-target="#documentación-técnica-del-código">3. Documentación técnica del código</a>
+  <ul>
+  <li><a href="#estructura-de-carpetas-y-módulos" id="toc-estructura-de-carpetas-y-módulos" class="nav-link" data-scroll-target="#estructura-de-carpetas-y-módulos">3.1. Estructura de carpetas y módulos</a></li>
+  <li><a href="#modelos-llm-utilizados" id="toc-modelos-llm-utilizados" class="nav-link" data-scroll-target="#modelos-llm-utilizados">3.2. Modelos LLM utilizados</a></li>
   <li><a href="#puntos-de-entrada-y-funciones-clave" id="toc-puntos-de-entrada-y-funciones-clave" class="nav-link" data-scroll-target="#puntos-de-entrada-y-funciones-clave">3.3. Puntos de entrada y funciones clave</a></li>
   </ul></li>
-  <li><a href="#guía-de-entrenamiento-y-mejora" id="toc-guía-de-entrenamiento-y-mejora" class="nav-link" data-scroll-target="#guía-de-entrenamiento-y-mejora">4. Guía de Entrenamiento y Mejora</a>
-  <ul class="collapse">
-  <li><a href="#generación-y-actualización-de-la-base-de-datos-vectorial" id="toc-generación-y-actualización-de-la-base-de-datos-vectorial" class="nav-link" data-scroll-target="#generación-y-actualización-de-la-base-de-datos-vectorial">4.1. Generación y Actualización de la Base de Datos Vectorial</a></li>
-  <li><a href="#recomendaciones-para-futura-mejora" id="toc-recomendaciones-para-futura-mejora" class="nav-link" data-scroll-target="#recomendaciones-para-futura-mejora">4.2. Recomendaciones para Futura Mejora</a></li>
+  <li><a href="#guía-de-entrenamiento-y-mejora" id="toc-guía-de-entrenamiento-y-mejora" class="nav-link" data-scroll-target="#guía-de-entrenamiento-y-mejora">4. Guía de entrenamiento y mejora</a>
+  <ul>
+  <li><a href="#generación-y-actualización-de-la-base-de-datos-vectorial" id="toc-generación-y-actualización-de-la-base-de-datos-vectorial" class="nav-link" data-scroll-target="#generación-y-actualización-de-la-base-de-datos-vectorial">4.1. Generación y actualización de la base de datos vectorial</a></li>
+  <li><a href="#recomendaciones-para-mejora-futura" id="toc-recomendaciones-para-mejora-futura" class="nav-link" data-scroll-target="#recomendaciones-para-mejora-futura">4.2. Recomendaciones para mejora futura</a></li>
   </ul></li>
   <li><a href="#arquitectura" id="toc-arquitectura" class="nav-link" data-scroll-target="#arquitectura">5. Arquitectura</a>
-  <ul class="collapse">
-  <li><a href="#componentes-clave" id="toc-componentes-clave" class="nav-link" data-scroll-target="#componentes-clave">5.1. Componentes Clave:</a></li>
+  <ul>
+  <li><a href="#componentes-clave" id="toc-componentes-clave" class="nav-link" data-scroll-target="#componentes-clave">5.1. Componentes clave:</a></li>
   <li><a href="#flujo-de-interacción-principal" id="toc-flujo-de-interacción-principal" class="nav-link" data-scroll-target="#flujo-de-interacción-principal">5.2. Flujo de Interacción Principal:</a></li>
   <li><a href="#diagrama-de-la-arquitectura" id="toc-diagrama-de-la-arquitectura" class="nav-link" data-scroll-target="#diagrama-de-la-arquitectura">5.3. Diagrama de la Arquitectura</a></li>
   </ul></li>
@@ -231,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="introducción-al-proyecto">1. Introducción al proyecto</h2>
 <p>Este proyecto se centra en el desarrollo de un chatbot inteligente para Salsas Castillo, diseñado para optimizar el acceso a información de ventas y finanzas, y mejorar la comunicación interna. El chatbot utiliza un sistema de recuperación aumentada con generación (RAG) y herramientas dinámicas para proporcionar respuestas precisas y relevantes, así como la capacidad de generar reportes financieros.</p>
 <section id="objetivos-del-proyecto" class="level3">
-<h3 class="anchored" data-anchor-id="objetivos-del-proyecto"><strong>Objetivos del proyecto</strong>:</h3>
+<h3 class="anchored" data-anchor-id="objetivos-del-proyecto">Objetivos del proyecto</h3>
 <ul>
 <li><strong>Automatizar consultas</strong>: Permitir a los usuarios (operativos y no operativos) obtener información sobre ventas, productos y finanzas de manera rápida y eficiente a través de una interfaz conversacional en Telegram.</li>
 <li><strong>Mejorar la toma de decisiones</strong>: Proporcionar análisis de datos financieros y de ventas en tiempo real, incluyendo la generación de reportes en PDF.</li>
@@ -240,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="impacto-esperado" class="level3">
-<h3 class="anchored" data-anchor-id="impacto-esperado"><strong>Impacto esperado</strong>:</h3>
+<h3 class="anchored" data-anchor-id="impacto-esperado">Impacto esperado</h3>
 <ul>
 <li>Incremento en la eficiencia operativa al reducir el tiempo dedicado a la búsqueda manual de información.</li>
 <li>Mejora en la precisión de los datos y análisis disponibles para el personal.</li>
@@ -252,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="manual-de-instalación-y-despliegue">2. Manual de instalación y despliegue</h2>
 <p>Esta sección detalla los requisitos, dependencias y pasos para la instalación y despliegue del chatbot de Salsas Castillo.</p>
 <section id="configuraciones-importantes" class="level3">
-<h3 class="anchored" data-anchor-id="configuraciones-importantes">2.1. <strong>Configuraciones importantes</strong></h3>
+<h3 class="anchored" data-anchor-id="configuraciones-importantes">2.1. Configuraciones importantes</h3>
 <ul>
 <li>El backend del chatbot está desarrollado con <strong>FastAPI</strong> y se espera que se ejecute en un entorno con <strong>Python 3.12</strong>.</li>
 <li>Requiere conectividad a una instancia de <strong>MongoDB</strong> para la gestión de sesiones e historial, y a una base de datos <strong>PostgreSQL</strong> para datos financieros y de ventas.</li>
@@ -262,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="requisitos-del-sistema" class="level3">
-<h3 class="anchored" data-anchor-id="requisitos-del-sistema">2.2. <strong>Requisitos del sistema</strong></h3>
+<h3 class="anchored" data-anchor-id="requisitos-del-sistema">2.2. Requisitos del sistema</h3>
 <ul>
 <li><strong>Python</strong>: Versión 3.x (se recomienda la versión utilizada en el desarrollo, ej., 3.12.9).</li>
 <li><strong>Pip/UV</strong>: Última versión para la gestión de paquetes.</li>
@@ -273,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="dependencias-principales-del-sistema" class="level3">
-<h3 class="anchored" data-anchor-id="dependencias-principales-del-sistema">2.3. <strong>Dependencias principales del sistema</strong></h3>
+<h3 class="anchored" data-anchor-id="dependencias-principales-del-sistema">2.3. Dependencias principales del sistema</h3>
 <ul>
 <li><code>fastapi</code>: Framework web para el backend.</li>
 <li><code>langchain</code>: Framework principal para la orquestación del LLM y las herramientas.</li>
@@ -287,25 +302,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>faiss-cpu</code>: Para la base de datos vectorial (si aplica para documentos internos).</li>
 </ul>
 </section>
-<section id="instalación-del-backend-api" class="level3">
-<h3 class="anchored" data-anchor-id="instalación-del-backend-api">2.4. <strong>Instalación del Backend (API)</strong></h3>
-<ol type="1">
-<li><strong>Clonar el repositorio</strong>:</li>
-</ol>
+<section id="requisitos-de-configuración-del-backend" class="level3">
+<h3 class="anchored" data-anchor-id="requisitos-de-configuración-del-backend">2.4. Requisitos de configuración del backend</h3>
+<section id="clonar-el-repositorio" class="level4">
+<h4 class="anchored" data-anchor-id="clonar-el-repositorio">2.4.1. Clonar el repositorio</h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo fork Macrodata-Analitica/castilloChatbot</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> castilloChatbot</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li><strong>Crear entorno virtual e instalar dependencias</strong>:</li>
-</ol>
+</section>
+<section id="crear-entorno-virtual-e-instalar-dependencias" class="level4">
+<h4 class="anchored" data-anchor-id="crear-entorno-virtual-e-instalar-dependencias">2.4.2. Crear entorno virtual e instalar dependencias</h4>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install uv <span class="co"># Si no está instalado</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> venv</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate <span class="co"># Linux/macOS</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># o `.venv\Scripts\activate` para Windows</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> pip install <span class="at">-e</span> .</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync <span class="co"># Sincroniza los modulos de src/</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="3" type="1">
-<li><strong>Configurar variables de entorno <code>(.env)</code></strong>:</li>
-</ol>
+</section>
+<section id="configurar-variables-de-entorno-.env" class="level4">
+<h4 class="anchored" data-anchor-id="configurar-variables-de-entorno-.env">2.4.3. Configurar variables de entorno <code>(.env)</code></h4>
 <p>Asegúrate de que el archivo <code>.env</code> en la raíz del proyecto contenga las siguientes variables con sus valores correctos:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">OPENAI_API_KEY</span><span class="op">=</span><span class="st">""</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -319,30 +333,223 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="va">PASS</span><span class="op">=</span><span class="st">""</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="va">DBNAME</span><span class="op">=</span><span class="st">""</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="va">SCHEMA</span><span class="op">=</span><span class="st">""</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="4" type="1">
-<li><strong>Levantar el backend</strong>:</li>
-</ol>
-<ul>
-<li><strong>Desarrollo</strong>:</li>
-</ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uvicorn</span> salsasllm.API.telegram_main:app <span class="at">--reload</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><strong>Producción</strong>:</li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> gunicorn salsasllm.API.telegram_main:app <span class="at">--workers</span> 4 <span class="at">--bind</span> 0.0.0.0:8000 <span class="at">-k</span> uvicorn.workers.UvicornWorker <span class="at">--timeout</span> 120 <span class="at">--access-logfile</span> <span class="at">-</span> <span class="at">--error-logfile</span> <span class="at">-</span> <span class="kw">&amp;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="5" type="1">
-<li><strong>Configurar Webhook de Telegram</strong>:</li>
-</ol>
+</section>
+<section id="configurar-webhook-de-telegram" class="level4">
+<h4 class="anchored" data-anchor-id="configurar-webhook-de-telegram">2.4.4. Configurar Webhook de Telegram</h4>
 <p>Asegúrate de que Telegram envíe los mensajes a tu endpoint <code>/webhook</code>. Esto se hace una vez a través de la API de Telegram:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-F</span> <span class="st">"url=https://&lt;TU_DOMINIO&gt;/tgbot/webhook"</span> https://api.telegram.org/bot<span class="op">&lt;</span>TU_TELEGRAM_TOKEN<span class="op">&gt;</span>/setWebhook</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Reemplaza <tu_dominio> y <tu_telegram_token>.</tu_telegram_token></tu_dominio></p>
+<pre><code>curl -F "url=https://TU_DOMINIO/tgbot/webhook" https://api.telegram.org/botTU_TELEGRAM_TOKEN/setWebhook</code></pre>
+<p>Reemplaza TU_DOMINIO y TU_TELEGRAM_TOKEN.</p>
+</section>
+</section>
+<section id="arquitectura-de-despliegue-continuo-y-sincronización" class="level3">
+<h3 class="anchored" data-anchor-id="arquitectura-de-despliegue-continuo-y-sincronización">2.5 Arquitectura de despliegue continuo y sincronización</h3>
+<p>El servidor implementa un mecanismo adicional para mantener el backend del chatbot actualizado y funcionando de forma estable. Este mecanismo se basa en tres componentes:</p>
+<ul>
+<li><strong>El servicio principal del chatbot (<code>rag.service</code>)</strong></li>
+<li><strong>El servicio de despliegue (<code>rag-deploy.service</code>)</strong></li>
+<li><strong>El timer que activa el despliegue cada 30 segundos (<code>rag-deploy.timer</code>)</strong></li>
+</ul>
+<p>Este sistema garantiza que:</p>
+<ul>
+<li>Si el repositorio cambia, el backend se actualiza automáticamente.</li>
+<li>Si el entorno Python necesita sincronizar dependencias, se hace sin intervención manual.</li>
+<li>Si el servicio falla o se detiene por cualquier motivo, systemd lo vuelve a levantar.</li>
+</ul>
+<p>A continuación se explica cada pieza.</p>
+<section id="definición-del-servicio-backend-rag.service" class="level4">
+<h4 class="anchored" data-anchor-id="definición-del-servicio-backend-rag.service">2.5.1 Definición del servicio backend <code>rag.service</code></h4>
+<p>Este servicio es el que ejecuta el backend de FastAPI mediante Uvicorn.</p>
+<pre><code>[Unit]
+Description=Telegram Chat API (Uvicorn)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=ctrlsalsasc
+WorkingDirectory=/home/ctrlsalsasc/rag_v3
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/bin/bash -lc 'uv sync &amp;&amp; exec uv run uvicorn salsasllm.API.telegram_main:app --host 0.0.0.0 --port 8003'
+Restart=always
+RestartSec=5
+StartLimitIntervalSec=60
+StartLimitBurst=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+</section>
+<section id="especificaciones-operativas" class="level4">
+<h4 class="anchored" data-anchor-id="especificaciones-operativas">2.5.2 Especificaciones operativas</h4>
+<ul>
+<li>Usa <code>uv sync</code> antes de arrancar para garantizar dependencias correctas.</li>
+<li>Corre en el puerto interno <strong>8003</strong>, que Apache expone al público mediante reverse proxy.</li>
+<li>Se auto-reinicia si falla, asegurando alta disponibilidad.</li>
+<li>Los logs se consultan con <code>journalctl -u rag.service -f</code>.</li>
+</ul>
+</section>
+<section id="servicio-de-actualización-rag-deploy.service" class="level4">
+<h4 class="anchored" data-anchor-id="servicio-de-actualización-rag-deploy.service">2.5.3 Servicio de actualización <code>rag-deploy.service</code></h4>
+<p>Este servicio no se ejecuta de manera continua, sino que systemd lo invoca bajo demanda (a través del timer).</p>
+<pre><code>[Unit]
+Description=Pull + uv sync + restart rag.service si hay cambios
+
+[Service]
+Type=oneshot
+User=ctrlsalsasc
+Environment=HEALTHCHECK_URL=http://127.0.0.1:8003/healthz
+ExecStart=/usr/local/bin/rag_deploy.sh</code></pre>
+</section>
+<section id="lógica-de-ejecución-del-script" class="level4">
+<h4 class="anchored" data-anchor-id="lógica-de-ejecución-del-script">2.5.4. Lógica de ejecución del script</h4>
+<p>El script (<code>rag_deploy.sh</code>) realiza tareas como:</p>
+<ul>
+<li><code>git fetch</code> → revisar si hay nuevos commits.</li>
+<li>Si hay cambios → <code>git pull</code> y <code>uv sync</code>.</li>
+<li>Reiniciar <code>rag.service</code> <strong>solo si fue necesario</strong> actualizar.</li>
+<li>Ejecutar un healthcheck contra <code>/healthz</code> para validar que el servicio levantó correctamente.</li>
+</ul>
+<p>Este patrón es más robusto que un simple cron, porque systemd:</p>
+<ul>
+<li>Controla fallos.</li>
+<li>Registra logs.</li>
+<li>Evita ejecuciones simultáneas.</li>
+<li>Puede reintentar si algo sale mal.</li>
+</ul>
+<hr>
+</section>
+<section id="programación-del-timer-de-sistema-rag-deploy.timer" class="level4">
+<h4 class="anchored" data-anchor-id="programación-del-timer-de-sistema-rag-deploy.timer">2.5.5 Programación del timer de sistema <code>rag-deploy.timer</code></h4>
+<p>El timer configura cada cuánto debe ejecutarse el servicio anterior:</p>
+<pre><code>[Unit]
+Description=Timer para rag-deploy.service (cada minuto)
+
+[Timer]
+OnUnitActiveSec=30s
+AccuracySec=5s
+Persistent=true
+
+[Install]
+WantedBy=timers.target</code></pre>
+<p><strong>Definiciones</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Configuración</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>OnUnitActiveSec=30s</code></td>
+<td>Ejecuta el despliegue <strong>30 segundos después</strong> de la última ejecución → es decir, cada 30s continuamente.</td>
+</tr>
+<tr class="even">
+<td><code>Persistent=true</code></td>
+<td>Si el servidor estuvo apagado, ejecuta de inmediato lo que quedó pendiente.</td>
+</tr>
+<tr class="odd">
+<td><code>AccuracySec=5s</code></td>
+<td>systemd puede adelantar o atrasar unos segundos para optimizar carga del sistema.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Comandos útiles</strong> Ver estado del timer:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> status rag-deploy.timer</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ver cuándo se ejecutó la última vez:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> list-timers <span class="kw">|</span> <span class="fu">grep</span> rag</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ver logs del despliegue:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">journalctl</span> <span class="at">-u</span> rag-deploy.service <span class="at">-f</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Forzar un despliegue manual:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl start rag-deploy.service</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="infraestructura-de-red-reverse-proxy-con-apache" class="level3">
+<h3 class="anchored" data-anchor-id="infraestructura-de-red-reverse-proxy-con-apache">2.6 Infraestructura de red: Reverse proxy con Apache</h3>
+<p>El servidor utiliza Apache2 como reverse proxy para exponer los servicios del chatbot hacia Internet de forma segura a través de HTTPS. Esta configuración permite que los procesos internos de FastAPI, que corren localmente en puertos como 8003 o 8006, sean accesibles mediante rutas amigables bajo el dominio oficial de la empresa.</p>
+<p>El archivo principal de configuración utilizado por el dominio seguro es: <code>/etc/apache2/sites-enabled/default-ssl.conf</code></p>
+<p><strong>Reverse Proxy para el servicio Telegram Bot (Producción)</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Telegram ChatBot</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ProxyPreserveHost</span> On</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ProxyPass</span> /tgbot http://127.0.0.1:8003/</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ProxyPassReverse</span> /tgbot http://127.0.0.1:8003/</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ex">RewriteEngine</span> On</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">RewriteRule</span> ^/tgbot<span class="er">(</span><span class="ex">/.*</span><span class="kw">)</span><span class="ex">?$</span> http://127.0.0.1:8003<span class="va">$1</span> <span class="pp">[</span><span class="ss">P,L</span><span class="pp">]</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>Location <span class="ex">tgbot</span><span class="op">&gt;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Require</span> all granted</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">AllowOverride</span> None</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/Location<span class="op">&gt;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación del funcionamiento</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Directiva</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ProxyPreserveHost On</td>
+<td>Mantiene el header <code>Host</code> original enviado por el cliente. Esto permite que FastAPI identifique correctamente el dominio público.</td>
+</tr>
+<tr class="even">
+<td>ProxyPass /tgbot …</td>
+<td>Todo lo que llegue a <code>https://apps.salsascastillo.com/tgbot</code> será enviado internamente al proceso de FastAPI que corre en <code>http://127.0.0.1:8003/</code>.</td>
+</tr>
+<tr class="odd">
+<td>ProxyPassReverse</td>
+<td>Ajusta los encabezados de respuesta para que FastAPI no devuelva rutas internas.</td>
+</tr>
+<tr class="even">
+<td>RewriteEngine + RewriteRule</td>
+<td>Se asegura de que todas las subrutas, como <code>/tgbot/webhook</code>, <code>/tgbot/logs</code>, etc., se redirijan correctamente al backend.</td>
+</tr>
+<tr class="odd">
+<td>Location</td>
+<td>Permite acceso público a la ruta (sin autenticación adicional).</td>
+</tr>
+</tbody>
+</table>
+<p>Esta sección expone el servicio de Telegram en producción y es el endpoint donde se configura el webhook de Telegram:</p>
+<p><code>https://apps.salsascastillo.com/tgbot/webhook</code></p>
+<p><strong>Configuración SSL</strong> En la parte final del archivo se incluyen los certificados emitidos por Let’s Encrypt a través de Certbot:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode apache code-with-copy"><code class="sourceCode apache"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>SSLCertificateFile<span class="st"> /etc/letsencrypt/live/apps.salsascastillo.com/fullchain.pem </span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>SSLCertificateKeyFile<span class="st"> /etc/letsencrypt/live/apps.salsascastillo.com/privkey.pem </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Include<span class="st"> /etc/letsencrypt/options-ssl-apache.conf</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Detalles importantes</strong></p>
+<ul>
+<li><p><code>fullchain.pem</code> contiene la cadena completa del certificado, incluida la autoridad intermedia.</p></li>
+<li><p><code>privkey.pem</code> es la llave privada del dominio (solo debe tener permisos 600 y dueño root).</p></li>
+<li><p><code>options-ssl-apache.conf</code> aplica configuraciones modernas recomendadas por Let’s Encrypt (TLS, Cipher Suites, HSTS, etc.).</p></li>
+<li><p>La renovación ocurre automáticamente con el timer de Certbot (<code>/lib/systemd/system/certbot.timer</code>).</p></li>
+</ul>
+<p><strong>Resumen del flujo</strong></p>
+<ol type="1">
+<li>El usuario envía una petición a: <code>https://apps.salsascastillo.com/tgbot/...</code></li>
+<li>Apache la recibe sobre HTTPS.</li>
+<li>Apache la redirige internamente al backend FastAPI: <code>http://127.0.0.1:8003/...</code></li>
+<li>FastAPI procesa el mensaje y responde.</li>
+<li>Apache reescribe los encabezados y envía la respuesta al cliente.</li>
+</ol>
+<p>Este patrón es robusto, seguro y permite correr múltiples servicios simultáneamente sin exponer puertos internos a Internet.</p>
 </section>
 </section>
 <section id="documentación-técnica-del-código" class="level2" style="text-align: justify">
-<h2 class="anchored" data-anchor-id="documentación-técnica-del-código">3. Documentación Técnica del Código</h2>
+<h2 class="anchored" data-anchor-id="documentación-técnica-del-código">3. Documentación técnica del código</h2>
 <p>Esta sección describe la estructura modular del proyecto y las funciones clave de sus componentes.</p>
 <section id="estructura-de-carpetas-y-módulos" class="level3">
-<h3 class="anchored" data-anchor-id="estructura-de-carpetas-y-módulos">3.1. Estructura de Carpetas y Módulos</h3>
+<h3 class="anchored" data-anchor-id="estructura-de-carpetas-y-módulos">3.1. Estructura de carpetas y módulos</h3>
 <p>El proyecto sigue una estructura modular para organizar el código:</p>
 <ul>
 <li><p><code>salsasllm/API/telegram_main.py</code>: Archivo principal de la aplicación FastAPI. Configura la aplicación, CORS y registra los endpoints para el chat de Telegram y los logs.</p></li>
@@ -357,20 +564,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="modelos-llm-utilizados" class="level3">
-<h3 class="anchored" data-anchor-id="modelos-llm-utilizados">3.2. Modelos LLM Utilizados</h3>
+<h3 class="anchored" data-anchor-id="modelos-llm-utilizados">3.2. Modelos LLM utilizados</h3>
 <p>El sistema de Salsas Castillo utiliza una combinación de modelos de lenguaje para diferentes propósitos:</p>
 <ul>
-<li><p><strong>Generación de Respuestas y Razonamiento (OpenAI - <code>gpt-5</code>)</strong>:</p>
+<li><p><strong>Generación de respuestas y razonamiento (OpenAI - <code>gpt-5</code>)</strong>:</p>
 <ul>
 <li><p><strong>Función</strong>: Es el LLM principal utilizado por AgentMultiTools para interpretar las consultas del usuario, decidir qué herramientas invocar (SQL, búsqueda de información, PDF) y generar las respuestas detalladas.</p></li>
 <li><p><strong>Ventaja</strong>: Ofrece alta capacidad de razonamiento y comprensión contextual para manejar consultas complejas sobre datos financieros y de ventas.</p></li>
 </ul></li>
-<li><p><strong>Transcripción de Audio (OpenAI Whisper - <code>whisper-1</code>)</strong>:</p>
+<li><p><strong>Transcripción de audio (OpenAI Whisper - <code>whisper-1</code>)</strong>:</p>
 <ul>
 <li><p><strong>Función</strong>: Utilizado en telegram_chat.py para transcribir mensajes de voz de los usuarios de Telegram a texto, permitiendo que el chatbot procese entradas de audio.</p></li>
 <li><p><strong>Ventaja</strong>: Alta precisión en la transcripción de voz a texto.</p></li>
 </ul></li>
-<li><p><strong>Generación de Análisis para PDF (OpenAI - <code>gpt-5</code>)</strong>: `</p>
+<li><p><strong>Generación de análisis para PDF (OpenAI - <code>gpt-5</code>)</strong>:</p>
 <ul>
 <li><p><strong>Función</strong>: En pdf_tool.py, este modelo se utiliza para generar un párrafo de análisis conciso a partir de los datos tabulares que se incluirán en el reporte PDF.</p></li>
 <li><p><strong>Ventaja</strong>: Proporciona resúmenes inteligentes y profesionales de los datos.</p></li>
@@ -381,19 +588,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="puntos-de-entrada-y-funciones-clave">3.3. Puntos de entrada y funciones clave</h3>
 <p>Estos son los principales puntos de inicio para interactuar con las funcionalidades del chatbot:</p>
 <p><code>API/telegram_main.py::telegram_webhook_handler</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">@app.post</span>(<span class="st">"/webhook"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> telegram_webhook_handler(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    request: Request, </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    background_tasks: BackgroundTasks):</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="at">@app.post</span>(<span class="st">"/webhook"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> telegram_webhook_handler(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    request: Request, </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    background_tasks: BackgroundTasks):</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>Propósito</strong>: Es el <em>endpoint</em> de FastAPI que recibe todos los mensajes y actualizaciones de Telegram. Actúa como el punto de entrada principal para las interacciones del usuario.</li>
 <li><strong>Comportamiento</strong>: Recibe el <code>payload</code> de Telegram, extrae el <code>chat_id</code> y el mensaje (texto o voz), verifica si el usuario está en la whitelist y delega el procesamiento a <code>handle_message</code> en segundo plano.</li>
 </ul>
 <p><code>API/telegram_chat.py::handle_message</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> answer(<span class="va">self</span>, </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    question: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>, </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    session_id: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>, </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    name: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> answer(<span class="va">self</span>, </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    question: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>, </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    session_id: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>, </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    name: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>Propósito</strong>: Es la función central que orquesta la respuesta del chatbot. Recibe la pregunta del usuario, gestiona el historial de la sesión, invoca el <code>AgentExecutor</code> de LangChain y maneja la salida.</li>
 <li><strong>Comportamiento</strong>:
@@ -406,16 +613,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 <p><code>tools/pdf_tool.py::generate_financial_report_pdf</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_financial_report_pdf(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    table_data: <span class="bu">str</span>, </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    title: <span class="bu">str</span>, </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    chat_id: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_financial_report_pdf(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    table_data: <span class="bu">str</span>, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    title: <span class="bu">str</span>, </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    chat_id: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>Propósito</strong>: Genera un reporte en formato PDF a partir de datos tabulares proporcionados y un análisis generado por un LLM, y lo envía al usuario de Telegram.</li>
 <li><strong>Comportamiento</strong>: Utiliza fpdf para crear el PDF, get_llm_analysis para obtener un resumen del LLM y enviar_pdf_por_telegram para enviar el archivo.</li>
 </ul>
 <p><code>langchain/vectorstore.py::LangchainVectorStore.create_index</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_index(<span class="va">self</span>, docs):</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_index(<span class="va">self</span>, docs):</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>Propósito</strong>: Crea un nuevo índice FAISS a partir de una lista de documentos.</li>
 <li><strong>Comportamiento</strong>: Utiliza FAISS.from_documents para generar el índice y lo guarda localmente.</li>
@@ -423,30 +630,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="guía-de-entrenamiento-y-mejora" class="level2" style="text-align: justify">
-<h2 class="anchored" data-anchor-id="guía-de-entrenamiento-y-mejora">4. Guía de Entrenamiento y Mejora</h2>
+<h2 class="anchored" data-anchor-id="guía-de-entrenamiento-y-mejora">4. Guía de entrenamiento y mejora</h2>
 <p>Esta sección aborda cómo se mantiene y mejora la base de conocimientos del chatbot, así como recomendaciones para futuras optimizaciones.</p>
 <section id="generación-y-actualización-de-la-base-de-datos-vectorial" class="level3">
-<h3 class="anchored" data-anchor-id="generación-y-actualización-de-la-base-de-datos-vectorial">4.1. Generación y Actualización de la Base de Datos Vectorial</h3>
+<h3 class="anchored" data-anchor-id="generación-y-actualización-de-la-base-de-datos-vectorial">4.1. Generación y actualización de la base de datos vectorial</h3>
 <p>La herramienta search_information se basa en un vector store FAISS. Este vector store almacena representaciones vectoriales de documentos internos (manuales, reglamentos, etc.) para permitir búsquedas semánticas.</p>
 <p>Proceso de Creación: Los documentos internos se convierten en objetos langchain.schema.Document, se generan embeddings utilizando OpenAIEmbeddings, y luego se construye un índice FAISS que se guarda localmente.</p>
 <p>Actualización: Para mantener la información actualizada, se debe ejecutar periódicamente el script que reconstruye o actualiza este vector store con cualquier nuevo documento o modificación.</p>
 </section>
-<section id="recomendaciones-para-futura-mejora" class="level3">
-<h3 class="anchored" data-anchor-id="recomendaciones-para-futura-mejora">4.2. Recomendaciones para Futura Mejora</h3>
+<section id="recomendaciones-para-mejora-futura" class="level3">
+<h3 class="anchored" data-anchor-id="recomendaciones-para-mejora-futura">4.2. Recomendaciones para mejora futura</h3>
 <ol type="1">
-<li><p><strong>Monitoreo Avanzado</strong>: Implementar un monitoreo más detallado de las interacciones del chatbot, incluyendo el rendimiento de las consultas SQL, el tiempo de respuesta de las herramientas y la calidad de las respuestas generadas por el LLM. Esto puede hacerse analizando los datos en la colección <code>message_backup</code> de MongoDB.</p></li>
-<li><p><strong>Optimización de Prompts</strong>: Continuar iterando y refinando los <em>prompts</em> (<code>prompts.py</code>) para mejorar la precisión y coherencia de las respuestas, especialmente en casos complejos o ambiguos.</p></li>
-<li><p><strong>Manejo de Errores Robustos</strong>: Mejorar el manejo de errores en las llamadas a APIs externas (OpenAI, Telegram) y a las bases de datos (PostgreSQL, MongoDB) para proporcionar mensajes más informativos al usuario y facilitar la depuración.</p></li>
-<li><p><strong>Expansión de Herramientas</strong>: Considerar la adición de nuevas herramientas para el agente, como la capacidad de crear gráficos a partir de datos financieros, o interactuar con otros sistemas internos de Salsas Castillo.</p></li>
-<li><p><strong>Evaluación Cuantitativa</strong>: Si es posible, definir métricas cuantitativas para evaluar la calidad de las respuestas del chatbot (ej., ROUGE, BLEU, o métricas basadas en la satisfacción del usuario) para complementar la evaluación cualitativa.</p></li>
-<li><p><strong>Embeddings Locales (Opcional)</strong>: Investigar el uso de modelos de embeddings open-source (ej., a través de Ollama) para reducir la dependencia de OpenAI y potencialmente los costos, si la precisión es aceptable para los casos de uso de Salsas Castillo.</p></li>
+<li><p><strong>Monitoreo avanzado</strong>: Implementar un monitoreo más detallado de las interacciones del chatbot, incluyendo el rendimiento de las consultas SQL, el tiempo de respuesta de las herramientas y la calidad de las respuestas generadas por el LLM. Esto puede hacerse analizando los datos en la colección <code>message_backup</code> de MongoDB.</p></li>
+<li><p><strong>Optimización de prompts</strong>: Continuar iterando y refinando los <em>prompts</em> (<code>prompts.py</code>) para mejorar la precisión y coherencia de las respuestas, especialmente en casos complejos o ambiguos.</p></li>
+<li><p><strong>Manejo de errores robustos</strong>: Mejorar el manejo de errores en las llamadas a APIs externas (OpenAI, Telegram) y a las bases de datos (PostgreSQL, MongoDB) para proporcionar mensajes más informativos al usuario y facilitar la depuración.</p></li>
+<li><p><strong>Expansión de herramientas</strong>: Considerar la adición de nuevas herramientas para el agente, como la capacidad de crear gráficos a partir de datos financieros, o interactuar con otros sistemas internos de Salsas Castillo.</p></li>
+<li><p><strong>Evaluación cuantitativa</strong>: Si es posible, definir métricas cuantitativas para evaluar la calidad de las respuestas del chatbot (ej., ROUGE, BLEU, o métricas basadas en la satisfacción del usuario) para complementar la evaluación cualitativa.</p></li>
+<li><p><strong>Embeddings locales (Opcional)</strong>: Investigar el uso de modelos de embeddings open-source (ej., a través de Ollama) para reducir la dependencia de OpenAI y potencialmente los costos, si la precisión es aceptable para los casos de uso de Salsas Castillo.</p></li>
 </ol>
 </section>
 </section>
 <section id="arquitectura" class="level2" style="text-align: justify">
 <h2 class="anchored" data-anchor-id="arquitectura">5. Arquitectura</h2>
 <section id="componentes-clave" class="level3">
-<h3 class="anchored" data-anchor-id="componentes-clave">5.1. Componentes Clave:</h3>
+<h3 class="anchored" data-anchor-id="componentes-clave">5.1. Componentes clave:</h3>
 <ul>
 <li><strong>Usuario de Telegram</strong>: El usuario final que interactúa con el chatbot a través de la aplicación de mensajería.</li>
 <li><strong>Backend del Chatbot (FastAPI)</strong>: El servicio principal que procesa las consultas de los usuarios.

@@ -5,7 +5,7 @@ format:
     page-layout: article
 toc-title: "Tabla de Contenidos"
 toc: true
-toc-depth: 3
+toc-depth: 5
 ---
 
 ::: {style="text-align: justify"}
@@ -13,14 +13,14 @@ toc-depth: 3
 
 Este proyecto se centra en el desarrollo de un chatbot inteligente para Salsas Castillo, diseñado para optimizar el acceso a información de ventas y finanzas, y mejorar la comunicación interna. El chatbot utiliza un sistema de recuperación aumentada con generación (RAG) y herramientas dinámicas para proporcionar respuestas precisas y relevantes, así como la capacidad de generar reportes financieros.
 
-### **Objetivos del proyecto**:
+### Objetivos del proyecto
 
 * **Automatizar consultas**: Permitir a los usuarios (operativos y no operativos) obtener información sobre ventas, productos y finanzas de manera rápida y eficiente a través de una interfaz conversacional en Telegram.
 * **Mejorar la toma de decisiones**: Proporcionar análisis de datos financieros y de ventas en tiempo real, incluyendo la generación de reportes en PDF.
 * **Optimizar la gestión de información**: Centralizar el acceso a datos transaccionales y consolidados, reduciendo la dependencia de consultas manuales.
 * **Adaptación a nuevas tecnologías**: Implementar un sistema basado en LLMs y bases de datos vectoriales para un enfoque moderno y escalable.
 
-### **Impacto esperado**:
+### Impacto esperado
 
 * Incremento en la eficiencia operativa al reducir el tiempo dedicado a la búsqueda manual de información.
 * Mejora en la precisión de los datos y análisis disponibles para el personal.
@@ -33,7 +33,7 @@ Este proyecto se centra en el desarrollo de un chatbot inteligente para Salsas C
 
 Esta sección detalla los requisitos, dependencias y pasos para la instalación y despliegue del chatbot de Salsas Castillo.
 
-### 2.1. **Configuraciones importantes** 
+### 2.1. Configuraciones importantes 
 
 * El backend del chatbot está desarrollado con **FastAPI** y se espera que se ejecute en un entorno con **Python 3.12**.
 * Requiere conectividad a una instancia de **MongoDB** para la gestión de sesiones e historial, y a una base de datos **PostgreSQL** para datos financieros y de ventas.
@@ -41,7 +41,7 @@ Esta sección detalla los requisitos, dependencias y pasos para la instalación 
 * Las credenciales sensibles se gestionan a través de un archivo `.env`.
 * La integración con Telegram se realiza mediante webhooks y el `telegram_token` correspondiente.
 
-### 2.2. **Requisitos del sistema**
+### 2.2. Requisitos del sistema
 
 * **Python**: Versión 3.x (se recomienda la versión utilizada en el desarrollo, ej., 3.12.9).
 * **Pip/UV**: Última versión para la gestión de paquetes.
@@ -50,7 +50,7 @@ Esta sección detalla los requisitos, dependencias y pasos para la instalación 
 * **PostgreSQL**: Acceso remoto configurado para las bases de datos historial_facturas y financieroii.
 * **Conexión a Internet**: Necesaria para interactuar con las APIs de OpenAI y Telegram.
 
-### 2.3. **Dependencias principales del sistema**
+### 2.3. Dependencias principales del sistema
 
 * `fastapi`: Framework web para el backend.
 * `langchain`: Framework principal para la orquestación del LLM y las herramientas.
@@ -63,16 +63,16 @@ Esta sección detalla los requisitos, dependencias y pasos para la instalación 
 * `pydantic`: Para la validación de modelos de datos.
 * `faiss-cpu`: Para la base de datos vectorial (si aplica para documentos internos).
 
-### 2.4. **Instalación del Backend (API)**
+### 2.4. Requisitos de configuración del backend
 
-1. **Clonar el repositorio**:
+#### 2.4.1. Clonar el repositorio
 
 ```bash
 gh repo fork Macrodata-Analitica/castilloChatbot
 cd castilloChatbot
 ```
 
-2. **Crear entorno virtual e instalar dependencias**:
+#### 2.4.2. Crear entorno virtual e instalar dependencias
 
 ```bash
 pip install uv # Si no está instalado
@@ -83,7 +83,7 @@ uv pip install -e .
 uv sync # Sincroniza los modulos de src/
 ```
 
-3. **Configurar variables de entorno `(.env)`**: 
+#### 2.4.3. Configurar variables de entorno `(.env)`
 
 Asegúrate de que el archivo `.env` en la raíz del proyecto contenga las siguientes variables con sus valores correctos:
 
@@ -102,35 +102,206 @@ DBNAME=""
 SCHEMA=""
 ```
 
-4. **Levantar el backend**:
-
-* **Desarrollo**:
-
-```bash
-uvicorn salsasllm.API.telegram_main:app --reload
-```
-
-* **Producción**:
-
-```bash
-nohup gunicorn salsasllm.API.telegram_main:app --workers 4 --bind 0.0.0.0:8000 -k uvicorn.workers.UvicornWorker --timeout 120 --access-logfile - --error-logfile - &
-```
-
-5. **Configurar Webhook de Telegram**:
+#### 2.4.4. Configurar Webhook de Telegram
 
 Asegúrate de que Telegram envíe los mensajes a tu endpoint `/webhook`. Esto se hace una vez a través de la API de Telegram:
 
-```bash
-curl -F "url=https://<TU_DOMINIO>/tgbot/webhook" https://api.telegram.org/bot<TU_TELEGRAM_TOKEN>/setWebhook
 ```
-Reemplaza <TU_DOMINIO> y <TU_TELEGRAM_TOKEN>.
+curl -F "url=https://TU_DOMINIO/tgbot/webhook" https://api.telegram.org/botTU_TELEGRAM_TOKEN/setWebhook
+```
+Reemplaza TU_DOMINIO y TU_TELEGRAM_TOKEN.
+
+### 2.5 Arquitectura de despliegue continuo y sincronización
+El servidor implementa un mecanismo adicional para mantener el backend del chatbot actualizado y funcionando de forma estable. Este mecanismo se basa en tres componentes:
+
+- **El servicio principal del chatbot (`rag.service`)**
+- **El servicio de despliegue (`rag-deploy.service`)**
+- **El timer que activa el despliegue cada 30 segundos (`rag-deploy.timer`)**
+
+Este sistema garantiza que:
+
+- Si el repositorio cambia, el backend se actualiza automáticamente.
+- Si el entorno Python necesita sincronizar dependencias, se hace sin intervención manual.
+- Si el servicio falla o se detiene por cualquier motivo, systemd lo vuelve a levantar.
+
+A continuación se explica cada pieza.
+
+#### 2.5.1 Definición del servicio backend `rag.service`
+
+Este servicio es el que ejecuta el backend de FastAPI mediante Uvicorn.
+```
+[Unit]
+Description=Telegram Chat API (Uvicorn)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=ctrlsalsasc
+WorkingDirectory=/home/ctrlsalsasc/rag_v3
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/bin/bash -lc 'uv sync && exec uv run uvicorn salsasllm.API.telegram_main:app --host 0.0.0.0 --port 8003'
+Restart=always
+RestartSec=5
+StartLimitIntervalSec=60
+StartLimitBurst=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+```
+#### 2.5.2 Especificaciones operativas
+
+- Usa `uv sync` antes de arrancar para garantizar dependencias correctas.
+- Corre en el puerto interno **8003**, que Apache expone al público mediante reverse proxy.
+- Se auto-reinicia si falla, asegurando alta disponibilidad.
+- Los logs se consultan con `journalctl -u rag.service -f`.
+
+#### 2.5.3 Servicio de actualización `rag-deploy.service`
+
+Este servicio no se ejecuta de manera continua, sino que systemd lo invoca bajo demanda (a través del timer).
+
+```
+[Unit]
+Description=Pull + uv sync + restart rag.service si hay cambios
+
+[Service]
+Type=oneshot
+User=ctrlsalsasc
+Environment=HEALTHCHECK_URL=http://127.0.0.1:8003/healthz
+ExecStart=/usr/local/bin/rag_deploy.sh
+```
+
+#### 2.5.4. Lógica de ejecución del script
+
+El script (`rag_deploy.sh`) realiza tareas como:
+
+- `git fetch` → revisar si hay nuevos commits.
+- Si hay cambios → `git pull` y `uv sync`.
+- Reiniciar `rag.service` **solo si fue necesario** actualizar.
+- Ejecutar un healthcheck contra `/healthz` para validar que el servicio levantó correctamente.
+
+Este patrón es más robusto que un simple cron, porque systemd:
+
+- Controla fallos.
+- Registra logs.
+- Evita ejecuciones simultáneas.
+- Puede reintentar si algo sale mal.
+
+---
+
+#### 2.5.5 Programación del timer de sistema `rag-deploy.timer`
+
+El timer configura cada cuánto debe ejecutarse el servicio anterior:
+```
+[Unit]
+Description=Timer para rag-deploy.service (cada minuto)
+
+[Timer]
+OnUnitActiveSec=30s
+AccuracySec=5s
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+**Definiciones**
+
+| Configuración         | Función                                                                                                  |
+| --------------------- | -------------------------------------------------------------------------------------------------------- |
+| `OnUnitActiveSec=30s` | Ejecuta el despliegue **30 segundos después** de la última ejecución → es decir, cada 30s continuamente. |
+| `Persistent=true`     | Si el servidor estuvo apagado, ejecuta de inmediato lo que quedó pendiente.                              |
+| `AccuracySec=5s`      | systemd puede adelantar o atrasar unos segundos para optimizar carga del sistema.                        |
+
+**Comandos útiles**
+Ver estado del timer:
+```bash
+systemctl status rag-deploy.timer
+``` 
+Ver cuándo se ejecutó la última vez:
+```bash
+systemctl list-timers | grep rag
+``` 
+Ver logs del despliegue:
+```bash
+journalctl -u rag-deploy.service -f
+``` 
+Forzar un despliegue manual:
+```bash
+sudo systemctl start rag-deploy.service
+``` 
+### 2.6 Infraestructura de red: Reverse proxy con Apache
+
+El servidor utiliza Apache2 como reverse proxy para exponer los servicios del chatbot hacia Internet de forma segura a través de HTTPS. Esta configuración permite que los procesos internos de FastAPI, que corren localmente en puertos como 8003 o 8006, sean accesibles mediante rutas amigables bajo el dominio oficial de la empresa.
+
+El archivo principal de configuración utilizado por el dominio seguro es:
+`/etc/apache2/sites-enabled/default-ssl.conf`
+
+**Reverse Proxy para el servicio Telegram Bot (Producción)**
+```bash
+# Telegram ChatBot
+ProxyPreserveHost On
+ProxyPass /tgbot http://127.0.0.1:8003/
+ProxyPassReverse /tgbot http://127.0.0.1:8003/
+
+RewriteEngine On
+RewriteRule ^/tgbot(/.*)?$ http://127.0.0.1:8003$1 [P,L]
+
+<Location tgbot>
+    Require all granted
+    AllowOverride None
+</Location>
+```
+
+**Explicación del funcionamiento**
+
+| Directiva                 | Función                                                                                                                                 |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| ProxyPreserveHost On      | Mantiene el header `Host` original enviado por el cliente. Esto permite que FastAPI identifique correctamente el dominio público.       |
+| ProxyPass /tgbot …        | Todo lo que llegue a `https://apps.salsascastillo.com/tgbot` será enviado internamente al proceso de FastAPI que corre en `http://127.0.0.1:8003/`. |
+| ProxyPassReverse          | Ajusta los encabezados de respuesta para que FastAPI no devuelva rutas internas.                                                       |
+| RewriteEngine + RewriteRule | Se asegura de que todas las subrutas, como `/tgbot/webhook`, `/tgbot/logs`, etc., se redirijan correctamente al backend.              |
+| Location               | Permite acceso público a la ruta (sin autenticación adicional).                                                                         |
+
+Esta sección expone el servicio de Telegram en producción y es el endpoint donde se configura el webhook de Telegram:
+
+`https://apps.salsascastillo.com/tgbot/webhook`
+
+**Configuración SSL**
+En la parte final del archivo se incluyen los certificados emitidos por Let’s Encrypt a través de Certbot:
+```apache
+SSLCertificateFile /etc/letsencrypt/live/apps.salsascastillo.com/fullchain.pem 
+SSLCertificateKeyFile /etc/letsencrypt/live/apps.salsascastillo.com/privkey.pem 
+Include /etc/letsencrypt/options-ssl-apache.conf
+```
+**Detalles importantes**
+
+- `fullchain.pem` contiene la cadena completa del certificado, incluida la autoridad intermedia.
+- `privkey.pem` es la llave privada del dominio (solo debe tener permisos 600 y dueño root).
+- `options-ssl-apache.conf` aplica configuraciones modernas recomendadas por Let’s Encrypt (TLS, Cipher Suites, HSTS, etc.).
+
+- La renovación ocurre automáticamente con el timer de Certbot (`/lib/systemd/system/certbot.timer`).
+
+**Resumen del flujo**
+
+1. El usuario envía una petición a:
+`https://apps.salsascastillo.com/tgbot/...`
+2. Apache la recibe sobre HTTPS.
+3. Apache la redirige internamente al backend FastAPI:
+`http://127.0.0.1:8003/...`
+4. FastAPI procesa el mensaje y responde.
+5. Apache reescribe los encabezados y envía la respuesta al cliente.
+
+Este patrón es robusto, seguro y permite correr múltiples servicios simultáneamente sin exponer puertos internos a Internet.
 :::
 
 ::: {style="text-align: justify"}
-## 3. Documentación Técnica del Código
+## 3. Documentación técnica del código
 Esta sección describe la estructura modular del proyecto y las funciones clave de sus componentes.
 
-### 3.1. Estructura de Carpetas y Módulos
+### 3.1. Estructura de carpetas y módulos
 El proyecto sigue una estructura modular para organizar el código:
 
 * `salsasllm/API/telegram_main.py`: Archivo principal de la aplicación FastAPI. Configura la aplicación, CORS y registra los endpoints para el chat de Telegram y los logs.
@@ -151,23 +322,23 @@ El proyecto sigue una estructura modular para organizar el código:
 
 * `salsasllm/settings/config.py`: Archivo para configuraciones generales del proyecto (ej., rutas de índices FAISS, whitelist de Telegram).
 
-### 3.2. Modelos LLM Utilizados
+### 3.2. Modelos LLM utilizados
 
 El sistema de Salsas Castillo utiliza una combinación de modelos de lenguaje para diferentes propósitos:
 
-* **Generación de Respuestas y Razonamiento (OpenAI - `gpt-5`)**:
+* **Generación de respuestas y razonamiento (OpenAI - `gpt-5`)**:
 
     * **Función**: Es el LLM principal utilizado por AgentMultiTools para interpretar las consultas del usuario, decidir qué herramientas invocar (SQL, búsqueda de información, PDF) y generar las respuestas detalladas.
 
     * **Ventaja**: Ofrece alta capacidad de razonamiento y comprensión contextual para manejar consultas complejas sobre datos financieros y de ventas.
 
-* **Transcripción de Audio (OpenAI Whisper - `whisper-1`)**:
+* **Transcripción de audio (OpenAI Whisper - `whisper-1`)**:
 
     * **Función**: Utilizado en telegram_chat.py para transcribir mensajes de voz de los usuarios de Telegram a texto, permitiendo que el chatbot procese entradas de audio.
 
     * **Ventaja**: Alta precisión en la transcripción de voz a texto.
 
-* **Generación de Análisis para PDF (OpenAI - `gpt-5`)**: `
+* **Generación de análisis para PDF (OpenAI - `gpt-5`)**: 
 
     * **Función**: En pdf_tool.py, este modelo se utiliza para generar un párrafo de análisis conciso a partir de los datos tabulares que se incluirán en el reporte PDF.
 
@@ -230,38 +401,36 @@ def create_index(self, docs):
 :::
 
 ::: {style="text-align: justify"}
-
-## 4. Guía de Entrenamiento y Mejora
+## 4. Guía de entrenamiento y mejora
 Esta sección aborda cómo se mantiene y mejora la base de conocimientos del chatbot, así como recomendaciones para futuras optimizaciones.
 
-### 4.1. Generación y Actualización de la Base de Datos Vectorial
+### 4.1. Generación y actualización de la base de datos vectorial
 La herramienta search_information se basa en un vector store FAISS. Este vector store almacena representaciones vectoriales de documentos internos (manuales, reglamentos, etc.) para permitir búsquedas semánticas.
 
 Proceso de Creación: Los documentos internos se convierten en objetos langchain.schema.Document, se generan embeddings utilizando OpenAIEmbeddings, y luego se construye un índice FAISS que se guarda localmente.
 
 Actualización: Para mantener la información actualizada, se debe ejecutar periódicamente el script que reconstruye o actualiza este vector store con cualquier nuevo documento o modificación.
 
-### 4.2. Recomendaciones para Futura Mejora
+### 4.2. Recomendaciones para mejora futura
 
-1. **Monitoreo Avanzado**: Implementar un monitoreo más detallado de las interacciones del chatbot, incluyendo el rendimiento de las consultas SQL, el tiempo de respuesta de las herramientas y la calidad de las respuestas generadas por el LLM. Esto puede hacerse analizando los datos en la colección `message_backup` de MongoDB.
+1. **Monitoreo avanzado**: Implementar un monitoreo más detallado de las interacciones del chatbot, incluyendo el rendimiento de las consultas SQL, el tiempo de respuesta de las herramientas y la calidad de las respuestas generadas por el LLM. Esto puede hacerse analizando los datos en la colección `message_backup` de MongoDB.
 
-2. **Optimización de Prompts**: Continuar iterando y refinando los *prompts* (`prompts.py`) para mejorar la precisión y coherencia de las respuestas, especialmente en casos complejos o ambiguos.
+2. **Optimización de prompts**: Continuar iterando y refinando los *prompts* (`prompts.py`) para mejorar la precisión y coherencia de las respuestas, especialmente en casos complejos o ambiguos.
 
-3. **Manejo de Errores Robustos**: Mejorar el manejo de errores en las llamadas a APIs externas (OpenAI, Telegram) y a las bases de datos (PostgreSQL, MongoDB) para proporcionar mensajes más informativos al usuario y facilitar la depuración.
+3. **Manejo de errores robustos**: Mejorar el manejo de errores en las llamadas a APIs externas (OpenAI, Telegram) y a las bases de datos (PostgreSQL, MongoDB) para proporcionar mensajes más informativos al usuario y facilitar la depuración.
 
-4. **Expansión de Herramientas**: Considerar la adición de nuevas herramientas para el agente, como la capacidad de crear gráficos a partir de datos financieros, o interactuar con otros sistemas internos de Salsas Castillo.
+4. **Expansión de herramientas**: Considerar la adición de nuevas herramientas para el agente, como la capacidad de crear gráficos a partir de datos financieros, o interactuar con otros sistemas internos de Salsas Castillo.
 
-5. **Evaluación Cuantitativa**: Si es posible, definir métricas cuantitativas para evaluar la calidad de las respuestas del chatbot (ej., ROUGE, BLEU, o métricas basadas en la satisfacción del usuario) para complementar la evaluación cualitativa.
+5. **Evaluación cuantitativa**: Si es posible, definir métricas cuantitativas para evaluar la calidad de las respuestas del chatbot (ej., ROUGE, BLEU, o métricas basadas en la satisfacción del usuario) para complementar la evaluación cualitativa.
 
-6. **Embeddings Locales (Opcional)**: Investigar el uso de modelos de embeddings open-source (ej., a través de Ollama) para reducir la dependencia de OpenAI y potencialmente los costos, si la precisión es aceptable para los casos de uso de Salsas Castillo.
+6. **Embeddings locales (Opcional)**: Investigar el uso de modelos de embeddings open-source (ej., a través de Ollama) para reducir la dependencia de OpenAI y potencialmente los costos, si la precisión es aceptable para los casos de uso de Salsas Castillo.
 
 :::
 
 ::: {style="text-align: justify"}
-
 ## 5. Arquitectura
 
-### 5.1. Componentes Clave:
+### 5.1. Componentes clave:
 
 * **Usuario de Telegram**: El usuario final que interactúa con el chatbot a través de la aplicación de mensajería.
 * **Backend del Chatbot (FastAPI)**: El servicio principal que procesa las consultas de los usuarios.
@@ -301,5 +470,4 @@ Actualización: Para mantener la información actualizada, se debe ejecutar peri
 El siguiente diagrama ilustra la arquitectura general del sistema del chatbot para Salsas Castillo, mostrando los componentes principales y el flujo de datos.
 
 ![Arquitectura del sistema](./images/arquitectura.jpg){width=120%}
-
 :::
