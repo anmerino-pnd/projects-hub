@@ -1,5 +1,5 @@
 ---
-title: "Modelado y Evaluación"
+title: "Modelado y evaluación"
 format: 
   html:
     page-layout: article
@@ -9,11 +9,11 @@ toc-depth: 5
 ---
 
 ::: {style="text-align: justify"}
-## 1 Modelado
+## 1. Modelado
 
 El objetivo de esta fase es desarrollar la arquitectura del sistema de recuperación aumentada con generación (RAG) y las herramientas que utilizará el chatbot para la información dinámica. Para ello, se utiliza como fuente de conocimiento la base de datos vectorizada construida en la etapa anterior.
 
-### 1.1 Modelos
+### 1.1. Modelos
 
 Dado que el enfoque del proyecto se basa en herramientas de OpenAI, los modelos considerados para esta fase son los siguientes:
 
@@ -23,12 +23,12 @@ Dado que el enfoque del proyecto se basa en herramientas de OpenAI, los modelos 
 - **GPT-4o:**  
   Modelo multimodal de última generación de OpenAI, capaz de procesar texto, imágenes y audio. En este proyecto se utiliza solo su capacidad textual, destacando por su mayor comprensión semántica y coherencia en las respuestas.
 
-
 - **Modelos open-source integrados mediante Ollama:**  
   Ollama permite correr modelos de lenguaje open-source de manera local o privada. En este proyecto se contemplan modelos como LLaMA o Mistral, que ofrecen alternativas de código abierto con buen rendimiento en tareas conversacionales.
 
+Estos modelos son los más recientes por el momento de desarrollo, la idea es actualizar la selección de los modelos de OpenAI conforme vayan saliendo modelos más rápidos, inteligentes, y con mayor potencial.
 
-### 1.2 Arquitectura del sistema 
+### 1.2. Arquitectura del sistema 
 
 La implementación del sistema se basa en una estructura modular orientada a clases. Esto permite una mayor reutilización de código, facilita su mantenimiento y mejora la legibilidad, aspectos clave para futuras modificaciones o revisiones.
 
@@ -36,9 +36,9 @@ Además, esta estructura permite importar únicamente la clase necesaria para ej
 
 El sistema se construyó utilizando principalmente la librería **LangChain**, la cual ofrece una base robusta para conectar modelos de lenguaje con herramientas externas y flujos personalizados.
 
-#### 1.2.1 Información estática
+#### 1.2.1. Información estática
 
-A partir de los datos mencionados en el apartado anterior, procederemos a crear la base de datos vectorial con esta información. Tomamos los datos limpios y transformados directamente de las funciones de limpieza (`clean_products` y `clean_sales` en `ct/ETL/transform.py`) y los convertimos en un tipo `Document` para poder pasarlo a FAISS (base vectorial) junto con los `embeddings` y guardarlo de forma local.
+A partir de los datos mencionados en el apartado anterior, procederemos a crear la base de datos vectorial con esta información. Tomamos los datos limpios y transformados directamente de las funciones de limpieza (`clean_products` y `clean_sales` en `ct/ETL/transform.py`) y los convertimos en un tipo `Document` para poder insertar la información a FAISS (base vectorial) junto con los `embeddings` y guardarlo de forma local.
 
 ```python
 campos = [
@@ -71,7 +71,7 @@ vectorstore = FAISS.from_documents(docs, embeddings)
 vectorstore.save_local()
 ```
 
-#### 1.2.2 Información dinámica
+#### 1.2.2. Información dinámica
 
 Además de la información estática precargada en la base vectorial, el sistema cuenta con herramientas dinámicas que permiten consultar datos actualizados en tiempo real, como existencias, precios y promociones. Estas herramientas se integran al agente a través del framework LangChain, lo que permite invocarlas solo cuando el modelo detecta que son necesarias para responder con precisión.
 
@@ -99,13 +99,48 @@ Las herramientas dinámicas disponibles son:
             name='sales_rules_tool',
             description="Aplica reglas de promoción, devuelve el precio final y mensaje para mostrar al usuario.",
             args_schema=SalesInput
-        )
+        ),
+            StructuredTool.from_function(
+                func=dolar_convertion_tool,
+                name='dolar_convertion_tool',
+                description="Solo usa la tool para convertir el precio de un producto de USD a MXN y hacer cuentas",
+                args_schema=DolarInput
+        ),
+            StructuredTool.from_function(
+                func=status_tool,
+                name='status_tool',
+                description="Cuando pregunten por el estatus de algún pedido hecho, pide la factura y busca dicho estatus y no ofrezcas más detalles, solo los regresados por la tool",
+                args_schema=StatusInput
+        ),
+            StructuredTool.from_function(
+                func=search_by_key_tool,
+                name="search_by_key_tool",
+                description="Busca en el docstore un producto o promoción EXACTA usando su clave CT, una sola clave en mayusculas. Búsqueda más específica",
+                args_schema=ClaveInput
+        ),
+            StructuredTool.from_function(
+                func=get_support_info,
+                name="get_support_info",
+                description="Cuando necesites saber sobre cómo hacer compras en líneas, compras y envíos de ESD, políticas, garantías, devoluciones, términos y condiciones, partnerCT (ventas e-commerce), Directorio de Product Managers",
+                args_schema=SupportInput
+        ),
+            StructuredTool.from_function(
+                func=who_are_we,
+                name="who_are_we",
+                description="SIEMPRE que te pregunten por CT y quién es, qué es, valores, etc., usa esta herramienta.",
+        ),
+            StructuredTool.from_function(
+                func=get_sucursales_info,
+                name="get_sucursales_info",
+                description="Código Python para analizar el DataFrame 'df' con información de las sucursales. Debe usar print() para mostrar resultados o asignar el resultado a la variable 'result'.",
+                args_schema=SucursalesInput
+            )
 ]
 ```
 
 Estas herramientas son invocadas automáticamente por el agente cuando la consulta del usuario requiere información que no está contenida en el contexto estático. Esto permite entregar respuestas más precisas y alineadas con la situación real del negocio (existencias, promociones activas, etc.).
 
-#### 1.2.3 Flujo de datos para el sistema RAG
+#### 1.2.3. Flujo de datos para el sistema RAG
 
 El sistema se alimenta con información a través de un proceso ETL (Extracción, Transformación y Carga) que asegura que los datos estén limpios, estructurados y listos para ser utilizados por el modelo y las herramientas.
 
@@ -113,7 +148,7 @@ El sistema se alimenta con información a través de un proceso ETL (Extracción
 
 En resumen, este proceso garantiza que el modelo tenga acceso a una base de datos de conocimiento robusta y actualizada, tanto estática (productos y promociones embedidas) como dinámica (a través de las herramientas que consultan datos en tiempo real).
 
-### 1.3 Atributos del modelo y contexto de ejecución
+### 1.3. Atributos del modelo y contexto de ejecución
 
 Durante la ejecución del sistema, los modelos de lenguaje no operan en aislamiento. Se alimentan con diversos atributos y herramientas que enriquecen la interacción y permiten generar respuestas precisas y contextualizadas. A continuación, se describen los principales elementos que intervienen en este proceso y cómo la información preparada se integra en el modelo:
 
@@ -121,7 +156,7 @@ Durante la ejecución del sistema, los modelos de lenguaje no operan en aislamie
 
 * `query`: Pregunta o instrucción directa del usuario. Es el punto de entrada para iniciar el procesamiento.
 * `session_id`: Identificador de sesión que permite obtener el contexto del usuario (incluye la sucursal asociada para aplicar reglas de negocio como promociones).
-* `listaPrecio`: Parámetro numérico que indica la lista de precios relevante para consultas de productos y promociones.
+* `listaPrecio`: Parámetro numérico que indica la lista de precios correspondiente al usuario la cual ajusta el precio de productos y promociones.
 
 Estos atributos permiten personalizar las respuestas con base en el usuario que consulta, su sucursal, y las reglas comerciales que le aplican.
 
@@ -130,7 +165,7 @@ Estos atributos permiten personalizar las respuestas con base en el usuario que 
 El LLM se alimenta con información contextualizada de dos maneras principales, ambas derivadas de los datos procesados en la fase de Preparación de los Datos:
 
 * **Información estática (a través del RAG)**:
-  * Proviene de la base de datos vectorial (FAISS) construida con los productos y promociones previamente embedidos mediante `OpenAIEmbeddings`.
+  * Proviene de la base de datos vectorial (FAISS) construida con la información previamente incrustrada mediante `OpenAIEmbeddings`.
   * Cuando el usuario realiza una `query` relevante, el sistema RAG busca los documentos más similares en el vector store. Estos documentos (`page_content` y `metadata`) se inyectan en el _context window_ del LLM como información de referencia.
   * Esto se activa principalmente para consultas generales de productos, descripciones, características, comparativas, etc., permitiendo al LLM generar respuestas basadas en un conocimiento específico y actualizado de tu catálogo.
 
@@ -152,7 +187,7 @@ Antes de ejecutar cualquier acción, la consulta pasa por una etapa de moderaci�
 Este flujo asegura robustez, control y trazabilidad en la interacción con el modelo.
 
 
-### 1.4 Métricas de evaluación
+### 1.4. Métricas de evaluación
 
 A diferencia de los modelos clásicos de *machine learning* (ML), la evaluación de sistemas basados en modelos de lenguaje grande (LLMs) requiere enfoques distintos, centrados en la calidad de las respuestas generadas.
 
@@ -166,7 +201,7 @@ Estos criterios serán evaluados por los expertos y personas con conocimiento en
 :::
 
 ::: {style="text-align: justify"}
-## 2 Evaluación
+## 2. Evaluación
 
 Con base en las respuestas generadas durante la etapa de modelado, se llevó a cabo una evaluación cualitativa para analizar la coherencia, relevancia y precisión de las recomendaciones de cada modelo. Este análisis nos permitió identificar oportunidades de mejora en el sistema, así como validar si el comportamiento del modelo es adecuado para continuar con su implementación o si requiere ajustes adicionales.
 
@@ -184,7 +219,7 @@ A continuación, se presentan las respuestas generadas por el sistema para una s
 4. **Consulta:** _"Y una extensión doméstica"_  
    ![Respuesta a consulta 4](./evaluacion/image4.png){width=40%}
 
-Los resultados obtenidos reflejan un desempeño sólido por parte del sistema. En todos los casos evaluados, las respuestas del chatbot fueron coherentes, alineadas con la base de datos y cumplieron con los criterios definidos:
+Los resultados obtenidos reflejan un desempeño sólido y estable por parte del sistema. En todos los casos evaluados, las respuestas del chatbot fueron coherentes, alineadas con la base de datos y cumplieron con los criterios definidos:
 
 - Las ofertas y promociones fueron correctamente identificadas y presentadas.
 - Los precios y descripciones de los productos coincidieron con los datos reales.

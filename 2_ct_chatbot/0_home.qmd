@@ -1,0 +1,42 @@
+---
+title: "Chatbot para sugerencias de productos: un enfoque personalizado"
+format: 
+    html:
+         page-layout: article
+toc: false
+author: 
+  - name: "Angel Merino Cedeño"
+    email: "acedeno00@gmail.com"     # Aparece un icono de correo
+    url: "https://www.linkedin.com/in/anmerino-pnd"          # Aparece icono de web si quieres
+    affiliations:
+        - name : "[📄 CV](https://unisonmx-my.sharepoint.com/:w:/g/personal/a218204710_unison_mx/EYLVn5p-js9Hh7hr8HmUKOgBZq5L1wHwtZzyjEZG_SeUGA?e=Q7U9pP)"
+  - name: "Gerardo Leyva Conde"
+  - name: "Roberto Navarro Bartolini"
+  - name: "Abraham Rojo Salazar"
+  - name: "Oscar Esquer Vazquez"
+date: last-modified
+date-format: long
+lang: es
+---
+
+::: {style="text-align: justify"}
+## Introducción
+
+Este proyecto se enfoca en el desarrollo de un chatbot para la recomendación de productos, basado en un sistema de recuperación de información desde una base de datos vectorial o con el uso de herramientas. A través de este chatbot, se busca optimizar la experiencia del cliente, sugiriendo productos relevantes según las especificaciones y presupuesto proporcionados, adenás del acceso y explicación de información técnica automatizada.
+
+El proyecto se divide en seis fases:
+
+1. **Comprensión del negocio:** Definición de los objetivos y el contexto del proyecto, enfocados en la mejora de la experiencia del cliente y la eficiencia del proceso de recomendación de productos.
+
+2. **Comprensión de los datos:** Recolección y análisis preliminar de los datos disponibles, tales como características de los productos y preferencias de los usuarios.
+
+3. **Preparación de los datos:** Limpieza, transformación y estructuración de los datos para que puedan ser utilizados en el sistema de recomendación y la base de datos vectorial.
+
+4. **Desarrollo del sistema de recomendación:** Implementación del chatbot que utilizará un modelo de lenguaje grande (LLM) para interpretar las consultas y hacer recomendaciones basadas en la recuperación de documentos relevantes de la base de datos vectorial.
+
+5. **Evaluación:** Validación de la precisión y relevancia de las recomendaciones ofrecidas por el chatbot, utilizando métricas de evaluación del sistema.
+
+6. **Implementación:** Integración del chatbot en la plataforma de la empresa, presentación de los resultados y recomendaciones para mejorar el sistema de recomendación y la interacción con los clientes.
+
+A través de estas fases, se busca proporcionar una solución innovadora que mejore la interacción con los clientes, optimizando la selección de productos y mejorando la eficiencia del proceso de recomendación. También, a través de los ciclos iterativos del proyecto, iremos agregando información considerada como relevante para añadirla dentro de la base de datos vectorial y sea parte del conocimiento persistente del chatbot.
+:::
