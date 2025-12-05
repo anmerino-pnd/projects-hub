@@ -30,6 +30,10 @@ website:
         text: Despliegue
       - href: 6_documentacion.qmd
         text: Documentación
+    right:
+      - text: "Ver más proyectos"
+        icon: box-arrow-left
+        href: ../proyectos.html
       
   back-to-top-navigation: true
       
