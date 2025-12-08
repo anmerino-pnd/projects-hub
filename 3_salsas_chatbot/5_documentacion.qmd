@@ -302,25 +302,293 @@ Este patrón es robusto, seguro y permite correr múltiples servicios simultáne
 Esta sección describe la estructura modular del proyecto y las funciones clave de sus componentes.
 
 ### 3.1. Estructura de carpetas y módulos
-El proyecto sigue una estructura modular para organizar el código:
+Aquí se encuentran las clases, módulos y funciones claves que permiten la interacción general de todo el sistema construido.
 
-* `salsasllm/API/telegram_main.py`: Archivo principal de la aplicación FastAPI. Configura la aplicación, CORS y registra los endpoints para el chat de Telegram y los logs.
+#### 3.1.1. Agente
+En este módulo se encuentran las funciones claves que permiten al LLM conocer del contexto y generar y enviar respuestas, tablas y reportes.
 
-* `salsasllm/API/telegram_chat.py`: Contiene la lógica para manejar los webhooks de Telegram, transcribir audio (usando Whisper), enviar mensajes y coordinar con el agente principal.
+* `class AgentMultiTools`:
+  * `__init__`:
+    * **Propósito**: Inicializar la clase, configurar el modelo de lenguaje (GPT-5), establecer la conexión con MongoDB para sesiones y backups, y definir la lista de herramientas (tools) disponibles para el agente. 
+    * **Comportamiento**: Instancia el cliente de OpenAI con un limitador de tasa (`InMemoryRateLimiter`), conecta a las colecciones de base de datos y prepara el `ChatPromptTemplate` con las instrucciones del sistema.
 
-* `salsasllm/langchain/agent_multitool.py`: Implementa la lógica principal del agente conversacional (AgentMultiTools). Gestiona la interacción con herramientas externas (SQL, PDF, búsqueda de información), el historial de conversación en MongoDB y la conexión con el LLM.
+  * `ensure_session() -> dict`:
+    * **Propósito**: Verificar si existe una sesión para el usuario actual y crearla si no existe.
+    * **Parámetros**: 
+      * `session_id`: Identificador único del chat.
+      * `name`: Nombre del usuario.
+    * **Comportamiento**: Consulta MongoDB; si la sesión no existe, inserta un nuevo documento con `created_at` y el nombre. Si existe, actualiza last_activity y retorna los datos de la sesión.
 
-* `salsasllm/langchain/vectorstore.py`: Implementa la lógica para la creación, carga y consulta de la base de datos vectorial FAISS.
+  * `get_session_history() -> list`:
+    * **Propósito**: Recuperar el historial reciente de mensajes de una sesión específica para mantener el contexto de la conversación. 
+    * **Parámetros**: 
+      * `session_id`: Identificador del chat.
+    * **Comportamiento**: Consulta la colección de sesiones en MongoDB, extrae los últimos 10 mensajes y los convierte en objetos HumanMessage o AIMessage de LangChain.
 
-* `salsasllm/tools/search_information.py`: Define la herramienta search_information para buscar información relevante en documentos internos (a través del vector store).
+  * `add_message()`:
+    * **Propósito**: Almacenar un nuevo mensaje en el historial de la sesión activa.
+    * **Parámetros**: 
+      * `session_id`: Identificador del chat.
+      * `message_type ("human" o "assistant")`: Human para las consultas del usuario, assistant para las respuestas del chatbot.
+      * `content`: El contenido textual, correspondiendo si es consulta del usuario o respuesta del chatbot.
+    * **Comportamiento**: Realiza un update_one en MongoDB usando $push para añadir el mensaje al array last_messages, manteniendo solo los últimos 20 mensajes mediante $slice.  
 
-* `salsasllm/tools/pdf_tool.py`: Define la herramienta generate_financial_report_pdf para crear reportes en PDF a partir de datos tabulares y enviarlos por Telegram.
+  * `add_message_backup()`:
+    * **Propósito**: Guardar un registro detallado y permanente de la interacción para auditoría y feedback.
+    * **Parámetros**: 
+      * `session_id`: Identificador del chat.
+      * `question`: Consulta del usuario.
+      * `full_answer`: Respuesta del sistema.
+      * `verbose_log`: Logs de ejecución interna.
+    * **Comportamiento**: Crea un documento con la pregunta, respuesta, timestamp, modelo utilizado y logs, y lo inserta en la colección `message_backup`. Retorna el ID del documento insertado.
 
-* `salsasllm/langchain/prompts.py`: Contiene las definiciones de los prompts del sistema (prompt_v1, prompt_v2) que guían el comportamiento del LLM.
+  * `build_executor()`:
+    * **Propósito**: Construir el ejecutor del agente de LangChain si aún no ha sido inicializado.
+    * **Comportamiento**: Crea un `create_tool_calling_agent` combinando el LLM, las herramientas definidas y el prompt, y luego instancia el `AgentExecutor` con manejo de errores y verbosidad activada.
 
-* `salsasllm/settings/clientes.py`: Archivo para la configuración de credenciales (API keys, datos de conexión a DBs, tokens).
+  * `answer()`:
+    * **Propósito**: Procesar la consulta del usuario, ejecutar la lógica del agente y generar una respuesta final.
 
-* `salsasllm/settings/config.py`: Archivo para configuraciones generales del proyecto (ej., rutas de índices FAISS, whitelist de Telegram).
+    * **Parámetros**: 
+      * `question `: Input del usuario. 
+      * `session_id`: Identificador del chat.
+      * `name`: Nombre del usuario.
+      * `feedback_context`: Información de retroalimentación previa.
+
+    * **Comportamiento**: Gestiona el flujo completo: asegura la sesión, recupera historial, invoca al executor de forma asíncrona, mide tiempos de ejecución, limpia la respuesta, guarda el backup en la BD y retorna la respuesta procesada junto con el backup_id.
+
+  * `clear_session_history()`;
+    * **Propósito**: Borrar el historial de conversación de un usuario específico.
+    * **Parámetros**: 
+      * `session_id`: Identificador del chat.
+    * **Comportamiento**: Actualiza el documento de sesión en MongoDB vaciando el array `last_messages`.
+
+
+#### 3.1.2. Tools
+En este módulo tenemos las herramientas que utiliza el chatbot para extraer información, construir respuestas, tablas, reportes y buscar en internet.
+  
+##### tools/search_information.py
+
+* `search_information()`:
+  * **Propósito**: Buscar información semántica relevante en documentos internos indexados (manuales, reglamentos, etc.).
+  * **Parámetros**:
+    * `query`: Consulta del usuario.
+  * **Comportamiento**: Utiliza un `retriever` conectado a un `LangchainVectorStore` para encontrar documentos similares y luego procesa el contenido recuperado para devolver un resumen estructurado.
+
+* `parse_page_content()`:
+  * **Propósito**: Estructurar el texto crudo de los documentos recuperados en un formato clave-valor.
+  * **Parámetros**:
+    * `content`: Texto del documento.
+  * **Comportamiento**: Divide el contenido por puntos y espacios, e intenta extraer pares clave-valor separados por dos puntos para retornar un diccionario de datos.
+
+##### tools/pdf_tool.py
+
+* `generate_financial_report_pdf() -> dict`:
+  * **Propósito**: Orquestar la creación de un reporte financiero en PDF y enviarlo por Telegram.
+  * **Parámetros**:
+    * `data`: Datos extraídos crudos en formato Markdown.
+    * `chat_id`: Identificador de la conversación, similar a `session_id`.
+    * `user_request`: Consulta del usuario.
+  * **Comportamiento**: Llama a `get_llm_analysis` para estructurar el contenido, luego a `generate_pdf_with_reportlab` para crear el archivo físico, y finalmente usa `send_telegram_pdf` para enviarlo al usuario.
+
+* `ensure_utf8_string() -> str`:
+  * **Propósito**: Normalizar cualquier cadena de texto para asegurar codificación UTF-8 correcta.
+  * **Parámetros**:
+    * `text`: Texto contenido de la data cruda.
+  * **Comportamiento**: Decodifica bytes si es necesario y normaliza caracteres Unicode (NFC) para evitar errores de codificación en el reporte.
+  
+* `get_llm_analysis() -> tuple[str, str]`:
+  * **Propósito**: Utilizar un LLM para analizar datos financieros y generar el contenido del reporte en formato Markdown.
+  * **Parámetros**:
+    * `data`: Data sanitizada para el análisis.
+    * `user_request`: Petición del usuario.
+  * **Comportamiento**: Envía un prompt especializado a GPT-5 solicitando un JSON con título y contenido Markdown, incluyendo reglas de formato y gráficas.
+
+* `generate_pdf_with_reportlab() -> bytes`:
+  * **Propósito**: Convertir el contenido Markdown y el título en un archivo PDF binario.
+  * **Parámetros**:
+    * `title`: Título del reporte.
+    * `markdown_content`: Contenido de la respuesta del análisis formateado a markdown.
+  * **Comportamiento**: Utiliza la librería `ReportLab` para maquetar el documento, procesando párrafos, listas, tablas y ejecutando código Python incrustado para generar gráficas con `matplotlib`.
+
+##### tools/netsearch.py
+
+* `search_web_tool()`:
+  * **Propósito**: Buscar información actual o conceptos generales en internet.
+  * **Parámetros**:
+    * `query`: Consulta del usuario o información requerida que necesita ser buscada en internet.
+  * **Comportamiento**: Utiliza `DDGS` (DuckDuckGo Search) para realizar búsquedas de texto y noticias en la región "mx-es", limpia los resultados y devuelve una lista de diccionarios con título, enlace y descripción.
+
+##### tools/context_tool.py
+
+* `context_tool() -> Dict[str, Any]`:
+  * **Propósito**: Proveer acceso a diccionarios estáticos de contexto (fórmulas, nombres de bases de datos, etc.).
+  * **Parámetros**:
+    * `dict_name`: Nombre del diccionario solicitad.
+  * **Comportamiento**: Verifica si el nombre solicitado existe en CONTEXT_DICTS y devuelve el diccionario correspondiente; lanza un error si no se encuentra.
+
+##### tools/make_tables.py
+
+* `table_tool() -> str`:
+  * **Propósito**: Convertir una tabla en formato Markdown a una imagen y enviarla por Telegram.
+  * **Parámetros**:
+    * `markdown`: Datos formateados en markdown.
+    * `chat_id`: Identificador del chat.
+    * `title`: Título de la tabla.
+  * **Comportamiento**: Parsea el markdown a un DataFrame, genera una imagen PNG estilizada y la envía directamente al chat mediante send_telegram_image.
+
+* `parse_markdown_table() -> DataFrame`:
+  * **Propósito**: Transformar una cadena de texto con formato de tabla Markdown en un objeto DataFrame de Pandas.
+  * **Parámetros**:
+    * `markdown`: Datos formateados en markdown.
+  * **Comportamiento**: Divide el texto por líneas y tuberías (|), extrae encabezados y filas, y valida que la estructura sea correcta.
+
+* `create_table_image() -> BytesIO`:
+  * **Propósito**: Renderizar visualmente un DataFrame como una imagen PNG.
+  * **Parámetros**:
+    * `df (DataFrame)`: Datos en pandas.
+    * `title`: Título de la tabla.
+  * **Comportamiento**: Usa la librería `PIL` (Pillow) para dibujar celda por celda, calculando anchos dinámicos de columnas, alturas de filas y aplicando estilos de color y fuentes.
+
+##### tools/sql_tools.py
+
+* `sql_db_list_tables() -> List[str]`:
+  * **Propósito**: Listar las tablas disponibles en la base de datos para consulta.
+  * **Comportamiento**: Retorna una lista literal predefinida o cacheada de las tablas permitidas en el esquema.
+
+* `sql_db_schema() -> Dict[str, Any]`:
+  * **Propósito**: Obtener la estructura (columnas y tipos de datos) de una tabla específica.
+  * **Parámetros**:
+    * `table_name`: Nombre de la tabla objetivo.
+  * **Comportamiento**: Ejecuta una consulta a `information_schema.columns` en PostgreSQL y devuelve un diccionario con la definición de la tabla.
+
+* `sql_db_query_checker() -> Dict[str, Any]`:
+  * **Propósito**: Validar la sintaxis de una consulta SQL antes de su ejecución real.
+  * **Parámetros**:
+    * `query`: SQL query a validar.
+  * **Comportamiento**: Ejecuta la sentencia `EXPLAIN` en la base de datos para verificar si la query es válida sin ejecutarla, capturando posibles errores de sintaxis.
+
+* `analyze_table() -> str`:
+  * **Propósito**: Realizar un análisis profundo de datos utilizando un agente de Pandas sobre resultados SQL.
+  * **Parámetros**:
+    * `user_query`: Consulta o petición del usuario.
+    * `sql_query`: SQL query para extraer datos de la tabla objetivo.
+    * `extra_info`: Contexto adicional como formulas o nombres de productos.
+  * **Comportamiento**: Ejecuta la query SQL para obtener un DataFrame, verifica su tamaño, y luego instancia un `create_pandas_dataframe_agent` para realizar cálculos estadísticos o análisis complejos solicitados por el usuario.
+
+#### 3.1.3. API
+
+##### API/telegram_def.py
+
+* `send_telegram_message()`:
+  * **Propósito**: Enviar mensajes de texto simples o con botones a un chat de Telegram.
+  * **Parámetros**:
+    * `chat_id`: Identificador del chat.
+    * `message`: Mensaje para el usuario objetivo.
+    * `reply_markup`: Opcional para botones o teclados interactivos in-chat.
+  * **Comportamiento**: Realiza una petición POST al endpoint `sendMessage` de la API de Telegram con el payload JSON correspondiente.
+
+* `download_file()`:
+  * **Propósito**: Descargar un archivo (como audios) desde los servidores de Telegram.
+  * **Parámetros**:
+    * `file_path`: Ubicación del archivo objetivo.
+  * **Comportamiento**: Construye la URL de descarga con el token del bot y realiza un GET para obtener el contenido binario del archivo.
+
+* `send_telegram_pdf()`:
+  * **Propósito**: Enviar un documento PDF generado al usuario.
+  * **Parámetros**:
+    * `chat_id`: Identificador del chat.
+    * `pdf_bytes`: PDF en bytes.
+    * `filename`: Nombre del archivo PDF.
+    * `caption`: Descripción extra del archivo a enviar.
+  * **Comportamiento**: Envía una petición `multipart/form-data` al endpoint `sendDocument` de Telegram adjuntando los bytes del PDF.
+
+* `send_telegram_image()`:
+  * **Propósito**: Enviar una imagen (como las tablas generadas) al usuario.
+  * **Parámetros**:
+    * `chat_id`: Identificador del chat.
+    * `image_bytes`: Imagen en bytes.
+    * `caption`: Descripción extra del archivo a enviar.
+  * **Comportamiento**: Envía una petición al endpoint sendPhoto adjuntando la imagen en memoria.
+ 
+##### API/telegram_chat.py
+
+* `delete_chat_history_endpoint()`:
+  * **Propósito**: Endpoint lógico para limpiar el historial de un usuario.
+  * **Parámetros**:
+    * `user_id`: Identificador del chat.
+  * **Comportamiento**: Llama al método `clear_session_history` del agente y maneja excepciones HTTP.
+
+* `load_whitelist()`:
+  * **Propósito**: Cargar la lista de usuarios autorizados desde un archivo.
+  * **Parámetros**:
+    * `filepath`: Ubicación del archivo.
+  * **Comportamiento**: Lee un archivo de texto línea por línea y retorna un conjunto de IDs de Telegram permitidos.
+
+* `get_file_path()`:
+  * **Propósito**: Obtener la ruta de descarga de un archivo dado su ID de Telegram.
+  * **Parámetros**:
+    * `file_id`: Identificador del audio.
+  * **Comportamiento**: Consulta el método `getFile` de la API de Telegram para resolver la ruta del archivo en el servidor.
+  
+* `transcribe_audio()`:
+  * **Propósito**: Convertir notas de voz en texto utilizando IA.
+  * **Parámetros**:
+    * `audio_bytes`: Audio en bytes.
+    * `filename`: Nombre del audio.
+  * **Comportamiento**: Envía el archivo de audio a la API de OpenAI (Whisper) y retorna el texto transcrito.
+
+* `add_feedback()`:
+  * **Propósito**: Almacenar feedback cualitativo en la base de conocimientos vectorial.
+  * **Parámetros**:
+    * `comment`: Comentario del usuario.
+    * `metadata`: Incluye el identificador del mensaje en `message_backup_collection`, la pregunta, la respuesta, y si fue o no útil.
+  * **Comportamiento**: Añade el comentario y sus metadatos al `feedback_vectorstore` y guarda el índice.
+
+* `retrieve_feedback()`:
+  * **Propósito**: Buscar retroalimentación previa relevante para la consulta actual.
+  * **Parámetros**:
+    * `user_question`: Consulta del usuario.
+    * `k`: Número de resultados.
+  * **Comportamiento**: Realiza una búsqueda de similitud en el vectorstore y formatea los resultados como una cadena de texto.
+
+* `update_feedback()`:
+  * **Propósito**: Actualizar el registro de una interacción con la evaluación del usuario.
+  * **Parámetros**:
+    * `backup_id`: Identificador del mensaje completo en el `message_backup_collection`.
+    * `helpful`: Booleano, true si fue útil, false si no.
+    * `reason`: Comentario extra de porqué sí o porqué no.
+  * **Comportamiento**: Actualiza el documento en MongoDB marcando si fue útil y, si existe una razón, la indexa en el vectorstore para futuro aprendizaje.
+
+* `handle_message()`:
+  * **Propósito**: Coordinar la respuesta a un mensaje del usuario.
+  * **Parámetros**:
+    * `chat_id`: Identificador del chat.
+    * `text`: Consulta del usuario.
+    * `name`: Nombre del usuario.
+  * **Comportamiento**: Recupera contexto de feedback, llama al agente para obtener respuesta, calcula tiempos, guarda el estado temporal y envía la respuesta final a Telegram con botones de feedback.
+
+* `telegram_webhook()`:
+  * **Propósito**: Punto de entrada principal para recibir actualizaciones de Telegram (Webhook).
+  * **Parámetros**:
+    * `request`: Petición del usuario.
+    * `background_tasks`: Tareas que se deben ejecutar en segundo plano.
+  * **Comportamiento**: Procesa el payload JSON, maneja callbacks de botones (feedback sí/no), verifica autorización (whitelist), gestiona mensajes de texto y voz, y delega el procesamiento pesado a tareas en segundo plano (handle_message).
+
+##### API/telegram_main.py
+
+* `telegram_webhook_handler()`:
+  * **Propósito**: Ruta de FastAPI expuesta para recibir el webhook.
+  * **Parámetros**:
+    * `request`: Petición del usuario.
+    * `background_tasks`: Tareas que se deben ejecutar en segundo plano.
+  * **Comportamiento**: Envuelve la llamada a `telegram_webhook` en un bloque try-except para manejo de errores HTTP y registro de logs.
+
+* `handle_delete_history()`:
+  * **Propósito**: Ruta API DELETE para borrar historial.
+  * **Parámetros**:
+    * `user_id`: Identificador del chat.
+  * **Comportamiento**: Invoca `delete_chat_history_endpoint` pasando el ID del usuario proporcionado en la URL.
 
 ### 3.2. Modelos LLM utilizados
 
@@ -343,60 +611,6 @@ El sistema de Salsas Castillo utiliza una combinación de modelos de lenguaje pa
     * **Función**: En pdf_tool.py, este modelo se utiliza para generar un párrafo de análisis conciso a partir de los datos tabulares que se incluirán en el reporte PDF.
 
     * **Ventaja**: Proporciona resúmenes inteligentes y profesionales de los datos.
-
-### 3.3. Puntos de entrada y funciones clave
-
-Estos son los principales puntos de inicio para interactuar con las funcionalidades del chatbot:
-
-`API/telegram_main.py::telegram_webhook_handler`:
-
-```python
-@app.post("/webhook")
-async def telegram_webhook_handler(
-    request: Request, 
-    background_tasks: BackgroundTasks):
-```
-
-   * **Propósito**: Es el *endpoint* de FastAPI que recibe todos los mensajes y actualizaciones de Telegram. Actúa como el punto de entrada principal para las interacciones del usuario.
-   * **Comportamiento**:  Recibe el `payload` de Telegram, extrae el `chat_id` y el mensaje (texto o voz), verifica si el usuario está en la whitelist y delega el procesamiento a `handle_message` en segundo plano.
-
-`API/telegram_chat.py::handle_message`:
-
-```python
-def answer(self, 
-    question: str = None, 
-    session_id: str = None, 
-    name: str = None) -> str:
-```
-
-   * **Propósito**: Es la función central que orquesta la respuesta del chatbot. Recibe la pregunta del usuario, gestiona el historial de la sesión, invoca el `AgentExecutor` de LangChain y maneja la salida.
-   * **Comportamiento**:
-     * Asegura la existencia de la sesión en MongoDB (`ensure_session`).
-     * Recupera y trunca el historial de la sesión (`get_session_history`, `trim_history`).
-     * Invoca al AgentExecutor con la pregunta y el historial, permitiendo que el LLM decida qué herramientas usar (SQL, `search_information`, `pdf_report_tool`).
-     * Registra la interacción completa en MongoDB (`add_message`, `add_message_backup`).
-     * Si la respuesta es un PDF, coordina su envío a Telegram.
-
-`tools/pdf_tool.py::generate_financial_report_pdf`:
-
-```python
-def generate_financial_report_pdf(
-    table_data: str, 
-    title: str, 
-    chat_id: int) -> dict:
-```
-
-   * **Propósito**: Genera un reporte en formato PDF a partir de datos tabulares proporcionados y un análisis generado por un LLM, y lo envía al usuario de Telegram.
-   * **Comportamiento**: Utiliza fpdf para crear el PDF, get_llm_analysis para obtener un resumen del LLM y enviar_pdf_por_telegram para enviar el archivo.
-
-`langchain/vectorstore.py::LangchainVectorStore.create_index`:
-
-```python
-def create_index(self, docs):
-```
-
-   * **Propósito**: Crea un nuevo índice FAISS a partir de una lista de documentos.
-   * **Comportamiento**: Utiliza FAISS.from_documents para generar el índice y lo guarda localmente.
 
 :::
 
