@@ -107,9 +107,14 @@ SCHEMA=""
 Asegúrate de que Telegram envíe los mensajes a tu endpoint `/webhook`. Esto se hace una vez a través de la API de Telegram:
 
 ```
-curl -F "url=https://TU_DOMINIO/tgbot/webhook" https://api.telegram.org/botTU_TELEGRAM_TOKEN/setWebhook
+https://api.telegram.org/bot<TU_TELEGRAM_TOKEN>/setWebhook?url=https://<TU_DOMINIO>/webhook
 ```
 Reemplaza TU_DOMINIO y TU_TELEGRAM_TOKEN.
+
+En caso de no tener un Token de Telegram. es necesario buscar @FatherBot en Telegram. Después, iniciar conversación con `/start`. Luego, `/newbot`, en esta parte el sistema pedirá 2 nombres. Name es el nombre de despliegue del chatbot, se puede cambiar después. Username es el nombre único identificador del chatbot, este no se puede cambiar después.
+
+En caso de ser necesario, se recomienda este tutorial en [Medium](https://medium.com/mcd-unison/pocket-ai-telegram-bot-python-ollama-01da2c4d05df
+) donde se explica explicítamente cada paso. 
 
 ### 2.5 Arquitectura de despliegue continuo y sincronización
 El servidor implementa un mecanismo adicional para mantener el backend del chatbot actualizado y funcionando de forma estable. Este mecanismo se basa en tres componentes:
