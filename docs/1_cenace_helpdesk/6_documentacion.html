@@ -265,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Clonar el repositorio:</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/anmerino-pnd/proyectoCenace</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo fork https://github.com/anmerino-pnd/proyectoCenace</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> cenacellm</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li>Configurar el entorno:</li>
@@ -316,33 +316,518 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>La solución se basa en una arquitectura de <strong>Recuperación Aumentada con Generación (RAG)</strong>. La estructura modular del código, organizada en paquetes de Python, permite una clara separación de responsabilidades.</p>
 <section id="estructura-de-carpetas-y-módulos" class="level3">
 <h3 class="anchored" data-anchor-id="estructura-de-carpetas-y-módulos">2.1. Estructura de carpetas y módulos</h3>
+<p>El proyecto sigue una estructura modular para facilitar la gestión y el mantenimiento. A continuación, se detalla el propósito de los módulos y clases principales, además de sus funciones clave.</p>
+<section id="documentos" class="level4">
+<h4 class="anchored" data-anchor-id="documentos">2.1.1. Documentos</h4>
+<section id="cenacellmdoccollection.py" class="level5">
+<h5 class="anchored" data-anchor-id="cenacellmdoccollection.py"><strong>cenacellm/doccollection.py</strong></h5>
 <ul>
-<li><p><code>API/</code></p>
+<li><p><strong>Clases y funciones clave</strong></p>
 <ul>
-<li><code>chat.py</code>: Contiene los <em>endpoints</em> de FastAPI para interactuar con el chatbot.</li>
-<li><code>main.py</code>: Archivo principal que define la aplicación FastAPI y monta los <em>endpoints</em>.</li>
+<li><code>class DisjointCollection(DocCollection)</code>:
+<ul>
+<li><code>__init__</code>:
+<ul>
+<li><strong>Propósito</strong>: Inicializar la configuración predeterminada para la segmentación de textos.</li>
+<li><strong>Comportamiento</strong>: Establece el tamaño del fragmento (chunk_size) en 1500 caracteres y el solapamiento máximo (<code>max_overlap</code>) en 200 caracteres para asegurar continuidad entre segmentos.</li>
 </ul></li>
-<li><p><code>ollama/</code></p>
+<li><code>get_chunks() -&gt; list</code>:
 <ul>
-<li><code>assistant.py</code>: Clase que encapsula la lógica para generar embeddings utilizando el modelo <code>bge-m3:latest</code> de Ollama.</li>
-</ul></li>
-<li><p><code>doccollection.py</code>: Módulo que maneja la carga y el procesamiento de documentos (PDF’s) para generar fragmentos de texto.</p></li>
-<li><p><code>rag.py</code>: Clase principal del sistema RAG que integra el <code>assistant</code>, el <code>doccollection</code> y el <code>vectorstore</code>.</p></li>
-<li><p><code>vectorstore.py</code>: Módulo que implementa la base de datos vectorial con FAISS.</p></li>
-<li><p><code>settings/</code></p>
+<li><strong>Propósito</strong>: Dividir uno o varios objetos de texto en fragmentos más pequeños basados en la configuración semántica definida.</li>
+<li><strong>Parámetros</strong>:
 <ul>
-<li><code>clients.py</code>: Archivo de configuración que establece la conexión con la base de datos y el cliente de Ollama.</li>
-<li><code>config.py</code>: Define las rutas de directorios para los vectores y los documentos procesados.</li>
+<li><code>texts (Union[Text, List[Text]])</code>: Un objeto Text individual o una lista de objetos <code>Text</code> que contienen el contenido a fragmentar.</li>
 </ul></li>
-<li><p><code>tools/</code></p>
+<li><strong>Retorna</strong>: Una lista de objetos <code>Text</code> donde cada elemento es un fragmento del contenido original, conservando los metadatos.</li>
+<li><strong>Comportamiento</strong>: Utiliza <code>TextSplitter</code> para segmentar el contenido. Si la entrada es un solo texto, lo convierte en lista. Itera sobre los textos, genera los chunks y crea nuevos objetos <code>Text</code> heredando los metadatos del padre.</li>
+</ul></li>
+<li><code>load_pdf() -&gt; List[Text]</code>:
 <ul>
-<li><code>assistant.py</code>: Clase base abstracta para el asistente LLM.</li>
-<li><code>doccollection.py</code>: Clase base abstracta para la colección de documentos.</li>
-<li><code>embedder.py</code>: Clase base abstracta para el generador de embeddings.</li>
-<li><code>vectorstore.py</code>: Clase base abstracta para almacén de vectores.</li>
+<li><strong>Propósito</strong>: Leer un archivo PDF, extraer su contenido textual página por página y generar metadatos detallados.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>pdf_path (str)</code>: La ruta del archivo PDF a procesar.</li>
+<li><code>collection (str)</code>: El nombre opcional de la colección a la que pertenecerá el documento.</li>
 </ul></li>
-<li><p><code>types.py</code>: Módulo que define modelos de datos con Pydantic para tipado de datos como <code>Text</code>, <code>TextMetadata</code>, <code>Question</code>, etc.</p></li>
+<li><strong>Retorna</strong>: Una lista de objetos <code>Text</code>, donde cada objeto representa el contenido de una página del PDF.</li>
+<li><strong>Comportamiento</strong>: Utiliza PdfReader para leer el archivo. Genera un ID de referencia único (<code>uuid4</code>). Extrae metadatos nativos del PDF y crea un diccionario de metadatos enriquecido para cada página (incluyendo número de página, total de páginas, nombre de archivo y referencia). Finalmente, instancia objetos <code>Text</code> con el contenido extraído y estos metadatos.</li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul>
+</section>
+</section>
+<section id="embedder" class="level4">
+<h4 class="anchored" data-anchor-id="embedder">2.1.2. Embedder</h4>
+<section id="cenacellmollamaembedder.py" class="level5">
+<h5 class="anchored" data-anchor-id="cenacellmollamaembedder.py"><strong>cenacellm/ollama/embedder.py</strong></h5>
+<ul>
+<li><p><strong>Clases y funciones clave</strong></p>
+<ul>
+<li><code>class OllamaEmbedder(Embedder)</code>:
+<ul>
+<li><code>__init__</code>:
+<ul>
+<li><strong>Propósito</strong>: Configurar el modelo de embeddings que se utilizará para la vectorización.</li>
+<li><strong>Comportamiento</strong>: Define el modelo bge-m3:latest como el motor predeterminado para generar los vectores.</li>
+</ul></li>
+<li><code>vectorize() -&gt; NDarray</code>:
+<ul>
+<li><strong>Propósito</strong>: Convertir una cadena de texto en su representación vectorial numérica.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>s (str)</code>: La cadena de texto (prompt) que se desea vectorizar.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Un arreglo de NumPy (<code>np.array</code>) con tipo de dato <code>float32</code> que representa el embedding del texto.</li>
+<li><strong>Comportamiento</strong>: Realiza una llamada a la API de Ollama utilizando el modelo configurado y retorna el vector resultante extraído de la respuesta.</li>
+</ul></li>
+<li><code>vectorize_batch() -&gt; list[np.ndarray]</code>:
+<ul>
+<li><strong>Propósito</strong>: Generar embeddings para una lista de textos múltiples en secuencia.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>texts (list[str])</code>: Lista de cadenas de texto a vectorizar.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Una lista de arreglos de NumPy, correspondientes a los vectores de cada texto de entrada.</li>
+<li><strong>Comportamiento</strong>: Itera sobre la lista de textos proporcionada y llama al método <code>vectorize</code> para cada elemento individualmente, acumulando los resultados.</li>
+</ul></li>
+<li><code>dim() -&gt; int</code>:
+<ul>
+<li><strong>Propósito</strong>: Obtener la dimensión del espacio vectorial generado por el modelo</li>
+<li><strong>Retorna</strong>: Un entero que representa la longitud del vector (número de dimensiones).</li>
+<li><strong>Comportamiento</strong>: Vectoriza una palabra de prueba (“Hola”) y calcula la longitud del arreglo resultante para determinar la dimensionalidad del modelo.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="vector-store" class="level4">
+<h4 class="anchored" data-anchor-id="vector-store">2.1.3. Vector Store</h4>
+<section id="cenacellmvectorstore.py" class="level5">
+<h5 class="anchored" data-anchor-id="cenacellmvectorstore.py"><strong>cenacellm/vectorstore.py</strong></h5>
+<ul>
+<li><p><strong>Clases y funciones clave</strong></p>
+<ul>
+<li><code>class FAISSVectorStore(VectorStore)</code>:
+<ul>
+<li><code>__init__</code>:
+<ul>
+<li><strong>Propósito</strong>: Inicializar el índice de búsqueda vectorial (FAISS) y cargar datos persistentes si existen.</li>
+<li><strong>Comportamiento</strong>: Verifica si existe un índice previo en disco. Si existe, lo carga (intentando usar GPU si es posible) junto con el diccionario de textos (<code>pickle</code>). Si no, crea un índice <code>IndexFlatL2</code> nuevo.</li>
+</ul></li>
+<li><code>get_similar() -&gt; list</code>:
+<ul>
+<li><strong>Propósito</strong>: Realizar una búsqueda de similitud semántica en el índice vectorial.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>v (np.ndarray)</code>: El vector de consulta (query embedding).</li>
+<li><code>k (int)</code>: Número de vecinos más cercanos a recuperar (por defecto 10).</li>
+<li><code>filter_metadata (Dict[str, str])</code>: Filtros opcionales para restringir la búsqueda (ej. por colección).</li>
+</ul></li>
+<li><strong>Retorna</strong>: Una lista de tuplas <code>(vector, texto)</code> con los resultados más relevantes.</li>
+<li><strong>Comportamiento</strong>: Ejecuta <code>index.search</code> y filtra los resultados basándose en los metadatos proporcionados y la validez de los índices recuperados.</li>
+</ul></li>
+<li><code>add_text() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Añadir un único vector y su texto asociado al índice.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>v (np.ndarray)</code>: El vector a añadir.</li>
+<li><code>t (Text)</code>: El objeto de texto asociado.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Añade el vector al índice FAISS y almacena el par <code>(vector, texto)</code> en el diccionario en memoria.</li>
+</ul></li>
+<li><code>add_texts() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Añadir un lote de vectores y textos al índice de manera eficiente.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>vectors (list[np.ndarrar])</code>: Lista de vectores.</li>
+<li><code>chunks (list[Text])</code>: Lista de objetos de texto correspondientes.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Apila los vectores en una matriz <code>numpy</code> y los añade al índice en una sola operación, actualizando luego el diccionario secuencialmente.</li>
+</ul></li>
+<li><code>save_index() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Persistir el estado actual del índice y los textos en disco.</li>
+<li><strong>Comportamiento</strong>: Escribe el índice FAISS en un archivo .faiss y serializa el diccionario de textos en un archivo .pkl.</li>
+</ul></li>
+<li><code>distance() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Calcular la distancia euclidiana entre dos vectores.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>v1 (np.ndarrar)</code>: Primer vector.</li>
+<li><code>v2 (np.ndarrar)</code>: Segundo vector.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Un valor flotante representando la distancia (norma L2).</li>
+</ul></li>
+<li><code>delete() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Eliminar un elemento específico del índice por su ID interno.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>idx (int)</code>: Índice numérico del elemento a eliminar.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Elimina la entrada del diccionario y remueve el ID del índice FAISS.</li>
+</ul></li>
+<li><code>update_metadata() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Actualizar los metadatos de un texto ya indexado.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>idx (int)</code>: Índice del elemento.</li>
+<li><code>new_metadata (Dict[str, str])</code>: Diccionario con los valores a actualizar.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Crea una copia del objeto <code>Text</code> y <code>TextMetadata</code> con los nuevos valores y actualiza la referencia en el diccionario.</li>
+</ul></li>
+<li><code>delete_by_reference() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Eliminar todos los vectores asociados a un documento específico.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>reference_id (str)</code>: UUID del documento a eliminar.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Itera sobre el diccionario para encontrar todos los índices que coincidan con la referencia y los elimina tanto del diccionario como del índice FAISS.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="agente" class="level4">
+<h4 class="anchored" data-anchor-id="agente">2.1.4. Agente</h4>
+<section id="cenacellmollamaassistant.py" class="level5">
+<h5 class="anchored" data-anchor-id="cenacellmollamaassistant.py"><strong>cenacellm/ollama/assistant.py</strong></h5>
+<ul>
+<li><p><strong>Clases y funciones clave</strong></p>
+<ul>
+<li><code>class OllamaAssistant(Assistant)</code>:
+<ul>
+<li><code>__init__</code>:
+<ul>
+<li><strong>Propósito</strong>: Configurar la conexión a MongoDB y definir el modelo LLM (<code>gemma3:4b</code>).</li>
+<li><strong>Comportamiento</strong>: Establece la conexión con la base de datos, selecciona las colecciones y crea índices para consultas eficientes.</li>
+</ul></li>
+<li><code>load_history() -&gt; list</code>:
+<ul>
+<li><strong>Propósito</strong>: Recuperar el historial de chat de una conversación.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+<li><code>conversation_id (str)</code>: ID de la conversación.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Lista de mensajes (diccionarios).</li>
+<li><strong>Comportamiento</strong>: Consulta MongoDB filtrando por usuario y conversación.</li>
+</ul></li>
+<li><code>save_history() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Guardar o actualizar el historial de una conversación.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+<li><code>conversation_id (str)</code>: ID de la conversación.</li>
+<li><code>history (list)</code>: Lista actualizada de mensajes.</li>
+<li><code>conversation_title (Optional[str])</code>: Título opcional para la conversación.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Realiza una operación <code>update_one</code> con <code>upsert=True</code> en MongoDB, actualizando mensajes, fecha de modificación y título si se provee.</li>
+</ul></li>
+<li><code>save_backup() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Guardar un respaldo incremental del historial.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+<li><code>history_chunk (list)</code>: Fragmento de mensajes a respaldar.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Hace un <code>push</code> de los nuevos mensajes a una colección de respaldo separada.</li>
+</ul></li>
+<li><code>clear_conversation_history() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Limpiar los mensajes de una conversación sin borrar el registro de la misma.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+<li><code>conversation_id (str)</code>: ID de la conversación.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Establece el campo <code>messages</code> como una lista vacía en MongoDB.</li>
+</ul></li>
+<li><code>delete_conversation() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Eliminar completamente una conversación.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+<li><code>conversation_id (str)</code>: ID de la conversación.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Elimina el documento completo de la colección de conversaciones.</li>
+</ul></li>
+<li><code>make_metadata() -&gt; CallMetadata</code>:
+<ul>
+<li><strong>Propósito</strong>: Estructurar los metadatos de una llamada al LLM.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>response (GenerateResponse)</code>: Objeto de respuesta de Ollama.</li>
+<li><code>duration (float)</code>: Tiempo de ejecución.</li>
+<li><code>references</code>: Chunks utilizados como contexto.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Objeto <code>CallMetadata</code> estandarizado.</li>
+</ul></li>
+<li><code>answer() -&gt; Tuple[Generator[str, None, None], str, Dict[str, Any]]</code>:
+<ul>
+<li><strong>Propósito</strong>: Generar una respuesta del asistente utilizando contexto y streaming.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>question (Question)</code>: Pregunta del usuario.</li>
+<li><code>chunks (Chunks)</code>: Contexto recuperado.</li>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+<li><code>conversation_id (str)</code>: ID de la conversación.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Un generador de tokens, el ID del mensaje del bot y los metadatos finales.</li>
+<li><strong>Comportamiento</strong>: Construye el prompt con historial y contexto, llama a api.generate en modo stream, acumula tokens, y al finalizar guarda el turno en el historial y calcula metadatos.</li>
+</ul></li>
+<li><code>update_message_metadata() -&gt; bool</code>:
+<ul>
+<li><strong>Propósito</strong>: Actualizar metadatos de un mensaje específico (ej. “like”).</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+<li><code>message_id (str)</code>: ID del mensaje completo.</li>
+<li><code>new_metadata (Dict[str, Any])</code>: Metadatos nuevos a actualizar.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Busca el mensaje en el historial del usuario y actualiza sus campos de metadatos en MongoDB.</li>
+</ul></li>
+<li><code>get_liked_solutions() -&gt; List[Dict[str, Any]]</code>:
+<ul>
+<li><strong>Propósito</strong>: Obtener todas las respuestas marcadas como útiles (“liked”) por el usuario.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Lista de pares pregunta-respuesta útiles.</li>
+<li><strong>Comportamiento</strong>: Itera sobre todas las conversaciones del usuario buscando mensajes con <code>metadata.disable = True</code>.</li>
+</ul></li>
+<li><code>get_user_conversations() -&gt; List[Dict[str, Any]]</code>:
+<ul>
+<li><strong>Propósito</strong>: Listar las conversaciones activas del usuario.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Lista con ID, título y fecha de actualización.</li>
+<li><strong>Comportamiento</strong>: Consulta MongoDB proyectando solo los campos necesarios y ordenando por fecha. Genera un título por defecto si no existe.</li>
+</ul></li>
+<li><code>has_liked_solution_in_conversation() -&gt; bool</code>:
+<ul>
+<li><strong>Propósito</strong>: Verificar si una conversación contiene soluciones validadas.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>conversation_id (str)</code>: ID de la conversación.</li>
+</ul></li>
+<li><strong>Retorna</strong>: <code>True</code> si existe al menos un mensaje “liked”.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="rag" class="level4">
+<h4 class="anchored" data-anchor-id="rag">2.1.5. RAG</h4>
+<section id="cenacellmrag.py" class="level5">
+<h5 class="anchored" data-anchor-id="cenacellmrag.py"><strong>cenacellm/rag.py</strong></h5>
+<ul>
+<li><p><strong>Clases y funciones clave</strong></p>
+<ul>
+<li><code>class RAG</code>:
+<ul>
+<li><code>__init__</code>:
+<ul>
+<li><strong>Propósito</strong>: Orquestar todos los componentes del sistema (Assistant, Embedder, VectorStore, DB).</li>
+<li><strong>Comportamiento</strong>: Inicializa las instancias, conecta a MongoDB, carga cachés de archivos procesados y configura índices únicos en la base de datos.</li>
+</ul></li>
+<li><code>_load_processed_files() -&gt; Dict[str, Any]</code>:
+<ul>
+<li><strong>Propósito</strong>: Cargar en memoria el registro de archivos ya procesados para evitar re-procesamiento.</li>
+<li><strong>Retorna</strong>: Diccionario mapeando claves de archivo a sus metadatos.</li>
+</ul></li>
+<li><code>_save_processed_files() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Persistir el estado de los archivos procesados en MongoDB.</li>
+</ul></li>
+<li><code>_delete_processed_file() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Eliminar registros de archivos procesados de la base de datos y memoria.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>file_key (List[str])</code>: ID del documento procesado en MongoDB.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Cargar IDs de soluciones ya indexadas para evitar duplicados.</li>
+</ul></li>
+<li><code>_load_processed_solutions_ids() -&gt; set</code>:
+<ul>
+<li><strong>Propósito</strong>: Cargar IDs de soluciones ya indexadas para evitar duplicados.</li>
+</ul></li>
+<li><code>_add_processed_solution_id() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Registrar una nueva solución como procesada en MongoDB.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+<li><code>message_id (str)</code>: ID del documento del mensaje en MongoDB.</li>
+</ul></li>
+</ul></li>
+<li><code>load_documents() -&gt; list</code>:
+<ul>
+<li><strong>Propósito</strong>: Procesar una carpeta de PDFs e indexarlos.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>folder_path (str)</code>: Ruta de los archivos.</li>
+<li><code>collection_name (str)</code>: Nombre de la colección lógica.</li>
+<li><code>force_reload (bool)</code>: Forzar re-procesamiento si ya existen.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Estadísticas [docs_totales, nuevos_docs, chunks_totales]</li>
+<li><strong>Comportamiento</strong>: Lee PDFs, verifica cambios (tamaño/fecha), fragmenta, vectoriza por lotes, guarda en vectorstore y actualiza el registro de archivos procesados.</li>
+</ul></li>
+<li><code>query() -&gt; Tuple[Generator[str, None, None], List, str, Dict[str, Any]]</code>:
+<ul>
+<li><strong>Propósito</strong>: Ejecutar la lógica de recuperación y llamada al asistente (núcleo del RAG).</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+<li><code>conversation_id (str)</code>: ID de la conversación.</li>
+<li><code>question (str)</code>: Consulta del usuario.</li>
+<li><code>k (int)</code>: Número de chunks a recuperar.</li>
+<li><code>filter_metadata (Optional[Dict[str, Any]])</code>: Filtros de búsqueda.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Generador de tokens, chunks usados, ID del mensaje y metadatos.</li>
+<li><strong>Comportamiento</strong>: Vectoriza la pregunta, busca en el vectorstore (balanceando documentos y soluciones si no hay filtro), y delega la generación al <code>assistant</code>.</li>
+</ul></li>
+<li><code>answer() -&gt; Generator[Union[str, Dict[str, Any]], None, None]</code>:
+<ul>
+<li><strong>Propósito</strong>: Wrapper sobre <code>query</code> para exponer una interfaz de streaming unificada.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+<li><code>conversation_id (str)</code>: ID de la conversación.</li>
+<li><code>question (str)</code>: Consulta del usuario.</li>
+<li><code>k (int)</code>: Número de chunks a recuperar.</li>
+<li><code>filter_metadata (Optional[Dict[str, Any]])</code>: Filtros de búsqueda.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Generador que emite tokens de texto y finalmente un JSON con metadatos.</li>
+</ul></li>
+<li><code>delete_conversation() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Eliminar una conversación y desvincular tickets asociados</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+<li><code>conversation_id (str)</code>: ID de la conversación.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Llama a <code>assistant.delete_conversation</code> y actualiza tickets en MongoDB poniendo su <code>solucion_id</code> en <code>None</code>.</li>
+</ul></li>
+<li><code>add_liked_solutions_to_vectorstore() -&gt; int</code>:
+<ul>
+<li><strong>Propósito</strong>: Convertir interacciones exitosas en nuevo conocimiento vectorial.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>user_id (str)</code>: ID del usuario.</li>
+</ul></li>
+<li><strong>Retorna</strong>: Cantidad de soluciones añadidas.</li>
+<li><strong>Retorna</strong>: Obtiene soluciones “liked”, verifica si ya existen, extrae metadatos, crea nuevos objetos <code>Text</code> y los indexa en el vectorstore.</li>
+</ul></li>
+<li><code>delete_from_vectorstore() -&gt; None</code>:
+<ul>
+<li><strong>Propósito</strong>: Eliminar documentos o soluciones del índice vectorial.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>reference_id (str)</code>: ID del vector almacenado en la base de datos vectorial.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Toma un índice del vector objetivo, lo busca en el archivo indexado y lo elimina.</li>
+</ul></li>
+<li><code>get_tickets() -&gt; List</code>:
+<ul>
+<li><strong>Propósito</strong>: Obtener todos los tickets con su estado de resolución.</li>
+<li><strong>Comportamiento</strong>: Consulta MongoDB y calcula dinámicamente el campo <code>is_solved</code>.</li>
+</ul></li>
+<li><code>add_ticket() -&gt; Dict</code>:
+<ul>
+<li><strong>Propósito</strong>: Obtener todos los tickets con su estado de resolución.</li>
+<li><strong>Comportamiento</strong>: Consulta MongoDB y calcula dinámicamente el campo <code>is_solved</code>.</li>
+</ul></li>
+<li><code>update_ticket_metadata() -&gt; bool</code>:
+<ul>
+<li><strong>Propósito</strong>: Modificar campos de un ticket existente.</li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>ticket_reference (str)</code>: ID del ticket almacenado en MongoDB.</li>
+<li><code>new_metadata (Dict[str, Any])</code>: Nuevos metadatos a actualizar.</li>
+</ul></li>
+<li><strong>Comportamiento</strong>: Actualiza los metadatos de un ticket específico en la base de datos basado en su ‘reference’.</li>
+</ul></li>
+<li><code>get_ticket_by_conversation() -&gt; Optional[Dict]</code>:
+<ul>
+<li><strong>Propósito</strong>: Encontrar el ticket asociado a una conversación activa.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="api" class="level4">
+<h4 class="anchored" data-anchor-id="api">2.1.6. API</h4>
+<section id="cenacellmapichat.py" class="level5">
+<h5 class="anchored" data-anchor-id="cenacellmapichat.py"><strong>cenacellm/API/chat.py</strong></h5>
+<p>Esta capa actúa como lógica de negocio intermedia entre FastAPI y el sistema RAG.</p>
+<ul>
+<li><p><strong>Clases y funciones clave</strong></p></li>
+<li><p><code>class QueryRequest</code>: Modelo de datos para la solicitud de chat (<code>user_id</code>, <code>query</code>, <code>conversation_id</code>, etc.).</p></li>
+<li><p><code>class UpdateMetadataRequest</code>: Modelo para actualizar metadatos (ej. likes).</p></li>
+<li><p><code>class CreateConversationRequest</code>: Modelo para iniciar conversaciones (<code>title opcional</code>).</p></li>
+<li><p><code>class AddTicketRequest</code>: Modelo para creación de tickets.</p></li>
+<li><p><code>async_chat_stream() -&gt; StreamingResponse</code>:</p>
+<ul>
+<li><strong>Propósito</strong>: Iniciar el flujo de respuesta del chat.</li>
+<li><strong>Comportamiento</strong>: Llama a <code>rag.answer</code> y devuelve un <code>StreamingResponse</code> para envío en tiempo real.</li>
+</ul></li>
+<li><p><code>load_documents(), get_preprocessed_files()</code>: Wrappers para exponer funciones del RAG.</p></li>
+<li><p><code>upload_documents() -&gt; Dict</code>:</p>
+<ul>
+<li><strong>Propósito</strong>: Guardar archivos físicos en el servidor.</li>
+<li><strong>Comportamiento</strong>: Recibe <code>UploadFile</code>, escribe en disco y retorna estado.</li>
+</ul></li>
+<li><p><code>delete_document() -&gt; Dict</code>:</p>
+<ul>
+<li><strong>Propósito</strong>: Orquestar la eliminación de documentos.</li>
+<li><strong>Comportamiento</strong>: Elimina del vectorstore (vía RAG) y borra el archivo físico del disco.</li>
+</ul></li>
+<li><p><code>process_liked_solutions_to_vectorstore()</code>: Dispara la re-indexación de soluciones útiles.</p></li>
+<li><p><code>delete_solution_by_reference()</code>: Elimina soluciones aprendidas del vectorstore.</p></li>
+</ul>
+</section>
+<section id="cenacellmapimain.py" class="level5">
+<h5 class="anchored" data-anchor-id="cenacellmapimain.py"><strong>cenacellm/API/main.py</strong></h5>
+<p>Aquí se encuentra el main de todo el sistema y las llamadas FastAPI…</p>
+<ul>
+<li><p><strong>Clases y funciones clave</strong></p>
+<ul>
+<li><code>POST/chat</code>: Inicia la generación de respuesta en streaming.</li>
+<li><code>GET /history/{user_id}/{conversation_id}</code>: Devuelve el historial de mensajes.</li>
+<li><code>DELETE /history/{user_id}/{conversation_id}</code>: Borra el historial de una conversación.</li>
+<li><code>POST /upload_documents</code>: Sube archivos PDF al servidor.</li>
+<li><code>POST /load_documents</code>: Dispara el procesamiento e indexación de los PDFs subidos.</li>
+<li><code>POST /delete_document</code>: Elimina documentos procesados.</li>
+<li><code>PATCH /history/{user_id}/messages/{message_id}</code>: Actualiza metadatos (usado para dar like).</li>
+<li><code>POST /process_liked_solutions/{user_id}</code>: Convierte likes en conocimiento vectorial.</li>
+<li><code>GET /conversations/{user_id}</code>: Lista conversaciones del usuario.</li>
+<li><code>POST /new_conversation</code>: Crea una nueva sesión de chat.</li>
+<li><code>POST /delete_conversation</code>: Elimina una sesión.</li>
+<li><code>GET /tickets</code> y <code>POST /tickets</code>: Gestión de tickets de soporte.</li>
+<li><code>GET /</code>: Sirve la interfaz de usuario (UI) renderizando index.html.</li>
+</ul></li>
+</ul>
+</section>
+</section>
 </section>
 <section id="modelos-llm-utilizados" class="level3">
 <h3 class="anchored" data-anchor-id="modelos-llm-utilizados">2.2. Modelos LLM utilizados</h3>
@@ -353,7 +838,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Los archivos PDF son cargados y procesados por el módulo <code>doccollection.py</code>.</li>
 <li><code>doccollection</code> divide cada documento en fragmentos.</li>
-<li>Cada fragmento es enviado al <code>embedder.py</code> para generar su representación vectorial.</li>
+<li>Cada fragmento es enviado al que se encuentra en <code>embedder.py</code> y el modelo <code>bge-m3</code> genera su representación vectorial.</li>
 <li>Los vectores resultantes se almacenan en la base de datos vectorial de FAISS, implementada en <code>vectorstore.py</code>, junto con sus metadatos.</li>
 </ul>
 <ol start="2" type="1">
