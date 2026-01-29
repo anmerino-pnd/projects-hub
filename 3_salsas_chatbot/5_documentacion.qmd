@@ -68,7 +68,7 @@ Esta sección detalla los requisitos, dependencias y pasos para la instalación 
 #### 2.4.1. Clonar el repositorio
 
 ```bash
-gh repo fork Macrodata-Analitica/castilloChatbot
+git clone Macrodata-Analitica/castilloChatbot
 cd castilloChatbot
 ```
 
