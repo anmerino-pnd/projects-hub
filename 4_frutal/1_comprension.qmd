@@ -1,0 +1,47 @@
+---
+title: "Contexto del Negocio: Frutal"
+format: 
+    html:
+         page-layout: article
+toc-title: "Tabla de Contenidos"
+toc: true
+toc-depth: 3
+---
+
+::: {style="text-align: justify"}
+## Sobre la Empresa
+
+**Frutal®** es una empresa sonorense dedicada a llevar frescura y sabor a sus clientes a través de raspados, bebidas y productos elaborados con frutas naturales.
+
+Fundada el **15 de marzo de 1992** en San Luis Río Colorado, Sonora, la empresa nació con el propósito de ofrecer opciones refrescantes para la convivencia familiar. Gracias a su compromiso con la calidad, en 2014 expandieron operaciones hacia Mexicali, Baja California, consolidándose como un referente en la región.
+
+### Misión y Visión
+
+La filosofía de Frutal se centra en crear experiencias memorables:
+
+* **Misión:** Nutrir emociones a través de sabores auténticos, fusionando ingredientes naturales para brindar experiencias únicas.
+* **Visión:** Convertir cada visita en una tradición familiar que trascienda generaciones, fomentando la sana convivencia.
+
+### El Reto del Crecimiento
+
+Con más de 30 años de historia y múltiples sucursales, Frutal ha escalado sus operaciones significativamente. Este crecimiento trajo consigo un volumen masivo de transacciones diarias y la necesidad de estandarizar la información entre las distintas plazas (Sonora y Baja California).
+:::
+
+::: {style="text-align: justify"}
+## La Necesidad Técnica
+
+Aquí es donde entra el desafío de Ingeniería de Datos. Para mantener su promesa de calidad e innovación, la administración requería visibilidad total de sus operaciones en tiempo real.
+
+### El Problema de los "Silos de Datos"
+
+Históricamente, la operación de Frutal ha sido gestionada mediante sistemas ERP basados en **HFSQL (PC SOFT)**. Aunque este sistema es robusto para la operación diaria (captura de ventas e inventarios en punto de venta), presenta barreras significativas para la inteligencia de negocios moderna:
+
+* **Acceso Limitado:** Los datos residen en formatos propietarios difíciles de consultar con herramientas de Ciencia de Datos (Python, Pandas).
+* **Rendimiento:** Las consultas analíticas pesadas impactaban el rendimiento del sistema transaccional, afectando la velocidad de atención al cliente.
+* **Incompatibilidad:** Falta de drivers nativos estables para conectar estos sistemas legacy con entornos de nube o servidores Linux modernos.
+
+### El Objetivo del Proyecto
+
+La organización requería construir una **"Fuente de la Verdad"** única y accesible: un **Data Lake**.
+
+Esto permitiría a los analistas y científicos de datos generar reportes de ventas, proyecciones de inventario y análisis de KPIs sin depender del departamento de TI para extracciones manuales, democratizando el acceso a la información para la toma de decisiones estratégicas.

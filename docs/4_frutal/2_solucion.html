@@ -6,13 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Angel Merino Cedeño">
-<meta name="author" content="Gerardo Leyva Conde">
-<meta name="author" content="Roberto Navarro Bartolini">
-<meta name="author" content="Abraham Rojo Salazar">
-<meta name="author" content="Oscar Esquer Vazquez">
 
-<title>Chatbot para sugerencias de productos: Un enfoque personalizado</title>
+<title>Arquitectura y Solución Técnica</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="././images/favicon.png" rel="icon" type="image/png">
+<link href="././images/frutal.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,12 +69,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Buscar"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -87,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="././images/ctlogo.png" alt="" class="navbar-logo">
+    <img src="././images/frutal.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Buscar"></div>
@@ -97,32 +95,16 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./0_home.html" aria-current="page"> 
+    <a class="nav-link" href="./0_home.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./1_comprension.html"> 
-<span class="menu-text">Comprensión del negocio</span></a>
+<span class="menu-text">Comprensión del Negocio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./2_comprension_datos.html"> 
-<span class="menu-text">Comprensión de los datos</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./3_preparacion.html"> 
-<span class="menu-text">Preparación</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./4_modelado.html"> 
-<span class="menu-text">Modelado y Evaluación</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./5_despliegue.html"> 
-<span class="menu-text">Despliegue</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./6_documentacion.html"> 
-<span class="menu-text">Documentación</span></a>
+    <a class="nav-link active" href="./2_solucion.html" aria-current="page"> 
+<span class="menu-text">Resultados del Proyecto</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -143,59 +125,28 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de Contenidos</h2>
+   
+  <ul>
+  <li><a href="#la-arquitectura" id="toc-la-arquitectura" class="nav-link active" data-scroll-target="#la-arquitectura">La Arquitectura</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chatbot para sugerencias de productos: Un enfoque personalizado</h1>
+<h1 class="title">Arquitectura y Solución Técnica</h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Autores/as</div>
-  <div class="quarto-title-meta-heading">Afiliación</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://www.linkedin.com/in/anmerino-pnd">Angel Merino Cedeño</a> <a href="mailto:acedeno00@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="https://unisonmx-my.sharepoint.com/:w:/g/personal/a218204710_unison_mx/EYLVn5p-js9Hh7hr8HmUKOgBZq5L1wHwtZzyjEZG_SeUGA?e=Q7U9pP">📄 CV</a>
-          </p>
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Gerardo Leyva Conde </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Roberto Navarro Bartolini </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Abraham Rojo Salazar </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Oscar Esquer Vazquez </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">12 de febrero de 2026</p>
-    </div>
-  </div>
+    
   
     
   </div>
@@ -205,20 +156,73 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introducción" class="level2" style="text-align: justify">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
-<p>Este proyecto se enfoca en el desarrollo de un chatbot para la recomendación de productos, basado en un sistema de recuperación de información desde una base de datos vectorial o con el uso de herramientas. A través de este chatbot, se busca optimizar la experiencia del cliente, sugiriendo productos relevantes según las especificaciones y presupuesto proporcionados, adenás del acceso y explicación de información técnica automatizada.</p>
-<p>El proyecto se divide en seis fases:</p>
-<ol type="1">
-<li><p><strong>Comprensión del negocio:</strong> Definición de los objetivos y el contexto del proyecto, enfocados en la mejora de la experiencia del cliente y la eficiencia del proceso de recomendación de productos.</p></li>
-<li><p><strong>Comprensión de los datos:</strong> Recolección y análisis preliminar de los datos disponibles, tales como características de los productos y preferencias de los usuarios.</p></li>
-<li><p><strong>Preparación de los datos:</strong> Limpieza, transformación y estructuración de los datos para que puedan ser utilizados en el sistema de recomendación y la base de datos vectorial.</p></li>
-<li><p><strong>Desarrollo del sistema de recomendación:</strong> Implementación del chatbot que utilizará un modelo de lenguaje grande (LLM) para interpretar las consultas y hacer recomendaciones basadas en la recuperación de documentos relevantes de la base de datos vectorial.</p></li>
-<li><p><strong>Evaluación:</strong> Validación de la precisión y relevancia de las recomendaciones ofrecidas por el chatbot, utilizando métricas de evaluación del sistema.</p></li>
-<li><p><strong>Implementación:</strong> Integración del chatbot en la plataforma de la empresa, presentación de los resultados y recomendaciones para mejorar el sistema de recomendación y la interacción con los clientes.</p></li>
-</ol>
-<p>A través de estas fases, se busca proporcionar una solución innovadora que mejore la interacción con los clientes, optimizando la selección de productos y mejorando la eficiencia del proceso de recomendación. También, a través de los ciclos iterativos del proyecto, iremos agregando información considerada como relevante para añadirla dentro de la base de datos vectorial y sea parte del conocimiento persistente del chatbot.</p>
+<section id="la-arquitectura" class="level2" style="text-align: justify">
+<h2 class="anchored" data-anchor-id="la-arquitectura">La Arquitectura</h2>
+<p>Para resolver la migración de datos desde un entorno hostil (drivers legacy inestables), diseñé una arquitectura desacoplada basada en contenedores.</p>
+<p>El pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A[Legacy HFSQL Server] --&gt;|ODBC| B(Python Wrapper / Subproceso)
+    B --&gt;|Raw Data| C{Docker/Podman&lt;br&gt;Container}
+    C --&gt;|Pandas Transformation| D[Parquet Data Lake]
+    D --&gt;|Consumo| E[Dashboard / Analytics]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#333,stroke-width:2px
+    style D fill:#dfd,stroke:#333,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
+<div style="text-align: justify">
+<section id="desafíos-críticos-y-soluciones" class="level2">
+<h2 class="anchored" data-anchor-id="desafíos-críticos-y-soluciones">Desafíos Críticos y Soluciones</h2>
+<section id="el-problema-del-stack-smashing" class="level3">
+<h3 class="anchored" data-anchor-id="el-problema-del-stack-smashing">1. El Problema del “Stack Smashing”</h3>
+<p>Uno de los mayores obstáculos técnicos fue la interacción entre el driver ODBC propietario de HFSQL y las librerías modernas de Linux (<code>unixODBC</code>). Al intentar conexiones directas, el driver provocaba corrupciones de memoria (<em>stack smashing</em>) que “mataban” el proceso principal de extracción.</p>
+<p><strong>La Solución:</strong></p>
+<p>Implementé un patrón de <strong>aislamiento de procesos</strong>. En lugar de ejecutar la conexión ODBC en el hilo principal de la aplicación:</p>
+<ul>
+<li>Desarrollé un <strong>wrapper en Python</strong> que aísla la conexión inestable en un subproceso independiente.</li>
+<li>Si el driver falla, el proceso principal detecta el error, limpia la memoria y reintenta sin detener todo el pipeline.</li>
+</ul>
+</section>
+<section id="contenerización-con-podman" class="level3">
+<h3 class="anchored" data-anchor-id="contenerización-con-podman">2. Contenerización con Podman</h3>
+<p>Dado que el entorno de desarrollo era Windows y el de producción un servidor Linux “headless”, las discrepancias en las librerías dinámicas (DLLs vs .so) eran constantes.</p>
+<p><strong>La Implementación:</strong></p>
+<p>Utilicé <strong>Podman</strong> (una alternativa a Docker sin daemon) para encapsular no solo el código Python, sino todo el entorno del sistema operativo necesario para el driver legacy.</p>
+<ul>
+<li><strong>Imagen Personalizada:</strong> Creé una imagen de Linux que incluye versiones específicas de librerías antiguas requeridas por el driver HFSQL.</li>
+<li><strong>Cross-Platform:</strong> Esto garantizó que el código funcionara idéntico en mi máquina local y en el servidor del cliente.</li>
+</ul>
+</section>
+<section id="optimización-con-parquet" class="level3">
+<h3 class="anchored" data-anchor-id="optimización-con-parquet">3. Optimización con Parquet</h3>
+<p>En lugar de volcar los datos a CSV (lento y pesado), utilicé <strong>Apache Parquet</strong>.</p>
+<ul>
+<li><strong>Compresión:</strong> Reducción del 60% en el tamaño de almacenamiento.</li>
+<li><strong>Tipado:</strong> Preservación de los tipos de datos (fechas, flotantes) que solían perderse en exportaciones de texto plano.</li>
+</ul>
+</section>
+</section>
+<section id="stack-tecnológico" class="level1">
+<h1>Stack Tecnológico</h1>
+<ul>
+<li><strong>Lenguaje:</strong> Python 3.10</li>
+<li><strong>Contenedores:</strong> Podman &amp; Docker</li>
+<li><strong>Drivers:</strong> pyodbc, unixODBC, HFSQL ODBC</li>
+<li><strong>Data Lake:</strong> Pandas, PyArrow, Parquet</li>
+</ul>
+</section>
+</div>
 
 
 

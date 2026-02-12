@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "2_solucion.html",
+    "href": "2_solucion.html",
+    "title": "Arquitectura y Solución Técnica",
+    "section": "",
+    "text": "Para resolver la migración de datos desde un entorno hostil (drivers legacy inestables), diseñé una arquitectura desacoplada basada en contenedores.\nEl pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad.\n\n\n\n\n\nflowchart LR\n    A[Legacy HFSQL Server] --&gt;|ODBC| B(Python Wrapper / Subproceso)\n    B --&gt;|Raw Data| C{Docker/Podman&lt;br&gt;Container}\n    C --&gt;|Pandas Transformation| D[Parquet Data Lake]\n    D --&gt;|Consumo| E[Dashboard / Analytics]\n    \n    style A fill:#f9f,stroke:#333,stroke-width:2px\n    style C fill:#bbf,stroke:#333,stroke-width:2px\n    style D fill:#dfd,stroke:#333,stroke-width:2px"
+  },
+  {
+    "objectID": "2_solucion.html#la-arquitectura",
+    "href": "2_solucion.html#la-arquitectura",
+    "title": "Arquitectura y Solución Técnica",
+    "section": "",
+    "text": "Para resolver la migración de datos desde un entorno hostil (drivers legacy inestables), diseñé una arquitectura desacoplada basada en contenedores.\nEl pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad.\n\n\n\n\n\nflowchart LR\n    A[Legacy HFSQL Server] --&gt;|ODBC| B(Python Wrapper / Subproceso)\n    B --&gt;|Raw Data| C{Docker/Podman&lt;br&gt;Container}\n    C --&gt;|Pandas Transformation| D[Parquet Data Lake]\n    D --&gt;|Consumo| E[Dashboard / Analytics]\n    \n    style A fill:#f9f,stroke:#333,stroke-width:2px\n    style C fill:#bbf,stroke:#333,stroke-width:2px\n    style D fill:#dfd,stroke:#333,stroke-width:2px"
+  },
+  {
+    "objectID": "2_solucion.html#desafíos-críticos-y-soluciones",
+    "href": "2_solucion.html#desafíos-críticos-y-soluciones",
+    "title": "Arquitectura y Solución Técnica",
+    "section": "Desafíos Críticos y Soluciones",
+    "text": "Desafíos Críticos y Soluciones\n\n1. El Problema del “Stack Smashing”\nUno de los mayores obstáculos técnicos fue la interacción entre el driver ODBC propietario de HFSQL y las librerías modernas de Linux (unixODBC). Al intentar conexiones directas, el driver provocaba corrupciones de memoria (stack smashing) que “mataban” el proceso principal de extracción.\nLa Solución:\nImplementé un patrón de aislamiento de procesos. En lugar de ejecutar la conexión ODBC en el hilo principal de la aplicación:\n\nDesarrollé un wrapper en Python que aísla la conexión inestable en un subproceso independiente.\nSi el driver falla, el proceso principal detecta el error, limpia la memoria y reintenta sin detener todo el pipeline.\n\n\n\n2. Contenerización con Podman\nDado que el entorno de desarrollo era Windows y el de producción un servidor Linux “headless”, las discrepancias en las librerías dinámicas (DLLs vs .so) eran constantes.\nLa Implementación:\nUtilicé Podman (una alternativa a Docker sin daemon) para encapsular no solo el código Python, sino todo el entorno del sistema operativo necesario para el driver legacy.\n\nImagen Personalizada: Creé una imagen de Linux que incluye versiones específicas de librerías antiguas requeridas por el driver HFSQL.\nCross-Platform: Esto garantizó que el código funcionara idéntico en mi máquina local y en el servidor del cliente.\n\n\n\n3. Optimización con Parquet\nEn lugar de volcar los datos a CSV (lento y pesado), utilicé Apache Parquet.\n\nCompresión: Reducción del 60% en el tamaño de almacenamiento.\nTipado: Preservación de los tipos de datos (fechas, flotantes) que solían perderse en exportaciones de texto plano."
+  },
+  {
+    "objectID": "0_home.html",
+    "href": "0_home.html",
+    "title": "Arquitectura de datos: HFSQL a Data Lake",
+    "section": "",
+    "text": "Este proyecto aborda uno de los desafíos más críticos en la industria actual: la liberación de datos atrapados en sistemas heredados (Legacy Systems).\nEl objetivo principal fue diseñar e implementar una arquitectura de datos capaz de extraer información transaccional masiva desde bases de datos HFSQL (HyperFileSQL), transformar estos datos y cargarlos en un Data Lake moderno.\n\n\nLa infraestructura existente dependía de controladores ODBC obsoletos que presentaban graves problemas de estabilidad (errores de segmentación y stack smashing) al ejecutarse en entornos de producción Linux modernos, impidiendo la automatización del análisis de datos.\n\n\n\nComo ingeniero de datos, diseñé la solución de bajo nivel, enfocándome en: 1. Estabilidad: Aislar los procesos inestables mediante wrappers de Python. 2. Portabilidad: Contenerizar la solución con Podman para garantizar la ejecución idéntica en desarrollo (Windows) y producción (Linux). 3. Rendimiento: Optimizar la escritura de datos usando formatos columnares (Parquet)."
+  },
+  {
+    "objectID": "0_home.html#el-desafío",
+    "href": "0_home.html#el-desafío",
+    "title": "Arquitectura de datos: HFSQL a Data Lake",
+    "section": "",
+    "text": "La infraestructura existente dependía de controladores ODBC obsoletos que presentaban graves problemas de estabilidad (errores de segmentación y stack smashing) al ejecutarse en entornos de producción Linux modernos, impidiendo la automatización del análisis de datos."
+  },
+  {
+    "objectID": "0_home.html#mi-rol",
+    "href": "0_home.html#mi-rol",
+    "title": "Arquitectura de datos: HFSQL a Data Lake",
+    "section": "",
+    "text": "Como ingeniero de datos, diseñé la solución de bajo nivel, enfocándome en: 1. Estabilidad: Aislar los procesos inestables mediante wrappers de Python. 2. Portabilidad: Contenerizar la solución con Podman para garantizar la ejecución idéntica en desarrollo (Windows) y producción (Linux). 3. Rendimiento: Optimizar la escritura de datos usando formatos columnares (Parquet)."
+  },
+  {
+    "objectID": "1_comprension.html",
+    "href": "1_comprension.html",
+    "title": "Contexto del Negocio: Frutal",
+    "section": "",
+    "text": "Frutal® es una empresa sonorense dedicada a llevar frescura y sabor a sus clientes a través de raspados, bebidas y productos elaborados con frutas naturales.\nFundada el 15 de marzo de 1992 en San Luis Río Colorado, Sonora, la empresa nació con el propósito de ofrecer opciones refrescantes para la convivencia familiar. Gracias a su compromiso con la calidad, en 2014 expandieron operaciones hacia Mexicali, Baja California, consolidándose como un referente en la región.\n\n\nLa filosofía de Frutal se centra en crear experiencias memorables:\n\nMisión: Nutrir emociones a través de sabores auténticos, fusionando ingredientes naturales para brindar experiencias únicas.\nVisión: Convertir cada visita en una tradición familiar que trascienda generaciones, fomentando la sana convivencia.\n\n\n\n\nCon más de 30 años de historia y múltiples sucursales, Frutal ha escalado sus operaciones significativamente. Este crecimiento trajo consigo un volumen masivo de transacciones diarias y la necesidad de estandarizar la información entre las distintas plazas (Sonora y Baja California)."
+  },
+  {
+    "objectID": "1_comprension.html#sobre-la-empresa",
+    "href": "1_comprension.html#sobre-la-empresa",
+    "title": "Contexto del Negocio: Frutal",
+    "section": "",
+    "text": "Frutal® es una empresa sonorense dedicada a llevar frescura y sabor a sus clientes a través de raspados, bebidas y productos elaborados con frutas naturales.\nFundada el 15 de marzo de 1992 en San Luis Río Colorado, Sonora, la empresa nació con el propósito de ofrecer opciones refrescantes para la convivencia familiar. Gracias a su compromiso con la calidad, en 2014 expandieron operaciones hacia Mexicali, Baja California, consolidándose como un referente en la región.\n\n\nLa filosofía de Frutal se centra en crear experiencias memorables:\n\nMisión: Nutrir emociones a través de sabores auténticos, fusionando ingredientes naturales para brindar experiencias únicas.\nVisión: Convertir cada visita en una tradición familiar que trascienda generaciones, fomentando la sana convivencia.\n\n\n\n\nCon más de 30 años de historia y múltiples sucursales, Frutal ha escalado sus operaciones significativamente. Este crecimiento trajo consigo un volumen masivo de transacciones diarias y la necesidad de estandarizar la información entre las distintas plazas (Sonora y Baja California)."
+  },
+  {
+    "objectID": "1_comprension.html#la-necesidad-técnica",
+    "href": "1_comprension.html#la-necesidad-técnica",
+    "title": "Contexto del Negocio: Frutal",
+    "section": "La Necesidad Técnica",
+    "text": "La Necesidad Técnica\nAquí es donde entra el desafío de Ingeniería de Datos. Para mantener su promesa de calidad e innovación, la administración requería visibilidad total de sus operaciones en tiempo real.\n\nEl Problema de los “Silos de Datos”\nHistóricamente, la operación de Frutal ha sido gestionada mediante sistemas ERP basados en HFSQL (PC SOFT). Aunque este sistema es robusto para la operación diaria (captura de ventas e inventarios en punto de venta), presenta barreras significativas para la inteligencia de negocios moderna:\n\nAcceso Limitado: Los datos residen en formatos propietarios difíciles de consultar con herramientas de Ciencia de Datos (Python, Pandas).\nRendimiento: Las consultas analíticas pesadas impactaban el rendimiento del sistema transaccional, afectando la velocidad de atención al cliente.\nIncompatibilidad: Falta de drivers nativos estables para conectar estos sistemas legacy con entornos de nube o servidores Linux modernos.\n\n\n\nEl Objetivo del Proyecto\nLa organización requería construir una “Fuente de la Verdad” única y accesible: un Data Lake.\nEsto permitiría a los analistas y científicos de datos generar reportes de ventas, proyecciones de inventario y análisis de KPIs sin depender del departamento de TI para extracciones manuales, democratizando el acceso a la información para la toma de decisiones estratégicas."
+  }
+]

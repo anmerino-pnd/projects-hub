@@ -1,5 +1,5 @@
 ---
-title: "Comprensión del negocio"
+title: "Comprensión del Negocio"
 format: 
     html:
          page-layout: article

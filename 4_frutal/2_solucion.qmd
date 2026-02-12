@@ -1,0 +1,70 @@
+---
+title: "Arquitectura y Solución Técnica"
+format: 
+    html:
+         page-layout: article
+toc-title: "Tabla de Contenidos"
+toc: true
+toc-depth: 3
+---
+
+::: {style="text-align: justify"}
+
+## La Arquitectura
+
+Para resolver la migración de datos desde un entorno hostil (drivers legacy inestables), diseñé una arquitectura desacoplada basada en contenedores.
+
+El pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad.
+
+```{mermaid}
+%%| fig-align: center
+flowchart LR
+    A[Legacy HFSQL Server] -->|ODBC| B(Python Wrapper / Subproceso)
+    B -->|Raw Data| C{Docker/Podman<br>Container}
+    C -->|Pandas Transformation| D[Parquet Data Lake]
+    D -->|Consumo| E[Dashboard / Analytics]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#333,stroke-width:2px
+    style D fill:#dfd,stroke:#333,stroke-width:2px
+```
+:::
+
+::: {style="text-align: justify"}
+
+## Desafíos Críticos y Soluciones
+
+### 1. El Problema del "Stack Smashing"
+Uno de los mayores obstáculos técnicos fue la interacción entre el driver ODBC propietario de HFSQL y las librerías modernas de Linux (`unixODBC`). Al intentar conexiones directas, el driver provocaba corrupciones de memoria (*stack smashing*) que "mataban" el proceso principal de extracción.
+
+**La Solución:**
+
+Implementé un patrón de **aislamiento de procesos**. En lugar de ejecutar la conexión ODBC en el hilo principal de la aplicación:
+
+* Desarrollé un **wrapper en Python** que aísla la conexión inestable en un subproceso independiente.
+* Si el driver falla, el proceso principal detecta el error, limpia la memoria y reintenta sin detener todo el pipeline.
+
+### 2. Contenerización con Podman
+Dado que el entorno de desarrollo era Windows y el de producción un servidor Linux "headless", las discrepancias en las librerías dinámicas (DLLs vs .so) eran constantes.
+
+**La Implementación:**
+
+Utilicé **Podman** (una alternativa a Docker sin daemon) para encapsular no solo el código Python, sino todo el entorno del sistema operativo necesario para el driver legacy.
+
+* **Imagen Personalizada:** Creé una imagen de Linux que incluye versiones específicas de librerías antiguas requeridas por el driver HFSQL.
+* **Cross-Platform:** Esto garantizó que el código funcionara idéntico en mi máquina local y en el servidor del cliente.
+
+### 3. Optimización con Parquet
+
+En lugar de volcar los datos a CSV (lento y pesado), utilicé **Apache Parquet**.
+
+* **Compresión:** Reducción del 60% en el tamaño de almacenamiento.
+* **Tipado:** Preservación de los tipos de datos (fechas, flotantes) que solían perderse en exportaciones de texto plano.
+
+# Stack Tecnológico
+
+* **Lenguaje:** Python 3.10
+* **Contenedores:** Podman & Docker
+* **Drivers:** pyodbc, unixODBC, HFSQL ODBC
+* **Data Lake:** Pandas, PyArrow, Parquet
+:::

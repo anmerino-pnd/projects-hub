@@ -1,5 +1,5 @@
 ---
-title: "Chatbot para sugerencias de productos: un enfoque personalizado"
+title: "Chatbot para sugerencias de productos: Un enfoque personalizado"
 format: 
     html:
          page-layout: article

@@ -6,13 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Angel Merino Cedeño">
-<meta name="author" content="Gerardo Leyva Conde">
-<meta name="author" content="Roberto Navarro Bartolini">
-<meta name="author" content="Abraham Rojo Salazar">
-<meta name="author" content="Oscar Esquer Vazquez">
 
-<title>Chatbot para sugerencias de productos: Un enfoque personalizado</title>
+<title>Contexto del Negocio: Frutal</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="././images/favicon.png" rel="icon" type="image/png">
+<link href="././images/frutal.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -79,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -87,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="././images/ctlogo.png" alt="" class="navbar-logo">
+    <img src="././images/frutal.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Buscar"></div>
@@ -97,32 +92,16 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./0_home.html" aria-current="page"> 
+    <a class="nav-link" href="./0_home.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./1_comprension.html"> 
-<span class="menu-text">Comprensión del negocio</span></a>
+    <a class="nav-link active" href="./1_comprension.html" aria-current="page"> 
+<span class="menu-text">Comprensión del Negocio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./2_comprension_datos.html"> 
-<span class="menu-text">Comprensión de los datos</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./3_preparacion.html"> 
-<span class="menu-text">Preparación</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./4_modelado.html"> 
-<span class="menu-text">Modelado y Evaluación</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./5_despliegue.html"> 
-<span class="menu-text">Despliegue</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./6_documentacion.html"> 
-<span class="menu-text">Documentación</span></a>
+    <a class="nav-link" href="./2_solucion.html"> 
+<span class="menu-text">Resultados del Proyecto</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -143,59 +122,37 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de Contenidos</h2>
+   
+  <ul>
+  <li><a href="#sobre-la-empresa" id="toc-sobre-la-empresa" class="nav-link active" data-scroll-target="#sobre-la-empresa">Sobre la Empresa</a>
+  <ul class="collapse">
+  <li><a href="#misión-y-visión" id="toc-misión-y-visión" class="nav-link" data-scroll-target="#misión-y-visión">Misión y Visión</a></li>
+  <li><a href="#el-reto-del-crecimiento" id="toc-el-reto-del-crecimiento" class="nav-link" data-scroll-target="#el-reto-del-crecimiento">El Reto del Crecimiento</a></li>
+  </ul></li>
+  <li><a href="#la-necesidad-técnica" id="toc-la-necesidad-técnica" class="nav-link" data-scroll-target="#la-necesidad-técnica">La Necesidad Técnica</a>
+  <ul class="collapse">
+  <li><a href="#el-problema-de-los-silos-de-datos" id="toc-el-problema-de-los-silos-de-datos" class="nav-link" data-scroll-target="#el-problema-de-los-silos-de-datos">El Problema de los “Silos de Datos”</a></li>
+  <li><a href="#el-objetivo-del-proyecto" id="toc-el-objetivo-del-proyecto" class="nav-link" data-scroll-target="#el-objetivo-del-proyecto">El Objetivo del Proyecto</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chatbot para sugerencias de productos: Un enfoque personalizado</h1>
+<h1 class="title">Contexto del Negocio: Frutal</h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Autores/as</div>
-  <div class="quarto-title-meta-heading">Afiliación</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://www.linkedin.com/in/anmerino-pnd">Angel Merino Cedeño</a> <a href="mailto:acedeno00@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="https://unisonmx-my.sharepoint.com/:w:/g/personal/a218204710_unison_mx/EYLVn5p-js9Hh7hr8HmUKOgBZq5L1wHwtZzyjEZG_SeUGA?e=Q7U9pP">📄 CV</a>
-          </p>
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Gerardo Leyva Conde </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Roberto Navarro Bartolini </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Abraham Rojo Salazar </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Oscar Esquer Vazquez </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">12 de febrero de 2026</p>
-    </div>
-  </div>
+    
   
     
   </div>
@@ -205,22 +162,43 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introducción" class="level2" style="text-align: justify">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
-<p>Este proyecto se enfoca en el desarrollo de un chatbot para la recomendación de productos, basado en un sistema de recuperación de información desde una base de datos vectorial o con el uso de herramientas. A través de este chatbot, se busca optimizar la experiencia del cliente, sugiriendo productos relevantes según las especificaciones y presupuesto proporcionados, adenás del acceso y explicación de información técnica automatizada.</p>
-<p>El proyecto se divide en seis fases:</p>
-<ol type="1">
-<li><p><strong>Comprensión del negocio:</strong> Definición de los objetivos y el contexto del proyecto, enfocados en la mejora de la experiencia del cliente y la eficiencia del proceso de recomendación de productos.</p></li>
-<li><p><strong>Comprensión de los datos:</strong> Recolección y análisis preliminar de los datos disponibles, tales como características de los productos y preferencias de los usuarios.</p></li>
-<li><p><strong>Preparación de los datos:</strong> Limpieza, transformación y estructuración de los datos para que puedan ser utilizados en el sistema de recomendación y la base de datos vectorial.</p></li>
-<li><p><strong>Desarrollo del sistema de recomendación:</strong> Implementación del chatbot que utilizará un modelo de lenguaje grande (LLM) para interpretar las consultas y hacer recomendaciones basadas en la recuperación de documentos relevantes de la base de datos vectorial.</p></li>
-<li><p><strong>Evaluación:</strong> Validación de la precisión y relevancia de las recomendaciones ofrecidas por el chatbot, utilizando métricas de evaluación del sistema.</p></li>
-<li><p><strong>Implementación:</strong> Integración del chatbot en la plataforma de la empresa, presentación de los resultados y recomendaciones para mejorar el sistema de recomendación y la interacción con los clientes.</p></li>
-</ol>
-<p>A través de estas fases, se busca proporcionar una solución innovadora que mejore la interacción con los clientes, optimizando la selección de productos y mejorando la eficiencia del proceso de recomendación. También, a través de los ciclos iterativos del proyecto, iremos agregando información considerada como relevante para añadirla dentro de la base de datos vectorial y sea parte del conocimiento persistente del chatbot.</p>
+<section id="sobre-la-empresa" class="level2" style="text-align: justify">
+<h2 class="anchored" data-anchor-id="sobre-la-empresa">Sobre la Empresa</h2>
+<p><strong>Frutal®</strong> es una empresa sonorense dedicada a llevar frescura y sabor a sus clientes a través de raspados, bebidas y productos elaborados con frutas naturales.</p>
+<p>Fundada el <strong>15 de marzo de 1992</strong> en San Luis Río Colorado, Sonora, la empresa nació con el propósito de ofrecer opciones refrescantes para la convivencia familiar. Gracias a su compromiso con la calidad, en 2014 expandieron operaciones hacia Mexicali, Baja California, consolidándose como un referente en la región.</p>
+<section id="misión-y-visión" class="level3">
+<h3 class="anchored" data-anchor-id="misión-y-visión">Misión y Visión</h3>
+<p>La filosofía de Frutal se centra en crear experiencias memorables:</p>
+<ul>
+<li><strong>Misión:</strong> Nutrir emociones a través de sabores auténticos, fusionando ingredientes naturales para brindar experiencias únicas.</li>
+<li><strong>Visión:</strong> Convertir cada visita en una tradición familiar que trascienda generaciones, fomentando la sana convivencia.</li>
+</ul>
 </section>
+<section id="el-reto-del-crecimiento" class="level3">
+<h3 class="anchored" data-anchor-id="el-reto-del-crecimiento">El Reto del Crecimiento</h3>
+<p>Con más de 30 años de historia y múltiples sucursales, Frutal ha escalado sus operaciones significativamente. Este crecimiento trajo consigo un volumen masivo de transacciones diarias y la necesidad de estandarizar la información entre las distintas plazas (Sonora y Baja California).</p>
+</section>
+</section>
+<section id="la-necesidad-técnica" class="level2" style="text-align: justify">
+<h2 class="anchored" data-anchor-id="la-necesidad-técnica">La Necesidad Técnica</h2>
+<p>Aquí es donde entra el desafío de Ingeniería de Datos. Para mantener su promesa de calidad e innovación, la administración requería visibilidad total de sus operaciones en tiempo real.</p>
+<section id="el-problema-de-los-silos-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="el-problema-de-los-silos-de-datos">El Problema de los “Silos de Datos”</h3>
+<p>Históricamente, la operación de Frutal ha sido gestionada mediante sistemas ERP basados en <strong>HFSQL (PC SOFT)</strong>. Aunque este sistema es robusto para la operación diaria (captura de ventas e inventarios en punto de venta), presenta barreras significativas para la inteligencia de negocios moderna:</p>
+<ul>
+<li><strong>Acceso Limitado:</strong> Los datos residen en formatos propietarios difíciles de consultar con herramientas de Ciencia de Datos (Python, Pandas).</li>
+<li><strong>Rendimiento:</strong> Las consultas analíticas pesadas impactaban el rendimiento del sistema transaccional, afectando la velocidad de atención al cliente.</li>
+<li><strong>Incompatibilidad:</strong> Falta de drivers nativos estables para conectar estos sistemas legacy con entornos de nube o servidores Linux modernos.</li>
+</ul>
+</section>
+<section id="el-objetivo-del-proyecto" class="level3">
+<h3 class="anchored" data-anchor-id="el-objetivo-del-proyecto">El Objetivo del Proyecto</h3>
+<p>La organización requería construir una <strong>“Fuente de la Verdad”</strong> única y accesible: un <strong>Data Lake</strong>.</p>
+<p>Esto permitiría a los analistas y científicos de datos generar reportes de ventas, proyecciones de inventario y análisis de KPIs sin depender del departamento de TI para extracciones manuales, democratizando el acceso a la información para la toma de decisiones estratégicas.</p>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -12,18 +12,38 @@ Mi experiencia combina la solidez analítica de la ingeniería química con las 
 ## Educación
 
 **Maestría en Ciencia de Datos** | Universidad de Sonora  
-*Agosto 2023 - Presente* Enfoque en Python, SQL, bases de datos NoSQL, procesos ETL y análisis de series de tiempo.
+*Agosto 2023 - Presente* 
+
+Enfoque en Python, SQL, bases de datos NoSQL, procesos ETL, modelos de aprendizaje automático, redes neuronales, programación en lenguaje natural y análisis de series de tiempo.
 
 **Licenciatura en Ingeniería Química** | Universidad de Sonora  
-*Agosto 2018 - Junio 2023* Habilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS).
+*Agosto 2018 - Junio 2023* 
+
+Habilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS).
 
 ## Experiencia Profesional
 
-**Científico de Datos** | Centro Nacional de Control de Energía (CENACE)  
-*Mayo 2024 - Presente* Desarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. Integración de sistemas de clasificación de tickets para mejorar la eficiencia de respuesta.
+## Experiencia Profesional
 
-**Laboratorio Químico** | Comisión Federal de Electricidad (CFE)  
-*Abril 2022 - Septiembre 2022* Detección de fallas y medición en equipos eléctricos primarios. Aplicación de normas ASTM.
+**Ingeniero de Datos** | DARIG - Consultores  
+*Octubre 2025 - Presente* 
+
+Desarrollo de pipelines ETL Windows/Linux para la migración de bases de datos legacy (HFSQL) hacia Data Lakes en formato Parquet. Solución de interoperabilidad mediante contenedores Podman y wrappers de Python para drivers ODBC complejos.
+
+**Científico de Datos** | DARIG - Consultores  
+*Marzo 2025 - Feb 2026* 
+
+Implementación de un MCP (Model Context Protocol) para el análisis del estado de ventas y KPIs empresariales. Diseño de agentes con *function-calling* (SQL) integrados en Telegram para la generación automatizada de reportes PDF y consultas de negocio en lenguaje natural.
+
+**Científico de Datos** | CT Internacional  
+*Febrero 2025 - Presente* 
+
+Desarrollo de un Modelo Agéntico capaz de realizar recomendaciones avanzadas de hardware y ventas automatizadas. Implementación de arquitectura RAG con LangChain y OpenAI para consultas dinámicas de inventario, precios y guías técnicas en tiempo real.
+
+**Científico de Datos** | Centro Nacional de Control de Energía (CENACE)  
+*Mayo 2024 - Presente* 
+
+Desarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. Integración de sistemas de clasificación de tickets para mejorar la eficiencia de respuesta.
 
 ## Habilidades Técnicas
 
@@ -31,7 +51,7 @@ Mi experiencia combina la solidez analítica de la ingeniería química con las 
 * **IA & Data Science:** LangChain, RAG, Ollama, Hugging Face, Pandas, Scikit-learn.
 * **Bases de Datos:** PostgreSQL, MySQL, MongoDB, Redis, FAISS (Vector Stores).
 * **Desarrollo & DevOps:** FastAPI, Docker/Podman, Git/GitHub.
-* **Idiomas:** Español (Nativo), Inglés (Fluido), Portugués (Fluido), Francés (Fluido).
+* **Idiomas:** Español (Nativo), Inglés (Fluido), Portugués (Fluido), Francés (Fluido), Japonés (Intermedio), Alemán (Intermedio).
 
 ## Intereses
 Me apasiona el aprendizaje continuo de idiomas y culturas, así como la resolución de problemas basada en datos y la aplicación de tecnología en proyectos innovadores.

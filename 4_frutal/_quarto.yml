@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: ../docs/4_frutal
+  render: # Renderizar todos los archivos .qmd
+    - 0_home.qmd
+    - 1_comprension.qmd
+    - 2_solucion.qmd
+
+website:
+  favicon: ./images/frutal.png
+  navbar:
+    logo: ./images/frutal.png
+    left:
+      - href: 0_home.qmd
+        text: Home
+      - href: 1_comprension.qmd
+        text: Comprensión del Negocio
+      - href: 2_solucion.qmd
+        text: Resultados del Proyecto
+    right:
+      - text: "Ver más proyectos"
+        icon: box-arrow-left
+        href: ../proyectos.html
+      
+  back-to-top-navigation: true
+      
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    execute:
+      echo: false
+
+lang: es

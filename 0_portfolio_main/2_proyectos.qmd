@@ -86,4 +86,31 @@ Solución conversacional desplegada en Telegram para directivos y fuerza de vent
 :::
 :::
 
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### ETL & Data Engineering (Frutal)
+**Modernización de Arquitectura de Datos**
+
+Diseño de un pipeline robusto para migrar un sistema ERP legacy (HFSQL) hacia un Data Lake moderno, resolviendo incompatibilidades críticas de drivers.
+
+**Puntos Clave:**
+
+* Solución al error de **"Stack Smashing"** mediante aislamiento de procesos en Python.
+* Contenerización con **Podman** para unificar entornos de desarrollo (Windows) y producción (Linux).
+* Optimización de almacenamiento y lectura mediante conversión a formato **Parquet**.
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-secondary">Python</span>
+<span class="badge bg-dark">Podman</span>
+<span class="badge bg-warning text-dark">HFSQL</span>
+<span class="badge bg-info text-dark">Parquet</span>
+<br><br>
+[Leer Documentación &rarr;](./4_frutal/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
+:::
+
+
 :::

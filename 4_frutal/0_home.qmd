@@ -1,0 +1,33 @@
+---
+title: "Arquitectura de datos: HFSQL a Data Lake"
+format: 
+    html:
+         page-layout: article
+toc: false
+author: 
+  - name: "Daniel Rivera Güémez"
+  - name: "Arian García Milanes"
+  - name: "Angel Merino Cedeño"
+    email: "acedeno00@gmail.com"     # Aparece un icono de correo
+    url: "https://www.linkedin.com/in/anmerino-pnd"          # Aparece icono de web si quieres
+    affiliations:
+        - name : "[📄 CV](https://unisonmx-my.sharepoint.com/:w:/g/personal/a218204710_unison_mx/EYLVn5p-js9Hh7hr8HmUKOgBZq5L1wHwtZzyjEZG_SeUGA?e=Q7U9pP)"
+date: last-modified
+date-format: long
+lang: es
+---
+
+# Resumen Ejecutivo
+
+Este proyecto aborda uno de los desafíos más críticos en la industria actual: **la liberación de datos atrapados en sistemas heredados (Legacy Systems)**. 
+
+El objetivo principal fue diseñar e implementar una arquitectura de datos capaz de extraer información transaccional masiva desde bases de datos **HFSQL (HyperFileSQL)**, transformar estos datos y cargarlos en un **Data Lake moderno**.
+
+## El Desafío
+La infraestructura existente dependía de controladores ODBC obsoletos que presentaban graves problemas de estabilidad (errores de segmentación y *stack smashing*) al ejecutarse en entornos de producción Linux modernos, impidiendo la automatización del análisis de datos.
+
+## Mi rol
+Como **ingeniero de datos**, diseñé la solución de bajo nivel, enfocándome en:
+1.  **Estabilidad:** Aislar los procesos inestables mediante wrappers de Python.
+2.  **Portabilidad:** Contenerizar la solución con **Podman** para garantizar la ejecución idéntica en desarrollo (Windows) y producción (Linux).
+3.  **Rendimiento:** Optimizar la escritura de datos usando formatos columnares (Parquet).
