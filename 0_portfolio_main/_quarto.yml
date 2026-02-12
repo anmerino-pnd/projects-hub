@@ -1,6 +1,11 @@
 project:
   type: website
   output-dir: ../docs
+  render:
+    - 0_index.qmd
+    - 1_about.qmd
+    - 2_proyectos.qmd
+    - 3_publicaciones.qmd
 
 website:
   title: "Angel Merino | Projects Portfolio"
