@@ -1,0 +1,24 @@
+/*-- scss:defaults --*/
+
+// Paleta de Colores Neutros / Earthy Tones
+$body-bg: #f5f5f0;          /* Beige muy suave para el fondo (tipo papel) */
+$body-color: #333333;       /* Gris muy oscuro para el texto (lectura cómoda) */
+$primary: #5D4037;          /* Café tabaco para enlaces y botones principales */
+$secondary: #8D6E63;        /* Café más claro secundario */
+$light: #EFEBE9;            /* Beige grisáceo para fondos de tarjetas */
+$dark: #212121;             /* Casi negro para encabezados */
+
+// Ajustes de fuentes (opcional, para que se vea más limpio)
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/*-- scss:rules --*/
+
+// Reglas específicas para tus tarjetas (sobrescribe lo de styles.css si es necesario)
+.card {
+  background-color: #ffffff; // Las tarjetas blancas resaltan sobre el fondo beige
+  border: 1px solid #d7ccc8; // Borde sutil café claro
+}
+
+.navbar {
+  background-color: $dark !important; // Barra de navegación oscura para contraste
+}

@@ -1,8 +1,8 @@
 ---
-title: "Sobre Mí"
+title: "Sobre mí"
 about:
   template: solana
-  image: profile.jpg
+  image: image.png
 ---
 
 Soy un profesional apasionado por la intersección entre la ingeniería y la ciencia de datos. Actualmente curso la **Maestría en Ciencia de Datos** en la Universidad de Sonora, enfocándome en el Procesamiento de Lenguaje Natural (NLP) y el desarrollo de Modelos de Lenguaje Grande (LLMs).

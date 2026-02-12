@@ -1,51 +1,58 @@
 [
   {
-    "objectID": "proyectos.html",
-    "href": "proyectos.html",
-    "title": "Proyectos e Implementaciones",
+    "objectID": "3_publicaciones.html",
+    "href": "3_publicaciones.html",
+    "title": "Artículos y Publicaciones",
     "section": "",
-    "text": "A continuación presento una selección de proyectos desarrollados bajo metodologías ágiles, enfocados en resolver problemas de negocio mediante IA Generativa y análisis de datos.\n\n\n\n\nHelp Desk Inteligente (CENACE)\nOptimización de Soporte Técnico con IA Privada\nSistema diseñado para el Centro Nacional de Control de Energía. Resuelve la necesidad de automatizar la clasificación de incidentes y sugerir soluciones técnicas sin exponer datos sensibles a la nube pública.\nPuntos Clave:\n\nImplementación de modelos Open-Source (Gemma/Ollama) para privacidad total de datos.\nArquitectura RAG para consulta de manuales técnicos internos.\nPersistencia de historial y sesiones en MongoDB.\n\n\nPython LangChain Ollama FastAPI  Leer Documentación →\n\n\n\n\n\n\n\nRecomendador de Productos (CT)\nSistema de Ventas y Recomendación en Tiempo Real\nChatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un catálogo masivo en MySQL con un motor de búsqueda semántica, gestionando precios y existencias dinámicas.\nPuntos Clave:\n\nPipeline ETL complejo para sincronizar MySQL con Vector Stores (FAISS).\nSolución de arquitectura “Mixed Content” mediante Proxy PHP.\nSistema de moderación de usuarios y widget personalizado en JS.\n\n\nPython MySQL Docker/Podman JavaScript  Leer Documentación →\n\n\n\n\n\n\n\nChatbot Financiero (Salsas Castillo)\nAsistente de Ventas y Reportes Financieros\nSolución conversacional desplegada en Telegram para directivos y fuerza de ventas. Permite consultas en lenguaje natural sobre bases de datos transaccionales y normativas internas.\nPuntos Clave:\n\nOrquestación de Herramientas SQL para consultas de ventas en tiempo real.\nGeneración automática de Reportes PDF con análisis de IA.\nIntegración nativa con Telegram API y transcripción de audio (Whisper).\n\n\nPython PostgreSQL OpenAI API Telegram  Leer Documentación →"
+    "text": "A continuación comparto mis pulicaciones, donde profundizo en soluciones técnicas y guías paso a paso.\n\n\n\n\nFrom Beats to Data: An Easy Guide to Spotify’s API\nTutorial paso a paso del uso de la API\nAprende autenticación, endpoints clave y cómo convertir tus playlists en un dataset para análisis y visualización en Python.\nTemas:\n\nPython\nVisualización de datos\nGestión de APIs\n\n\nTutorial Python Spotify  Leer en Medium →\n\n\n\n\n\n\n\nPocket AI: Telegram Bot with Python\nDespliegue de LLMs en mensajería\nImplementa un bot con python que consulta un LLM local vía Ollama: manejo de comandos, prompts y despliegue listo para uso personal.\nTemas:\n\nPython & Aiogram\nOllama (Local LLMs)\nGestión de APIs\n\n\nIA Generativa Python Ollama  Leer en Medium →\n\n\n\n\n\n\n\nConectando Python a HFSQL en Linux (ODBC + Docker/Podman)\nIngeniería de Datos en Linux\nConecta HFSQL legacy a entornos modernos en Linux usando contenedores y ODBC: instalación, configuración y pruebas de conexión con Python.\nTemas:\n\nDocker/Podman\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering Docker HFSQL  Leer en Medium →\n\n\n\n\n\n\n\nConectando Python a HFSQL en Windows (ODBC + ETL)\nIngeniería de Datos en Windows\nPipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL en Python (consejos de drivers, compatibilidad y troubleshooting).\nTemas:\n\nETL\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering ETL HFSQL  Leer en Medium →"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Sobre Mí",
+    "objectID": "1_about.html",
+    "href": "1_about.html",
+    "title": "Sobre mí",
     "section": "",
     "text": "Soy un profesional apasionado por la intersección entre la ingeniería y la ciencia de datos. Actualmente curso la Maestría en Ciencia de Datos en la Universidad de Sonora, enfocándome en el Procesamiento de Lenguaje Natural (NLP) y el desarrollo de Modelos de Lenguaje Grande (LLMs).\nMi experiencia combina la solidez analítica de la ingeniería química con las herramientas modernas de desarrollo de software y análisis de datos."
   },
   {
-    "objectID": "about.html#educación",
-    "href": "about.html#educación",
-    "title": "Sobre Mí",
+    "objectID": "1_about.html#educación",
+    "href": "1_about.html#educación",
+    "title": "Sobre mí",
     "section": "Educación",
     "text": "Educación\nMaestría en Ciencia de Datos | Universidad de Sonora\nAgosto 2023 - Presente Enfoque en Python, SQL, bases de datos NoSQL, procesos ETL y análisis de series de tiempo.\nLicenciatura en Ingeniería Química | Universidad de Sonora\nAgosto 2018 - Junio 2023 Habilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS)."
   },
   {
-    "objectID": "about.html#experiencia-profesional",
-    "href": "about.html#experiencia-profesional",
-    "title": "Sobre Mí",
+    "objectID": "1_about.html#experiencia-profesional",
+    "href": "1_about.html#experiencia-profesional",
+    "title": "Sobre mí",
     "section": "Experiencia Profesional",
     "text": "Experiencia Profesional\nCientífico de Datos | Centro Nacional de Control de Energía (CENACE)\nMayo 2024 - Presente Desarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. Integración de sistemas de clasificación de tickets para mejorar la eficiencia de respuesta.\nLaboratorio Químico | Comisión Federal de Electricidad (CFE)\nAbril 2022 - Septiembre 2022 Detección de fallas y medición en equipos eléctricos primarios. Aplicación de normas ASTM."
   },
   {
-    "objectID": "about.html#habilidades-técnicas",
-    "href": "about.html#habilidades-técnicas",
-    "title": "Sobre Mí",
+    "objectID": "1_about.html#habilidades-técnicas",
+    "href": "1_about.html#habilidades-técnicas",
+    "title": "Sobre mí",
     "section": "Habilidades Técnicas",
     "text": "Habilidades Técnicas\n\nLenguajes: Python (Avanzado), SQL, JavaScript (Básico).\nIA & Data Science: LangChain, RAG, Ollama, Hugging Face, Pandas, Scikit-learn.\nBases de Datos: PostgreSQL, MySQL, MongoDB, Redis, FAISS (Vector Stores).\nDesarrollo & DevOps: FastAPI, Docker/Podman, Git/GitHub.\nIdiomas: Español (Nativo), Inglés (Fluido), Portugués (Fluido), Francés (Fluido)."
   },
   {
-    "objectID": "about.html#intereses",
-    "href": "about.html#intereses",
-    "title": "Sobre Mí",
+    "objectID": "1_about.html#intereses",
+    "href": "1_about.html#intereses",
+    "title": "Sobre mí",
     "section": "Intereses",
     "text": "Intereses\nMe apasiona el aprendizaje continuo de idiomas y culturas, así como la resolución de problemas basada en datos y la aplicación de tecnología en proyectos innovadores."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "0_index.html",
+    "href": "0_index.html",
     "title": "Portafolio de Ciencia de Datos e IA",
     "section": "",
-    "text": "Bienvenido a mi portafolio profesional. Soy Angel Alberto Merino Cedeño, estudiante de Maestría en Ciencia de Datos e Ingeniero Químico con una fuerte especialización en el desarrollo de Sistemas de Inteligencia Artificial Generativa, Chatbots RAG y Arquitecturas de Datos.\nAquí encontrarás documentación técnica detallada sobre mis implementaciones más recientes en entornos empresariales reales."
+    "text": "Soy Ángel Alberto Merino Cedeño, estudiante de Maestría en Ciencia de Datos e Ingeniero Químico con una fuerte especialización en el desarrollo de Sistemas de Inteligencia Artificial Generativa, Chatbots RAG y Arquitecturas de Datos.\nAquí encontrarás documentación técnica detallada sobre mis implementaciones más recientes."
+  },
+  {
+    "objectID": "2_proyectos.html",
+    "href": "2_proyectos.html",
+    "title": "Proyectos e Implementaciones",
+    "section": "",
+    "text": "A continuación presento una selección de proyectos desarrollados bajo metodologías ágiles, enfocados en resolver problemas de negocio mediante IA Generativa y análisis de datos.\n\n\n\n\nHelp Desk Inteligente (CENACE)\nOptimización de Soporte Técnico con IA Privada\nSistema diseñado para el Centro Nacional de Control de Energía. Resuelve la necesidad de automatizar la clasificación de incidentes y sugerir soluciones técnicas sin exponer datos sensibles a la nube pública.\nPuntos Clave:\n\nImplementación de modelos Open-Source (Gemma/Ollama) para privacidad total de datos.\nArquitectura RAG para consulta de manuales técnicos internos.\nPersistencia de historial y sesiones en MongoDB.\n\n\nPython LangChain Ollama FastAPI  Leer Documentación →\n\n\n\n\n\n\n\nRecomendador de Productos (CT)\nSistema de Ventas y Recomendación en Tiempo Real\nChatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un catálogo masivo en MySQL con un motor de búsqueda semántica, gestionando precios y existencias dinámicas.\nPuntos Clave:\n\nPipeline ETL complejo para sincronizar MySQL con Vector Stores (FAISS).\nSolución de arquitectura “Mixed Content” mediante Proxy PHP.\nSistema de moderación de usuarios y widget personalizado en JS.\n\n\nPython MySQL Docker/Podman JavaScript  Leer Documentación →\n\n\n\n\n\n\n\nChatbot Financiero (Salsas Castillo)\nAsistente de Ventas y Reportes Financieros\nSolución conversacional desplegada en Telegram para directivos y fuerza de ventas. Permite consultas en lenguaje natural sobre bases de datos transaccionales y normativas internas.\nPuntos Clave:\n\nOrquestación de Herramientas SQL para consultas de ventas en tiempo real.\nGeneración automática de Reportes PDF con análisis de IA.\nIntegración nativa con Telegram API y transcripción de audio (Whisper).\n\n\nPython PostgreSQL OpenAI API Telegram  Leer Documentación →"
   }
 ]

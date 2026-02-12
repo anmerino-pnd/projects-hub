@@ -1,0 +1,111 @@
+---
+title: "Artículos y Publicaciones"
+subtitle: "Guías técnicas, tutoriales y divulgación sobre ciencia e ingeniería de datos."
+title-block-banner: true
+---
+
+A continuación comparto mis pulicaciones, donde profundizo en soluciones técnicas y guías paso a paso.
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### From Beats to Data: An Easy Guide to Spotify’s API
+**Tutorial paso a paso del uso de la API**
+
+Aprende autenticación, endpoints clave y cómo convertir tus playlists en un dataset para análisis y visualización en Python.
+
+**Temas:**
+
+* Python
+* Visualización de datos
+* Gestión de APIs
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-dark">Tutorial</span>
+<span class="badge bg-secondary">Python</span>
+<span class="badge bg-success">Spotify</span>
+<br><br>
+[Leer en Medium &rarr;](https://medium.com/mcd-unison/from-data-to-beats-an-easy-guide-to-spotifys-api-a646432ca0e1){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### Pocket AI: Telegram Bot with Python
+**Despliegue de LLMs en mensajería**
+
+Implementa un bot con python que consulta un LLM local vía Ollama: manejo de comandos, prompts y despliegue listo para uso personal.
+
+**Temas:**
+
+* Python & Aiogram
+* Ollama (Local LLMs)
+* Gestión de APIs
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-dark">IA Generativa</span>
+<span class="badge bg-secondary">Python</span>
+<span class="badge bg-success">Ollama</span>
+<br><br>
+[Leer en Medium &rarr;](https://medium.com/mcd-unison/pocket-ai-telegram-bot-python-ollama-01da2c4d05df){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### Conectando Python a HFSQL en Linux (ODBC + Docker/Podman)
+**Ingeniería de Datos en Linux**
+
+Conecta HFSQL legacy a entornos modernos en Linux usando contenedores y ODBC: instalación, configuración y pruebas de conexión con Python.
+
+**Temas:**
+
+* Docker/Podman
+* Ingeniería de Datos
+* Legacy Systems
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-dark">Data Engineering</span>
+<span class="badge bg-secondary">Docker</span>
+<span class="badge bg-success">HFSQL</span>
+<br><br>
+[Leer en Medium &rarr;](https://medium.com/mcd-unison/python-hfsql-linux-connection-2f05aa961e5b){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### Conectando Python a HFSQL en Windows (ODBC + ETL)
+**Ingeniería de Datos en Windows**
+
+Pipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL en Python (consejos de drivers, compatibilidad y troubleshooting).
+
+**Temas:**
+
+* ETL
+* Ingeniería de Datos
+* Legacy Systems
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-dark">Data Engineering</span>
+<span class="badge bg-secondary">ETL</span>
+<span class="badge bg-success">HFSQL</span>
+<br><br>
+[Leer en Medium &rarr;](https://medium.com/mcd-unison/python-hfsql-etl-windows-5f54b73033fb){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
+:::
+
+:::

@@ -6,16 +6,19 @@ website:
   title: "Angel Merino | Projects Portfolio"
   navbar:
     left:
-      - href: index.qmd
+      - href: 0_index.qmd
         text: Inicio
-      - href: about.qmd
+      - href: 1_about.qmd
         text: Sobre Mí
-      - href: proyectos.qmd
+      - href: 2_proyectos.qmd
         text: Proyectos
-
+      - href: 3_publicaciones.qmd   
+        text: Publicaciones
 format:
   html:
-    theme: flatly 
+    theme: 
+      - flatly 
+      - custom.scss
     css: styles.css
     toc: false
 
