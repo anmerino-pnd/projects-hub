@@ -2,28 +2,28 @@ project:
   type: website
   output-dir: ../docs
   render:
-    - 0_index.qmd
-    - 1_about.qmd
-    - 2_proyectos.qmd
-    - 3_publicaciones.qmd
+    - index.qmd
+    - about.qmd
+    - proyectos.qmd
+    - publicaciones.qmd
 
 website:
-  title: "Angel Merino | Projects Portfolio"
+  title: "Angel Merino | Portafolio de Proyectos"
   navbar:
     left:
-      - href: 0_index.qmd
+      - href: index.qmd
         text: Inicio
-      - href: 1_about.qmd
+      - href: about.qmd
         text: Sobre Mí
-      - href: 2_proyectos.qmd
+      - href: proyectos.qmd
         text: Proyectos
-      - href: 3_publicaciones.qmd   
+      - href: publicaciones.qmd   
         text: Publicaciones
 format:
   html:
     theme: 
       - flatly 
-      - custom.scss
+      - scustom.scss
     css: styles.css
     toc: false
 

@@ -3,7 +3,7 @@ title: "Portafolio de Ciencia de Datos e IA"
 subtitle: "Ingeniería de Datos, LLMs, Sistemas Agénticos, MCPs y RAG."
 about:
   template: jolla
-  image: image.png 
+  image: ./images/profile.png
   links:
     - icon: linkedin
       text: LinkedIn
