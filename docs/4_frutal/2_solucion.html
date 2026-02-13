@@ -130,7 +130,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de Contenidos</h2>
    
   <ul>
-  <li><a href="#la-arquitectura" id="toc-la-arquitectura" class="nav-link active" data-scroll-target="#la-arquitectura">La Arquitectura</a></li>
+  <li><a href="#arquitectura" id="toc-arquitectura" class="nav-link active" data-scroll-target="#arquitectura">Arquitectura</a></li>
+  <li><a href="#desafíos-críticos-y-soluciones" id="toc-desafíos-críticos-y-soluciones" class="nav-link" data-scroll-target="#desafíos-críticos-y-soluciones">Desafíos Críticos y Soluciones</a>
+  <ul>
+  <li><a href="#el-problema-del-stack-smashing" id="toc-el-problema-del-stack-smashing" class="nav-link" data-scroll-target="#el-problema-del-stack-smashing">1. El Problema del “Stack Smashing”</a></li>
+  <li><a href="#contenerización-con-podman" id="toc-contenerización-con-podman" class="nav-link" data-scroll-target="#contenerización-con-podman">2. Contenerización con Podman</a></li>
+  <li><a href="#optimización-con-parquet" id="toc-optimización-con-parquet" class="nav-link" data-scroll-target="#optimización-con-parquet">3. Optimización con Parquet</a></li>
+  </ul></li>
+  <li><a href="#stack-tecnológico" id="toc-stack-tecnológico" class="nav-link" data-scroll-target="#stack-tecnológico">Stack Tecnológico</a></li>
   </ul>
 </nav>
     </div>
@@ -156,10 +163,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="la-arquitectura" class="level2" style="text-align: justify">
-<h2 class="anchored" data-anchor-id="la-arquitectura">La Arquitectura</h2>
+<section id="arquitectura" class="level2" style="text-align: justify">
+<h2 class="anchored" data-anchor-id="arquitectura">Arquitectura</h2>
 <p>Para resolver la migración de datos desde un entorno hostil (drivers legacy inestables), diseñé una arquitectura desacoplada basada en contenedores.</p>
-<p>El pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
@@ -180,9 +186,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<p>El pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad.</p>
 </section>
-<div style="text-align: justify">
-<section id="desafíos-críticos-y-soluciones" class="level2">
+<section id="desafíos-críticos-y-soluciones" class="level2" style="text-align: justify">
 <h2 class="anchored" data-anchor-id="desafíos-críticos-y-soluciones">Desafíos Críticos y Soluciones</h2>
 <section id="el-problema-del-stack-smashing" class="level3">
 <h3 class="anchored" data-anchor-id="el-problema-del-stack-smashing">1. El Problema del “Stack Smashing”</h3>
@@ -213,8 +219,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="stack-tecnológico" class="level1">
-<h1>Stack Tecnológico</h1>
+<section id="stack-tecnológico" class="level2" style="text-align: justify">
+<h2 class="anchored" data-anchor-id="stack-tecnológico">Stack Tecnológico</h2>
 <ul>
 <li><strong>Lenguaje:</strong> Python 3.10</li>
 <li><strong>Contenedores:</strong> Podman &amp; Docker</li>
@@ -222,7 +228,6 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Data Lake:</strong> Pandas, PyArrow, Parquet</li>
 </ul>
 </section>
-</div>
 
 
 

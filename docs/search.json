@@ -11,42 +11,35 @@
     "href": "about.html",
     "title": "Sobre mí",
     "section": "",
-    "text": "Soy un profesional apasionado por la intersección entre la ingeniería y la ciencia de datos. Actualmente curso la Maestría en Ciencia de Datos en la Universidad de Sonora, enfocándome en el Procesamiento de Lenguaje Natural (NLP) y el desarrollo de Modelos de Lenguaje Grande (LLMs).\nMi experiencia combina la solidez analítica de la ingeniería química con las herramientas modernas de desarrollo de software y análisis de datos."
+    "text": "Soy un profesional apasionado por la intersección entre la ingeniería y la ciencia de datos. Actualmente curso la Maestría en Ciencia de Datos en la Universidad de Sonora, enfocándome en el Procesamiento de Lenguaje Natural (NLP) y el desarrollo de Modelos de Lenguaje Grande (LLMs).\nMi experiencia combina la solidez analítica de la ingeniería química con las herramientas modernas de desarrollo de software y análisis de datos.\n\n\nMaestría en Ciencia de Datos | Universidad de Sonora\nAgosto 2023 - Presente\nEnfoque en Python, SQL, bases de datos NoSQL, procesos ETL, modelos de aprendizaje automático, redes neuronales, programación en lenguaje natural y análisis de series de tiempo.\nLicenciatura en Ingeniería Química | Universidad de Sonora\nAgosto 2018 - Junio 2023\nHabilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS).\n\n\n\n\n\n\nIngeniero de Datos | DARIG - Consultores\nOctubre 2025 - Presente\nDesarrollo de pipelines ETL Windows/Linux para la migración de bases de datos legacy (HFSQL) hacia Data Lakes en formato Parquet. Solución de interoperabilidad mediante contenedores Podman y wrappers de Python para drivers ODBC complejos.\nCientífico de Datos | DARIG - Consultores\nMarzo 2025 - Feb 2026\nImplementación de un MCP (Model Context Protocol) para el análisis del estado de ventas y KPIs empresariales. Diseño de agentes con function-calling (SQL) integrados en Telegram para la generación automatizada de reportes PDF y consultas de negocio en lenguaje natural.\nCientífico de Datos | CT Internacional\nFebrero 2025 - Presente\nDesarrollo de un Modelo Agéntico capaz de realizar recomendaciones avanzadas de hardware y ventas automatizadas. Implementación de arquitectura RAG con LangChain y OpenAI para consultas dinámicas de inventario, precios y guías técnicas en tiempo real.\nCientífico de Datos | Centro Nacional de Control de Energía (CENACE)\nMayo 2024 - Presente\nDesarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. Integración de sistemas de clasificación de tickets para mejorar la eficiencia de respuesta.\n\n\n\n\nLenguajes: Python (Avanzado), SQL, JavaScript (Básico).\nIA & Data Science: LangChain, RAG, Ollama, Hugging Face, Pandas, Scikit-learn.\nBases de Datos: PostgreSQL, MySQL, MongoDB, Redis, FAISS (Vector Stores).\nDesarrollo & DevOps: FastAPI, Docker/Podman, Git/GitHub.\nIdiomas: Español (Nativo), Inglés (Fluido), Portugués (Fluido), Francés (Fluido), Japonés (Intermedio), Alemán (Intermedio).\n\n\n\n\nMe apasiona el aprendizaje continuo de idiomas y culturas, así como la resolución de problemas basada en datos y la aplicación de tecnología en proyectos innovadores."
   },
   {
     "objectID": "about.html#educación",
     "href": "about.html#educación",
     "title": "Sobre mí",
-    "section": "Educación",
-    "text": "Educación\nMaestría en Ciencia de Datos | Universidad de Sonora\nAgosto 2023 - Presente\nEnfoque en Python, SQL, bases de datos NoSQL, procesos ETL, modelos de aprendizaje automático, redes neuronales, programación en lenguaje natural y análisis de series de tiempo.\nLicenciatura en Ingeniería Química | Universidad de Sonora\nAgosto 2018 - Junio 2023\nHabilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS)."
-  },
-  {
-    "objectID": "about.html#experiencia-profesional",
-    "href": "about.html#experiencia-profesional",
-    "title": "Sobre mí",
-    "section": "Experiencia Profesional",
-    "text": "Experiencia Profesional"
+    "section": "",
+    "text": "Maestría en Ciencia de Datos | Universidad de Sonora\nAgosto 2023 - Presente\nEnfoque en Python, SQL, bases de datos NoSQL, procesos ETL, modelos de aprendizaje automático, redes neuronales, programación en lenguaje natural y análisis de series de tiempo.\nLicenciatura en Ingeniería Química | Universidad de Sonora\nAgosto 2018 - Junio 2023\nHabilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS)."
   },
   {
     "objectID": "about.html#experiencia-profesional-1",
     "href": "about.html#experiencia-profesional-1",
     "title": "Sobre mí",
-    "section": "Experiencia Profesional",
-    "text": "Experiencia Profesional\nIngeniero de Datos | DARIG - Consultores\nOctubre 2025 - Presente\nDesarrollo de pipelines ETL Windows/Linux para la migración de bases de datos legacy (HFSQL) hacia Data Lakes en formato Parquet. Solución de interoperabilidad mediante contenedores Podman y wrappers de Python para drivers ODBC complejos.\nCientífico de Datos | DARIG - Consultores\nMarzo 2025 - Feb 2026\nImplementación de un MCP (Model Context Protocol) para el análisis del estado de ventas y KPIs empresariales. Diseño de agentes con function-calling (SQL) integrados en Telegram para la generación automatizada de reportes PDF y consultas de negocio en lenguaje natural.\nCientífico de Datos | CT Internacional\nFebrero 2025 - Presente\nDesarrollo de un Modelo Agéntico capaz de realizar recomendaciones avanzadas de hardware y ventas automatizadas. Implementación de arquitectura RAG con LangChain y OpenAI para consultas dinámicas de inventario, precios y guías técnicas en tiempo real.\nCientífico de Datos | Centro Nacional de Control de Energía (CENACE)\nMayo 2024 - Presente\nDesarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. Integración de sistemas de clasificación de tickets para mejorar la eficiencia de respuesta."
+    "section": "",
+    "text": "Ingeniero de Datos | DARIG - Consultores\nOctubre 2025 - Presente\nDesarrollo de pipelines ETL Windows/Linux para la migración de bases de datos legacy (HFSQL) hacia Data Lakes en formato Parquet. Solución de interoperabilidad mediante contenedores Podman y wrappers de Python para drivers ODBC complejos.\nCientífico de Datos | DARIG - Consultores\nMarzo 2025 - Feb 2026\nImplementación de un MCP (Model Context Protocol) para el análisis del estado de ventas y KPIs empresariales. Diseño de agentes con function-calling (SQL) integrados en Telegram para la generación automatizada de reportes PDF y consultas de negocio en lenguaje natural.\nCientífico de Datos | CT Internacional\nFebrero 2025 - Presente\nDesarrollo de un Modelo Agéntico capaz de realizar recomendaciones avanzadas de hardware y ventas automatizadas. Implementación de arquitectura RAG con LangChain y OpenAI para consultas dinámicas de inventario, precios y guías técnicas en tiempo real.\nCientífico de Datos | Centro Nacional de Control de Energía (CENACE)\nMayo 2024 - Presente\nDesarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. Integración de sistemas de clasificación de tickets para mejorar la eficiencia de respuesta."
   },
   {
     "objectID": "about.html#habilidades-técnicas",
     "href": "about.html#habilidades-técnicas",
     "title": "Sobre mí",
-    "section": "Habilidades Técnicas",
-    "text": "Habilidades Técnicas\n\nLenguajes: Python (Avanzado), SQL, JavaScript (Básico).\nIA & Data Science: LangChain, RAG, Ollama, Hugging Face, Pandas, Scikit-learn.\nBases de Datos: PostgreSQL, MySQL, MongoDB, Redis, FAISS (Vector Stores).\nDesarrollo & DevOps: FastAPI, Docker/Podman, Git/GitHub.\nIdiomas: Español (Nativo), Inglés (Fluido), Portugués (Fluido), Francés (Fluido), Japonés (Intermedio), Alemán (Intermedio)."
+    "section": "",
+    "text": "Lenguajes: Python (Avanzado), SQL, JavaScript (Básico).\nIA & Data Science: LangChain, RAG, Ollama, Hugging Face, Pandas, Scikit-learn.\nBases de Datos: PostgreSQL, MySQL, MongoDB, Redis, FAISS (Vector Stores).\nDesarrollo & DevOps: FastAPI, Docker/Podman, Git/GitHub.\nIdiomas: Español (Nativo), Inglés (Fluido), Portugués (Fluido), Francés (Fluido), Japonés (Intermedio), Alemán (Intermedio)."
   },
   {
     "objectID": "about.html#intereses",
     "href": "about.html#intereses",
     "title": "Sobre mí",
-    "section": "Intereses",
-    "text": "Intereses\nMe apasiona el aprendizaje continuo de idiomas y culturas, así como la resolución de problemas basada en datos y la aplicación de tecnología en proyectos innovadores."
+    "section": "",
+    "text": "Me apasiona el aprendizaje continuo de idiomas y culturas, así como la resolución de problemas basada en datos y la aplicación de tecnología en proyectos innovadores."
   },
   {
     "objectID": "index.html",

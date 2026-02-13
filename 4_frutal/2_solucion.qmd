@@ -5,16 +5,13 @@ format:
          page-layout: article
 toc-title: "Tabla de Contenidos"
 toc: true
-toc-depth: 3
+toc-depth: 5
 ---
 
 ::: {style="text-align: justify"}
-
-## La Arquitectura
+## Arquitectura
 
 Para resolver la migración de datos desde un entorno hostil (drivers legacy inestables), diseñé una arquitectura desacoplada basada en contenedores.
-
-El pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad.
 
 ```{mermaid}
 %%| fig-align: center
@@ -28,10 +25,11 @@ flowchart LR
     style C fill:#bbf,stroke:#333,stroke-width:2px
     style D fill:#dfd,stroke:#333,stroke-width:2px
 ```
+
+El pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad.
 :::
 
 ::: {style="text-align: justify"}
-
 ## Desafíos Críticos y Soluciones
 
 ### 1. El Problema del "Stack Smashing"
@@ -60,8 +58,10 @@ En lugar de volcar los datos a CSV (lento y pesado), utilicé **Apache Parquet**
 
 * **Compresión:** Reducción del 60% en el tamaño de almacenamiento.
 * **Tipado:** Preservación de los tipos de datos (fechas, flotantes) que solían perderse en exportaciones de texto plano.
+:::
 
-# Stack Tecnológico
+::: {style="text-align: justify"}
+## Stack Tecnológico
 
 * **Lenguaje:** Python 3.10
 * **Contenedores:** Podman & Docker

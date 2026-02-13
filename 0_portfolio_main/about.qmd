@@ -5,6 +5,7 @@ about:
   image: ./images/profile.png
 ---
 
+::: {style="text-align: justify"}
 Soy un profesional apasionado por la intersección entre la ingeniería y la ciencia de datos. Actualmente curso la **Maestría en Ciencia de Datos** en la Universidad de Sonora, enfocándome en el Procesamiento de Lenguaje Natural (NLP) y el desarrollo de Modelos de Lenguaje Grande (LLMs).
 
 Mi experiencia combina la solidez analítica de la ingeniería química con las herramientas modernas de desarrollo de software y análisis de datos.
@@ -55,3 +56,4 @@ Desarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. 
 
 ## Intereses
 Me apasiona el aprendizaje continuo de idiomas y culturas, así como la resolución de problemas basada en datos y la aplicación de tecnología en proyectos innovadores.
+:::

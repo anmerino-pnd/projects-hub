@@ -4,14 +4,14 @@
     "href": "2_solucion.html",
     "title": "Arquitectura y Solución Técnica",
     "section": "",
-    "text": "Para resolver la migración de datos desde un entorno hostil (drivers legacy inestables), diseñé una arquitectura desacoplada basada en contenedores.\nEl pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad.\n\n\n\n\n\nflowchart LR\n    A[Legacy HFSQL Server] --&gt;|ODBC| B(Python Wrapper / Subproceso)\n    B --&gt;|Raw Data| C{Docker/Podman&lt;br&gt;Container}\n    C --&gt;|Pandas Transformation| D[Parquet Data Lake]\n    D --&gt;|Consumo| E[Dashboard / Analytics]\n    \n    style A fill:#f9f,stroke:#333,stroke-width:2px\n    style C fill:#bbf,stroke:#333,stroke-width:2px\n    style D fill:#dfd,stroke:#333,stroke-width:2px"
+    "text": "Para resolver la migración de datos desde un entorno hostil (drivers legacy inestables), diseñé una arquitectura desacoplada basada en contenedores.\n\n\n\n\n\nflowchart LR\n    A[Legacy HFSQL Server] --&gt;|ODBC| B(Python Wrapper / Subproceso)\n    B --&gt;|Raw Data| C{Docker/Podman&lt;br&gt;Container}\n    C --&gt;|Pandas Transformation| D[Parquet Data Lake]\n    D --&gt;|Consumo| E[Dashboard / Analytics]\n    \n    style A fill:#f9f,stroke:#333,stroke-width:2px\n    style C fill:#bbf,stroke:#333,stroke-width:2px\n    style D fill:#dfd,stroke:#333,stroke-width:2px\n\n\n\n\n\n\nEl pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad."
   },
   {
-    "objectID": "2_solucion.html#la-arquitectura",
-    "href": "2_solucion.html#la-arquitectura",
+    "objectID": "2_solucion.html#arquitectura",
+    "href": "2_solucion.html#arquitectura",
     "title": "Arquitectura y Solución Técnica",
     "section": "",
-    "text": "Para resolver la migración de datos desde un entorno hostil (drivers legacy inestables), diseñé una arquitectura desacoplada basada en contenedores.\nEl pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad.\n\n\n\n\n\nflowchart LR\n    A[Legacy HFSQL Server] --&gt;|ODBC| B(Python Wrapper / Subproceso)\n    B --&gt;|Raw Data| C{Docker/Podman&lt;br&gt;Container}\n    C --&gt;|Pandas Transformation| D[Parquet Data Lake]\n    D --&gt;|Consumo| E[Dashboard / Analytics]\n    \n    style A fill:#f9f,stroke:#333,stroke-width:2px\n    style C fill:#bbf,stroke:#333,stroke-width:2px\n    style D fill:#dfd,stroke:#333,stroke-width:2px"
+    "text": "Para resolver la migración de datos desde un entorno hostil (drivers legacy inestables), diseñé una arquitectura desacoplada basada en contenedores.\n\n\n\n\n\nflowchart LR\n    A[Legacy HFSQL Server] --&gt;|ODBC| B(Python Wrapper / Subproceso)\n    B --&gt;|Raw Data| C{Docker/Podman&lt;br&gt;Container}\n    C --&gt;|Pandas Transformation| D[Parquet Data Lake]\n    D --&gt;|Consumo| E[Dashboard / Analytics]\n    \n    style A fill:#f9f,stroke:#333,stroke-width:2px\n    style C fill:#bbf,stroke:#333,stroke-width:2px\n    style D fill:#dfd,stroke:#333,stroke-width:2px\n\n\n\n\n\n\nEl pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad."
   },
   {
     "objectID": "2_solucion.html#desafíos-críticos-y-soluciones",
@@ -19,6 +19,13 @@
     "title": "Arquitectura y Solución Técnica",
     "section": "Desafíos Críticos y Soluciones",
     "text": "Desafíos Críticos y Soluciones\n\n1. El Problema del “Stack Smashing”\nUno de los mayores obstáculos técnicos fue la interacción entre el driver ODBC propietario de HFSQL y las librerías modernas de Linux (unixODBC). Al intentar conexiones directas, el driver provocaba corrupciones de memoria (stack smashing) que “mataban” el proceso principal de extracción.\nLa Solución:\nImplementé un patrón de aislamiento de procesos. En lugar de ejecutar la conexión ODBC en el hilo principal de la aplicación:\n\nDesarrollé un wrapper en Python que aísla la conexión inestable en un subproceso independiente.\nSi el driver falla, el proceso principal detecta el error, limpia la memoria y reintenta sin detener todo el pipeline.\n\n\n\n2. Contenerización con Podman\nDado que el entorno de desarrollo era Windows y el de producción un servidor Linux “headless”, las discrepancias en las librerías dinámicas (DLLs vs .so) eran constantes.\nLa Implementación:\nUtilicé Podman (una alternativa a Docker sin daemon) para encapsular no solo el código Python, sino todo el entorno del sistema operativo necesario para el driver legacy.\n\nImagen Personalizada: Creé una imagen de Linux que incluye versiones específicas de librerías antiguas requeridas por el driver HFSQL.\nCross-Platform: Esto garantizó que el código funcionara idéntico en mi máquina local y en el servidor del cliente.\n\n\n\n3. Optimización con Parquet\nEn lugar de volcar los datos a CSV (lento y pesado), utilicé Apache Parquet.\n\nCompresión: Reducción del 60% en el tamaño de almacenamiento.\nTipado: Preservación de los tipos de datos (fechas, flotantes) que solían perderse en exportaciones de texto plano."
+  },
+  {
+    "objectID": "2_solucion.html#stack-tecnológico",
+    "href": "2_solucion.html#stack-tecnológico",
+    "title": "Arquitectura y Solución Técnica",
+    "section": "Stack Tecnológico",
+    "text": "Stack Tecnológico\n\nLenguaje: Python 3.10\nContenedores: Podman & Docker\nDrivers: pyodbc, unixODBC, HFSQL ODBC\nData Lake: Pandas, PyArrow, Parquet"
   },
   {
     "objectID": "0_home.html",
