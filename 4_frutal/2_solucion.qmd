@@ -15,15 +15,17 @@ Para resolver la migración de datos desde un entorno hostil (drivers legacy ine
 
 ```{mermaid}
 %%| fig-align: center
-flowchart LR
-    A[Legacy HFSQL Server] -->|ODBC| B(Python Wrapper / Subproceso)
-    B -->|Raw Data| C{Docker/Podman<br>Container}
-    C -->|Pandas Transformation| D[Parquet Data Lake]
-    D -->|Consumo| E[Dashboard / Analytics]
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style C fill:#bbf,stroke:#333,stroke-width:2px
-    style D fill:#dfd,stroke:#333,stroke-width:2px
+flowchart TB
+    A[🗄️ Legacy HFSQL Server] -->|ODBC| B(🐍 Python Wrapper / Subproceso)
+    B -->|Raw Data| C{🐳 Docker/Podman<br>Container}
+    C -->|Pandas Transformation| D[📦 Parquet Data Lake]
+    D -->|Consumo| E[📊 Dashboard / Analytics]
+
+    style A fill:#2b4c7e,stroke:#2b4c7e,color:#fff,stroke-width:2px
+    style B fill:#3a7ca5,stroke:#3a7ca5,color:#fff,stroke-width:2px
+    style C fill:#f7b2c4,stroke:#d4819a,color:#333,stroke-width:2px
+    style D fill:#88c9a1,stroke:#5fa87a,color:#333,stroke-width:2px
+    style E fill:#2b4c7e,stroke:#2b4c7e,color:#fff,stroke-width:2px
 ```
 
 El pipeline de datos sigue un flujo de extracción robusto que prioriza la integridad de la memoria y la portabilidad.

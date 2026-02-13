@@ -171,15 +171,17 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
-    A[Legacy HFSQL Server] --&gt;|ODBC| B(Python Wrapper / Subproceso)
-    B --&gt;|Raw Data| C{Docker/Podman&lt;br&gt;Container}
-    C --&gt;|Pandas Transformation| D[Parquet Data Lake]
-    D --&gt;|Consumo| E[Dashboard / Analytics]
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style C fill:#bbf,stroke:#333,stroke-width:2px
-    style D fill:#dfd,stroke:#333,stroke-width:2px
+<pre class="mermaid mermaid-js">flowchart TB
+    A[🗄️ Legacy HFSQL Server] --&gt;|ODBC| B(🐍 Python Wrapper / Subproceso)
+    B --&gt;|Raw Data| C{🐳 Docker/Podman&lt;br&gt;Container}
+    C --&gt;|Pandas Transformation| D[📦 Parquet Data Lake]
+    D --&gt;|Consumo| E[📊 Dashboard / Analytics]
+
+    style A fill:#2b4c7e,stroke:#2b4c7e,color:#fff,stroke-width:2px
+    style B fill:#3a7ca5,stroke:#3a7ca5,color:#fff,stroke-width:2px
+    style C fill:#f7b2c4,stroke:#d4819a,color:#333,stroke-width:2px
+    style D fill:#88c9a1,stroke:#5fa87a,color:#333,stroke-width:2px
+    style E fill:#2b4c7e,stroke:#2b4c7e,color:#fff,stroke-width:2px
 </pre>
 </div>
 <p></p></figure><p></p>
