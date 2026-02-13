@@ -69,4 +69,5 @@ En lugar de volcar los datos a CSV (lento y pesado), utilicé **Apache Parquet**
 * **Contenedores:** Podman & Docker
 * **Drivers:** pyodbc, unixODBC, HFSQL ODBC
 * **Data Lake:** Pandas, PyArrow, Parquet
+
 :::

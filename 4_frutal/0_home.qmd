@@ -28,6 +28,7 @@ La infraestructura existente dependía de controladores ODBC obsoletos que prese
 
 ## Mi rol
 Como **ingeniero de datos**, diseñé la solución de bajo nivel, enfocándome en:
+
 1.  **Estabilidad:** Aislar los procesos inestables mediante wrappers de Python.
 2.  **Portabilidad:** Contenerizar la solución con **Podman** para garantizar la ejecución idéntica en desarrollo (Windows) y producción (Linux).
 3.  **Rendimiento:** Optimizar la escritura de datos usando formatos columnares (Parquet).

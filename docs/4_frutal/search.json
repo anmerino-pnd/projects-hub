@@ -32,7 +32,7 @@
     "href": "0_home.html",
     "title": "Arquitectura de datos: HFSQL a Data Lake",
     "section": "",
-    "text": "Este proyecto aborda uno de los desafíos más críticos en la industria actual: la liberación de datos atrapados en sistemas heredados (Legacy Systems).\nEl objetivo principal fue diseñar e implementar una arquitectura de datos capaz de extraer información transaccional masiva desde bases de datos HFSQL (HyperFileSQL), transformar estos datos y cargarlos en un Data Lake moderno.\n\n\nLa infraestructura existente dependía de controladores ODBC obsoletos que presentaban graves problemas de estabilidad (errores de segmentación y stack smashing) al ejecutarse en entornos de producción Linux modernos, impidiendo la automatización del análisis de datos.\n\n\n\nComo ingeniero de datos, diseñé la solución de bajo nivel, enfocándome en: 1. Estabilidad: Aislar los procesos inestables mediante wrappers de Python. 2. Portabilidad: Contenerizar la solución con Podman para garantizar la ejecución idéntica en desarrollo (Windows) y producción (Linux). 3. Rendimiento: Optimizar la escritura de datos usando formatos columnares (Parquet)."
+    "text": "Este proyecto aborda uno de los desafíos más críticos en la industria actual: la liberación de datos atrapados en sistemas heredados (Legacy Systems).\nEl objetivo principal fue diseñar e implementar una arquitectura de datos capaz de extraer información transaccional masiva desde bases de datos HFSQL (HyperFileSQL), transformar estos datos y cargarlos en un Data Lake moderno.\n\n\nLa infraestructura existente dependía de controladores ODBC obsoletos que presentaban graves problemas de estabilidad (errores de segmentación y stack smashing) al ejecutarse en entornos de producción Linux modernos, impidiendo la automatización del análisis de datos.\n\n\n\nComo ingeniero de datos, diseñé la solución de bajo nivel, enfocándome en:\n\nEstabilidad: Aislar los procesos inestables mediante wrappers de Python.\nPortabilidad: Contenerizar la solución con Podman para garantizar la ejecución idéntica en desarrollo (Windows) y producción (Linux).\nRendimiento: Optimizar la escritura de datos usando formatos columnares (Parquet)."
   },
   {
     "objectID": "0_home.html#el-desafío",
@@ -46,7 +46,7 @@
     "href": "0_home.html#mi-rol",
     "title": "Arquitectura de datos: HFSQL a Data Lake",
     "section": "",
-    "text": "Como ingeniero de datos, diseñé la solución de bajo nivel, enfocándome en: 1. Estabilidad: Aislar los procesos inestables mediante wrappers de Python. 2. Portabilidad: Contenerizar la solución con Podman para garantizar la ejecución idéntica en desarrollo (Windows) y producción (Linux). 3. Rendimiento: Optimizar la escritura de datos usando formatos columnares (Parquet)."
+    "text": "Como ingeniero de datos, diseñé la solución de bajo nivel, enfocándome en:\n\nEstabilidad: Aislar los procesos inestables mediante wrappers de Python.\nPortabilidad: Contenerizar la solución con Podman para garantizar la ejecución idéntica en desarrollo (Windows) y producción (Linux).\nRendimiento: Optimizar la escritura de datos usando formatos columnares (Parquet)."
   },
   {
     "objectID": "1_comprension.html",
