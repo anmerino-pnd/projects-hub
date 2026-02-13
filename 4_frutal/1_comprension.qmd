@@ -45,3 +45,5 @@ Históricamente, la operación de Frutal ha sido gestionada mediante sistemas ER
 La organización requería construir una **"Fuente de la Verdad"** única y accesible: un **Data Lake**.
 
 Esto permitiría a los analistas y científicos de datos generar reportes de ventas, proyecciones de inventario y análisis de KPIs sin depender del departamento de TI para extracciones manuales, democratizando el acceso a la información para la toma de decisiones estratégicas.
+
+:::
