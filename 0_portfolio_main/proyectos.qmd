@@ -2,9 +2,14 @@
 title: "Proyectos e Implementaciones"
 subtitle: "Documentación técnica de soluciones empresariales basadas en IA y Datos."
 title-block-banner: true
+toc: true
+toc-title: "Categorías"
+toc-depth: 2
 ---
 
 A continuación presento una selección de proyectos desarrollados bajo metodologías ágiles, enfocados en resolver problemas de negocio mediante IA Generativa y análisis de datos.
+
+## IA Generativa & Agentes
 
 ::: {.grid}
 
@@ -86,6 +91,14 @@ Solución conversacional desplegada en Telegram para directivos y fuerza de vent
 :::
 :::
 
+:::
+
+---
+
+## Ingeniería de Datos
+
+::: {.grid}
+
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100}
 ::: {.card-body}
@@ -111,6 +124,5 @@ Diseño de un pipeline robusto para migrar un sistema ERP legacy (HFSQL) hacia u
 :::
 :::
 :::
-
 
 :::

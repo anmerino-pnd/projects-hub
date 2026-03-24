@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -132,7 +132,17 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Categorías</h2>
+   
+  <ul class="collapse">
+  <li><a href="#ia-agentes" id="toc-ia-agentes" class="nav-link active" data-scroll-target="#ia-agentes">IA &amp; Agentes</a></li>
+  <li><a href="#ingeniería-de-datos" id="toc-ingeniería-de-datos" class="nav-link" data-scroll-target="#ingeniería-de-datos">Ingeniería de Datos</a></li>
+  <li><a href="#datos-apis" id="toc-datos-apis" class="nav-link" data-scroll-target="#datos-apis">Datos &amp; APIs</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -140,22 +150,24 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>A continuación comparto mis pulicaciones, donde profundizo en soluciones técnicas y guías paso a paso.</p>
+<p>A continuación comparto mis publicaciones, donde profundizo en soluciones técnicas y guías paso a paso.</p>
+<section id="ia-agentes" class="level2">
+<h2 class="anchored" data-anchor-id="ia-agentes">IA &amp; Agentes</h2>
 <div class="grid">
 <div class="g-col-12 g-col-md-6">
 <div class="card h-100">
-<section id="from-beats-to-data-an-easy-guide-to-spotifys-api" class="level3 card-body">
-<h3 class="anchored" data-anchor-id="from-beats-to-data-an-easy-guide-to-spotifys-api">From Beats to Data: An Easy Guide to Spotify’s API</h3>
-<p><strong>Tutorial paso a paso del uso de la API</strong></p>
-<p>Aprende autenticación, endpoints clave y cómo convertir tus playlists en un dataset para análisis y visualización en Python.</p>
+<section id="telegram-to-notion-expense-tracker-with-python-and-llms" class="level3 card-body">
+<h3 class="anchored" data-anchor-id="telegram-to-notion-expense-tracker-with-python-and-llms">Telegram-to-Notion Expense Tracker with Python and LLMs</h3>
+<p><strong>Agente conversacional para gestión de gastos</strong></p>
+<p>Construye un bot de Telegram que entiende lenguaje natural y ejecuta operaciones CRUD en Notion automáticamente, usando un agente LLM con tool-calling.</p>
 <p><strong>Temas:</strong></p>
 <ul>
-<li>Python</li>
-<li>Visualización de datos</li>
-<li>Gestión de APIs</li>
+<li>Python &amp; FastAPI</li>
+<li>LLM Agents (Tool-Calling)</li>
+<li>Notion API &amp; Telegram</li>
 </ul>
 <div class="card-footer bg-transparent border-0">
-<p><span class="badge bg-dark">Tutorial</span> <span class="badge bg-secondary">Python</span> <span class="badge bg-success">Spotify</span> <br><br> <a href="https://medium.com/mcd-unison/from-data-to-beats-an-easy-guide-to-spotifys-api-a646432ca0e1" class="btn btn-outline-primary btn-sm stretched-link">Leer en Medium →</a></p>
+<p><span class="badge bg-dark">IA Generativa</span> <span class="badge bg-secondary">Python</span> <span class="badge bg-success">Notion</span> <br><br> <a href="TU_LINK_AQUI" class="btn btn-outline-primary btn-sm stretched-link">Leer en Medium →</a></p>
 </div>
 </section>
 </div>
@@ -165,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="pocket-ai-telegram-bot-with-python" class="level3 card-body">
 <h3 class="anchored" data-anchor-id="pocket-ai-telegram-bot-with-python">Pocket AI: Telegram Bot with Python</h3>
 <p><strong>Despliegue de LLMs en mensajería</strong></p>
-<p>Implementa un bot con python que consulta un LLM local vía Ollama: manejo de comandos, prompts y despliegue listo para uso personal.</p>
+<p>Implementa un bot con Python que consulta un LLM local vía Ollama: manejo de comandos, prompts y despliegue listo para uso personal.</p>
 <p><strong>Temas:</strong></p>
 <ul>
 <li>Python &amp; Aiogram</li>
@@ -174,6 +186,30 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <div class="card-footer bg-transparent border-0">
 <p><span class="badge bg-dark">IA Generativa</span> <span class="badge bg-secondary">Python</span> <span class="badge bg-success">Ollama</span> <br><br> <a href="https://medium.com/mcd-unison/pocket-ai-telegram-bot-python-ollama-01da2c4d05df" class="btn btn-outline-primary btn-sm stretched-link">Leer en Medium →</a></p>
+</div>
+</section>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="ingeniería-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="ingeniería-de-datos">Ingeniería de Datos</h2>
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<div class="card h-100">
+<section id="conectando-python-a-hfsql-en-windows-odbc-etl" class="level3 card-body">
+<h3 class="anchored" data-anchor-id="conectando-python-a-hfsql-en-windows-odbc-etl">Conectando Python a HFSQL en Windows (ODBC + ETL)</h3>
+<p><strong>Ingeniería de Datos en Windows</strong></p>
+<p>Pipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL en Python (consejos de drivers, compatibilidad y troubleshooting).</p>
+<p><strong>Temas:</strong></p>
+<ul>
+<li>ETL</li>
+<li>Ingeniería de Datos</li>
+<li>Legacy Systems</li>
+</ul>
+<div class="card-footer bg-transparent border-0">
+<p><span class="badge bg-dark">Data Engineering</span> <span class="badge bg-secondary">ETL</span> <span class="badge bg-success">HFSQL</span> <br><br> <a href="https://medium.com/mcd-unison/python-hfsql-etl-windows-5f54b73033fb" class="btn btn-outline-primary btn-sm stretched-link">Leer en Medium →</a></p>
 </div>
 </section>
 </div>
@@ -196,20 +232,26 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </div>
 </div>
+</div>
+<hr>
+</section>
+<section id="datos-apis" class="level2">
+<h2 class="anchored" data-anchor-id="datos-apis">Datos &amp; APIs</h2>
+<div class="grid">
 <div class="g-col-12 g-col-md-6">
 <div class="card h-100">
-<section id="conectando-python-a-hfsql-en-windows-odbc-etl" class="level3 card-body">
-<h3 class="anchored" data-anchor-id="conectando-python-a-hfsql-en-windows-odbc-etl">Conectando Python a HFSQL en Windows (ODBC + ETL)</h3>
-<p><strong>Ingeniería de Datos en Windows</strong></p>
-<p>Pipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL en Python (consejos de drivers, compatibilidad y troubleshooting).</p>
+<section id="from-beats-to-data-an-easy-guide-to-spotifys-api" class="level3 card-body">
+<h3 class="anchored" data-anchor-id="from-beats-to-data-an-easy-guide-to-spotifys-api">From Beats to Data: An Easy Guide to Spotify’s API</h3>
+<p><strong>Tutorial paso a paso del uso de la API</strong></p>
+<p>Aprende autenticación, endpoints clave y cómo convertir tus playlists en un dataset para análisis y visualización en Python.</p>
 <p><strong>Temas:</strong></p>
 <ul>
-<li>ETL</li>
-<li>Ingeniería de Datos</li>
-<li>Legacy Systems</li>
+<li>Python</li>
+<li>Visualización de datos</li>
+<li>Gestión de APIs</li>
 </ul>
 <div class="card-footer bg-transparent border-0">
-<p><span class="badge bg-dark">Data Engineering</span> <span class="badge bg-secondary">ETL</span> <span class="badge bg-success">HFSQL</span> <br><br> <a href="https://medium.com/mcd-unison/python-hfsql-etl-windows-5f54b73033fb" class="btn btn-outline-primary btn-sm stretched-link">Leer en Medium →</a></p>
+<p><span class="badge bg-dark">Tutorial</span> <span class="badge bg-secondary">Python</span> <span class="badge bg-success">Spotify</span> <br><br> <a href="https://medium.com/mcd-unison/from-data-to-beats-an-easy-guide-to-spotifys-api-a646432ca0e1" class="btn btn-outline-primary btn-sm stretched-link">Leer en Medium →</a></p>
 </div>
 </section>
 </div>
@@ -217,6 +259,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
