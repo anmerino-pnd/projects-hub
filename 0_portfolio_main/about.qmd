@@ -21,7 +21,9 @@ Mi experiencia combina la solidez analítica de la ingeniería química
 con las herramientas modernas de desarrollo de software y análisis 
 de datos.
 
----
+:::
+
+::: {style="text-align: justify"}
 
 ## Educación
 
@@ -47,7 +49,6 @@ Habilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS).
 :::
 
 :::
----
 
 ::: {style="text-align: justify"}
 
@@ -101,7 +102,6 @@ de respuesta.
 :::
 
 :::
----
 
 ::: {style="text-align: justify"}
 
@@ -151,7 +151,6 @@ de respuesta.
 
 :::
 
----
 ::: {style="text-align: justify"}
 
 ## Idiomas
@@ -178,7 +177,6 @@ de respuesta.
 
 :::
 
----
 ::: {style="text-align: justify"}
 
 ##  Intereses

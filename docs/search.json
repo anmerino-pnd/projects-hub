@@ -11,14 +11,14 @@
     "href": "about.html",
     "title": "Sobre mí",
     "section": "",
-    "text": "Soy un profesional apasionado por la intersección entre la ingeniería y la ciencia de datos. Actualmente curso la Maestría en Ciencia de Datos en la Universidad de Sonora, enfocándome en el Procesamiento de Lenguaje Natural (NLP) y el desarrollo de Modelos de Lenguaje Grande (LLMs).\nMi experiencia combina la solidez analítica de la ingeniería química con las herramientas modernas de desarrollo de software y análisis de datos.\n\n\n\n\n\nMaestría en Ciencia de Datos | Universidad de Sonora\n\n\nAgosto 2023 - Presente\n\nEnfoque en Python, SQL, bases de datos NoSQL, procesos ETL, modelos de aprendizaje automático, redes neuronales, NLP y análisis de series de tiempo.\n\n\n\nLicenciatura en Ingeniería Química | Universidad de Sonora\n\n\nAgosto 2018 - Junio 2023\n\nHabilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS)."
+    "text": "Soy un profesional apasionado por la intersección entre la ingeniería y la ciencia de datos. Actualmente curso la Maestría en Ciencia de Datos en la Universidad de Sonora, enfocándome en el Procesamiento de Lenguaje Natural (NLP) y el desarrollo de Modelos de Lenguaje Grande (LLMs).\nMi experiencia combina la solidez analítica de la ingeniería química con las herramientas modernas de desarrollo de software y análisis de datos."
   },
   {
     "objectID": "about.html#educación",
     "href": "about.html#educación",
     "title": "Sobre mí",
-    "section": "",
-    "text": "Maestría en Ciencia de Datos | Universidad de Sonora\n\n\nAgosto 2023 - Presente\n\nEnfoque en Python, SQL, bases de datos NoSQL, procesos ETL, modelos de aprendizaje automático, redes neuronales, NLP y análisis de series de tiempo.\n\n\n\nLicenciatura en Ingeniería Química | Universidad de Sonora\n\n\nAgosto 2018 - Junio 2023\n\nHabilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS)."
+    "section": "Educación",
+    "text": "Educación\n\n\nMaestría en Ciencia de Datos | Universidad de Sonora\n\n\nAgosto 2023 - Presente\n\nEnfoque en Python, SQL, bases de datos NoSQL, procesos ETL, modelos de aprendizaje automático, redes neuronales, NLP y análisis de series de tiempo.\n\n\n\nLicenciatura en Ingeniería Química | Universidad de Sonora\n\n\nAgosto 2018 - Junio 2023\n\nHabilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS)."
   },
   {
     "objectID": "about.html#experiencia-profesional-1",
