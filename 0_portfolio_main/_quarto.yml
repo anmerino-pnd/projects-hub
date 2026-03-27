@@ -17,8 +17,19 @@ website:
         text: Sobre Mí
       - href: proyectos.qmd
         text: Proyectos
-      - href: publicaciones.qmd   
+      - href: publicaciones.qmd
         text: Publicaciones
+    right:
+      - icon: github
+        href: https://github.com/anmerino-pnd
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://linkedin.com/in/anmerino-pnd
+        aria-label: LinkedIn
+      - icon: envelope
+        href: mailto:acedeno00@gmail.com
+        aria-label: Email
+
 format:
   html:
     theme: 

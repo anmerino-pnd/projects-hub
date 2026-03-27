@@ -22,3 +22,57 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
 .navbar {
   background-color: $dark !important; // Barra de navegación oscura para contraste
 }
+
+// ── CV Entries ───────────────────────────────────────────
+// ── CV Entries ───────────────────────────────────────────
+.cv-entry {
+  margin-bottom: 1.5rem;
+
+  .cv-header {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .cv-title {
+    font-weight: bold;
+  }
+
+  .cv-subtitle {
+    font-style: italic;
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+}
+
+// ── Language Grid ─────────────────────────────────────────
+.lang-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 2rem;
+  margin-top: 0.5rem;
+}
+
+.lang-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.lang-bar {
+  height: 6px;
+  background-color: #e9ecef;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.lang-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.lang-label {
+  font-size: 0.8rem;
+  color: #6c757d;
+  font-style: italic;
+}

@@ -4,20 +4,16 @@ subtitle: "Ingeniería de Datos, LLMs, Sistemas Agénticos, MCPs y RAG."
 about:
   template: jolla
   image: ./images/profile.png
-  links:
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com/in/anmerino-pnd
-    - icon: github
-      text: GitHub
-      href: https://github.com/anmerino-pnd
-    - icon: envelope
-      text: Email
-      href: mailto:acedeno00@gmail.com
 ---
 
-Soy **Ángel Alberto Merino Cedeño**, estudiante de Maestría en Ciencia de Datos e Ingeniero Químico con una fuerte especialización en el desarrollo de **Sistemas de Inteligencia Artificial Generativa**, **Chatbots RAG** y **Arquitecturas de Datos**.
+Soy **Ángel Alberto Merino Cedeño**, estudiante de Maestría en 
+Ciencia de Datos especializado en el desarrollo de Sistemas de 
+IA Generativa, Chatbots RAG y Arquitecturas de Datos.
 
-Aquí encontrarás documentación técnica detallada sobre mis implementaciones más recientes.
+Aquí encontrarás documentación técnica detallada sobre mis 
+implementaciones más recientes.
 
----
+::: {style="text-align: center; margin-top: 1.5rem;"}
+[Ver Proyectos &rarr;](./proyectos.html){.btn .btn-primary .me-2}
+[Sobre Mí &rarr;](./about.html){.btn .btn-outline-secondary}
+:::
