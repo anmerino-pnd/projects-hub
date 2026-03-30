@@ -7,6 +7,27 @@
     "text": "A continuación comparto mis publicaciones, donde profundizo en soluciones técnicas y guías paso a paso."
   },
   {
+    "objectID": "publicaciones.html#ia-agentes",
+    "href": "publicaciones.html#ia-agentes",
+    "title": "Artículos y Publicaciones",
+    "section": "IA & Agentes",
+    "text": "IA & Agentes\n\n\n\n\nTelegram-to-Notion Expense Tracker with Python and LLMs\nAgente conversacional para gestión de gastos\nConstruye un bot de Telegram que entiende lenguaje natural y ejecuta operaciones CRUD en Notion automáticamente, usando un agente LLM con tool-calling.\nTemas:\n\nPython & FastAPI\nLLM Agents (Tool-Calling)\nNotion API & Telegram\n\n\nIA Generativa Python Notion  Leer en Medium →\n\n\n\n\n\n\n\nPocket AI: Telegram Bot with Python\nDespliegue de LLMs en mensajería\nImplementa un bot con Python que consulta un LLM local vía Ollama: manejo de comandos, prompts y despliegue listo para uso personal.\nTemas:\n\nPython & Aiogram\nOllama (Local LLMs)\nGestión de APIs\n\n\nIA Generativa Python Ollama  Leer en Medium →"
+  },
+  {
+    "objectID": "publicaciones.html#ingeniería-de-datos",
+    "href": "publicaciones.html#ingeniería-de-datos",
+    "title": "Artículos y Publicaciones",
+    "section": "Ingeniería de Datos",
+    "text": "Ingeniería de Datos\n\n\n\n\nConectando Python a HFSQL en Windows (ODBC + ETL)\nIngeniería de Datos en Windows\nPipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL en Python (consejos de drivers, compatibilidad y troubleshooting).\nTemas:\n\nETL\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering ETL HFSQL  Leer en Medium →\n\n\n\n\n\n\n\nConectando Python a HFSQL en Linux (ODBC + Docker/Podman)\nIngeniería de Datos en Linux\nConecta HFSQL legacy a entornos modernos en Linux usando contenedores y ODBC: instalación, configuración y pruebas de conexión con Python.\nTemas:\n\nDocker/Podman\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering Docker HFSQL  Leer en Medium →"
+  },
+  {
+    "objectID": "publicaciones.html#datos-apis",
+    "href": "publicaciones.html#datos-apis",
+    "title": "Artículos y Publicaciones",
+    "section": "Datos & APIs",
+    "text": "Datos & APIs\n\n\n\n\nFrom Beats to Data: An Easy Guide to Spotify’s API\nTutorial paso a paso del uso de la API\nAprende autenticación, endpoints clave y cómo convertir tus playlists en un dataset para análisis y visualización en Python.\nTemas:\n\nPython\nVisualización de datos\nGestión de APIs\n\n\nTutorial Python Spotify  Leer en Medium →"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Sobre mí",
@@ -21,11 +42,11 @@
     "text": "Educación\n\n\nMaestría en Ciencia de Datos | Universidad de Sonora\n\n\nAgosto 2023 - Presente\n\nEnfoque en Python, SQL, bases de datos NoSQL, procesos ETL, modelos de aprendizaje automático, redes neuronales, NLP y análisis de series de tiempo.\n\n\n\nLicenciatura en Ingeniería Química | Universidad de Sonora\n\n\nAgosto 2018 - Junio 2023\n\nHabilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS)."
   },
   {
-    "objectID": "about.html#experiencia-profesional-1",
-    "href": "about.html#experiencia-profesional-1",
+    "objectID": "about.html#experiencia-profesional",
+    "href": "about.html#experiencia-profesional",
     "title": "Sobre mí",
-    "section": "",
-    "text": "Ingeniero de Datos | DARIG - Consultores\nOctubre 2025 - Presente\nDesarrollo de pipelines ETL Windows/Linux para la migración de bases de datos legacy (HFSQL) hacia Data Lakes en formato Parquet. Solución de interoperabilidad mediante contenedores Podman y wrappers de Python para drivers ODBC complejos.\nCientífico de Datos | DARIG - Consultores\nMarzo 2025 - Feb 2026\nImplementación de un MCP (Model Context Protocol) para el análisis del estado de ventas y KPIs empresariales. Diseño de agentes con function-calling (SQL) integrados en Telegram para la generación automatizada de reportes PDF y consultas de negocio en lenguaje natural.\nCientífico de Datos | CT Internacional\nFebrero 2025 - Presente\nDesarrollo de un Modelo Agéntico capaz de realizar recomendaciones avanzadas de hardware y ventas automatizadas. Implementación de arquitectura RAG con LangChain y OpenAI para consultas dinámicas de inventario, precios y guías técnicas en tiempo real.\nCientífico de Datos | Centro Nacional de Control de Energía (CENACE)\nMayo 2024 - Presente\nDesarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. Integración de sistemas de clasificación de tickets para mejorar la eficiencia de respuesta."
+    "section": "Experiencia Profesional",
+    "text": "Experiencia Profesional\n\n\nCientífico de Datos | CT Internacional\n\n\nFebrero 2025 - Presente\n\nDesarrollo de un modelo agéntico para recomendaciones avanzadas de hardware y ventas automatizadas. Implementación de arquitectura RAG con LangChain y OpenAI para consultas dinámicas de inventario, precios y guías técnicas.\n\n\n\nCientífico de Datos | DARIG – Consultores (Salsas Castillo)\n\n\nMarzo 2025 - Feb 2026\n\nImplementación de un MCP (Model Context Protocol) para análisis de ventas y KPIs empresariales. Diseño de agentes con function-calling (SQL) integrados en Telegram para la generación automatizada de reportes PDF.\n\n\n\nIngeniero de Datos | DARIG – Consultores (Frutal)\n\n\nOctubre 2025 - Feb 2026\n\nDesarrollo de pipelines ETL Windows/Linux para la migración de bases de datos legacy (HFSQL) hacia Data Lakes en formato Parquet mediante contenedores Podman.\n\n\n\nCientífico de Datos | Centro Nacional de Control de Energía (CENACE)\n\n\nMayo 2024 - Feb 2025\n\nDesarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. Integración de sistemas de clasificación de tickets para mejorar la eficiencia de respuesta."
   },
   {
     "objectID": "about.html#habilidades-técnicas",
@@ -33,6 +54,13 @@
     "title": "Sobre mí",
     "section": "Habilidades Técnicas",
     "text": "Habilidades Técnicas\nLenguajes\nPython SQL NoSQL JavaScript\nIA & Data Science\nLangChain Ollama Hugging Face Scikit-learn Pandas NumPy Matplotlib Seaborn RAG MCP\nBases de Datos\nPostgreSQL MySQL MongoDB FAISS Redis HFSQL\nDesarrollo & DevOps\nFastAPI Docker/Podman Git/GitHub DagsHub\nCertificaciones\nData Analysis – DataCamp ML Scientist in Python – DataCamp Data Science with Python – DataCamp"
+  },
+  {
+    "objectID": "about.html#idiomas",
+    "href": "about.html#idiomas",
+    "title": "Sobre mí",
+    "section": "Idiomas",
+    "text": "Idiomas\n\n\n🇲🇽 Español — Nativo\n🇺🇸 Inglés — Fluido\n🇵🇹 Portugués — Fluido\n\n\n🇫🇷 Francés — Fluido\n🇯🇵 Japonés — Intermedio\n🇩🇪 Alemán — Intermedio"
   },
   {
     "objectID": "about.html#intereses",
@@ -56,27 +84,6 @@
     "text": "A continuación presento una selección de proyectos desarrollados bajo metodologías ágiles, enfocados en resolver problemas de negocio mediante IA Generativa y análisis de datos."
   },
   {
-    "objectID": "publicaciones.html#ia-agentes",
-    "href": "publicaciones.html#ia-agentes",
-    "title": "Artículos y Publicaciones",
-    "section": "IA & Agentes",
-    "text": "IA & Agentes\n\n\n\n\nTelegram-to-Notion Expense Tracker with Python and LLMs\nAgente conversacional para gestión de gastos\nConstruye un bot de Telegram que entiende lenguaje natural y ejecuta operaciones CRUD en Notion automáticamente, usando un agente LLM con tool-calling.\nTemas:\n\nPython & FastAPI\nLLM Agents (Tool-Calling)\nNotion API & Telegram\n\n\nIA Generativa Python Notion  Leer en Medium →\n\n\n\n\n\n\n\nPocket AI: Telegram Bot with Python\nDespliegue de LLMs en mensajería\nImplementa un bot con Python que consulta un LLM local vía Ollama: manejo de comandos, prompts y despliegue listo para uso personal.\nTemas:\n\nPython & Aiogram\nOllama (Local LLMs)\nGestión de APIs\n\n\nIA Generativa Python Ollama  Leer en Medium →"
-  },
-  {
-    "objectID": "publicaciones.html#ingeniería-de-datos",
-    "href": "publicaciones.html#ingeniería-de-datos",
-    "title": "Artículos y Publicaciones",
-    "section": "Ingeniería de Datos",
-    "text": "Ingeniería de Datos\n\n\n\n\nConectando Python a HFSQL en Windows (ODBC + ETL)\nIngeniería de Datos en Windows\nPipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL en Python (consejos de drivers, compatibilidad y troubleshooting).\nTemas:\n\nETL\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering ETL HFSQL  Leer en Medium →\n\n\n\n\n\n\n\nConectando Python a HFSQL en Linux (ODBC + Docker/Podman)\nIngeniería de Datos en Linux\nConecta HFSQL legacy a entornos modernos en Linux usando contenedores y ODBC: instalación, configuración y pruebas de conexión con Python.\nTemas:\n\nDocker/Podman\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering Docker HFSQL  Leer en Medium →"
-  },
-  {
-    "objectID": "publicaciones.html#datos-apis",
-    "href": "publicaciones.html#datos-apis",
-    "title": "Artículos y Publicaciones",
-    "section": "Datos & APIs",
-    "text": "Datos & APIs\n\n\n\n\nFrom Beats to Data: An Easy Guide to Spotify’s API\nTutorial paso a paso del uso de la API\nAprende autenticación, endpoints clave y cómo convertir tus playlists en un dataset para análisis y visualización en Python.\nTemas:\n\nPython\nVisualización de datos\nGestión de APIs\n\n\nTutorial Python Spotify  Leer en Medium →"
-  },
-  {
     "objectID": "proyectos.html#ia-generativa-agentes",
     "href": "proyectos.html#ia-generativa-agentes",
     "title": "Proyectos e Implementaciones",
@@ -89,19 +96,5 @@
     "title": "Proyectos e Implementaciones",
     "section": "Ingeniería de Datos",
     "text": "Ingeniería de Datos\n\n\n\n\nETL & Data Engineering (Frutal)\nModernización de Arquitectura de Datos\nDiseño de un pipeline robusto para migrar un sistema ERP legacy (HFSQL) hacia un Data Lake moderno, resolviendo incompatibilidades críticas de drivers.\nPuntos Clave:\n\nSolución al error de “Stack Smashing” mediante aislamiento de procesos en Python.\nContenerización con Podman para unificar entornos de desarrollo (Windows) y producción (Linux).\nOptimización de almacenamiento y lectura mediante conversión a formato Parquet.\n\n\nPython Podman HFSQL Parquet  Leer Documentación →"
-  },
-  {
-    "objectID": "about.html#experiencia-profesional",
-    "href": "about.html#experiencia-profesional",
-    "title": "Sobre mí",
-    "section": "Experiencia Profesional",
-    "text": "Experiencia Profesional\n\n\nCientífico de Datos | CT Internacional\n\n\nFebrero 2025 - Presente\n\nDesarrollo de un modelo agéntico para recomendaciones avanzadas de hardware y ventas automatizadas. Implementación de arquitectura RAG con LangChain y OpenAI para consultas dinámicas de inventario, precios y guías técnicas.\n\n\n\nCientífico de Datos | DARIG – Consultores (Salsas Castillo)\n\n\nMarzo 2025 - Feb 2026\n\nImplementación de un MCP (Model Context Protocol) para análisis de ventas y KPIs empresariales. Diseño de agentes con function-calling (SQL) integrados en Telegram para la generación automatizada de reportes PDF.\n\n\n\nIngeniero de Datos | DARIG – Consultores (Frutal)\n\n\nOctubre 2025 - Feb 2026\n\nDesarrollo de pipelines ETL Windows/Linux para la migración de bases de datos legacy (HFSQL) hacia Data Lakes en formato Parquet mediante contenedores Podman.\n\n\n\nCientífico de Datos | Centro Nacional de Control de Energía (CENACE)\n\n\nMayo 2024 - Feb 2025\n\nDesarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. Integración de sistemas de clasificación de tickets para mejorar la eficiencia de respuesta."
-  },
-  {
-    "objectID": "about.html#idiomas",
-    "href": "about.html#idiomas",
-    "title": "Sobre mí",
-    "section": "Idiomas",
-    "text": "Idiomas\n\n\n🇲🇽 Español — Nativo\n🇺🇸 Inglés — Fluido\n🇵🇹 Portugués — Fluido\n\n\n🇫🇷 Francés — Fluido\n🇯🇵 Japonés — Intermedio\n🇩🇪 Alemán — Intermedio"
   }
 ]

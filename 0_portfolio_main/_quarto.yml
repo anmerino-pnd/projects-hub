@@ -8,7 +8,7 @@ project:
     - publicaciones.qmd
 
 website:
-  favicon: ./images/favicon.jpg
+  favicon: ./images/favicon.png
   title: "Angel Merino | Portafolio de Proyectos"
   navbar:
     left:
