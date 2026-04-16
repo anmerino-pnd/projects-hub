@@ -32,7 +32,7 @@ Construye un bot de Telegram que entiende lenguaje natural y ejecuta operaciones
 <span class="badge bg-secondary">Python</span>
 <span class="badge bg-success">Notion</span>
 <br><br>
-[Leer en Medium &rarr;](TU_LINK_AQUI){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Leer en Medium &rarr;](https://medium.com/mcd-unison/telegram-notion-ai-expense-tracker-14ff0c6bb954){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::
