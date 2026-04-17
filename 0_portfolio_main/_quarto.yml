@@ -1,11 +1,14 @@
 project:
   type: website
   output-dir: ../docs
+  resources:
+    - certificados/** 
   render:
     - index.qmd
     - about.qmd
     - proyectos.qmd
     - publicaciones.qmd
+    - certificados.qmd        
 
 website:
   favicon: ./images/favicon.png
@@ -20,6 +23,8 @@ website:
         text: Proyectos
       - href: publicaciones.qmd
         text: Publicaciones
+      - href: certificados.qmd   
+        text: Certificados
     right:
       - icon: github
         href: https://github.com/anmerino-pnd

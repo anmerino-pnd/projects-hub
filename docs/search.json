@@ -1,31 +1,59 @@
 [
   {
-    "objectID": "publicaciones.html",
-    "href": "publicaciones.html",
-    "title": "Artículos y Publicaciones",
+    "objectID": "certificados.html",
+    "href": "certificados.html",
+    "title": "Certificados",
     "section": "",
-    "text": "A continuación comparto mis publicaciones, donde profundizo en soluciones técnicas y guías paso a paso."
+    "text": "A continuación presento los certificados más relevantes en mi desarrollo profesional."
   },
   {
-    "objectID": "publicaciones.html#ia-agentes",
-    "href": "publicaciones.html#ia-agentes",
-    "title": "Artículos y Publicaciones",
-    "section": "IA & Agentes",
-    "text": "IA & Agentes\n\n\n\n\nTelegram-to-Notion Expense Tracker with Python and LLMs\nAgente conversacional para gestión de gastos\nConstruye un bot de Telegram que entiende lenguaje natural y ejecuta operaciones CRUD en Notion automáticamente, usando un agente LLM con tool-calling.\nTemas:\n\nPython & FastAPI\nLLM Agents (Tool-Calling)\nNotion API & Telegram\n\n\nIA Generativa Python Notion  Leer en Medium →\n\n\n\n\n\n\n\nPocket AI: Telegram Bot with Python\nDespliegue de LLMs en mensajería\nImplementa un bot con Python que consulta un LLM local vía Ollama: manejo de comandos, prompts y despliegue listo para uso personal.\nTemas:\n\nPython & Aiogram\nOllama (Local LLMs)\nGestión de APIs\n\n\nIA Generativa Python Ollama  Leer en Medium →"
+    "objectID": "certificados.html#ciencia-de-datos-machine-learning",
+    "href": "certificados.html#ciencia-de-datos-machine-learning",
+    "title": "Certificados",
+    "section": "Ciencia de Datos & Machine Learning",
+    "text": "Ciencia de Datos & Machine Learning\n\n\n\n\nAssociate Data Scientist in Python\nDataCamp · 90 horas · Mayo 2025\n\nTemas:\n\nPython para ciencia de datos\nAnálisis exploratorio y estadístico\nMachine Learning supervisado\n\n\nData Science Python DataCamp  📄 Ver certificado (PDF)\n\n\n\n\n\n\n\nMachine Learning Scientist in Python\nDataCamp · 85 horas · Noviembre 2024\n\nTemas:\n\nModelos supervisados y no supervisados\nDeep Learning fundamentals\nFeature engineering\n\n\nMachine Learning Python DataCamp  📄 Ver certificado (PDF)"
   },
   {
-    "objectID": "publicaciones.html#ingeniería-de-datos",
-    "href": "publicaciones.html#ingeniería-de-datos",
-    "title": "Artículos y Publicaciones",
+    "objectID": "certificados.html#análisis-de-datos",
+    "href": "certificados.html#análisis-de-datos",
+    "title": "Certificados",
+    "section": "Análisis de Datos",
+    "text": "Análisis de Datos\n\n\n\n\nData Analyst in Python\nDataCamp · 36 horas · Noviembre 2023\n\nTemas:\n\nManipulación de datos con Pandas\nVisualización de datos\nAnálisis estadístico\n\n\nData Analysis Python DataCamp  📄 Ver certificado (PDF)"
+  },
+  {
+    "objectID": "certificados.html#ingeniería-simulación",
+    "href": "certificados.html#ingeniería-simulación",
+    "title": "Certificados",
+    "section": "Ingeniería & Simulación",
+    "text": "Ingeniería & Simulación\n\n\n\n\nIntroducción a Aspen HYSYS\nUniversidad de Sonora · 20 horas · Noviembre 2022\n\nTemas:\n\nSimulación de procesos químicos\nIngeniería Química y Metalurgia\nHerramientas de diseño industrial\n\n\nIngeniería Simulación UNISON  📄 Ver certificado (PDF)"
+  },
+  {
+    "objectID": "proyectos.html",
+    "href": "proyectos.html",
+    "title": "Proyectos e Implementaciones",
+    "section": "",
+    "text": "A continuación presento una selección de proyectos desarrollados bajo metodologías ágiles, enfocados en resolver problemas de negocio mediante IA Generativa y análisis de datos."
+  },
+  {
+    "objectID": "proyectos.html#ia-generativa-agentes",
+    "href": "proyectos.html#ia-generativa-agentes",
+    "title": "Proyectos e Implementaciones",
+    "section": "IA Generativa & Agentes",
+    "text": "IA Generativa & Agentes\n\n\n\n\nHelp Desk Inteligente (CENACE)\nOptimización de Soporte Técnico con IA Privada\nSistema diseñado para el Centro Nacional de Control de Energía. Resuelve la necesidad de automatizar la clasificación de incidentes y sugerir soluciones técnicas sin exponer datos sensibles a la nube pública.\nPuntos Clave:\n\nImplementación de modelos Open-Source (Gemma/Ollama) para privacidad total de datos.\nArquitectura RAG para consulta de manuales técnicos internos.\nPersistencia de historial y sesiones en MongoDB.\n\n\nPython LangChain Ollama FastAPI  Leer Documentación →\n\n\n\n\n\n\n\nRecomendador de Productos (CT)\nSistema de Ventas y Recomendación en Tiempo Real\nChatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un catálogo masivo en MySQL con un motor de búsqueda semántica, gestionando precios y existencias dinámicas.\nPuntos Clave:\n\nPipeline ETL complejo para sincronizar MySQL con Vector Stores (FAISS).\nSolución de arquitectura “Mixed Content” mediante Proxy PHP.\nSistema de moderación de usuarios y widget personalizado en JS.\n\n\nPython MySQL Docker/Podman JavaScript  Leer Documentación →\n\n\n\n\n\n\n\nChatbot Financiero (Salsas Castillo)\nAsistente de Ventas y Reportes Financieros\nSolución conversacional desplegada en Telegram para directivos y fuerza de ventas. Permite consultas en lenguaje natural sobre bases de datos transaccionales y normativas internas.\nPuntos Clave:\n\nOrquestación de Herramientas SQL para consultas de ventas en tiempo real.\nGeneración automática de Reportes PDF con análisis de IA.\nIntegración nativa con Telegram API y transcripción de audio (Whisper).\n\n\nPython PostgreSQL OpenAI API Telegram  Leer Documentación →"
+  },
+  {
+    "objectID": "proyectos.html#ingeniería-de-datos",
+    "href": "proyectos.html#ingeniería-de-datos",
+    "title": "Proyectos e Implementaciones",
     "section": "Ingeniería de Datos",
-    "text": "Ingeniería de Datos\n\n\n\n\nConectando Python a HFSQL en Windows (ODBC + ETL)\nIngeniería de Datos en Windows\nPipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL en Python (consejos de drivers, compatibilidad y troubleshooting).\nTemas:\n\nETL\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering ETL HFSQL  Leer en Medium →\n\n\n\n\n\n\n\nConectando Python a HFSQL en Linux (ODBC + Docker/Podman)\nIngeniería de Datos en Linux\nConecta HFSQL legacy a entornos modernos en Linux usando contenedores y ODBC: instalación, configuración y pruebas de conexión con Python.\nTemas:\n\nDocker/Podman\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering Docker HFSQL  Leer en Medium →"
+    "text": "Ingeniería de Datos\n\n\n\n\nETL & Data Engineering (Frutal)\nModernización de Arquitectura de Datos\nDiseño de un pipeline robusto para migrar un sistema ERP legacy (HFSQL) hacia un Data Lake moderno, resolviendo incompatibilidades críticas de drivers.\nPuntos Clave:\n\nSolución al error de “Stack Smashing” mediante aislamiento de procesos en Python.\nContenerización con Podman para unificar entornos de desarrollo (Windows) y producción (Linux).\nOptimización de almacenamiento y lectura mediante conversión a formato Parquet.\n\n\nPython Podman HFSQL Parquet  Leer Documentación →"
   },
   {
-    "objectID": "publicaciones.html#datos-apis",
-    "href": "publicaciones.html#datos-apis",
-    "title": "Artículos y Publicaciones",
-    "section": "Datos & APIs",
-    "text": "Datos & APIs\n\n\n\n\nFrom Beats to Data: An Easy Guide to Spotify’s API\nTutorial paso a paso del uso de la API\nAprende autenticación, endpoints clave y cómo convertir tus playlists en un dataset para análisis y visualización en Python.\nTemas:\n\nPython\nVisualización de datos\nGestión de APIs\n\n\nTutorial Python Spotify  Leer en Medium →"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Portafolio de Ciencia de Datos e IA",
+    "section": "",
+    "text": "Soy Ángel Alberto Merino Cedeño, estudiante de Maestría en Ciencia de Datos especializado en el desarrollo de Sistemas de IA Generativa, Chatbots RAG y Arquitecturas de Datos.\nAquí encontrarás documentación técnica detallada sobre mis implementaciones más recientes.\n\nVer Proyectos → Sobre Mí →"
   },
   {
     "objectID": "about.html",
@@ -70,31 +98,31 @@
     "text": "Intereses\nMe apasiona el aprendizaje continuo de idiomas y culturas — actualmente hablo 6 idiomas. Disfruto bailar y viajar, y me motiva profundamente aplicar tecnología para resolver problemas reales de negocio mediante datos e inteligencia artificial."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Portafolio de Ciencia de Datos e IA",
+    "objectID": "publicaciones.html",
+    "href": "publicaciones.html",
+    "title": "Artículos y Publicaciones",
     "section": "",
-    "text": "Soy Ángel Alberto Merino Cedeño, estudiante de Maestría en Ciencia de Datos especializado en el desarrollo de Sistemas de IA Generativa, Chatbots RAG y Arquitecturas de Datos.\nAquí encontrarás documentación técnica detallada sobre mis implementaciones más recientes.\n\nVer Proyectos → Sobre Mí →"
+    "text": "A continuación comparto mis publicaciones, donde profundizo en soluciones técnicas y guías paso a paso."
   },
   {
-    "objectID": "proyectos.html",
-    "href": "proyectos.html",
-    "title": "Proyectos e Implementaciones",
-    "section": "",
-    "text": "A continuación presento una selección de proyectos desarrollados bajo metodologías ágiles, enfocados en resolver problemas de negocio mediante IA Generativa y análisis de datos."
+    "objectID": "publicaciones.html#ia-agentes",
+    "href": "publicaciones.html#ia-agentes",
+    "title": "Artículos y Publicaciones",
+    "section": "IA & Agentes",
+    "text": "IA & Agentes\n\n\n\n\nTelegram-to-Notion Expense Tracker with Python and LLMs\nAgente conversacional para gestión de gastos\nConstruye un bot de Telegram que entiende lenguaje natural y ejecuta operaciones CRUD en Notion automáticamente, usando un agente LLM con tool-calling.\nTemas:\n\nPython & FastAPI\nLLM Agents (Tool-Calling)\nNotion API & Telegram\n\n\nIA Generativa Python Notion  Leer en Medium →\n\n\n\n\n\n\n\nPocket AI: Telegram Bot with Python\nDespliegue de LLMs en mensajería\nImplementa un bot con Python que consulta un LLM local vía Ollama: manejo de comandos, prompts y despliegue listo para uso personal.\nTemas:\n\nPython & Aiogram\nOllama (Local LLMs)\nGestión de APIs\n\n\nIA Generativa Python Ollama  Leer en Medium →"
   },
   {
-    "objectID": "proyectos.html#ia-generativa-agentes",
-    "href": "proyectos.html#ia-generativa-agentes",
-    "title": "Proyectos e Implementaciones",
-    "section": "IA Generativa & Agentes",
-    "text": "IA Generativa & Agentes\n\n\n\n\nHelp Desk Inteligente (CENACE)\nOptimización de Soporte Técnico con IA Privada\nSistema diseñado para el Centro Nacional de Control de Energía. Resuelve la necesidad de automatizar la clasificación de incidentes y sugerir soluciones técnicas sin exponer datos sensibles a la nube pública.\nPuntos Clave:\n\nImplementación de modelos Open-Source (Gemma/Ollama) para privacidad total de datos.\nArquitectura RAG para consulta de manuales técnicos internos.\nPersistencia de historial y sesiones en MongoDB.\n\n\nPython LangChain Ollama FastAPI  Leer Documentación →\n\n\n\n\n\n\n\nRecomendador de Productos (CT)\nSistema de Ventas y Recomendación en Tiempo Real\nChatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un catálogo masivo en MySQL con un motor de búsqueda semántica, gestionando precios y existencias dinámicas.\nPuntos Clave:\n\nPipeline ETL complejo para sincronizar MySQL con Vector Stores (FAISS).\nSolución de arquitectura “Mixed Content” mediante Proxy PHP.\nSistema de moderación de usuarios y widget personalizado en JS.\n\n\nPython MySQL Docker/Podman JavaScript  Leer Documentación →\n\n\n\n\n\n\n\nChatbot Financiero (Salsas Castillo)\nAsistente de Ventas y Reportes Financieros\nSolución conversacional desplegada en Telegram para directivos y fuerza de ventas. Permite consultas en lenguaje natural sobre bases de datos transaccionales y normativas internas.\nPuntos Clave:\n\nOrquestación de Herramientas SQL para consultas de ventas en tiempo real.\nGeneración automática de Reportes PDF con análisis de IA.\nIntegración nativa con Telegram API y transcripción de audio (Whisper).\n\n\nPython PostgreSQL OpenAI API Telegram  Leer Documentación →"
-  },
-  {
-    "objectID": "proyectos.html#ingeniería-de-datos",
-    "href": "proyectos.html#ingeniería-de-datos",
-    "title": "Proyectos e Implementaciones",
+    "objectID": "publicaciones.html#ingeniería-de-datos",
+    "href": "publicaciones.html#ingeniería-de-datos",
+    "title": "Artículos y Publicaciones",
     "section": "Ingeniería de Datos",
-    "text": "Ingeniería de Datos\n\n\n\n\nETL & Data Engineering (Frutal)\nModernización de Arquitectura de Datos\nDiseño de un pipeline robusto para migrar un sistema ERP legacy (HFSQL) hacia un Data Lake moderno, resolviendo incompatibilidades críticas de drivers.\nPuntos Clave:\n\nSolución al error de “Stack Smashing” mediante aislamiento de procesos en Python.\nContenerización con Podman para unificar entornos de desarrollo (Windows) y producción (Linux).\nOptimización de almacenamiento y lectura mediante conversión a formato Parquet.\n\n\nPython Podman HFSQL Parquet  Leer Documentación →"
+    "text": "Ingeniería de Datos\n\n\n\n\nConectando Python a HFSQL en Windows (ODBC + ETL)\nIngeniería de Datos en Windows\nPipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL en Python (consejos de drivers, compatibilidad y troubleshooting).\nTemas:\n\nETL\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering ETL HFSQL  Leer en Medium →\n\n\n\n\n\n\n\nConectando Python a HFSQL en Linux (ODBC + Docker/Podman)\nIngeniería de Datos en Linux\nConecta HFSQL legacy a entornos modernos en Linux usando contenedores y ODBC: instalación, configuración y pruebas de conexión con Python.\nTemas:\n\nDocker/Podman\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering Docker HFSQL  Leer en Medium →"
+  },
+  {
+    "objectID": "publicaciones.html#datos-apis",
+    "href": "publicaciones.html#datos-apis",
+    "title": "Artículos y Publicaciones",
+    "section": "Datos & APIs",
+    "text": "Datos & APIs\n\n\n\n\nFrom Beats to Data: An Easy Guide to Spotify’s API\nTutorial paso a paso del uso de la API\nAprende autenticación, endpoints clave y cómo convertir tus playlists en un dataset para análisis y visualización en Python.\nTemas:\n\nPython\nVisualización de datos\nGestión de APIs\n\n\nTutorial Python Spotify  Leer en Medium →"
   }
 ]

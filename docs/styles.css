@@ -16,3 +16,33 @@
     font-weight: 500;
     margin-right: 3px;
 }
+
+/* ===== CERTIFICADOS ===== */
+.card {
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.card-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
