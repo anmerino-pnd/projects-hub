@@ -540,7 +540,14 @@ about the RDB error.</code></pre>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv/bin/python</span> <span class="at">-m</span> uvicorn <span class="at">--version</span></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> /home/angel.merino/proyectoCT <span class="at">-name</span> <span class="st">"run_report.py"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>En el servidor actual se confirmó: - <code>streamlit</code> versión 1.45.0. - <code>gunicorn</code> versión 23.0.0. - <code>uvicorn</code> versión 0.34.0. - Python 3.13.1 dentro del virtualenv generado con <code>uv</code>. - El script real del reporte está en: <code>/home/angel.merino/proyectoCT/src/ct/reportes/run_report.py</code>.</p>
+<p>En el servidor actual se confirmó:</p>
+<ul>
+<li><code>streamlit</code> versión 1.45.0.</li>
+<li><code>gunicorn</code> versión 23.0.0.</li>
+<li><code>uvicorn</code> versión 0.34.0.</li>
+<li>Python 3.13.1 dentro del virtualenv generado con <code>uv</code>.</li>
+<li>El script real del reporte está en: <code>/home/angel.merino/proyectoCT/src/ct/reportes/run_report.py</code>.</li>
+</ul>
 </section>
 <section id="servicio-systemd-para-streamlit" class="level5">
 <h5 class="anchored" data-anchor-id="servicio-systemd-para-streamlit">1.4.5.2. Servicio systemd para Streamlit</h5>
@@ -568,7 +575,16 @@ about the RDB error.</code></pre>
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="kw">[Install]</span></span>
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="dt">WantedBy</span><span class="ot">=</span><span class="st">multi-user.target</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Explicación: - <code>User</code> y <code>Group</code>: ejecutan el servicio con el usuario propietario del proyecto. - <code>WorkingDirectory</code>: raíz del proyecto. - <code>Environment=PATH</code>: asegura que systemd use el virtualenv. - <code>Environment=PYTHONPATH</code>: permite resolver imports internos como <code>ct</code>. - <code>ExecStart</code>: comando real que levanta Streamlit. - <code>Restart=always</code>: reinicia el servicio si falla. - <code>WantedBy=multi-user.target</code>: habilita arranque automático en modo multiusuario.</p>
+<p>Explicación:</p>
+<ul>
+<li><code>User</code> y <code>Group</code>: ejecutan el servicio con el usuario propietario del proyecto.</li>
+<li><code>WorkingDirectory</code>: raíz del proyecto.</li>
+<li><code>Environment=PATH</code>: asegura que systemd use el virtualenv.</li>
+<li><code>Environment=PYTHONPATH</code>: permite resolver imports internos como <code>ct</code>.</li>
+<li><code>ExecStart</code>: comando real que levanta Streamlit.</li>
+<li><code>Restart=always</code>: reinicia el servicio si falla.</li>
+<li><code>WantedBy=multi-user.target</code>: habilita arranque automático en modo multiusuario.</li>
+</ul>
 </section>
 <section id="servicio-systemd-para-backendchatbot" class="level5">
 <h5 class="anchored" data-anchor-id="servicio-systemd-para-backendchatbot">1.4.5.3. Servicio systemd para backend/chatbot</h5>
@@ -677,7 +693,13 @@ data_home_t</code></pre>
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> restorecon <span class="at">-Rv</span> /home/angel.merino/proyectoCT/.venv/bin</span>
 <span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> restorecon <span class="at">-Rv</span> /home/angel.merino/.local/share/uv/python/cpython-3.13.1-linux-x86_64-gnu/bin</span>
 <span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> restorecon <span class="at">-Rv</span> /home/angel.merino/.local/share/uv/python/cpython-3.13.1-linux-x86_64-gnu/lib</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Explicación: - <code>semanage fcontext</code> registra una regla persistente de contexto SELinux. - <code>restorecon</code> aplica el contexto a los archivos existentes. - Se etiquetó <code>.venv/bin</code> y el Python real instalado por <code>uv</code>. - Esto corrigió el error <code>status=203/EXEC</code>.</p>
+<p>Explicación:</p>
+<ul>
+<li><code>semanage fcontext</code> registra una regla persistente de contexto SELinux.</li>
+<li><code>restorecon</code> aplica el contexto a los archivos existentes.</li>
+<li>Se etiquetó <code>.venv/bin</code> y el Python real instalado por <code>uv</code>.</li>
+<li>Esto corrigió el error <code>status=203/EXEC</code>.</li>
+</ul>
 <p>Importante: No se recomienda deshabilitar SELinux en servidores productivos. La solución correcta es ajustar contextos o políticas.</p>
 </section>
 </section>
@@ -699,7 +721,14 @@ data_home_t</code></pre>
 <p>Para ver logs desde el último arranque del sistema:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">journalctl</span> <span class="at">-u</span> streamlit-reporte <span class="at">-b</span> <span class="at">--no-pager</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="ex">journalctl</span> <span class="at">-u</span> chatbot-api <span class="at">-b</span> <span class="at">--no-pager</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Explicación: - <code>-u</code> filtra por unidad systemd. - <code>-f</code> sigue logs en tiempo real. - <code>-n 100</code> muestra las últimas 100 líneas. - <code>--no-pager</code> evita abrir el visor interactivo. - <code>-b</code> muestra logs desde el último boot.</p>
+<p>Explicación:</p>
+<ul>
+<li><code>-u</code> filtra por unidad systemd.</li>
+<li><code>-f</code> sigue logs en tiempo real.</li>
+<li><code>-n 100</code> muestra las últimas 100 líneas.</li>
+<li><code>--no-pager</code> evita abrir el visor interactivo.</li>
+<li><code>-b</code> muestra logs desde el último boot.</li>
+</ul>
 <p><code>nohup.out</code> solo aplica si se decide ejecutar manualmente algún comando con <code>nohup</code>, pero ya no es la fuente principal de logs para el despliegue persistente.</p>
 </section>
 <section id="comandos-útiles-de-operación-diaria" class="level4">
@@ -854,7 +883,15 @@ enabled</code></pre>
 0.0.0.0:8000</code></pre>
 <p><strong>Puertos abiertos en firewalld:</strong></p>
 <pre class="text"><code>3000/tcp 8000/tcp</code></pre>
-<p>Con esto se valida que: - Streamlit está activo en el puerto 3000. - El backend/chatbot está activo en el puerto 8000. - Ambos servicios están habilitados para iniciar después de un reinicio. - Los puertos están abiertos de forma persistente. - No es necesario mantener sesiones SSH abiertas. - No es necesario usar <code>nohup</code> para operación normal.</p>
+<p>Con esto se valida que:</p>
+<ul>
+<li>Streamlit está activo en el puerto 3000.</li>
+<li>El backend/chatbot está activo en el puerto 8000.</li>
+<li>Ambos servicios están habilitados para iniciar después de un reinicio.</li>
+<li>Los puertos están abiertos de forma persistente.</li>
+<li>No es necesario mantener sesiones SSH abiertas.</li>
+<li>No es necesario usar <code>nohup</code> para operación normal.</li>
+</ul>
 </section>
 </section>
 <section id="instalación-del-frontend-widget" class="level3">
