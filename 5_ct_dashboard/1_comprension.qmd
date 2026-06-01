@@ -1,0 +1,153 @@
+---
+title: "Comprensión del negocio"
+format: 
+    html:
+         page-layout: article
+toc-title: "Tabla de Contenidos"
+toc: true
+toc-depth: 3
+---
+
+::: {style="text-align: justify"}
+CT Internacional es una empresa mexicana líder en la distribución de soluciones de Tecnologías de la Información. Con más de 25 años en el mercado y un canal de distribución integrado por más de 31 mil clientes, CT maneja un volumen masivo de transacciones diarias que involucran miles de productos y más de 202 marcas. Teniendo este crecimiento constante del negocio y la enorme cantidad de datos transaccionales de alto valor que se generan, existe una gran oportunidad para extraer insights clave y evolucionar la forma en que se diseñan las estrategias comerciales y de marketing.
+
+**Problema de negocio a resolver**:
+
+Actualmente, las estrategias de marketing y promoción se realizan, en gran medida, de forma reactiva en respuesta a las solicitudes y presupuestos de los proveedores. Con este proyecto buscamos alinear las estrategias con los hábitos de compra reales, la estacionalidad y las necesidades específicas de los segmentos de clientes de CT.
+
+**Impacto**:
+
+Abordar este problema permitirá a CT Internacional cambiar la dinámica con sus proveedores y con sus clientes, basando sus decisiones en datos (Data-Driven). Buscamos proponer estrategias que maximicen el valor de cada cliente, aumenten el retorno de inversión (ROI) de las campañas dirigidas, reduzcan el inventario estancado y retengan a aquellos usuarios en riesgo de abandono.
+:::
+
+::: {style="text-align: justify"}
+
+## 1. Objetivos de la línea de investigación
+
+Esta iniciativa se enfoca en analizar los patrones de compra de los clientes para identificar segmentos de comportamiento y oportunidades de promoción específicas por marca y cliente.
+
+**Objetivo principal:**
+
+Desarrollar un modelo de análisis de comportamiento de clientes que provea información estratégica y visual a los equipos comerciales, permitiendo diseñar promociones efectivas alineadas a los intereses del consumidor y respaldar la toma de decisiones al negociar con proveedores.
+
+**Objetivos específicos:**
+
+1. **Monitoreo de salud del cliente:** Identificar y clasificar a los clientes según su nivel de riesgo de abandono (Churn) calculando su recencia y frecuencia de compra.
+2. **Análisis de dependencia de producto y Venta Cruzada:** Detectar qué productos o categorías representan el mayor porcentaje de compras de un cliente en particular mediante Análisis de Canasta de Mercado (MBA) para fomentar el cross-selling.
+3. **Identificación de inventario estancado:** Rastrear productos y marcas que no presentan movimiento en la base de clientes durante periodos definidos, para priorizar su promoción.
+
+**Criterios de éxito:**
+
+* **Accionabilidad:** El dashboard entregado debe permitir al equipo de ventas identificar a los clientes en riesgo de abandono de forma fácil de comprender y manipular.
+* **Alineación:** Validación cualitativa por parte del equipo de marketing de que los insights generados son útiles para negociar fondos de marketing con proveedores.
+:::
+
+::: {style="text-align: justify"}
+## 2. Evaluación de la situación actual
+
+Los recursos que se tienen actualmente para este proyecto incluyen un histórico de ventas (tickets, IDs de SKU, precios, fechas), base de datos de clientes e información de inventarios. Todo el modelado y la exploración se realiza en un entorno Python.
+
+### 2.1. Requisitos, supuestos y restricciones
+
+**Requisitos:**
+
+* Acceso a los registros de los productos de la empresa y equipo de cómputo con características específicas para el desarrollo analítico.
+* Comunicación constante con los expertos de la empresa para evaluación y retroalimentación.
+
+**Supuestos:**
+
+* Acceso a los registros históricos transaccionales (idealmente 2 años para evaluar estacionalidad).
+* Aterrizar las métricas de negocio con los líderes comerciales antes de construir modelos predictivos complejos.
+
+**Restricciones y consideraciones de seguridad:**
+
+* Privacidad (Seguridad Pública): Para efectos de documentación pública y portafolio, se utilizarán datos anonimizados o mocks, preservando de manera exacta las métricas, tendencias y proporciones descubiertas en el entorno real de CT Internacional.
+* Calidad inicial de los datos (presencia de nulos, inconsistencias en IDs de productos o clientes).
+* Curva de aprendizaje y adopción técnica por parte de los equipos no analíticos.
+:::
+
+::: {style="text-align: justify"}
+
+## 3. Enfoque Analítico y Formulación de Preguntas de Negocio
+
+El enfoque técnico de este proyecto transita por distintos niveles de madurez analítica para responder a las preguntas clave de CT Internacional:
+
+1. **Análisis Descriptivo (¿Qué pasó?):** Consultas a la base de datos e indicadores operativos básicos (EDA).
+2. **Análisis Estadístico (¿Es real esta tendencia?):** Pruebas para confirmar que los patrones estacionales o de comportamiento no son producto del azar.
+3. **Minería de Datos y Segmentación (¿Qué caracteriza a estos clientes?):** Uso de algoritmos de Clustering (agrupamiento no supervisado) y segmentación RFM para descubrir los hábitos ocultos de compra, apoyados por reglas de asociación (MBA).
+4. **Análisis Predictivo (¿Qué pasará?):** Implementación de Modelado Paramétrico (Regresión Logística y Lineal) para predecir probabilidades de abandono o proyectar el Customer Lifetime Value (CLV).
+
+*Nota sobre el Sobreajuste (Overfitting):* Al optimizar modelos a los datos transaccionales, se establecerán estrategias para reconocer y mitigar la memorización de "ruido", garantizando que los hallazgos sean aplicables a datos futuros.
+:::
+
+::: {style="text-align: justify"}
+
+
+## 4. Arquitectura y Flujo de Datos
+
+El flujo del sistema propuesto se divide en tres capas principales:
+
+1. **Extracción:** Recolección desde las Bases de Datos transaccionales.
+2. **Transformación:** Proceso ETL que involucra limpieza, manejo de nulos y creación de variables (ingeniería de datos para RFM y MBA).
+3. **Carga y Consumo:** Almacenamiento de datos limpios (Parquet) y su visualización final mediante un **dashboard web interno desarrollado en FastAPI + DuckDB + Plotly**, con filtros dinámicos, segmentación por usuario y siete vistas operativas accesibles desde cualquier navegador en la intranet corporativa.
+:::
+
+::: {style="text-align: justify"}
+
+## 5. Terminología Clave
+
+* **Python:** Lenguaje de programación base utilizado para la limpieza de datos, análisis e implementación de machine learning.
+* **Análisis RFM** (Recency, Frequency, Monetary): Método para segmentar clientes basado en hace cuánto compraron, qué tan seguido compran y cuánto gastan.
+* **MBA (Market Basket Analysis):** Análisis de canasta de mercado. Técnica que asume que el cliente que compra el producto A tiene alta probabilidad de adquirir el producto B.
+* **Clustering:** Técnica de machine learning no supervisada para agrupar elementos (clientes) con características similares.
+* **Cross-selling (Venta cruzada):** Estrategia de vender productos complementarios basados en los descubrimientos del MBA.
+* **Churn rate (Tasa de abandono):** Porcentaje de clientes que dejan de comprar en un periodo.
+* **EDA (Exploratory Data Analysis):** Proceso inicial de investigación de los datos para descubrir patrones y anomalías.
+:::
+
+::: {style="text-align: justify"}
+
+## 6. Análisis FODA
+
+Fortalezas: Sistema basado en datos consumible a través de un dashboard interactivo de siete vistas; capacidad de segmentación avanzada de clientes (K-Means k=5 sobre features RFM + cadencia); pipeline ETL incremental automatizado vía cron; stack open-source sin licenciamiento; entorno seguro de uso interno con supervisión de servicio (systemd) y supervivencia a reboots.
+
+Oportunidades: Transición de estrategias tradicionales a inteligencia de negocios; visualización dinámica de perfiles; reportes mensuales predictivos para optimizar inventario; integración futura del MBA como motor de recomendación al portal B2B; expansión del análisis a modelos predictivos (forecasting, CLV).
+
+Debilidades: Dependencia crítica de la calidad de los datos históricos y curva de aprendizaje para el equipo de marketing.
+
+Amenazas: Concept drift en los hábitos de compra (los segmentos descubiertos pueden volverse menos representativos con el tiempo) y dependencia operativa de la disponibilidad del servidor on-premise donde corre el dashboard.
+:::
+
+::: {style="text-align: justify"}
+
+## 7. Análisis de Riesgos
+
+| Riesgo | Probabilidad | Impacto | Evaluación | Estrategia de Mitigación |
+|---|---|---|---|---|
+| Calidad de datos inconsistente | Media | Alto | Alto | Implementar validaciones rigurosas en el proceso ETL y realizar un EDA inicial para definir viabilidad. |
+| Resistencia a la adopción | Baja | Alto | Media | Sesiones con el equipo comercial para obtener retroalimentación temprana y demostrar el valor estratégico de la herramienta. |
+| Incremento de costos de software | Baja | Bajo | Bajo | El stack adoptado es 100% open-source (Python + FastAPI + DuckDB + Plotly). No hay licenciamiento que escale con el número de usuarios. |
+| Concept drift del modelo | Media | Medio | Medio | Se mantiene un snapshot de las asignaciones originales y un quality check automático que detecta divergencias en la distribución de segmentos por corrida. |
+
+::: 
+
+::: {style="text-align: justify"}
+
+## 8. Beneficios Esperados
+
+La implementación de este proyecto de Customer Analytics traerá transformaciones profundas:
+
+* **Toma de decisiones basada en datos:** Transición de estrategias reactivas a campañas de marketing altamente dirigidas, mejorando la tasa de conversión.
+* **Retención proactiva:** Capacidad de identificar cuentas VIP que muestran patrones de enfriamiento para ejecutar acciones de recuperación inmediatas.
+* **Maximización mediante Cross-selling Inteligente:** Visualizar dependencias de compra para ofrecer productos complementarios, incrementando el ticket promedio y la fidelización al ecosistema de CT.
+* **Empoderamiento estratégico con fabricantes:** Proveer a CT Internacional con argumentos sólidos respaldados por datos reales (MBA, Clustering) para negociar fondos cooperativos con marcas (ej. HP, Dell, Microsoft), pasando de una relación transaccional a una consultiva.
+:::
+
+::: {style="text-align: justify"}
+
+## 9. Próximos pasos y Costos
+
+El principal recurso invertido es el **tiempo de desarrollo e investigación** (estimado en 7 a 8 semanas para la versión inicial) para construir el pipeline de datos, realizar el análisis exploratorio y publicar el primer dashboard.
+
+Posteriormente, se requerirá tiempo en ciclos iterativos para refinar los modelos predictivos (forecasting, CLV) y para adoptar herramientas de tracking de experimentos (MLFlow) conforme se incorporen nuevos modelos al portfolio analítico. El stack actual (Python + FastAPI + DuckDB + Plotly) es 100% open-source, por lo que el escalamiento a más usuarios internos no implica costos de licenciamiento adicionales.
+:::

@@ -1,0 +1,58 @@
+project:
+  type: website
+  output-dir: ../docs/5_ct_dashboard
+  render:
+    - 0_home.qmd
+    - 1_comprension.qmd
+    - 2_exploracion_datos.qmd
+    - 3_analisis_rfm.qmd
+    - 4_segmentacion_clientes.qmd
+    - 5_market_basket.qmd
+    - 6_estacionalidad_segmentos.qmd
+    - 7_productizacion.qmd
+    - 8_documentacion_tecnica.qmd
+    - 9_vision_y_futuro.qmd
+
+website:
+  favicon: ./images/favicon.png
+  navbar:
+    logo: ./images/ctlogo.png
+    left:
+      - href: 0_home.qmd
+        text: Inicio
+      - href: 1_comprension.qmd
+        text: Comprensión del Negocio
+      - href: 2_exploracion_datos.qmd
+        text: Exploración de Datos
+      - href: 3_analisis_rfm.qmd
+        text: Análisis RFM
+      - href: 4_segmentacion_clientes.qmd
+        text: Segmentación
+      - href: 5_market_basket.qmd
+        text: Market Basket
+      - href: 6_estacionalidad_segmentos.qmd
+        text: Estacionalidad
+      - href: 7_productizacion.qmd
+        text: De Investigación a Producción
+      - href: 8_documentacion_tecnica.qmd
+        text: Documentación Técnica
+      - href: 9_vision_y_futuro.qmd
+        text: Visión y Futuro
+
+  back-to-top-navigation: true
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    execute:
+      echo: true
+
+diagram:
+  mermaid:
+    theme: neutral
+
+lang: es

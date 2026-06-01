@@ -1,15 +1,15 @@
 ---
-title: "Certificados"
-subtitle: "Formación continua y certificaciones profesionales en ciencia de datos e ingeniería."
+title: "Certificates"
+subtitle: "Continuous education and professional certifications in data science and engineering."
 title-block-banner: true
 toc: true
 toc-depth: 2
-toc-title: "Categorías"
+toc-title: "Categories"
 ---
 
-A continuación presento los certificados más relevantes en mi desarrollo profesional.
+Below are the most relevant certificates in my professional development.
 
-## Ciencia de Datos & Machine Learning
+## Data Science & Machine Learning
 
 ::: {.grid}
 
@@ -17,22 +17,22 @@ A continuación presento los certificados más relevantes en mi desarrollo profe
 ::: {.card .h-100}
 ::: {.card-body}
 ### Associate Data Scientist in Python
-**DataCamp** · 90 horas · Mayo 2025
+**DataCamp** · 90 hours · May 2025
 
 ![](images/certificados/associate_data_scientist_in_python.png){.img-fluid .rounded}
 
-**Temas:**
+**Topics:**
 
-* Python para ciencia de datos
-* Análisis exploratorio y estadístico
-* Machine Learning supervisado
+* Python for Data Science
+* Exploratory and Statistical Analysis
+* Supervised Machine Learning
 
 ::: {.card-footer .bg-transparent .border-0}
 <span class="badge bg-dark">Data Science</span>
 <span class="badge bg-secondary">Python</span>
 <span class="badge bg-success">DataCamp</span>
 <br><br>
-[📄 Ver certificado (PDF)](certificados/Associate%20data%20scientist%20in%20python.pdf){.btn .btn-outline-primary .btn-sm target="_blank"}
+[📄 View Certificate (PDF)](certificados/Associate%20data%20scientist%20in%20python.pdf){.btn .btn-outline-primary .btn-sm target="_blank"}
 :::
 :::
 :::
@@ -42,22 +42,22 @@ A continuación presento los certificados más relevantes en mi desarrollo profe
 ::: {.card .h-100}
 ::: {.card-body}
 ### Machine Learning Scientist in Python
-**DataCamp** · 85 horas · Noviembre 2024
+**DataCamp** · 85 hours · November 2024
 
 ![](images/certificados/machine_learning_scientist_in_python.png){.img-fluid .rounded}
 
-**Temas:**
+**Topics:**
 
-* Modelos supervisados y no supervisados
-* Deep Learning fundamentals
-* Feature engineering
+* Supervised and Unsupervised Models
+* Deep Learning Fundamentals
+* Feature Engineering
 
 ::: {.card-footer .bg-transparent .border-0}
 <span class="badge bg-dark">Machine Learning</span>
 <span class="badge bg-secondary">Python</span>
 <span class="badge bg-success">DataCamp</span>
 <br><br>
-[📄 Ver certificado (PDF)](certificados/Machine%20learning%20scientist%20in%20python.pdf){.btn .btn-outline-primary .btn-sm target="_blank"}
+[📄 View Certificate (PDF)](certificados/Machine%20learning%20scientist%20in%20python.pdf){.btn .btn-outline-primary .btn-sm target="_blank"}
 :::
 :::
 :::
@@ -67,7 +67,7 @@ A continuación presento los certificados más relevantes en mi desarrollo profe
 
 ---
 
-## Análisis de Datos
+## Data Analysis
 
 ::: {.grid}
 
@@ -75,22 +75,22 @@ A continuación presento los certificados más relevantes en mi desarrollo profe
 ::: {.card .h-100}
 ::: {.card-body}
 ### Data Analyst in Python
-**DataCamp** · 36 horas · Noviembre 2023
+**DataCamp** · 36 hours · November 2023
 
 ![](images/certificados/data_analyst_in_python.png){.img-fluid .rounded}
 
-**Temas:**
+**Topics:**
 
-* Manipulación de datos con Pandas
-* Visualización de datos
-* Análisis estadístico
+* Data Manipulation with Pandas
+* Data Visualization
+* Statistical Analysis
 
 ::: {.card-footer .bg-transparent .border-0}
 <span class="badge bg-dark">Data Analysis</span>
 <span class="badge bg-secondary">Python</span>
 <span class="badge bg-success">DataCamp</span>
 <br><br>
-[📄 Ver certificado (PDF)](certificados/Data%20analyst%20in%20python.pdf){.btn .btn-outline-primary .btn-sm target="_blank"}
+[📄 View Certificate (PDF)](certificados/Data%20analyst%20in%20python.pdf){.btn .btn-outline-primary .btn-sm target="_blank"}
 :::
 :::
 :::
@@ -100,30 +100,30 @@ A continuación presento los certificados más relevantes en mi desarrollo profe
 
 ---
 
-## Ingeniería & Simulación
+## Engineering & Simulation
 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100}
 ::: {.card-body}
-### Introducción a Aspen HYSYS
-**Universidad de Sonora** · 20 horas · Noviembre 2022
+### Introduction to Aspen HYSYS
+**Universidad de Sonora** · 20 hours · November 2022
 
 ![](images/certificados/aspen_hysys.png){.img-fluid .rounded}
 
-**Temas:**
+**Topics:**
 
-* Simulación de procesos químicos
-* Ingeniería Química y Metalurgia
-* Herramientas de diseño industrial
+* Chemical Process Simulation
+* Chemical Engineering and Metallurgy
+* Industrial Design Tools
 
 ::: {.card-footer .bg-transparent .border-0}
-<span class="badge bg-dark">Ingeniería</span>
-<span class="badge bg-secondary">Simulación</span>
+<span class="badge bg-dark">Engineering</span>
+<span class="badge bg-secondary">Simulation</span>
 <span class="badge bg-success">UNISON</span>
 <br><br>
-[📄 Ver certificado (PDF)](certificados/ASPEN_HYSYS.pdf){.btn .btn-outline-primary .btn-sm target="_blank"}
+[📄 View Certificate (PDF)](certificados/ASPEN_HYSYS.pdf){.btn .btn-outline-primary .btn-sm target="_blank"}
 :::
 :::
 :::

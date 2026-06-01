@@ -6,8 +6,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Angel Merino Cedeño">
+<meta name="author" content="Gerardo Leyva Conde">
+<meta name="author" content="Roberto Navarro Bartolini">
+<meta name="author" content="Abraham Rojo Salazar">
 
-<title>Projects and Implementations – Angel Merino | Portafolio de Proyectos</title>
+<title>Customer Analytics: del notebook a producción</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,10 +40,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4cb6ed15cec41114a0d1424b23ae6b45.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ae2d0dcda2edce4ab590422bb373b64f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,15 +78,15 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Angel Merino | Portafolio de Proyectos</span>
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././images/ctlogo.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Buscar"></div>
@@ -90,200 +96,226 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link active" href="./0_home.html" aria-current="page"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">Sobre Mí</span></a>
+    <a class="nav-link" href="./1_comprension.html"> 
+<span class="menu-text">Comprensión del Negocio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./proyectos.html" aria-current="page"> 
-<span class="menu-text">Proyectos</span></a>
+    <a class="nav-link" href="./2_exploracion_datos.html"> 
+<span class="menu-text">Exploración de Datos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publicaciones.html"> 
-<span class="menu-text">Publicaciones</span></a>
+    <a class="nav-link" href="./3_analisis_rfm.html"> 
+<span class="menu-text">Análisis RFM</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./certificados.html"> 
-<span class="menu-text">Certificados</span></a>
+    <a class="nav-link" href="./4_segmentacion_clientes.html"> 
+<span class="menu-text">Segmentación</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/anmerino-pnd"> <i class="bi bi-github" role="img" aria-label="GitHub">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./5_market_basket.html"> 
+<span class="menu-text">Market Basket</span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/anmerino-pnd"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./6_estacionalidad_segmentos.html"> 
+<span class="menu-text">Estacionalidad</span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="mailto:acedeno00@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Email">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./7_productizacion.html"> 
+<span class="menu-text">De Investigación a Producción</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./8_documentacion_tecnica.html"> 
+<span class="menu-text">Documentación Técnica</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./9_vision_y_futuro.html"> 
+<span class="menu-text">Visión y Futuro</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Projects and Implementations</h1>
-            <p class="subtitle lead">Technical documentation of business solutions based on AI and Data.</p>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Categories</h2>
-   
-  <ul class="collapse">
-  <li><a href="#generative-ai-agents" id="toc-generative-ai-agents" class="nav-link active" data-scroll-target="#generative-ai-agents">Generative AI &amp; Agents</a></li>
-  <li><a href="#data-engineering" id="toc-data-engineering" class="nav-link" data-scroll-target="#data-engineering">Data Engineering</a></li>
-  <li><a href="#data-science-analytics" id="toc-data-science-analytics" class="nav-link" data-scroll-target="#data-science-analytics">Data Science &amp; Analytics</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Customer Analytics: del notebook a producción</h1>
+</div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Autores/as</div>
+  <div class="quarto-title-meta-heading">Afiliación</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://www.linkedin.com/in/anmerino-pnd">Angel Merino Cedeño</a> <a href="mailto:acedeno00@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://unisonmx-my.sharepoint.com/:w:/g/personal/a218204710_unison_mx/EYLVn5p-js9Hh7hr8HmUKOgBZq5L1wHwtZzyjEZG_SeUGA?e=Q7U9pP">📄 CV</a>
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Gerardo Leyva Conde </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Roberto Navarro Bartolini </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Abraham Rojo Salazar </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">1 de junio de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
-<p>Below is a selection of projects developed under agile methodologies, focused on solving business problems through Generative AI and data analytics.</p>
-<section id="generative-ai-agents" class="level2">
-<h2 class="anchored" data-anchor-id="generative-ai-agents">Generative AI &amp; Agents</h2>
-<div class="grid">
-<div class="g-col-12 g-col-md-6">
-<div class="card h-100">
-<section id="intelligent-help-desk-cenace" class="level3 card-body">
-<h3 class="anchored" data-anchor-id="intelligent-help-desk-cenace">Intelligent Help Desk (CENACE)</h3>
-<p><strong>Technical Support Optimization with Private AI</strong></p>
-<p>System designed for the National Energy Control Center. It solves the need to automate incident classification and suggest technical solutions without exposing sensitive data to the public cloud.</p>
-<p><strong>Key Points:</strong></p>
+
+<div style="text-align: justify">
+<section id="resumen-ejecutivo" class="level2">
+<h2 class="anchored" data-anchor-id="resumen-ejecutivo">Resumen ejecutivo</h2>
+<p>Este sitio documenta el desarrollo end-to-end de <strong>Pulse</strong>, una plataforma de Customer Analytics construida para CT Internacional. El proyecto cubre el ciclo completo desde el primer análisis exploratorio sobre datos transaccionales hasta el despliegue en producción de un dashboard operativo consumido por el equipo de marketing.</p>
+<p>El alcance no es teórico. El sistema corre hoy sobre un servidor on-premise, ejecuta un pipeline ETL diario, sirve un dashboard interactivo con siete vistas distintas y monitorea automáticamente la salud del modelo de segmentación. Todo el código fue construido para ser reproducible, testeado y operable sin intervención del desarrollador.</p>
+</section>
+<section id="lo-que-se-construyó" class="level2">
+<h2 class="anchored" data-anchor-id="lo-que-se-construyó">Lo que se construyó</h2>
+<p><strong>Capa analítica</strong></p>
 <ul>
-<li>Implementation of <strong>Open-Source models (Gemma/Ollama)</strong> for total data privacy.</li>
-<li><strong>RAG</strong> architecture for querying internal technical manuals.</li>
-<li>Persistence of history and sessions in <strong>MongoDB</strong>.</li>
+<li>Segmentación de clientes con <strong>K-Means (k=5)</strong> sobre features RFM más cadencia de compra, con transformación logarítmica y estandarización encapsuladas en un pipeline de scikit-learn.</li>
+<li><strong>Market Basket Analysis</strong> segmentado: el algoritmo FP-Growth se aplica de forma independiente por cluster, produciendo miles de reglas de asociación con filtros de soporte, confidence y lift.</li>
+<li><strong>Análisis de estacionalidad</strong> con granularidad hora-día-mes para detectar ventanas de campaña óptimas por segmento.</li>
 </ul>
-<div class="card-footer bg-transparent border-0">
-<p><span class="badge bg-primary">Python</span> <span class="badge bg-success">LangChain</span> <span class="badge bg-warning text-dark">Ollama</span> <span class="badge bg-info text-dark">FastAPI</span> <br><br> <a href="./1_cenace_helpdesk/index.html" class="btn btn-outline-primary btn-sm stretched-link">Read Documentation →</a></p>
-</div>
-</section>
-</div>
-</div>
-<div class="g-col-12 g-col-md-6">
-<div class="card h-100">
-<section id="product-recommender-ct" class="level3 card-body">
-<h3 class="anchored" data-anchor-id="product-recommender-ct">Product Recommender (CT)</h3>
-<p><strong>Real-Time Sales and Recommendation System</strong></p>
-<p>Advanced chatbot for hardware suggestions. Overcomes the challenge of connecting a massive MySQL catalog with a semantic search engine, managing dynamic prices and stock.</p>
-<p><strong>Key Points:</strong></p>
+<p><strong>Capa de productización</strong></p>
 <ul>
-<li><strong>Complex ETL pipeline</strong> to synchronize MySQL with Vector Stores (FAISS).</li>
-<li>“Mixed Content” architecture solution via <strong>PHP Proxy</strong>.</li>
-<li>User moderation system and custom JS widget.</li>
+<li><strong>Pipeline ETL modular</strong> con ingesta incremental desde MongoDB, watermarks, validaciones de calidad cruzadas, manejo de drift y outputs persistidos en Parquet.</li>
+<li><strong>Dashboard web</strong> (FastAPI + DuckDB + Plotly) con siete vistas operativas: distribución de segmentos, mapa de oportunidades de bundles, estacionalidad por segmento, comparador, heatmap de bundles, alertas de clientes en riesgo, y drill-down individual.</li>
+<li><strong>Deployment</strong> sobre AlmaLinux con systemd, firewalld, cron diario y supervivencia a reboot validada.</li>
 </ul>
-<div class="card-footer bg-transparent border-0">
-<p><span class="badge bg-primary">Python</span> <span class="badge bg-danger">MySQL</span> <span class="badge bg-secondary">Docker/Podman</span> <span class="badge bg-dark">JavaScript</span> <br><br> <a href="./2_ct_chatbot/index.html" class="btn btn-outline-primary btn-sm stretched-link">Read Documentation →</a></p>
+</section>
+<section id="cifras-clave-del-proyecto" class="level2">
+<h2 class="anchored" data-anchor-id="cifras-clave-del-proyecto">Cifras clave del proyecto</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Métrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Clientes analizados</td>
+<td>18,638</td>
+</tr>
+<tr class="even">
+<td>Pedidos procesados (ventana 30 meses)</td>
+<td>~570K</td>
+</tr>
+<tr class="odd">
+<td>Reglas MBA generadas</td>
+<td>~3,800</td>
+</tr>
+<tr class="even">
+<td>Reglas accionables (1→1, 1→2)</td>
+<td>~140</td>
+</tr>
+<tr class="odd">
+<td>Vistas del dashboard</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>Duración del pipeline diario</td>
+<td>30-45 segundos</td>
+</tr>
+<tr class="odd">
+<td>Tests unitarios</td>
+<td>60+</td>
+</tr>
+<tr class="even">
+<td>Cross-check temporalidad ↔︎ RFM</td>
+<td>0.00% de divergencia</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Por confidencialidad operacional, en las visualizaciones de este sitio los valores monetarios se presentan <strong>transformados a índices relativos o en escala logarítmica</strong>, y las claves de productos están <strong>ofuscadas en familias genéricas</strong>. Las proporciones, distribuciones, lifts y patrones temporales son auténticos.</p>
+</div>
 </div>
 </section>
+<section id="cómo-está-organizado-este-sitio" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-está-organizado-este-sitio">Cómo está organizado este sitio</h2>
+<p>A través de la navegación superior puedes recorrer cada etapa del proyecto:</p>
+<ol type="1">
+<li><strong>Comprensión del negocio</strong> — Los objetivos del proyecto y el impacto esperado.</li>
+<li><strong>Exploración de datos</strong> — Hallazgos de la fase EDA y características de la base transaccional.</li>
+<li><strong>Análisis RFM</strong> — Cómo definimos recencia, frecuencia, valor monetario y cadencia personalizada.</li>
+<li><strong>Segmentación</strong> — El proceso de clustering, la elección de k=5 y los cinco perfiles identificados.</li>
+<li><strong>Market Basket</strong> — Reglas de asociación por segmento y el concepto de Market Basket Opportunity Map.</li>
+<li><strong>Estacionalidad</strong> — Patrones temporales descubiertos y su traducción a recomendaciones de campaña.</li>
+<li><strong>De investigación a producción</strong> — Cómo congelamos el modelo, construimos el pipeline ETL y desplegamos el dashboard.</li>
+<li><strong>Documentación técnica</strong> — Instalación, comandos de operación, estructura del código y diagramas de arquitectura.</li>
+<li><strong>Visión y futuro</strong> — El roadmap hacia forecasting, recomendación en tiempo real y monitoreo de drift activo.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
 </div>
-<div class="g-col-12 g-col-md-6">
-<div class="card h-100">
-<section id="financial-chatbot-salsas-castillo" class="level3 card-body">
-<h3 class="anchored" data-anchor-id="financial-chatbot-salsas-castillo">Financial Chatbot (Salsas Castillo)</h3>
-<p><strong>Sales and Financial Reports Assistant</strong></p>
-<p>Conversational solution deployed on Telegram for executives and the sales force. Allows natural language queries over transactional databases and internal regulations.</p>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li>Orchestration of <strong>SQL Tools</strong> for real-time sales queries.</li>
-<li>Automated generation of <strong>PDF Reports</strong> with AI analysis.</li>
-<li>Native integration with <strong>Telegram API</strong> and audio transcription (Whisper).</li>
-</ul>
-<div class="card-footer bg-transparent border-0">
-<p><span class="badge bg-primary">Python</span> <span class="badge bg-info text-dark">PostgreSQL</span> <span class="badge bg-success">OpenAI API</span> <span class="badge bg-primary">Telegram</span> <br><br> <a href="./3_salsas_chatbot/index.html" class="btn btn-outline-primary btn-sm stretched-link">Read Documentation →</a></p>
+<div class="callout-body-container callout-body">
+<p>Si solo tienes 5 minutos, lee <a href="./1_comprension.html">Comprensión del negocio</a> y <a href="./7_productizacion.html">De investigación a producción</a>. Esos dos artículos resumen el qué y el cómo.</p>
+</div>
 </div>
 </section>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="data-engineering" class="level2">
-<h2 class="anchored" data-anchor-id="data-engineering">Data Engineering</h2>
-<div class="grid">
-<div class="g-col-12 g-col-md-6">
-<div class="card h-100">
-<section id="etl-data-engineering-frutal" class="level3 card-body">
-<h3 class="anchored" data-anchor-id="etl-data-engineering-frutal">ETL &amp; Data Engineering (Frutal)</h3>
-<p><strong>Data Architecture Modernization</strong></p>
-<p>Design of a robust pipeline to migrate a legacy ERP system (HFSQL) to a modern Data Lake, resolving critical driver incompatibilities.</p>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li>Solution to the <strong>“Stack Smashing”</strong> error by isolating processes in Python.</li>
-<li>Containerization with <strong>Podman</strong> to unify development (Windows) and production (Linux) environments.</li>
-<li>Storage and read optimization by converting to <strong>Parquet</strong> format.</li>
-</ul>
-<div class="card-footer bg-transparent border-0">
-<p><span class="badge bg-secondary">Python</span> <span class="badge bg-dark">Podman</span> <span class="badge bg-warning text-dark">HFSQL</span> <span class="badge bg-info text-dark">Parquet</span> <br><br> <a href="./4_frutal/index.html" class="btn btn-outline-primary btn-sm stretched-link">Read Documentation →</a></p>
-</div>
-</section>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="data-science-analytics" class="level2">
-<h2 class="anchored" data-anchor-id="data-science-analytics">Data Science &amp; Analytics</h2>
-<div class="grid">
-<div class="g-col-12 g-col-md-6">
-<div class="card h-100">
-<section id="customer-analytics-ct" class="level3 card-body">
-<h3 class="anchored" data-anchor-id="customer-analytics-ct">Customer Analytics (CT)</h3>
-<p><strong>From Analysis to Production</strong></p>
-<p>Customer Analytics platform built for CT Internacional. It covers everything from RFM segmentation and identifying association rules (Market Basket), to the deployment of a daily ETL pipeline and an interactive dashboard.</p>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li><strong>K-Means (Segmentation)</strong> and <strong>FP-Growth (Market Basket)</strong> models.</li>
-<li><strong>Modular ETL pipeline</strong> persisted in Parquet.</li>
-<li>Operational dashboard built with <strong>FastAPI, DuckDB, and Plotly</strong>.</li>
-</ul>
-<div class="card-footer bg-transparent border-0">
-<p><span class="badge bg-primary">Python</span> <span class="badge bg-success">Scikit-Learn</span> <span class="badge bg-warning text-dark">FastAPI</span> <span class="badge bg-info text-dark">DuckDB</span> <br><br> <a href="./5_ct_dashboard/0_home.html" class="btn btn-outline-primary btn-sm stretched-link">Read Documentation →</a></p>
-</div>
-</section>
-</div>
-</div>
 </div>
 
 
-</section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -304,6 +336,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

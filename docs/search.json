@@ -2,127 +2,134 @@
   {
     "objectID": "certificados.html",
     "href": "certificados.html",
-    "title": "Certificados",
+    "title": "Certificates",
     "section": "",
-    "text": "A continuación presento los certificados más relevantes en mi desarrollo profesional."
+    "text": "Below are the most relevant certificates in my professional development."
   },
   {
-    "objectID": "certificados.html#ciencia-de-datos-machine-learning",
-    "href": "certificados.html#ciencia-de-datos-machine-learning",
-    "title": "Certificados",
-    "section": "Ciencia de Datos & Machine Learning",
-    "text": "Ciencia de Datos & Machine Learning\n\n\n\n\nAssociate Data Scientist in Python\nDataCamp · 90 horas · Mayo 2025\n\nTemas:\n\nPython para ciencia de datos\nAnálisis exploratorio y estadístico\nMachine Learning supervisado\n\n\nData Science Python DataCamp  📄 Ver certificado (PDF)\n\n\n\n\n\n\n\nMachine Learning Scientist in Python\nDataCamp · 85 horas · Noviembre 2024\n\nTemas:\n\nModelos supervisados y no supervisados\nDeep Learning fundamentals\nFeature engineering\n\n\nMachine Learning Python DataCamp  📄 Ver certificado (PDF)"
+    "objectID": "certificados.html#data-science-machine-learning",
+    "href": "certificados.html#data-science-machine-learning",
+    "title": "Certificates",
+    "section": "Data Science & Machine Learning",
+    "text": "Data Science & Machine Learning\n\n\n\n\nAssociate Data Scientist in Python\nDataCamp · 90 hours · May 2025\n\nTopics:\n\nPython for Data Science\nExploratory and Statistical Analysis\nSupervised Machine Learning\n\n\nData Science Python DataCamp  📄 View Certificate (PDF)\n\n\n\n\n\n\n\nMachine Learning Scientist in Python\nDataCamp · 85 hours · November 2024\n\nTopics:\n\nSupervised and Unsupervised Models\nDeep Learning Fundamentals\nFeature Engineering\n\n\nMachine Learning Python DataCamp  📄 View Certificate (PDF)"
   },
   {
-    "objectID": "certificados.html#análisis-de-datos",
-    "href": "certificados.html#análisis-de-datos",
-    "title": "Certificados",
-    "section": "Análisis de Datos",
-    "text": "Análisis de Datos\n\n\n\n\nData Analyst in Python\nDataCamp · 36 horas · Noviembre 2023\n\nTemas:\n\nManipulación de datos con Pandas\nVisualización de datos\nAnálisis estadístico\n\n\nData Analysis Python DataCamp  📄 Ver certificado (PDF)"
+    "objectID": "certificados.html#data-analysis",
+    "href": "certificados.html#data-analysis",
+    "title": "Certificates",
+    "section": "Data Analysis",
+    "text": "Data Analysis\n\n\n\n\nData Analyst in Python\nDataCamp · 36 hours · November 2023\n\nTopics:\n\nData Manipulation with Pandas\nData Visualization\nStatistical Analysis\n\n\nData Analysis Python DataCamp  📄 View Certificate (PDF)"
   },
   {
-    "objectID": "certificados.html#ingeniería-simulación",
-    "href": "certificados.html#ingeniería-simulación",
-    "title": "Certificados",
-    "section": "Ingeniería & Simulación",
-    "text": "Ingeniería & Simulación\n\n\n\n\nIntroducción a Aspen HYSYS\nUniversidad de Sonora · 20 horas · Noviembre 2022\n\nTemas:\n\nSimulación de procesos químicos\nIngeniería Química y Metalurgia\nHerramientas de diseño industrial\n\n\nIngeniería Simulación UNISON  📄 Ver certificado (PDF)"
+    "objectID": "certificados.html#engineering-simulation",
+    "href": "certificados.html#engineering-simulation",
+    "title": "Certificates",
+    "section": "Engineering & Simulation",
+    "text": "Engineering & Simulation\n\n\n\n\nIntroduction to Aspen HYSYS\nUniversidad de Sonora · 20 hours · November 2022\n\nTopics:\n\nChemical Process Simulation\nChemical Engineering and Metallurgy\nIndustrial Design Tools\n\n\nEngineering Simulation UNISON  📄 View Certificate (PDF)"
   },
   {
     "objectID": "proyectos.html",
     "href": "proyectos.html",
-    "title": "Proyectos e Implementaciones",
+    "title": "Projects and Implementations",
     "section": "",
-    "text": "A continuación presento una selección de proyectos desarrollados bajo metodologías ágiles, enfocados en resolver problemas de negocio mediante IA Generativa y análisis de datos."
+    "text": "Below is a selection of projects developed under agile methodologies, focused on solving business problems through Generative AI and data analytics."
   },
   {
-    "objectID": "proyectos.html#ia-generativa-agentes",
-    "href": "proyectos.html#ia-generativa-agentes",
-    "title": "Proyectos e Implementaciones",
-    "section": "IA Generativa & Agentes",
-    "text": "IA Generativa & Agentes\n\n\n\n\nHelp Desk Inteligente (CENACE)\nOptimización de Soporte Técnico con IA Privada\nSistema diseñado para el Centro Nacional de Control de Energía. Resuelve la necesidad de automatizar la clasificación de incidentes y sugerir soluciones técnicas sin exponer datos sensibles a la nube pública.\nPuntos Clave:\n\nImplementación de modelos Open-Source (Gemma/Ollama) para privacidad total de datos.\nArquitectura RAG para consulta de manuales técnicos internos.\nPersistencia de historial y sesiones en MongoDB.\n\n\nPython LangChain Ollama FastAPI  Leer Documentación →\n\n\n\n\n\n\n\nRecomendador de Productos (CT)\nSistema de Ventas y Recomendación en Tiempo Real\nChatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un catálogo masivo en MySQL con un motor de búsqueda semántica, gestionando precios y existencias dinámicas.\nPuntos Clave:\n\nPipeline ETL complejo para sincronizar MySQL con Vector Stores (FAISS).\nSolución de arquitectura “Mixed Content” mediante Proxy PHP.\nSistema de moderación de usuarios y widget personalizado en JS.\n\n\nPython MySQL Docker/Podman JavaScript  Leer Documentación →\n\n\n\n\n\n\n\nChatbot Financiero (Salsas Castillo)\nAsistente de Ventas y Reportes Financieros\nSolución conversacional desplegada en Telegram para directivos y fuerza de ventas. Permite consultas en lenguaje natural sobre bases de datos transaccionales y normativas internas.\nPuntos Clave:\n\nOrquestación de Herramientas SQL para consultas de ventas en tiempo real.\nGeneración automática de Reportes PDF con análisis de IA.\nIntegración nativa con Telegram API y transcripción de audio (Whisper).\n\n\nPython PostgreSQL OpenAI API Telegram  Leer Documentación →"
+    "objectID": "proyectos.html#generative-ai-agents",
+    "href": "proyectos.html#generative-ai-agents",
+    "title": "Projects and Implementations",
+    "section": "Generative AI & Agents",
+    "text": "Generative AI & Agents\n\n\n\n\nIntelligent Help Desk (CENACE)\nTechnical Support Optimization with Private AI\nSystem designed for the National Energy Control Center. It solves the need to automate incident classification and suggest technical solutions without exposing sensitive data to the public cloud.\nKey Points:\n\nImplementation of Open-Source models (Gemma/Ollama) for total data privacy.\nRAG architecture for querying internal technical manuals.\nPersistence of history and sessions in MongoDB.\n\n\nPython LangChain Ollama FastAPI  Read Documentation →\n\n\n\n\n\n\n\nProduct Recommender (CT)\nReal-Time Sales and Recommendation System\nAdvanced chatbot for hardware suggestions. Overcomes the challenge of connecting a massive MySQL catalog with a semantic search engine, managing dynamic prices and stock.\nKey Points:\n\nComplex ETL pipeline to synchronize MySQL with Vector Stores (FAISS).\n“Mixed Content” architecture solution via PHP Proxy.\nUser moderation system and custom JS widget.\n\n\nPython MySQL Docker/Podman JavaScript  Read Documentation →\n\n\n\n\n\n\n\nFinancial Chatbot (Salsas Castillo)\nSales and Financial Reports Assistant\nConversational solution deployed on Telegram for executives and the sales force. Allows natural language queries over transactional databases and internal regulations.\nKey Points:\n\nOrchestration of SQL Tools for real-time sales queries.\nAutomated generation of PDF Reports with AI analysis.\nNative integration with Telegram API and audio transcription (Whisper).\n\n\nPython PostgreSQL OpenAI API Telegram  Read Documentation →"
   },
   {
-    "objectID": "proyectos.html#ingeniería-de-datos",
-    "href": "proyectos.html#ingeniería-de-datos",
-    "title": "Proyectos e Implementaciones",
-    "section": "Ingeniería de Datos",
-    "text": "Ingeniería de Datos\n\n\n\n\nETL & Data Engineering (Frutal)\nModernización de Arquitectura de Datos\nDiseño de un pipeline robusto para migrar un sistema ERP legacy (HFSQL) hacia un Data Lake moderno, resolviendo incompatibilidades críticas de drivers.\nPuntos Clave:\n\nSolución al error de “Stack Smashing” mediante aislamiento de procesos en Python.\nContenerización con Podman para unificar entornos de desarrollo (Windows) y producción (Linux).\nOptimización de almacenamiento y lectura mediante conversión a formato Parquet.\n\n\nPython Podman HFSQL Parquet  Leer Documentación →"
+    "objectID": "proyectos.html#data-engineering",
+    "href": "proyectos.html#data-engineering",
+    "title": "Projects and Implementations",
+    "section": "Data Engineering",
+    "text": "Data Engineering\n\n\n\n\nETL & Data Engineering (Frutal)\nData Architecture Modernization\nDesign of a robust pipeline to migrate a legacy ERP system (HFSQL) to a modern Data Lake, resolving critical driver incompatibilities.\nKey Points:\n\nSolution to the “Stack Smashing” error by isolating processes in Python.\nContainerization with Podman to unify development (Windows) and production (Linux) environments.\nStorage and read optimization by converting to Parquet format.\n\n\nPython Podman HFSQL Parquet  Read Documentation →"
+  },
+  {
+    "objectID": "proyectos.html#data-science-analytics",
+    "href": "proyectos.html#data-science-analytics",
+    "title": "Projects and Implementations",
+    "section": "Data Science & Analytics",
+    "text": "Data Science & Analytics\n\n\n\n\nCustomer Analytics (CT)\nFrom Analysis to Production\nCustomer Analytics platform built for CT Internacional. It covers everything from RFM segmentation and identifying association rules (Market Basket), to the deployment of a daily ETL pipeline and an interactive dashboard.\nKey Points:\n\nK-Means (Segmentation) and FP-Growth (Market Basket) models.\nModular ETL pipeline persisted in Parquet.\nOperational dashboard built with FastAPI, DuckDB, and Plotly.\n\n\nPython Scikit-Learn FastAPI DuckDB  Read Documentation →"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Portafolio de Ciencia de Datos e IA",
+    "title": "Data Science & AI Portfolio",
     "section": "",
-    "text": "Soy Ángel Alberto Merino Cedeño, estudiante de Maestría en Ciencia de Datos especializado en el desarrollo de Sistemas de IA Generativa, Chatbots RAG y Arquitecturas de Datos.\nAquí encontrarás documentación técnica detallada sobre mis implementaciones más recientes.\n\nVer Proyectos → Sobre Mí →"
+    "text": "I am Ángel Alberto Merino Cedeño, a Master’s student in Data Science specializing in the development of Generative AI Systems, RAG Chatbots, and Data Architectures.\nHere you will find detailed technical documentation on my most recent implementations.\n\nView Projects → About Me →"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Sobre mí",
+    "title": "About Me",
     "section": "",
-    "text": "Soy un profesional apasionado por la intersección entre la ingeniería y la ciencia de datos. Actualmente curso la Maestría en Ciencia de Datos en la Universidad de Sonora, enfocándome en el Procesamiento de Lenguaje Natural (NLP) y el desarrollo de Modelos de Lenguaje Grande (LLMs).\nMi experiencia combina la solidez analítica de la ingeniería química con las herramientas modernas de desarrollo de software y análisis de datos."
+    "text": "I am a professional passionate about the intersection between engineering and data science. Currently, I am pursuing a Master’s Degree in Data Science at the Universidad de Sonora, focusing on Natural Language Processing (NLP) and the development of Large Language Models (LLMs).\nMy experience combines the analytical foundation of chemical engineering with modern software development and data analysis tools."
   },
   {
-    "objectID": "about.html#educación",
-    "href": "about.html#educación",
-    "title": "Sobre mí",
-    "section": "Educación",
-    "text": "Educación\n\n\nMaestría en Ciencia de Datos | Universidad de Sonora\n\n\nAgosto 2023 - Presente\n\nEnfoque en Python, SQL, bases de datos NoSQL, procesos ETL, modelos de aprendizaje automático, redes neuronales, NLP y análisis de series de tiempo.\n\n\n\nLicenciatura en Ingeniería Química | Universidad de Sonora\n\n\nAgosto 2018 - Junio 2023\n\nHabilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS)."
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About Me",
+    "section": "Education",
+    "text": "Education\n\n\nMaster’s Degree in Data Science | Universidad de Sonora\n\n\nAugust 2023 - Present\n\nFocus on Python, SQL, NoSQL databases, ETL processes, machine learning models, neural networks, NLP, and time series analysis.\n\n\n\nBachelor’s Degree in Chemical Engineering | Universidad de Sonora\n\n\nAugust 2018 - June 2023\n\nSkills in process simulation and optimization (MATLAB, ASPEN HYSYS)."
   },
   {
-    "objectID": "about.html#experiencia-profesional",
-    "href": "about.html#experiencia-profesional",
-    "title": "Sobre mí",
-    "section": "Experiencia Profesional",
-    "text": "Experiencia Profesional\n\n\nCientífico de Datos | CT Internacional\n\n\nFebrero 2025 - Presente\n\nDesarrollo de un modelo agéntico para recomendaciones avanzadas de hardware y ventas automatizadas. Implementación de arquitectura RAG con LangChain y OpenAI para consultas dinámicas de inventario, precios y guías técnicas.\n\n\n\nCientífico de Datos | DARIG – Consultores (Salsas Castillo)\n\n\nMarzo 2025 - Feb 2026\n\nImplementación de un MCP (Model Context Protocol) para análisis de ventas y KPIs empresariales. Diseño de agentes con function-calling (SQL) integrados en Telegram para la generación automatizada de reportes PDF.\n\n\n\nIngeniero de Datos | DARIG – Consultores (Frutal)\n\n\nOctubre 2025 - Feb 2026\n\nDesarrollo de pipelines ETL Windows/Linux para la migración de bases de datos legacy (HFSQL) hacia Data Lakes en formato Parquet mediante contenedores Podman.\n\n\n\nCientífico de Datos | Centro Nacional de Control de Energía (CENACE)\n\n\nMayo 2024 - Feb 2025\n\nDesarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. Integración de sistemas de clasificación de tickets para mejorar la eficiencia de respuesta."
+    "objectID": "about.html#professional-experience",
+    "href": "about.html#professional-experience",
+    "title": "About Me",
+    "section": "Professional Experience",
+    "text": "Professional Experience\n\n\nData Scientist | CT Internacional\n\n\nFebruary 2025 - Present\n\nDevelopment of an agentic model for advanced hardware recommendations and automated sales. Implementation of RAG architecture with LangChain and OpenAI for dynamic inventory, pricing, and technical guide queries.\n\n\n\nData Scientist | DARIG – Consultores (Salsas Castillo)\n\n\nMarch 2025 - Feb 2026\n\nImplementation of an MCP (Model Context Protocol) for sales analysis and business KPIs. Design of function-calling agents (SQL) integrated into Telegram for automated PDF report generation.\n\n\n\nData Engineer | DARIG – Consultores (Frutal)\n\n\nOctober 2025 - Feb 2026\n\nDevelopment of Windows/Linux ETL pipelines for migrating legacy databases (HFSQL) to Data Lakes in Parquet format using Podman containers.\n\n\n\nData Scientist | National Energy Control Center (CENACE)\n\n\nMay 2024 - Feb 2025\n\nDevelopment of chatbots based on RAG systems to assist IT engineers. Integration of ticket classification systems to improve response efficiency."
   },
   {
-    "objectID": "about.html#habilidades-técnicas",
-    "href": "about.html#habilidades-técnicas",
-    "title": "Sobre mí",
-    "section": "Habilidades Técnicas",
-    "text": "Habilidades Técnicas\nLenguajes\nPython SQL NoSQL JavaScript\nIA & Data Science\nLangChain Ollama Hugging Face Scikit-learn Pandas NumPy Matplotlib Seaborn RAG MCP\nBases de Datos\nPostgreSQL MySQL MongoDB FAISS Redis HFSQL\nDesarrollo & DevOps\nFastAPI Docker/Podman Git/GitHub DagsHub\nCertificaciones\nData Analysis – DataCamp ML Scientist in Python – DataCamp Data Science with Python – DataCamp"
+    "objectID": "about.html#technical-skills",
+    "href": "about.html#technical-skills",
+    "title": "About Me",
+    "section": "Technical Skills",
+    "text": "Technical Skills\nLanguages\nPython SQL NoSQL JavaScript\nAI & Data Science\nLangChain Ollama Hugging Face Scikit-learn Pandas NumPy Matplotlib Seaborn RAG MCP\nDatabases\nPostgreSQL MySQL MongoDB FAISS Redis HFSQL\nDevelopment & DevOps\nFastAPI Docker/Podman Git/GitHub DagsHub\nCertifications\nData Analysis – DataCamp ML Scientist in Python – DataCamp Data Science with Python – DataCamp"
   },
   {
-    "objectID": "about.html#idiomas",
-    "href": "about.html#idiomas",
-    "title": "Sobre mí",
-    "section": "Idiomas",
-    "text": "Idiomas\n\n\n🇲🇽 Español — Nativo\n🇺🇸 Inglés — Fluido\n🇵🇹 Portugués — Fluido\n\n\n🇫🇷 Francés — Fluido\n🇯🇵 Japonés — Intermedio\n🇩🇪 Alemán — Intermedio"
+    "objectID": "about.html#languages",
+    "href": "about.html#languages",
+    "title": "About Me",
+    "section": "Languages",
+    "text": "Languages\n\n\n🇲🇽 Spanish — Native\n🇺🇸 English — Fluent\n🇵🇹 Portuguese — Fluent\n\n\n🇫🇷 French — Fluent\n🇯🇵 Japanese — Intermediate\n🇩🇪 German — Intermediate"
   },
   {
-    "objectID": "about.html#intereses",
-    "href": "about.html#intereses",
-    "title": "Sobre mí",
-    "section": "Intereses",
-    "text": "Intereses\nMe apasiona el aprendizaje continuo de idiomas y culturas — actualmente hablo 6 idiomas. Disfruto bailar y viajar, y me motiva profundamente aplicar tecnología para resolver problemas reales de negocio mediante datos e inteligencia artificial."
+    "objectID": "about.html#interests",
+    "href": "about.html#interests",
+    "title": "About Me",
+    "section": "Interests",
+    "text": "Interests\nI am passionate about continuous learning of languages and cultures — I currently speak 6 languages. I enjoy dancing and traveling, and I am deeply motivated by applying technology to solve real business problems through data and artificial intelligence."
   },
   {
     "objectID": "publicaciones.html",
     "href": "publicaciones.html",
-    "title": "Artículos y Publicaciones",
+    "title": "Articles and Publications",
     "section": "",
-    "text": "A continuación comparto mis publicaciones, donde profundizo en soluciones técnicas y guías paso a paso."
+    "text": "Below I share my publications, where I delve into technical solutions and step-by-step guides."
   },
   {
-    "objectID": "publicaciones.html#ia-agentes",
-    "href": "publicaciones.html#ia-agentes",
-    "title": "Artículos y Publicaciones",
-    "section": "IA & Agentes",
-    "text": "IA & Agentes\n\n\n\n\nTelegram-to-Notion Expense Tracker with Python and LLMs\nAgente conversacional para gestión de gastos\nConstruye un bot de Telegram que entiende lenguaje natural y ejecuta operaciones CRUD en Notion automáticamente, usando un agente LLM con tool-calling.\nTemas:\n\nPython & FastAPI\nLLM Agents (Tool-Calling)\nNotion API & Telegram\n\n\nIA Generativa Python Notion  Leer en Medium →\n\n\n\n\n\n\n\nPocket AI: Telegram Bot with Python\nDespliegue de LLMs en mensajería\nImplementa un bot con Python que consulta un LLM local vía Ollama: manejo de comandos, prompts y despliegue listo para uso personal.\nTemas:\n\nPython & Aiogram\nOllama (Local LLMs)\nGestión de APIs\n\n\nIA Generativa Python Ollama  Leer en Medium →"
+    "objectID": "publicaciones.html#ai-agents",
+    "href": "publicaciones.html#ai-agents",
+    "title": "Articles and Publications",
+    "section": "AI & Agents",
+    "text": "AI & Agents\n\n\n\n\nBuild a Local AI Coding Agent with llama.cpp\nSecure, local code assistance\nConstruct a coding assistant AI agent that runs entirely locally using llama.cpp, ensuring absolute source code privacy and zero recurring API costs.\nTopics:\n\nLocal LLMs (llama.cpp)\nAI Agents\nPython Development\n\n\nGenerative AI Python Open Source  Read on Medium →\n\n\n\n\n\n\n\nTelegram-to-Notion Expense Tracker with Python and LLMs\nConversational agent for expense management\nBuild a Telegram bot that understands natural language and executes CRUD operations on Notion automatically, using an LLM agent with tool-calling.\nTopics:\n\nPython & FastAPI\nLLM Agents (Tool-Calling)\nNotion API & Telegram\n\n\nGenerative AI Python Notion  Read on Medium →\n\n\n\n\n\n\n\nPocket AI: Telegram Bot with Python\nLLM deployment in messaging apps\nImplement a Python bot that queries a local LLM via Ollama: command handling, prompts, and a deployment ready for personal use.\nTopics:\n\nPython & Aiogram\nOllama (Local LLMs)\nAPI Management\n\n\nGenerative AI Python Ollama  Read on Medium →"
   },
   {
-    "objectID": "publicaciones.html#ingeniería-de-datos",
-    "href": "publicaciones.html#ingeniería-de-datos",
-    "title": "Artículos y Publicaciones",
-    "section": "Ingeniería de Datos",
-    "text": "Ingeniería de Datos\n\n\n\n\nConectando Python a HFSQL en Windows (ODBC + ETL)\nIngeniería de Datos en Windows\nPipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL en Python (consejos de drivers, compatibilidad y troubleshooting).\nTemas:\n\nETL\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering ETL HFSQL  Leer en Medium →\n\n\n\n\n\n\n\nConectando Python a HFSQL en Linux (ODBC + Docker/Podman)\nIngeniería de Datos en Linux\nConecta HFSQL legacy a entornos modernos en Linux usando contenedores y ODBC: instalación, configuración y pruebas de conexión con Python.\nTemas:\n\nDocker/Podman\nIngeniería de Datos\nLegacy Systems\n\n\nData Engineering Docker HFSQL  Leer en Medium →"
+    "objectID": "publicaciones.html#data-engineering",
+    "href": "publicaciones.html#data-engineering",
+    "title": "Articles and Publications",
+    "section": "Data Engineering",
+    "text": "Data Engineering\n\n\n\n\nConnecting Python to HFSQL on Windows (ODBC + ETL)\nData Engineering on Windows\nPractical pipeline to read HFSQL on Windows with ODBC and prepare data for ETL in Python (driver tips, compatibility, and troubleshooting).\nTopics:\n\nETL\nData Engineering\nLegacy Systems\n\n\nData Engineering ETL HFSQL  Read on Medium →\n\n\n\n\n\n\n\nConnecting Python to HFSQL on Linux (ODBC + Docker/Podman)\nData Engineering on Linux\nConnect legacy HFSQL to modern Linux environments using containers and ODBC: setup, configuration, and connection testing with Python.\nTopics:\n\nDocker/Podman\nData Engineering\nLegacy Systems\n\n\nData Engineering Docker HFSQL  Read on Medium →"
   },
   {
-    "objectID": "publicaciones.html#datos-apis",
-    "href": "publicaciones.html#datos-apis",
-    "title": "Artículos y Publicaciones",
-    "section": "Datos & APIs",
-    "text": "Datos & APIs\n\n\n\n\nFrom Beats to Data: An Easy Guide to Spotify’s API\nTutorial paso a paso del uso de la API\nAprende autenticación, endpoints clave y cómo convertir tus playlists en un dataset para análisis y visualización en Python.\nTemas:\n\nPython\nVisualización de datos\nGestión de APIs\n\n\nTutorial Python Spotify  Leer en Medium →"
+    "objectID": "publicaciones.html#data-apis",
+    "href": "publicaciones.html#data-apis",
+    "title": "Articles and Publications",
+    "section": "Data & APIs",
+    "text": "Data & APIs\n\n\n\n\nFrom Beats to Data: An Easy Guide to Spotify’s API\nStep-by-step API tutorial\nLearn authentication, key endpoints, and how to turn your playlists into a dataset for analysis and visualization in Python.\nTopics:\n\nPython\nData Visualization\nAPI Management\n\n\nTutorial Python Spotify  Read on Medium →"
   }
 ]

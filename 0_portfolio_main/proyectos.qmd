@@ -1,31 +1,31 @@
 ---
-title: "Proyectos e Implementaciones"
-subtitle: "Documentación técnica de soluciones empresariales basadas en IA y Datos."
+title: "Projects and Implementations"
+subtitle: "Technical documentation of business solutions based on AI and Data."
 title-block-banner: true
 toc: true
-toc-title: "Categorías"
+toc-title: "Categories"
 toc-depth: 2
 ---
 
-A continuación presento una selección de proyectos desarrollados bajo metodologías ágiles, enfocados en resolver problemas de negocio mediante IA Generativa y análisis de datos.
+Below is a selection of projects developed under agile methodologies, focused on solving business problems through Generative AI and data analytics.
 
-## IA Generativa & Agentes
+## Generative AI & Agents
 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100}
 ::: {.card-body}
-### Help Desk Inteligente (CENACE)
-**Optimización de Soporte Técnico con IA Privada**
+### Intelligent Help Desk (CENACE)
+**Technical Support Optimization with Private AI**
 
-Sistema diseñado para el Centro Nacional de Control de Energía. Resuelve la necesidad de automatizar la clasificación de incidentes y sugerir soluciones técnicas sin exponer datos sensibles a la nube pública.
+System designed for the National Energy Control Center. It solves the need to automate incident classification and suggest technical solutions without exposing sensitive data to the public cloud.
 
-**Puntos Clave:**
+**Key Points:**
 
-* Implementación de modelos **Open-Source (Gemma/Ollama)** para privacidad total de datos.
-* Arquitectura **RAG** para consulta de manuales técnicos internos.
-* Persistencia de historial y sesiones en **MongoDB**.
+* Implementation of **Open-Source models (Gemma/Ollama)** for total data privacy.
+* **RAG** architecture for querying internal technical manuals.
+* Persistence of history and sessions in **MongoDB**.
 
 ::: {.card-footer .bg-transparent .border-0}
 <span class="badge bg-primary">Python</span>
@@ -33,7 +33,7 @@ Sistema diseñado para el Centro Nacional de Control de Energía. Resuelve la ne
 <span class="badge bg-warning text-dark">Ollama</span>
 <span class="badge bg-info text-dark">FastAPI</span>
 <br><br>
-[Leer Documentación &rarr;](./1_cenace_helpdesk/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Read Documentation &rarr;](./1_cenace_helpdesk/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::
@@ -42,16 +42,16 @@ Sistema diseñado para el Centro Nacional de Control de Energía. Resuelve la ne
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100}
 ::: {.card-body}
-### Recomendador de Productos (CT)
-**Sistema de Ventas y Recomendación en Tiempo Real**
+### Product Recommender (CT)
+**Real-Time Sales and Recommendation System**
 
-Chatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un catálogo masivo en MySQL con un motor de búsqueda semántica, gestionando precios y existencias dinámicas.
+Advanced chatbot for hardware suggestions. Overcomes the challenge of connecting a massive MySQL catalog with a semantic search engine, managing dynamic prices and stock.
 
-**Puntos Clave:**
+**Key Points:**
 
-* Pipeline **ETL complejo** para sincronizar MySQL con Vector Stores (FAISS).
-* Solución de arquitectura "Mixed Content" mediante **Proxy PHP**.
-* Sistema de moderación de usuarios y widget personalizado en JS.
+* **Complex ETL pipeline** to synchronize MySQL with Vector Stores (FAISS).
+* "Mixed Content" architecture solution via **PHP Proxy**.
+* User moderation system and custom JS widget.
 
 ::: {.card-footer .bg-transparent .border-0}
 <span class="badge bg-primary">Python</span>
@@ -59,7 +59,7 @@ Chatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un
 <span class="badge bg-secondary">Docker/Podman</span>
 <span class="badge bg-dark">JavaScript</span>
 <br><br>
-[Leer Documentación &rarr;](./2_ct_chatbot/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Read Documentation &rarr;](./2_ct_chatbot/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::
@@ -68,16 +68,16 @@ Chatbot avanzado para sugerencias de hardware. Supera el desafío de conectar un
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100}
 ::: {.card-body}
-### Chatbot Financiero (Salsas Castillo)
-**Asistente de Ventas y Reportes Financieros**
+### Financial Chatbot (Salsas Castillo)
+**Sales and Financial Reports Assistant**
 
-Solución conversacional desplegada en Telegram para directivos y fuerza de ventas. Permite consultas en lenguaje natural sobre bases de datos transaccionales y normativas internas.
+Conversational solution deployed on Telegram for executives and the sales force. Allows natural language queries over transactional databases and internal regulations.
 
-**Puntos Clave:**
+**Key Points:**
 
-* Orquestación de **Herramientas SQL** para consultas de ventas en tiempo real.
-* Generación automática de **Reportes PDF** con análisis de IA.
-* Integración nativa con **Telegram API** y transcripción de audio (Whisper).
+* Orchestration of **SQL Tools** for real-time sales queries.
+* Automated generation of **PDF Reports** with AI analysis.
+* Native integration with **Telegram API** and audio transcription (Whisper).
 
 ::: {.card-footer .bg-transparent .border-0}
 <span class="badge bg-primary">Python</span>
@@ -85,7 +85,7 @@ Solución conversacional desplegada en Telegram para directivos y fuerza de vent
 <span class="badge bg-success">OpenAI API</span>
 <span class="badge bg-primary">Telegram</span>
 <br><br>
-[Leer Documentación &rarr;](./3_salsas_chatbot/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Read Documentation &rarr;](./3_salsas_chatbot/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::
@@ -95,7 +95,7 @@ Solución conversacional desplegada en Telegram para directivos y fuerza de vent
 
 ---
 
-## Ingeniería de Datos
+## Data Engineering
 
 ::: {.grid}
 
@@ -103,15 +103,15 @@ Solución conversacional desplegada en Telegram para directivos y fuerza de vent
 ::: {.card .h-100}
 ::: {.card-body}
 ### ETL & Data Engineering (Frutal)
-**Modernización de Arquitectura de Datos**
+**Data Architecture Modernization**
 
-Diseño de un pipeline robusto para migrar un sistema ERP legacy (HFSQL) hacia un Data Lake moderno, resolviendo incompatibilidades críticas de drivers.
+Design of a robust pipeline to migrate a legacy ERP system (HFSQL) to a modern Data Lake, resolving critical driver incompatibilities.
 
-**Puntos Clave:**
+**Key Points:**
 
-* Solución al error de **"Stack Smashing"** mediante aislamiento de procesos en Python.
-* Contenerización con **Podman** para unificar entornos de desarrollo (Windows) y producción (Linux).
-* Optimización de almacenamiento y lectura mediante conversión a formato **Parquet**.
+* Solution to the **"Stack Smashing"** error by isolating processes in Python.
+* Containerization with **Podman** to unify development (Windows) and production (Linux) environments.
+* Storage and read optimization by converting to **Parquet** format.
 
 ::: {.card-footer .bg-transparent .border-0}
 <span class="badge bg-secondary">Python</span>
@@ -119,7 +119,41 @@ Diseño de un pipeline robusto para migrar un sistema ERP legacy (HFSQL) hacia u
 <span class="badge bg-warning text-dark">HFSQL</span>
 <span class="badge bg-info text-dark">Parquet</span>
 <br><br>
-[Leer Documentación &rarr;](./4_frutal/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Read Documentation &rarr;](./4_frutal/index.html){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
+:::
+
+:::
+
+---
+
+## Data Science & Analytics
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### Customer Analytics (CT)
+**From Analysis to Production**
+
+Customer Analytics platform built for CT Internacional. It covers everything from RFM segmentation and identifying association rules (Market Basket), to the deployment of a daily ETL pipeline and an interactive dashboard.
+
+**Key Points:**
+
+* **K-Means (Segmentation)** and **FP-Growth (Market Basket)** models.
+* **Modular ETL pipeline** persisted in Parquet.
+* Operational dashboard built with **FastAPI, DuckDB, and Plotly**.
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-primary">Python</span>
+<span class="badge bg-success">Scikit-Learn</span>
+<span class="badge bg-warning text-dark">FastAPI</span>
+<span class="badge bg-info text-dark">DuckDB</span>
+<br><br>
+[Read Documentation &rarr;](./5_ct_dashboard/0_home.html){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::

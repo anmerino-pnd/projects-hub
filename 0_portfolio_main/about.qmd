@@ -1,120 +1,106 @@
 ---
-title: "Sobre mí"
+title: "About Me"
 about:
   template: solana
   image: ./images/profile.png
   image-width: 15em
 toc: true
-toc-title: "Contenido"
+toc-title: "Content"
 toc-depth: 2
 ---
 
 ::: {style="text-align: justify"}
 
-Soy un profesional apasionado por la intersección entre la ingeniería 
-y la ciencia de datos. Actualmente curso la **Maestría en Ciencia de 
-Datos** en la Universidad de Sonora, enfocándome en el Procesamiento 
-de Lenguaje Natural (NLP) y el desarrollo de Modelos de Lenguaje 
-Grande (LLMs).
+I am a professional passionate about the intersection between engineering and data science. Currently, I am pursuing a **Master's Degree in Data Science** at the Universidad de Sonora, focusing on Natural Language Processing (NLP) and the development of Large Language Models (LLMs).
 
-Mi experiencia combina la solidez analítica de la ingeniería química 
-con las herramientas modernas de desarrollo de software y análisis 
-de datos.
+My experience combines the analytical foundation of chemical engineering with modern software development and data analysis tools.
 
 :::
 
 ::: {style="text-align: justify"}
 
-## Educación
+## Education
 
 :::{.cv-entry}
 :::{.cv-header}
-[Maestría en Ciencia de Datos]{.cv-title} | Universidad de Sonora
+[Master's Degree in Data Science]{.cv-title} | Universidad de Sonora
 :::
 :::{.cv-subtitle}
-Agosto 2023 - Presente
+August 2023 - Present
 :::
-Enfoque en Python, SQL, bases de datos NoSQL, procesos ETL, modelos de 
-aprendizaje automático, redes neuronales, NLP y análisis de series de tiempo.
+Focus on Python, SQL, NoSQL databases, ETL processes, machine learning models, neural networks, NLP, and time series analysis.
 :::
 
 :::{.cv-entry}
 :::{.cv-header}
-[Licenciatura en Ingeniería Química]{.cv-title} | Universidad de Sonora
+[Bachelor's Degree in Chemical Engineering]{.cv-title} | Universidad de Sonora
 :::
 :::{.cv-subtitle}
-Agosto 2018 - Junio 2023
+August 2018 - June 2023
 :::
-Habilidades en simulación y optimización de procesos (MATLAB, ASPEN HYSYS).
+Skills in process simulation and optimization (MATLAB, ASPEN HYSYS).
 :::
 
 :::
 
 ::: {style="text-align: justify"}
 
-## Experiencia Profesional
+## Professional Experience
 
 :::{.cv-entry}
 :::{.cv-header}
-[Científico de Datos]{.cv-title} | CT Internacional
+[Data Scientist]{.cv-title} | CT Internacional
 :::
 :::{.cv-subtitle}
-Febrero 2025 - Presente
+February 2025 - Present
 :::
-Desarrollo de un modelo agéntico para recomendaciones avanzadas de hardware 
-y ventas automatizadas. Implementación de arquitectura RAG con LangChain y 
-OpenAI para consultas dinámicas de inventario, precios y guías técnicas.
-:::
-
-:::{.cv-entry}
-:::{.cv-header}
-[Científico de Datos]{.cv-title} | DARIG – Consultores (Salsas Castillo)
-:::
-:::{.cv-subtitle}
-Marzo 2025 - Feb 2026
-:::
-Implementación de un MCP (Model Context Protocol) para análisis de ventas 
-y KPIs empresariales. Diseño de agentes con function-calling (SQL) integrados 
-en Telegram para la generación automatizada de reportes PDF.
+Development of an agentic model for advanced hardware recommendations and automated sales. Implementation of RAG architecture with LangChain and OpenAI for dynamic inventory, pricing, and technical guide queries.
 :::
 
 :::{.cv-entry}
 :::{.cv-header}
-[Ingeniero de Datos]{.cv-title} | DARIG – Consultores (Frutal)
+[Data Scientist]{.cv-title} | DARIG – Consultores (Salsas Castillo)
 :::
 :::{.cv-subtitle}
-Octubre 2025 - Feb 2026
+March 2025 - Feb 2026
 :::
-Desarrollo de pipelines ETL Windows/Linux para la migración de bases de datos 
-legacy (HFSQL) hacia Data Lakes en formato Parquet mediante contenedores Podman.
+Implementation of an MCP (Model Context Protocol) for sales analysis and business KPIs. Design of function-calling agents (SQL) integrated into Telegram for automated PDF report generation.
 :::
 
 :::{.cv-entry}
 :::{.cv-header}
-[Científico de Datos]{.cv-title} | Centro Nacional de Control de Energía (CENACE)
+[Data Engineer]{.cv-title} | DARIG – Consultores (Frutal)
 :::
 :::{.cv-subtitle}
-Mayo 2024 - Feb 2025
+October 2025 - Feb 2026
 :::
-Desarrollo de chatbots basados en sistemas RAG para asistir a ingenieros de TI. 
-Integración de sistemas de clasificación de tickets para mejorar la eficiencia 
-de respuesta.
+Development of Windows/Linux ETL pipelines for migrating legacy databases (HFSQL) to Data Lakes in Parquet format using Podman containers.
+:::
+
+:::{.cv-entry}
+:::{.cv-header}
+[Data Scientist]{.cv-title} | National Energy Control Center (CENACE)
+:::
+:::{.cv-subtitle}
+May 2024 - Feb 2025
+:::
+Development of chatbots based on RAG systems to assist IT engineers. Integration of ticket classification systems to improve response efficiency.
 :::
 
 :::
 
 ::: {style="text-align: justify"}
 
-## Habilidades Técnicas
+## Technical Skills
 
-**Lenguajes**
+**Languages**
 
 <span class="badge bg-primary">Python</span>
 <span class="badge bg-secondary">SQL</span>
 <span class="badge bg-info text-dark">NoSQL</span>
 <span class="badge bg-dark">JavaScript</span>
 
-**IA & Data Science**
+**AI & Data Science**
 
 <span class="badge bg-success">LangChain</span>
 <span class="badge bg-warning text-dark">Ollama</span>
@@ -127,7 +113,7 @@ de respuesta.
 <span class="badge bg-success">RAG</span>
 <span class="badge bg-primary">MCP</span>
 
-**Bases de Datos**
+**Databases**
 
 <span class="badge bg-danger">PostgreSQL</span>
 <span class="badge bg-danger">MySQL</span>
@@ -136,14 +122,14 @@ de respuesta.
 <span class="badge bg-dark">Redis</span>
 <span class="badge bg-warning text-dark">HFSQL</span>
 
-**Desarrollo & DevOps**
+**Development & DevOps**
 
 <span class="badge bg-info text-dark">FastAPI</span>
 <span class="badge bg-dark">Docker/Podman</span>
 <span class="badge bg-secondary">Git/GitHub</span>
 <span class="badge bg-primary">DagsHub</span>
 
-**Certificaciones**
+**Certifications**
 
 <span class="badge bg-success">Data Analysis – DataCamp</span>
 <span class="badge bg-success">ML Scientist in Python – DataCamp</span>
@@ -153,24 +139,24 @@ de respuesta.
 
 ::: {style="text-align: justify"}
 
-## Idiomas
+## Languages
 
 :::{.grid}
 
 :::{.g-col-6}
-🇲🇽 **Español** — Nativo
+🇲🇽 **Spanish** — Native
 
-🇺🇸 **Inglés** — Fluido
+🇺🇸 **English** — Fluent
 
-🇵🇹 **Portugués** — Fluido
+🇵🇹 **Portuguese** — Fluent
 :::
 
 :::{.g-col-6}
-🇫🇷 **Francés** — Fluido
+🇫🇷 **French** — Fluent
 
-🇯🇵 **Japonés** — Intermedio
+🇯🇵 **Japanese** — Intermediate
 
-🇩🇪 **Alemán** — Intermedio
+🇩🇪 **German** — Intermediate
 :::
 
 :::
@@ -179,11 +165,8 @@ de respuesta.
 
 ::: {style="text-align: justify"}
 
-##  Intereses
+## Interests
 
-Me apasiona el aprendizaje continuo de idiomas y culturas — actualmente 
-hablo 6 idiomas. Disfruto bailar y viajar, y me motiva profundamente 
-aplicar tecnología para resolver problemas reales de negocio mediante 
-datos e inteligencia artificial.
+I am passionate about continuous learning of languages and cultures — I currently speak 6 languages. I enjoy dancing and traveling, and I am deeply motivated by applying technology to solve real business problems through data and artificial intelligence.
 
 :::

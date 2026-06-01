@@ -1,38 +1,64 @@
 ---
-title: "Artículos y Publicaciones"
-subtitle: "Guías técnicas, tutoriales y divulgación sobre ciencia e ingeniería de datos."
+title: "Articles and Publications"
+subtitle: "Technical guides, tutorials, and insights on data science and engineering."
 title-block-banner: true
 toc: true
 toc-depth: 2
-toc-title: "Categorías"
+toc-title: "Categories"
 ---
 
-A continuación comparto mis publicaciones, donde profundizo en soluciones técnicas y guías paso a paso.
+Below I share my publications, where I delve into technical solutions and step-by-step guides.
 
-## IA & Agentes
+## AI & Agents
 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100}
 ::: {.card-body}
+### Build a Local AI Coding Agent with llama.cpp
+**Secure, local code assistance**
+
+Construct a coding assistant AI agent that runs entirely locally using llama.cpp, ensuring absolute source code privacy and zero recurring API costs.
+
+**Topics:**
+
+* Local LLMs (llama.cpp)
+* AI Agents
+* Python Development
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-dark">Generative AI</span>
+<span class="badge bg-secondary">Python</span>
+<span class="badge bg-success">Open Source</span>
+<br><br>
+[Read on Medium &rarr;](https://medium.com/towards-artificial-intelligence/build-local-ai-coding-agent-llama-cpp-826a8357b510){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
+:::
+
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
 ### Telegram-to-Notion Expense Tracker with Python and LLMs
-**Agente conversacional para gestión de gastos**
+**Conversational agent for expense management**
 
-Construye un bot de Telegram que entiende lenguaje natural y ejecuta operaciones CRUD en Notion automáticamente, usando un agente LLM con tool-calling.
+Build a Telegram bot that understands natural language and executes CRUD operations on Notion automatically, using an LLM agent with tool-calling.
 
-**Temas:**
+**Topics:**
 
 * Python & FastAPI
 * LLM Agents (Tool-Calling)
 * Notion API & Telegram
 
 ::: {.card-footer .bg-transparent .border-0}
-<span class="badge bg-dark">IA Generativa</span>
+<span class="badge bg-dark">Generative AI</span>
 <span class="badge bg-secondary">Python</span>
 <span class="badge bg-success">Notion</span>
 <br><br>
-[Leer en Medium &rarr;](https://medium.com/mcd-unison/telegram-notion-ai-expense-tracker-14ff0c6bb954){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Read on Medium &rarr;](https://medium.com/mcd-unison/telegram-notion-ai-expense-tracker-14ff0c6bb954){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::
@@ -42,22 +68,22 @@ Construye un bot de Telegram que entiende lenguaje natural y ejecuta operaciones
 ::: {.card .h-100}
 ::: {.card-body}
 ### Pocket AI: Telegram Bot with Python
-**Despliegue de LLMs en mensajería**
+**LLM deployment in messaging apps**
 
-Implementa un bot con Python que consulta un LLM local vía Ollama: manejo de comandos, prompts y despliegue listo para uso personal.
+Implement a Python bot that queries a local LLM via Ollama: command handling, prompts, and a deployment ready for personal use.
 
-**Temas:**
+**Topics:**
 
 * Python & Aiogram
 * Ollama (Local LLMs)
-* Gestión de APIs
+* API Management
 
 ::: {.card-footer .bg-transparent .border-0}
-<span class="badge bg-dark">IA Generativa</span>
+<span class="badge bg-dark">Generative AI</span>
 <span class="badge bg-secondary">Python</span>
 <span class="badge bg-success">Ollama</span>
 <br><br>
-[Leer en Medium &rarr;](https://medium.com/mcd-unison/pocket-ai-telegram-bot-python-ollama-01da2c4d05df){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Read on Medium &rarr;](https://medium.com/mcd-unison/pocket-ai-telegram-bot-python-ollama-01da2c4d05df){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::
@@ -67,22 +93,22 @@ Implementa un bot con Python que consulta un LLM local vía Ollama: manejo de co
 
 ---
 
-## Ingeniería de Datos
+## Data Engineering
 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100}
 ::: {.card-body}
-### Conectando Python a HFSQL en Windows (ODBC + ETL)
-**Ingeniería de Datos en Windows**
+### Connecting Python to HFSQL on Windows (ODBC + ETL)
+**Data Engineering on Windows**
 
-Pipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL en Python (consejos de drivers, compatibilidad y troubleshooting).
+Practical pipeline to read HFSQL on Windows with ODBC and prepare data for ETL in Python (driver tips, compatibility, and troubleshooting).
 
-**Temas:**
+**Topics:**
 
 * ETL
-* Ingeniería de Datos
+* Data Engineering
 * Legacy Systems
 
 ::: {.card-footer .bg-transparent .border-0}
@@ -90,7 +116,7 @@ Pipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL
 <span class="badge bg-secondary">ETL</span>
 <span class="badge bg-success">HFSQL</span>
 <br><br>
-[Leer en Medium &rarr;](https://medium.com/mcd-unison/python-hfsql-etl-windows-5f54b73033fb){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Read on Medium &rarr;](https://medium.com/mcd-unison/python-hfsql-etl-windows-5f54b73033fb){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::
@@ -99,15 +125,15 @@ Pipeline práctico para leer HFSQL en Windows con ODBC y preparar datos para ETL
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100}
 ::: {.card-body}
-### Conectando Python a HFSQL en Linux (ODBC + Docker/Podman)
-**Ingeniería de Datos en Linux**
+### Connecting Python to HFSQL on Linux (ODBC + Docker/Podman)
+**Data Engineering on Linux**
 
-Conecta HFSQL legacy a entornos modernos en Linux usando contenedores y ODBC: instalación, configuración y pruebas de conexión con Python.
+Connect legacy HFSQL to modern Linux environments using containers and ODBC: setup, configuration, and connection testing with Python.
 
-**Temas:**
+**Topics:**
 
 * Docker/Podman
-* Ingeniería de Datos
+* Data Engineering
 * Legacy Systems
 
 ::: {.card-footer .bg-transparent .border-0}
@@ -115,7 +141,7 @@ Conecta HFSQL legacy a entornos modernos en Linux usando contenedores y ODBC: in
 <span class="badge bg-secondary">Docker</span>
 <span class="badge bg-success">HFSQL</span>
 <br><br>
-[Leer en Medium &rarr;](https://medium.com/mcd-unison/python-hfsql-linux-connection-2f05aa961e5b){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Read on Medium &rarr;](https://medium.com/mcd-unison/python-hfsql-linux-connection-2f05aa961e5b){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::
@@ -125,7 +151,7 @@ Conecta HFSQL legacy a entornos modernos en Linux usando contenedores y ODBC: in
 
 ---
 
-## Datos & APIs
+## Data & APIs
 
 ::: {.grid}
 
@@ -133,22 +159,22 @@ Conecta HFSQL legacy a entornos modernos en Linux usando contenedores y ODBC: in
 ::: {.card .h-100}
 ::: {.card-body}
 ### From Beats to Data: An Easy Guide to Spotify's API
-**Tutorial paso a paso del uso de la API**
+**Step-by-step API tutorial**
 
-Aprende autenticación, endpoints clave y cómo convertir tus playlists en un dataset para análisis y visualización en Python.
+Learn authentication, key endpoints, and how to turn your playlists into a dataset for analysis and visualization in Python.
 
-**Temas:**
+**Topics:**
 
 * Python
-* Visualización de datos
-* Gestión de APIs
+* Data Visualization
+* API Management
 
 ::: {.card-footer .bg-transparent .border-0}
 <span class="badge bg-dark">Tutorial</span>
 <span class="badge bg-secondary">Python</span>
 <span class="badge bg-success">Spotify</span>
 <br><br>
-[Leer en Medium &rarr;](https://medium.com/mcd-unison/from-data-to-beats-an-easy-guide-to-spotifys-api-a646432ca0e1){.btn .btn-outline-primary .btn-sm .stretched-link}
+[Read on Medium &rarr;](https://medium.com/mcd-unison/from-data-to-beats-an-easy-guide-to-spotifys-api-a646432ca0e1){.btn .btn-outline-primary .btn-sm .stretched-link}
 :::
 :::
 :::

@@ -1,19 +1,16 @@
 ---
-title: "Portafolio de Ciencia de Datos e IA"
-subtitle: "Ingeniería de Datos, LLMs, Sistemas Agénticos, MCPs y RAG."
+title: "Data Science & AI Portfolio"
+subtitle: "Data Engineering, LLMs, Agentic Systems, MCPs, and RAG."
 about:
   template: jolla
   image: ./images/profile.png
 ---
 
-Soy **Ángel Alberto Merino Cedeño**, estudiante de Maestría en 
-Ciencia de Datos especializado en el desarrollo de Sistemas de 
-IA Generativa, Chatbots RAG y Arquitecturas de Datos.
+I am **Ángel Alberto Merino Cedeño**, a Master's student in Data Science specializing in the development of Generative AI Systems, RAG Chatbots, and Data Architectures.
 
-Aquí encontrarás documentación técnica detallada sobre mis 
-implementaciones más recientes.
+Here you will find detailed technical documentation on my most recent implementations.
 
 ::: {style="text-align: center; margin-top: 1.5rem;"}
-[Ver Proyectos &rarr;](./proyectos.html){.btn .btn-primary .me-2}
-[Sobre Mí &rarr;](./about.html){.btn .btn-outline-secondary}
+[View Projects &rarr;](./proyectos.html){.btn .btn-primary .me-2}
+[About Me &rarr;](./about.html){.btn .btn-outline-secondary}
 :::
