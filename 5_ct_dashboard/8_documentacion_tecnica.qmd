@@ -514,6 +514,7 @@ sequenceDiagram
     DuckDB-->>FastAPI: filtered rows
     FastAPI-->>Browser: JSON
 ```
+
 :::
 
 ::: {style="text-align: justify"}
