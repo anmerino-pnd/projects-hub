@@ -16,6 +16,31 @@ Below I share my publications, where I delve into technical solutions and step-b
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100}
 ::: {.card-body}
+### Turned Telegram Into a Local AI Voice Studio
+**Voice generation, design, and cloning**
+
+Designed a Telegram assistant capable of voice generation, voice design, and multi-step voice cloning conversations using local inference.
+
+**Topics:**
+
+* Local Models (Qwen3-TTS)
+* Python & FastAPI
+* Telegram Bot
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-dark">Generative AI</span>
+<span class="badge bg-secondary">Python</span>
+<span class="badge bg-success">PyTorch</span>
+<br><br>
+[Read on Medium &rarr;](https://medium.com/towards-artificial-intelligence/telegram-ai-voice-clone-3b8a4768c819){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
 ### Build a Local AI Coding Agent with llama.cpp
 **Secure, local code assistance**
 
@@ -37,7 +62,6 @@ Construct a coding assistant AI agent that runs entirely locally using llama.cpp
 :::
 :::
 :::
-
 
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100}
@@ -154,6 +178,31 @@ Connect legacy HFSQL to modern Linux environments using containers and ODBC: set
 ## Data & APIs
 
 ::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### I Built a Telegram Bot That Tells Me When My Stocks Are "Cheap"
+**Market monitor with technical indicators**
+
+A walkthrough of building a personal market monitor using Bollinger Bands, RSI, and Python to notify you of state changes in your watchlist.
+
+**Topics:**
+
+* Python & Telegram Bot
+* Technical Analysis
+* APIs (yfinance)
+
+::: {.card-footer .bg-transparent .border-0}
+<span class="badge bg-dark">Data Analysis</span>
+<span class="badge bg-secondary">Python</span>
+<span class="badge bg-success">APIs</span>
+<br><br>
+[Read on Medium &rarr;](https://medium.com/towards-artificial-intelligence/build-telegram-bot-python-etf-monitor-255db3b7b4eb){.btn .btn-outline-primary .btn-sm .stretched-link}
+:::
+:::
+:::
+:::
 
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100}

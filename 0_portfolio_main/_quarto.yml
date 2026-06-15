@@ -12,19 +12,19 @@ project:
 
 website:
   favicon: ./images/favicon.png
-  title: "Angel Merino | Portafolio de Proyectos"
+  title: "Angel Merino | Project Portfolio"
   navbar:
     left:
       - href: index.qmd
-        text: Inicio
+        text: Home
       - href: about.qmd
-        text: Sobre Mí
+        text: About Me
       - href: proyectos.qmd
-        text: Proyectos
+        text: Projects
       - href: publicaciones.qmd
-        text: Publicaciones
+        text: Publications
       - href: certificados.qmd   
-        text: Certificados
+        text: Certificates
     right:
       - icon: github
         href: https://github.com/anmerino-pnd
@@ -44,4 +44,4 @@ format:
     css: styles.css
     toc: false
 
-lang: es
+lang: en
