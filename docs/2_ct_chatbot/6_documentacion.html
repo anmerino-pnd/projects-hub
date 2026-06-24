@@ -2185,11 +2185,56 @@ enabled</code></pre>
 <li>Los datos se transforman y las fichas técnicas se cargan en <strong>MongoDB</strong> (colección <code>specifications</code>).</li>
 <li>Los datos transformados de <code>products</code> y <code>sales</code> (incluyendo las fichas técnicas obtenidas de MongoDB) son utilizados por el <strong>módulo ETL</strong> para construir y actualizar la <strong>base de datos vectorial</strong>.</li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./images/arquitectura.jpg" class="img-fluid figure-img" style="width:120.0%"></p>
-<figcaption>Arquitectura del sistema</figcaption>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-arquitectura" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-arquitectura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-arquitectura">flowchart TB
+    U["Usuario"] --&gt; W["Widget SDK&lt;br/&gt;barra lateral · streaming&lt;br/&gt;tarjetas y sugerencias"]
+    W --&gt;|"HTTPS directo"| CF["Cloudflare&lt;br/&gt;dominio certificado"]
+    CF --&gt; API
+
+    subgraph SRV["Servidor — FastAPI + Gunicorn / Uvicorn"]
+        API["API FastAPI&lt;br/&gt;/chat (SSE) · /history · /sdk&lt;br/&gt;CORS allowlist · Origin · rate limit"]
+        MOD["ModeratedToolAgent"]
+        CLS{"QueryModerator&lt;br/&gt;GPT-4.1-mini"}
+        AG["ToolAgent · GPT-5&lt;br/&gt;create_agent (LangGraph)&lt;br/&gt;astream token a token"]
+        RESP["Respuesta predefinida&lt;br/&gt;+ ban progresivo"]
+        TOOLS["Herramientas&lt;br/&gt;algolia · sales_rules (batch) · status&lt;br/&gt;dólar · soporte · sucursales · who_are_we"]
+        API --&gt; MOD --&gt; CLS
+        CLS --&gt;|"relevante"| AG
+        CLS --&gt;|"irrelevante / inapropiado"| RESP
+        AG --&gt; TOOLS
+    end
+
+    AG -.-&gt;|"respuesta en streaming"| W
+    TOOLS --&gt; ALG["Algolia&lt;br/&gt;búsqueda de productos"]
+    TOOLS --&gt; MYSQL[("MySQL · pool&lt;br/&gt;precios · existencias · promos")]
+    TOOLS --&gt; FAISS[("FAISS&lt;br/&gt;soporte · políticas · garantías")]
+    AG --&gt; MONGO[("MongoDB&lt;br/&gt;sessions · message_backup&lt;br/&gt;specifications · pedidos")]
+    TOOLS --&gt; MONGO
+
+    subgraph KB["Conocimiento y ETL"]
+        ETL["ETL&lt;br/&gt;extraction → transform → load"]
+        FICHAS["Servicio de fichas técnicas"]
+    end
+    MYSQL --&gt; ETL
+    FICHAS --&gt; ETL
+    ETL --&gt; FAISS
+    ETL --&gt; MONGO
+
+    MONGO --&gt; REP["Reportes (Streamlit)&lt;br/&gt;análisis · RAGAS"]
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-arquitectura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Arquitectura actual del sistema
+</figcaption>
 </figure>
+</div>
+</div>
 </div>
 </section>
 </section>

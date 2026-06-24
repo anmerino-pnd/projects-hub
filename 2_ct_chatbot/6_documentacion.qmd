@@ -1657,7 +1657,45 @@ El siguiente diagrama ilustra la arquitectura general del ssitema del chatbot, m
 2. Los datos se transforman y las fichas técnicas se cargan en **MongoDB** (colección `specifications`).
 3. Los datos transformados  de `products` y `sales` (incluyendo las fichas técnicas obtenidas de MongoDB) son utilizados por el **módulo ETL** para construir y actualizar la **base de datos vectorial**.
 
-![Arquitectura del sistema](./images/arquitectura.jpg){width=120%}
+```{mermaid}
+%%| label: fig-arquitectura
+%%| fig-cap: "Arquitectura actual del sistema"
+flowchart TB
+    U["Usuario"] --> W["Widget SDK<br/>barra lateral · streaming<br/>tarjetas y sugerencias"]
+    W -->|"HTTPS directo"| CF["Cloudflare<br/>dominio certificado"]
+    CF --> API
+
+    subgraph SRV["Servidor — FastAPI + Gunicorn / Uvicorn"]
+        API["API FastAPI<br/>/chat (SSE) · /history · /sdk<br/>CORS allowlist · Origin · rate limit"]
+        MOD["ModeratedToolAgent"]
+        CLS{"QueryModerator<br/>GPT-4.1-mini"}
+        AG["ToolAgent · GPT-5<br/>create_agent (LangGraph)<br/>astream token a token"]
+        RESP["Respuesta predefinida<br/>+ ban progresivo"]
+        TOOLS["Herramientas<br/>algolia · sales_rules (batch) · status<br/>dólar · soporte · sucursales · who_are_we"]
+        API --> MOD --> CLS
+        CLS -->|"relevante"| AG
+        CLS -->|"irrelevante / inapropiado"| RESP
+        AG --> TOOLS
+    end
+
+    AG -.->|"respuesta en streaming"| W
+    TOOLS --> ALG["Algolia<br/>búsqueda de productos"]
+    TOOLS --> MYSQL[("MySQL · pool<br/>precios · existencias · promos")]
+    TOOLS --> FAISS[("FAISS<br/>soporte · políticas · garantías")]
+    AG --> MONGO[("MongoDB<br/>sessions · message_backup<br/>specifications · pedidos")]
+    TOOLS --> MONGO
+
+    subgraph KB["Conocimiento y ETL"]
+        ETL["ETL<br/>extraction → transform → load"]
+        FICHAS["Servicio de fichas técnicas"]
+    end
+    MYSQL --> ETL
+    FICHAS --> ETL
+    ETL --> FAISS
+    ETL --> MONGO
+
+    MONGO --> REP["Reportes (Streamlit)<br/>análisis · RAGAS"]
+```
 :::
 
 ::: {style="text-align: justify"}
