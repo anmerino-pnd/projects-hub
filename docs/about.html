@@ -172,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="cv-title">Master’s Degree in Data Science</span> | Universidad de Sonora</p>
 </div>
 <div class="cv-subtitle">
-<p>August 2023 - Present</p>
+<p>August 2023 - June 2026</p>
 </div>
 <p>Focus on Python, SQL, NoSQL databases, ETL processes, machine learning models, neural networks, NLP, and time series analysis.</p>
 </div>
@@ -195,7 +195,8 @@ ul.task-list li input[type="checkbox"] {
 <div class="cv-subtitle">
 <p>February 2025 - Present</p>
 </div>
-<p>Development of an agentic model for advanced hardware recommendations and automated sales. Implementation of RAG architecture with LangChain and OpenAI for dynamic inventory, pricing, and technical guide queries.</p>
+<p>Engineered and deployed a production-grade multi-agent chatbot with LangGraph and Vertex AI (Gemini), migrating from LangChain/OpenAI, with a multi-tool RAG pipeline over structured and semi-structured data (SQL, XML, PDF) for product search, promotions, and warranty queries. Built an LLM-as-judge monitoring stack and a GitHub Actions + Podman CI/CD pipeline for reproducible deployments. Also built and deployed <strong>Pulse</strong>, a customer analytics platform automating RFM/K-Means segmentation and FP-Growth market basket analysis behind a FastAPI + DuckDB + Plotly dashboard, running self-supervised on an on-premise server.</p>
+<p><a href="./2_ct_chatbot/index.html">Read more about the chatbot →</a> · <a href="./5_ct_dashboard/0_home.html">Read more about Pulse →</a></p>
 </div>
 <div class="cv-entry">
 <div class="cv-header">
@@ -204,7 +205,8 @@ ul.task-list li input[type="checkbox"] {
 <div class="cv-subtitle">
 <p>March 2025 - Feb 2026</p>
 </div>
-<p>Implementation of an MCP (Model Context Protocol) for sales analysis and business KPIs. Design of function-calling agents (SQL) integrated into Telegram for automated PDF report generation.</p>
+<p>Developed <strong>GlorIA</strong>, an internal AI assistant with OpenAI function-calling and SQL toolkits to automate executive reporting, integrated with Telegram for on-the-go KPI queries. Led the architectural transition from a RAG prototype to a Model Context Protocol (MCP) framework, enabling autonomous SQL execution and improving long-term maintainability.</p>
+<p><a href="./3_salsas_chatbot/index.html">Read more →</a></p>
 </div>
 <div class="cv-entry">
 <div class="cv-header">
@@ -213,16 +215,18 @@ ul.task-list li input[type="checkbox"] {
 <div class="cv-subtitle">
 <p>October 2025 - Feb 2026</p>
 </div>
-<p>Development of Windows/Linux ETL pipelines for migrating legacy databases (HFSQL) to Data Lakes in Parquet format using Podman containers.</p>
+<p>Resolved critical Stack Smashing memory errors caused by unstable legacy ODBC drivers by designing a containerized (Podman) cross-platform ETL pipeline, migrating 6 production tables from a legacy HFSQL database to Parquet format on Google Cloud Platform for executive dashboards.</p>
+<p><a href="./4_frutal/index.html">Read more →</a></p>
 </div>
 <div class="cv-entry">
 <div class="cv-header">
 <p><span class="cv-title">Data Scientist</span> | National Energy Control Center (CENACE)</p>
 </div>
 <div class="cv-subtitle">
-<p>May 2024 - Feb 2025</p>
+<p>May 2024 - Feb 2026</p>
 </div>
-<p>Development of chatbots based on RAG systems to assist IT engineers. Integration of ticket classification systems to improve response efficiency.</p>
+<p>Designed a secure, on-premise RAG system (FastAPI, Ollama, FAISS) to optimize the IT help desk’s incident resolution across 2,800 historical tickets, achieving a 24.4-second average response time and a 4.4/5 technical precision rating. Built an automated feedback loop to re-ingest high-rated responses and an ML-based ticket classification system to streamline triage.</p>
+<p><a href="./1_cenace_helpdesk/index.html">Read more →</a></p>
 </div>
 </section>
 <section id="technical-skills" class="level2" style="text-align: justify">
@@ -230,11 +234,11 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Languages</strong></p>
 <p><span class="badge bg-primary">Python</span> <span class="badge bg-secondary">SQL</span> <span class="badge bg-info text-dark">NoSQL</span> <span class="badge bg-dark">JavaScript</span></p>
 <p><strong>AI &amp; Data Science</strong></p>
-<p><span class="badge bg-success">LangChain</span> <span class="badge bg-warning text-dark">Ollama</span> <span class="badge bg-info text-dark">Hugging Face</span> <span class="badge bg-secondary">Scikit-learn</span> <span class="badge bg-dark">Pandas</span> <span class="badge bg-secondary">NumPy</span> <span class="badge bg-info text-dark">Matplotlib</span> <span class="badge bg-warning text-dark">Seaborn</span> <span class="badge bg-success">RAG</span> <span class="badge bg-primary">MCP</span></p>
+<p><span class="badge bg-success">LangChain</span> <span class="badge bg-primary">LangGraph</span> <span class="badge bg-info text-dark">Vertex AI / Gemini</span> <span class="badge bg-warning text-dark">Ollama</span> <span class="badge bg-info text-dark">Hugging Face</span> <span class="badge bg-secondary">Scikit-learn</span> <span class="badge bg-dark">Pandas</span> <span class="badge bg-secondary">NumPy</span> <span class="badge bg-info text-dark">Matplotlib</span> <span class="badge bg-warning text-dark">Seaborn</span> <span class="badge bg-success">RAG</span> <span class="badge bg-primary">MCP</span></p>
 <p><strong>Databases</strong></p>
-<p><span class="badge bg-danger">PostgreSQL</span> <span class="badge bg-danger">MySQL</span> <span class="badge bg-success">MongoDB</span> <span class="badge bg-secondary">FAISS</span> <span class="badge bg-dark">Redis</span> <span class="badge bg-warning text-dark">HFSQL</span></p>
+<p><span class="badge bg-danger">PostgreSQL</span> <span class="badge bg-danger">MySQL</span> <span class="badge bg-success">MongoDB</span> <span class="badge bg-secondary">FAISS</span> <span class="badge bg-dark">Redis</span> <span class="badge bg-warning text-dark">HFSQL</span> <span class="badge bg-info text-dark">DuckDB</span></p>
 <p><strong>Development &amp; DevOps</strong></p>
-<p><span class="badge bg-info text-dark">FastAPI</span> <span class="badge bg-dark">Docker/Podman</span> <span class="badge bg-secondary">Git/GitHub</span> <span class="badge bg-primary">DagsHub</span></p>
+<p><span class="badge bg-info text-dark">FastAPI</span> <span class="badge bg-dark">Docker/Podman</span> <span class="badge bg-secondary">Git/GitHub</span> <span class="badge bg-primary">DagsHub</span> <span class="badge bg-danger">GCP</span> <span class="badge bg-success">Plotly</span></p>
 <p><strong>Certifications</strong></p>
 <p><span class="badge bg-success">Data Analysis – DataCamp</span> <span class="badge bg-success">ML Scientist in Python – DataCamp</span> <span class="badge bg-success">Data Science with Python – DataCamp</span></p>
 </section>

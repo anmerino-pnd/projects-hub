@@ -26,7 +26,7 @@ My experience combines the analytical foundation of chemical engineering with mo
 [Master's Degree in Data Science]{.cv-title} | Universidad de Sonora
 :::
 :::{.cv-subtitle}
-August 2023 - Present
+August 2023 - June 2026
 :::
 Focus on Python, SQL, NoSQL databases, ETL processes, machine learning models, neural networks, NLP, and time series analysis.
 :::
@@ -54,7 +54,9 @@ Skills in process simulation and optimization (MATLAB, ASPEN HYSYS).
 :::{.cv-subtitle}
 February 2025 - Present
 :::
-Development of an agentic model for advanced hardware recommendations and automated sales. Implementation of RAG architecture with LangChain and OpenAI for dynamic inventory, pricing, and technical guide queries.
+Engineered and deployed a production-grade multi-agent chatbot with LangGraph and Vertex AI (Gemini), migrating from LangChain/OpenAI, with a multi-tool RAG pipeline over structured and semi-structured data (SQL, XML, PDF) for product search, promotions, and warranty queries. Built an LLM-as-judge monitoring stack and a GitHub Actions + Podman CI/CD pipeline for reproducible deployments. Also built and deployed **Pulse**, a customer analytics platform automating RFM/K-Means segmentation and FP-Growth market basket analysis behind a FastAPI + DuckDB + Plotly dashboard, running self-supervised on an on-premise server.
+
+[Read more about the chatbot →](./2_ct_chatbot/index.html) · [Read more about Pulse →](./5_ct_dashboard/0_home.html)
 :::
 
 :::{.cv-entry}
@@ -64,7 +66,9 @@ Development of an agentic model for advanced hardware recommendations and automa
 :::{.cv-subtitle}
 March 2025 - Feb 2026
 :::
-Implementation of an MCP (Model Context Protocol) for sales analysis and business KPIs. Design of function-calling agents (SQL) integrated into Telegram for automated PDF report generation.
+Developed **GlorIA**, an internal AI assistant with OpenAI function-calling and SQL toolkits to automate executive reporting, integrated with Telegram for on-the-go KPI queries. Led the architectural transition from a RAG prototype to a Model Context Protocol (MCP) framework, enabling autonomous SQL execution and improving long-term maintainability.
+
+[Read more →](./3_salsas_chatbot/index.html)
 :::
 
 :::{.cv-entry}
@@ -74,7 +78,9 @@ Implementation of an MCP (Model Context Protocol) for sales analysis and busines
 :::{.cv-subtitle}
 October 2025 - Feb 2026
 :::
-Development of Windows/Linux ETL pipelines for migrating legacy databases (HFSQL) to Data Lakes in Parquet format using Podman containers.
+Resolved critical Stack Smashing memory errors caused by unstable legacy ODBC drivers by designing a containerized (Podman) cross-platform ETL pipeline, migrating 6 production tables from a legacy HFSQL database to Parquet format on Google Cloud Platform for executive dashboards.
+
+[Read more →](./4_frutal/index.html)
 :::
 
 :::{.cv-entry}
@@ -82,9 +88,11 @@ Development of Windows/Linux ETL pipelines for migrating legacy databases (HFSQL
 [Data Scientist]{.cv-title} | National Energy Control Center (CENACE)
 :::
 :::{.cv-subtitle}
-May 2024 - Feb 2025
+May 2024 - Feb 2026
 :::
-Development of chatbots based on RAG systems to assist IT engineers. Integration of ticket classification systems to improve response efficiency.
+Designed a secure, on-premise RAG system (FastAPI, Ollama, FAISS) to optimize the IT help desk's incident resolution across 2,800 historical tickets, achieving a 24.4-second average response time and a 4.4/5 technical precision rating. Built an automated feedback loop to re-ingest high-rated responses and an ML-based ticket classification system to streamline triage.
+
+[Read more →](./1_cenace_helpdesk/index.html)
 :::
 
 :::
@@ -103,6 +111,8 @@ Development of chatbots based on RAG systems to assist IT engineers. Integration
 **AI & Data Science**
 
 <span class="badge bg-success">LangChain</span>
+<span class="badge bg-primary">LangGraph</span>
+<span class="badge bg-info text-dark">Vertex AI / Gemini</span>
 <span class="badge bg-warning text-dark">Ollama</span>
 <span class="badge bg-info text-dark">Hugging Face</span>
 <span class="badge bg-secondary">Scikit-learn</span>
@@ -121,6 +131,7 @@ Development of chatbots based on RAG systems to assist IT engineers. Integration
 <span class="badge bg-secondary">FAISS</span>
 <span class="badge bg-dark">Redis</span>
 <span class="badge bg-warning text-dark">HFSQL</span>
+<span class="badge bg-info text-dark">DuckDB</span>
 
 **Development & DevOps**
 
@@ -128,6 +139,8 @@ Development of chatbots based on RAG systems to assist IT engineers. Integration
 <span class="badge bg-dark">Docker/Podman</span>
 <span class="badge bg-secondary">Git/GitHub</span>
 <span class="badge bg-primary">DagsHub</span>
+<span class="badge bg-danger">GCP</span>
+<span class="badge bg-success">Plotly</span>
 
 **Certifications**
 
