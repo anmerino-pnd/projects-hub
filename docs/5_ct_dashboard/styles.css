@@ -7,17 +7,120 @@
 :root {
   --ct-gray: #b9b9b9;
   --ct-blue: rgb(16, 24, 133);
+  --ct-blue-light: rgba(16, 24, 133, 0.08);
+  --ct-blue-hover: rgba(16, 24, 133, 0.85);
 }
 
 .navbar {
-    background-color: var(--ct-gray) !important; /* Naranja oscuro y menos brillante */
+    background-color: var(--ct-gray) !important;
     border-bottom: 3px solid var(--ct-blue);
 }
 
 .navbar a, .navbar-brand, .navbar-toggler {
-    color: var(--ct-blue) !important; /* Texto y enlaces en blanco */
+    color: var(--ct-blue) !important;
 }
 
 .navbar a:hover {
-    color: var(--ct-red) !important; /* Tono claro al pasar el mouse */
+    color: var(--ct-blue-hover) !important;
+}
+
+/* ── Dropdown toggle (el botón del navbar) ── */
+.navbar .dropdown-toggle {
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 6px;
+    padding: 0.4rem 0.75rem !important;
+}
+
+.navbar .dropdown-toggle:hover,
+.navbar .dropdown-toggle:focus,
+.navbar .show > .dropdown-toggle {
+    background-color: var(--ct-blue) !important;
+    color: #fff !important;
+}
+
+/* ── Dropdown menu (el panel que se despliega) ── */
+.navbar .dropdown-menu {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(16, 24, 133, 0.12) !important;
+    border-radius: 12px !important;
+    box-shadow:
+        0 8px 32px rgba(16, 24, 133, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    padding: 0.5rem !important;
+    margin-top: 0.35rem !important;
+    min-width: 220px;
+    /* Animación de entrada */
+    animation: dropdownSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: top center;
+}
+
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ── Items dentro del dropdown ── */
+.navbar .dropdown-menu .dropdown-item {
+    color: var(--ct-blue) !important;
+    font-size: 0.9rem;
+    font-weight: 450;
+    padding: 0.55rem 1rem !important;
+    border-radius: 8px !important;
+    transition: all 0.18s ease;
+    margin: 2px 0;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+    background-color: var(--ct-blue) !important;
+    color: #fff !important;
+    transform: translateX(3px);
+}
+
+/* Indicador sutil al costado izquierdo en hover */
+.navbar .dropdown-menu .dropdown-item:hover::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    background: #fff;
+    border-radius: 2px;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    position: relative;
+}
+
+/* ── Dark mode ── */
+[data-bs-theme="dark"] .navbar .dropdown-menu,
+.quarto-dark .navbar .dropdown-menu {
+    background: rgba(30, 30, 50, 0.92) !important;
+    border: 1px solid rgba(185, 185, 185, 0.15) !important;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-bs-theme="dark"] .navbar .dropdown-menu .dropdown-item,
+.quarto-dark .navbar .dropdown-menu .dropdown-item {
+    color: #d0d0e0 !important;
+}
+
+[data-bs-theme="dark"] .navbar .dropdown-menu .dropdown-item:hover,
+.quarto-dark .navbar .dropdown-menu .dropdown-item:hover {
+    background-color: rgba(16, 24, 133, 0.7) !important;
+    color: #fff !important;
 }
